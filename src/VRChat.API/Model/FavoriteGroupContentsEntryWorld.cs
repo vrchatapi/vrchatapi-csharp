@@ -16,91 +16,339 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
-using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
     /// FavoriteGroupContentsEntryWorld
     /// </summary>
-    [JsonConverter(typeof(FavoriteGroupContentsEntryWorldJsonConverter))]
     [DataContract(Name = "FavoriteGroupContentsEntry_world")]
-    public partial class FavoriteGroupContentsEntryWorld : AbstractOpenAPISchema, IEquatable<FavoriteGroupContentsEntryWorld>, IValidatableObject
+    public partial class FavoriteGroupContentsEntryWorld : IEquatable<FavoriteGroupContentsEntryWorld>, IValidatableObject
     {
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="FavoriteGroupContentsEntryWorld" /> class
-        /// with the <see cref="FavoritedWorld" /> class
+        /// Gets or Sets ReleaseStatus
         /// </summary>
-        /// <param name="actualInstance">An instance of FavoritedWorld.</param>
-        public FavoriteGroupContentsEntryWorld(FavoritedWorld actualInstance)
+        [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
+        public ReleaseStatus? ReleaseStatus { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FavoriteGroupContentsEntryWorld" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected FavoriteGroupContentsEntryWorld() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FavoriteGroupContentsEntryWorld" /> class.
+        /// </summary>
+        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="authorName">authorName (required).</param>
+        /// <param name="capacity">capacity (required).</param>
+        /// <param name="createdAt">createdAt.</param>
+        /// <param name="defaultContentSettings">defaultContentSettings.</param>
+        /// <param name="description">description.</param>
+        /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
+        /// <param name="favoriteGroup">favoriteGroup.</param>
+        /// <param name="favoriteId">favoriteId.</param>
+        /// <param name="favorites">favorites (default to 0).</param>
+        /// <param name="featured">featured (default to false).</param>
+        /// <param name="heat">heat (default to 0).</param>
+        /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="isHypeTrainEligible">isHypeTrainEligible.</param>
+        /// <param name="labsPublicationDate">labsPublicationDate.</param>
+        /// <param name="name">name (required).</param>
+        /// <param name="occupants">occupants.</param>
+        /// <param name="organization">organization (default to &quot;vrchat&quot;).</param>
+        /// <param name="popularity">popularity (default to 0).</param>
+        /// <param name="previewYoutubeId">previewYoutubeId.</param>
+        /// <param name="publicationDate">publicationDate.</param>
+        /// <param name="recommendedCapacity">recommendedCapacity.</param>
+        /// <param name="releaseStatus">releaseStatus.</param>
+        /// <param name="storeId">storeId.</param>
+        /// <param name="tags">tags.</param>
+        /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
+        /// <param name="udonProducts">udonProducts.</param>
+        /// <param name="unityPackages">unityPackages.</param>
+        /// <param name="updatedAt">updatedAt.</param>
+        /// <param name="urlList">urlList.</param>
+        /// <param name="varVersion">varVersion.</param>
+        /// <param name="visits">visits (default to 0).</param>
+        /// <param name="isSecure">isSecure.</param>
+        public FavoriteGroupContentsEntryWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<Object> disabledPropAbilities = default, string favoriteGroup = default, string favoriteId = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = default, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus? releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = default, int visits = 0, bool isSecure = default)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.AuthorName = authorName;
+            this.Capacity = capacity;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Id = id;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ImageUrl = imageUrl;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Name = name;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ThumbnailImageUrl = thumbnailImageUrl;
+            this.AuthorId = authorId;
+            this.CreatedAt = createdAt;
+            this.DefaultContentSettings = defaultContentSettings;
+            this.Description = description;
+            this.DisabledPropAbilities = disabledPropAbilities;
+            this.FavoriteGroup = favoriteGroup;
+            this.FavoriteId = favoriteId;
+            this.Favorites = favorites;
+            this.Featured = featured;
+            this.Heat = heat;
+            this.IsHypeTrainEligible = isHypeTrainEligible;
+            this.LabsPublicationDate = labsPublicationDate;
+            this.Occupants = occupants;
+            // use default value if no "organization" provided
+            this.Organization = organization ?? @"vrchat";
+            this.Popularity = popularity;
+            this.PreviewYoutubeId = previewYoutubeId;
+            this.PublicationDate = publicationDate;
+            this.RecommendedCapacity = recommendedCapacity;
+            this.ReleaseStatus = releaseStatus;
+            this.StoreId = storeId;
+            this.Tags = tags;
+            this.UdonProducts = udonProducts;
+            this.UnityPackages = unityPackages;
+            this.UpdatedAt = updatedAt;
+            this.UrlList = urlList;
+            this.VarVersion = varVersion;
+            this.Visits = visits;
+            this.IsSecure = isSecure;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FavoriteGroupContentsEntryWorld" /> class
-        /// with the <see cref="UnavailableWorld" /> class
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
-        /// <param name="actualInstance">An instance of UnavailableWorld.</param>
-        public FavoriteGroupContentsEntryWorld(UnavailableWorld actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
-        }
-
-
-        private Object _actualInstance;
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
+        [DataMember(Name = "authorId", EmitDefaultValue = false)]
+        public string AuthorId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActualInstance
+        /// Gets or Sets AuthorName
         /// </summary>
-        public override Object ActualInstance
-        {
-            get
-            {
-                return _actualInstance;
-            }
-            set
-            {
-                if (value.GetType() == typeof(FavoritedWorld) || value is FavoritedWorld)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value.GetType() == typeof(UnavailableWorld) || value is UnavailableWorld)
-                {
-                    this._actualInstance = value;
-                }
-                else
-                {
-                    // Allow setting unknown types to handle unexpected responses gracefully
-                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
-                    this._actualInstance = value;
-                }
-            }
-        }
+        [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = true)]
+        public string AuthorName { get; set; }
 
         /// <summary>
-        /// Get the actual instance of `FavoritedWorld`. If the actual instance is not `FavoritedWorld`,
-        /// the InvalidClassException will be thrown
+        /// Gets or Sets Capacity
         /// </summary>
-        /// <returns>An instance of FavoritedWorld</returns>
-        public FavoritedWorld GetFavoritedWorld()
-        {
-            return (FavoritedWorld)this.ActualInstance;
-        }
+        [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
+        public int Capacity { get; set; }
 
         /// <summary>
-        /// Get the actual instance of `UnavailableWorld`. If the actual instance is not `UnavailableWorld`,
-        /// the InvalidClassException will be thrown
+        /// Gets or Sets CreatedAt
         /// </summary>
-        /// <returns>An instance of UnavailableWorld</returns>
-        public UnavailableWorld GetUnavailableWorld()
-        {
-            return (UnavailableWorld)this.ActualInstance;
-        }
+        [DataMember(Name = "created_at", EmitDefaultValue = false)]
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DefaultContentSettings
+        /// </summary>
+        [DataMember(Name = "defaultContentSettings", EmitDefaultValue = false)]
+        public InstanceContentSettings DefaultContentSettings { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisabledPropAbilities
+        /// </summary>
+        [DataMember(Name = "disabledPropAbilities", EmitDefaultValue = false)]
+        public List<Object> DisabledPropAbilities { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FavoriteGroup
+        /// </summary>
+        [DataMember(Name = "favoriteGroup", EmitDefaultValue = false)]
+        public string FavoriteGroup { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FavoriteId
+        /// </summary>
+        /*
+        <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
+        */
+        [DataMember(Name = "favoriteId", EmitDefaultValue = false)]
+        public string FavoriteId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Favorites
+        /// </summary>
+        /*
+        <example>12024</example>
+        */
+        [DataMember(Name = "favorites", EmitDefaultValue = false)]
+        public int Favorites { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Featured
+        /// </summary>
+        [DataMember(Name = "featured", EmitDefaultValue = true)]
+        public bool Featured { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Heat
+        /// </summary>
+        /*
+        <example>5</example>
+        */
+        [DataMember(Name = "heat", EmitDefaultValue = false)]
+        public int Heat { get; set; }
+
+        /// <summary>
+        /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
+        /// </summary>
+        /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        /*
+        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
+        */
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ImageUrl
+        /// </summary>
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsHypeTrainEligible
+        /// </summary>
+        [DataMember(Name = "isHypeTrainEligible", EmitDefaultValue = true)]
+        public bool IsHypeTrainEligible { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LabsPublicationDate
+        /// </summary>
+        /*
+        <example>none</example>
+        */
+        [DataMember(Name = "labsPublicationDate", EmitDefaultValue = false)]
+        public string LabsPublicationDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Occupants
+        /// </summary>
+        [DataMember(Name = "occupants", EmitDefaultValue = false)]
+        public int Occupants { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Organization
+        /// </summary>
+        [DataMember(Name = "organization", EmitDefaultValue = false)]
+        public string Organization { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Popularity
+        /// </summary>
+        /*
+        <example>8</example>
+        */
+        [DataMember(Name = "popularity", EmitDefaultValue = false)]
+        public int Popularity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviewYoutubeId
+        /// </summary>
+        [DataMember(Name = "previewYoutubeId", EmitDefaultValue = true)]
+        public string PreviewYoutubeId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PublicationDate
+        /// </summary>
+        /*
+        <example>none</example>
+        */
+        [DataMember(Name = "publicationDate", EmitDefaultValue = false)]
+        public string PublicationDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecommendedCapacity
+        /// </summary>
+        /*
+        <example>16</example>
+        */
+        [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
+        public int RecommendedCapacity { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StoreId
+        /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
+        [DataMember(Name = "storeId", EmitDefaultValue = false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ThumbnailImageUrl
+        /// </summary>
+        [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string ThumbnailImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UdonProducts
+        /// </summary>
+        [DataMember(Name = "udonProducts", EmitDefaultValue = false)]
+        public List<string> UdonProducts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UnityPackages
+        /// </summary>
+        [DataMember(Name = "unityPackages", EmitDefaultValue = false)]
+        public List<UnityPackage> UnityPackages { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UpdatedAt
+        /// </summary>
+        [DataMember(Name = "updated_at", EmitDefaultValue = false)]
+        public DateTime UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UrlList
+        /// </summary>
+        [DataMember(Name = "urlList", EmitDefaultValue = false)]
+        public List<string> UrlList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", EmitDefaultValue = false)]
+        public int VarVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Visits
+        /// </summary>
+        /*
+        <example>9988675</example>
+        */
+        [DataMember(Name = "visits", EmitDefaultValue = false)]
+        public int Visits { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsSecure
+        /// </summary>
+        [DataMember(Name = "isSecure", EmitDefaultValue = true)]
+        public bool IsSecure { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,9 +356,42 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class FavoriteGroupContentsEntryWorld {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
+            sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
+            sb.Append("  Capacity: ").Append(Capacity).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  DefaultContentSettings: ").Append(DefaultContentSettings).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
+            sb.Append("  FavoriteGroup: ").Append(FavoriteGroup).Append("\n");
+            sb.Append("  FavoriteId: ").Append(FavoriteId).Append("\n");
+            sb.Append("  Favorites: ").Append(Favorites).Append("\n");
+            sb.Append("  Featured: ").Append(Featured).Append("\n");
+            sb.Append("  Heat: ").Append(Heat).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  IsHypeTrainEligible: ").Append(IsHypeTrainEligible).Append("\n");
+            sb.Append("  LabsPublicationDate: ").Append(LabsPublicationDate).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Occupants: ").Append(Occupants).Append("\n");
+            sb.Append("  Organization: ").Append(Organization).Append("\n");
+            sb.Append("  Popularity: ").Append(Popularity).Append("\n");
+            sb.Append("  PreviewYoutubeId: ").Append(PreviewYoutubeId).Append("\n");
+            sb.Append("  PublicationDate: ").Append(PublicationDate).Append("\n");
+            sb.Append("  RecommendedCapacity: ").Append(RecommendedCapacity).Append("\n");
+            sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
+            sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
+            sb.Append("  UnityPackages: ").Append(UnityPackages).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  UrlList: ").Append(UrlList).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  Visits: ").Append(Visits).Append("\n");
+            sb.Append("  IsSecure: ").Append(IsSecure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,81 +400,9 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, FavoriteGroupContentsEntryWorld.SerializerSettings);
-        }
-
-        /// <summary>
-        /// Converts the JSON string into an instance of FavoriteGroupContentsEntryWorld
-        /// </summary>
-        /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of FavoriteGroupContentsEntryWorld</returns>
-        public static FavoriteGroupContentsEntryWorld FromJson(string jsonString)
-        {
-            FavoriteGroupContentsEntryWorld newFavoriteGroupContentsEntryWorld = null;
-
-            if (string.IsNullOrEmpty(jsonString))
-            {
-                return newFavoriteGroupContentsEntryWorld;
-            }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(FavoritedWorld).GetProperty("AdditionalProperties") == null)
-                {
-                    newFavoriteGroupContentsEntryWorld = new FavoriteGroupContentsEntryWorld(JsonConvert.DeserializeObject<FavoritedWorld>(jsonString, FavoriteGroupContentsEntryWorld.SerializerSettings));
-                }
-                else
-                {
-                    newFavoriteGroupContentsEntryWorld = new FavoriteGroupContentsEntryWorld(JsonConvert.DeserializeObject<FavoritedWorld>(jsonString, FavoriteGroupContentsEntryWorld.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("FavoritedWorld");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into FavoritedWorld: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(UnavailableWorld).GetProperty("AdditionalProperties") == null)
-                {
-                    newFavoriteGroupContentsEntryWorld = new FavoriteGroupContentsEntryWorld(JsonConvert.DeserializeObject<UnavailableWorld>(jsonString, FavoriteGroupContentsEntryWorld.SerializerSettings));
-                }
-                else
-                {
-                    newFavoriteGroupContentsEntryWorld = new FavoriteGroupContentsEntryWorld(JsonConvert.DeserializeObject<UnavailableWorld>(jsonString, FavoriteGroupContentsEntryWorld.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("UnavailableWorld");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UnavailableWorld: {1}", jsonString, exception.ToString()));
-            }
-
-            if (match == 0)
-            {
-                // No match found, return null to handle unexpected responses gracefully
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
-                return null;
-            }
-            else if (match > 1)
-            {
-                // Multiple matches found, use the first match and log a warning
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newFavoriteGroupContentsEntryWorld;
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -214,9 +423,171 @@ namespace VRChat.API.Model
         public bool Equals(FavoriteGroupContentsEntryWorld input)
         {
             if (input == null)
+            {
                 return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
+            }
+            return 
+                (
+                    this.AuthorId == input.AuthorId ||
+                    (this.AuthorId != null &&
+                    this.AuthorId.Equals(input.AuthorId))
+                ) && 
+                (
+                    this.AuthorName == input.AuthorName ||
+                    (this.AuthorName != null &&
+                    this.AuthorName.Equals(input.AuthorName))
+                ) && 
+                (
+                    this.Capacity == input.Capacity ||
+                    this.Capacity.Equals(input.Capacity)
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.DefaultContentSettings == input.DefaultContentSettings ||
+                    (this.DefaultContentSettings != null &&
+                    this.DefaultContentSettings.Equals(input.DefaultContentSettings))
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisabledPropAbilities == input.DisabledPropAbilities ||
+                    this.DisabledPropAbilities != null &&
+                    input.DisabledPropAbilities != null &&
+                    this.DisabledPropAbilities.SequenceEqual(input.DisabledPropAbilities)
+                ) && 
+                (
+                    this.FavoriteGroup == input.FavoriteGroup ||
+                    (this.FavoriteGroup != null &&
+                    this.FavoriteGroup.Equals(input.FavoriteGroup))
+                ) && 
+                (
+                    this.FavoriteId == input.FavoriteId ||
+                    (this.FavoriteId != null &&
+                    this.FavoriteId.Equals(input.FavoriteId))
+                ) && 
+                (
+                    this.Favorites == input.Favorites ||
+                    this.Favorites.Equals(input.Favorites)
+                ) && 
+                (
+                    this.Featured == input.Featured ||
+                    this.Featured.Equals(input.Featured)
+                ) && 
+                (
+                    this.Heat == input.Heat ||
+                    this.Heat.Equals(input.Heat)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.IsHypeTrainEligible == input.IsHypeTrainEligible ||
+                    this.IsHypeTrainEligible.Equals(input.IsHypeTrainEligible)
+                ) && 
+                (
+                    this.LabsPublicationDate == input.LabsPublicationDate ||
+                    (this.LabsPublicationDate != null &&
+                    this.LabsPublicationDate.Equals(input.LabsPublicationDate))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Occupants == input.Occupants ||
+                    this.Occupants.Equals(input.Occupants)
+                ) && 
+                (
+                    this.Organization == input.Organization ||
+                    (this.Organization != null &&
+                    this.Organization.Equals(input.Organization))
+                ) && 
+                (
+                    this.Popularity == input.Popularity ||
+                    this.Popularity.Equals(input.Popularity)
+                ) && 
+                (
+                    this.PreviewYoutubeId == input.PreviewYoutubeId ||
+                    (this.PreviewYoutubeId != null &&
+                    this.PreviewYoutubeId.Equals(input.PreviewYoutubeId))
+                ) && 
+                (
+                    this.PublicationDate == input.PublicationDate ||
+                    (this.PublicationDate != null &&
+                    this.PublicationDate.Equals(input.PublicationDate))
+                ) && 
+                (
+                    this.RecommendedCapacity == input.RecommendedCapacity ||
+                    this.RecommendedCapacity.Equals(input.RecommendedCapacity)
+                ) && 
+                (
+                    this.ReleaseStatus == input.ReleaseStatus ||
+                    this.ReleaseStatus.Equals(input.ReleaseStatus)
+                ) && 
+                (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
+                    (this.ThumbnailImageUrl != null &&
+                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
+                ) && 
+                (
+                    this.UdonProducts == input.UdonProducts ||
+                    this.UdonProducts != null &&
+                    input.UdonProducts != null &&
+                    this.UdonProducts.SequenceEqual(input.UdonProducts)
+                ) && 
+                (
+                    this.UnityPackages == input.UnityPackages ||
+                    this.UnityPackages != null &&
+                    input.UnityPackages != null &&
+                    this.UnityPackages.SequenceEqual(input.UnityPackages)
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) && 
+                (
+                    this.UrlList == input.UrlList ||
+                    this.UrlList != null &&
+                    input.UrlList != null &&
+                    this.UrlList.SequenceEqual(input.UrlList)
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                ) && 
+                (
+                    this.Visits == input.Visits ||
+                    this.Visits.Equals(input.Visits)
+                ) && 
+                (
+                    this.IsSecure == input.IsSecure ||
+                    this.IsSecure.Equals(input.IsSecure)
+                );
         }
 
         /// <summary>
@@ -228,8 +599,100 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                if (this.AuthorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
+                }
+                if (this.AuthorName != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.DefaultContentSettings != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultContentSettings.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.DisabledPropAbilities != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisabledPropAbilities.GetHashCode();
+                }
+                if (this.FavoriteGroup != null)
+                {
+                    hashCode = (hashCode * 59) + this.FavoriteGroup.GetHashCode();
+                }
+                if (this.FavoriteId != null)
+                {
+                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Favorites.GetHashCode();
+                hashCode = (hashCode * 59) + this.Featured.GetHashCode();
+                hashCode = (hashCode * 59) + this.Heat.GetHashCode();
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsHypeTrainEligible.GetHashCode();
+                if (this.LabsPublicationDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.LabsPublicationDate.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Occupants.GetHashCode();
+                if (this.Organization != null)
+                {
+                    hashCode = (hashCode * 59) + this.Organization.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Popularity.GetHashCode();
+                if (this.PreviewYoutubeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.PreviewYoutubeId.GetHashCode();
+                }
+                if (this.PublicationDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.PublicationDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecommendedCapacity.GetHashCode();
+                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
+                if (this.StoreId != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.ThumbnailImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
+                }
+                if (this.UdonProducts != null)
+                {
+                    hashCode = (hashCode * 59) + this.UdonProducts.GetHashCode();
+                }
+                if (this.UnityPackages != null)
+                {
+                    hashCode = (hashCode * 59) + this.UnityPackages.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                if (this.UrlList != null)
+                {
+                    hashCode = (hashCode * 59) + this.UrlList.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.Visits.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSecure.GetHashCode();
                 return hashCode;
             }
         }
@@ -239,57 +702,69 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            yield break;
-        }
-    }
-
-    /// <summary>
-    /// Custom JSON converter for FavoriteGroupContentsEntryWorld
-    /// </summary>
-    public class FavoriteGroupContentsEntryWorldJsonConverter : JsonConverter
-    {
-        /// <summary>
-        /// To write the JSON string
-        /// </summary>
-        /// <param name="writer">JSON writer</param>
-        /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="serializer">JSON Serializer</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            writer.WriteRawValue((string)(typeof(FavoriteGroupContentsEntryWorld).GetMethod("ToJson").Invoke(value, null)));
-        }
-
-        /// <summary>
-        /// To convert a JSON string into an object
-        /// </summary>
-        /// <param name="reader">JSON reader</param>
-        /// <param name="objectType">Object type</param>
-        /// <param name="existingValue">Existing value</param>
-        /// <param name="serializer">JSON Serializer</param>
-        /// <returns>The object converted from the JSON string</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            switch(reader.TokenType) 
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
             {
-                case JsonToken.StartObject:
-                    return FavoriteGroupContentsEntryWorld.FromJson(JObject.Load(reader).ToString(Formatting.None));
-                case JsonToken.StartArray:
-                    return FavoriteGroupContentsEntryWorld.FromJson(JArray.Load(reader).ToString(Formatting.None));
-                default:
-                    return null;
+                yield return new ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
             }
-        }
 
-        /// <summary>
-        /// Check if the object can be converted
-        /// </summary>
-        /// <param name="objectType">Object type</param>
-        /// <returns>True if the object can be converted</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return false;
+            // FavoriteGroup (string) minLength
+            if (this.FavoriteGroup != null && this.FavoriteGroup.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for FavoriteGroup, length must be greater than 1.", new [] { "FavoriteGroup" });
+            }
+
+            // Favorites (int) minimum
+            if (this.Favorites < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Favorites, must be a value greater than or equal to 0.", new [] { "Favorites" });
+            }
+
+            // Heat (int) minimum
+            if (this.Heat < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Heat, must be a value greater than or equal to 0.", new [] { "Heat" });
+            }
+
+            // LabsPublicationDate (string) minLength
+            if (this.LabsPublicationDate != null && this.LabsPublicationDate.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for LabsPublicationDate, length must be greater than 1.", new [] { "LabsPublicationDate" });
+            }
+
+            // Organization (string) minLength
+            if (this.Organization != null && this.Organization.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Organization, length must be greater than 1.", new [] { "Organization" });
+            }
+
+            // Popularity (int) minimum
+            if (this.Popularity < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Popularity, must be a value greater than or equal to 0.", new [] { "Popularity" });
+            }
+
+            // PublicationDate (string) minLength
+            if (this.PublicationDate != null && this.PublicationDate.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for PublicationDate, length must be greater than 1.", new [] { "PublicationDate" });
+            }
+
+            // VarVersion (int) minimum
+            if (this.VarVersion < (int)1)
+            {
+                yield return new ValidationResult("Invalid value for VarVersion, must be a value greater than or equal to 1.", new [] { "VarVersion" });
+            }
+
+            // Visits (int) minimum
+            if (this.Visits < (int)0)
+            {
+                yield return new ValidationResult("Invalid value for Visits, must be a value greater than or equal to 0.", new [] { "Visits" });
+            }
+
+            yield break;
         }
     }
 

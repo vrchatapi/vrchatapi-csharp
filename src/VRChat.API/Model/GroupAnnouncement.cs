@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// <param name="id">id.</param>
         /// <param name="imageId">imageId.</param>
         /// <param name="imageUrl">imageUrl.</param>
-        /// <param name="roleIds"> .</param>
+        /// <param name="roleIds">roleIds.</param>
         /// <param name="text">text.</param>
         /// <param name="title">title.</param>
         /// <param name="updatedAt">updatedAt.</param>
@@ -116,9 +116,8 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIds
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIds", EmitDefaultValue = false)]
         public List<string> RoleIds { get; set; }
 

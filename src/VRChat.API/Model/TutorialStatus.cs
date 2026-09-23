@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// <param name="completed">completed (required).</param>
         /// <param name="completedAnyTutorial">completedAnyTutorial (required).</param>
         /// <param name="completedTutorials">completedTutorials (required).</param>
-        /// <param name="tutorialKey">The ID of a tutorial, in the format &#x60;{platform}:{tutorial}:{version}&#x60;. &#x60;undefined:undefined:v1&#x60; is used as a null-ish or sentinel value. (required) (default to &quot;undefined:undefined:v1&quot;).</param>
+        /// <param name="tutorialKey">The ID of a tutorial. A platform tutorial is &#x60;{platform}:{store}:v1&#x60;, taken from the &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; headers, with &#x60;undefined&#x60; for a header the request left out. Other tutorials take a longer form, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;. (required) (default to &quot;undefined:undefined:v1&quot;).</param>
         public TutorialStatus(bool completed = default, bool completedAnyTutorial = default, List<string> completedTutorials = default, string tutorialKey = @"undefined:undefined:v1")
         {
             this.Completed = completed;
@@ -66,9 +66,9 @@ namespace VRChat.API.Model
         public List<string> CompletedTutorials { get; set; }
 
         /// <summary>
-        /// The ID of a tutorial, in the format &#x60;{platform}:{tutorial}:{version}&#x60;. &#x60;undefined:undefined:v1&#x60; is used as a null-ish or sentinel value.
+        /// The ID of a tutorial. A platform tutorial is &#x60;{platform}:{store}:v1&#x60;, taken from the &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; headers, with &#x60;undefined&#x60; for a header the request left out. Other tutorials take a longer form, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;.
         /// </summary>
-        /// <value>The ID of a tutorial, in the format &#x60;{platform}:{tutorial}:{version}&#x60;. &#x60;undefined:undefined:v1&#x60; is used as a null-ish or sentinel value.</value>
+        /// <value>The ID of a tutorial. A platform tutorial is &#x60;{platform}:{store}:v1&#x60;, taken from the &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; headers, with &#x60;undefined&#x60; for a header the request left out. Other tutorials take a longer form, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;.</value>
         /*
         <example>standalonewindows:steam:v1</example>
         */

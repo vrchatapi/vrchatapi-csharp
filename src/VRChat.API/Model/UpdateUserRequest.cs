@@ -48,7 +48,7 @@ namespace VRChat.API.Model
         /// <param name="revertDisplayName">MUST specify currentPassword as well to revert display name.</param>
         /// <param name="status">status.</param>
         /// <param name="statusDescription">statusDescription.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="unsubscribe">unsubscribe.</param>
         public UpdateUserRequest(int acceptedTOSVersion = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
         {
@@ -155,9 +155,8 @@ namespace VRChat.API.Model
         public string StatusDescription { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 

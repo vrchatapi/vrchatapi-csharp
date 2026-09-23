@@ -40,7 +40,7 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="name">name.</param>
         /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="varVersion">varVersion (default to 1).</param>
@@ -93,9 +93,8 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 

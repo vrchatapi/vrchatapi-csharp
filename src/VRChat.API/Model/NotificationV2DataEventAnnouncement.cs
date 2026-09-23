@@ -20,61 +20,52 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Favorite
+    /// NotificationV2DataEventAnnouncement
     /// </summary>
-    [DataContract(Name = "Favorite")]
-    public partial class Favorite : IEquatable<Favorite>, IValidatableObject
+    [DataContract(Name = "NotificationV2DataEventAnnouncement")]
+    public partial class NotificationV2DataEventAnnouncement : IEquatable<NotificationV2DataEventAnnouncement>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public FavoriteType Type { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Favorite" /> class.
+        /// Initializes a new instance of the <see cref="NotificationV2DataEventAnnouncement" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Favorite() { }
+        protected NotificationV2DataEventAnnouncement() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Favorite" /> class.
+        /// Initializes a new instance of the <see cref="NotificationV2DataEventAnnouncement" /> class.
         /// </summary>
-        /// <param name="favoriteId">MUST be either AvatarID, UserID or WorldID. (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="tags">tags (required).</param>
-        /// <param name="type">type (required).</param>
-        public Favorite(string favoriteId = default, string id = default, List<string> tags = default, FavoriteType type = default)
+        /// <param name="ownerId">ownerId (required).</param>
+        /// <param name="ownerName">ownerName (required).</param>
+        /// <param name="title">title (required).</param>
+        public NotificationV2DataEventAnnouncement(string ownerId = default, string ownerName = default, string title = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.FavoriteId = favoriteId;
+            this.OwnerId = ownerId;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Id = id;
+            this.OwnerName = ownerName;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Tags = tags;
-            this.Type = type;
+            this.Title = title;
         }
 
         /// <summary>
-        /// MUST be either AvatarID, UserID or WorldID.
-        /// </summary>
-        /// <value>MUST be either AvatarID, UserID or WorldID.</value>
-        [DataMember(Name = "favoriteId", IsRequired = true, EmitDefaultValue = true)]
-        public string FavoriteId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets OwnerId
         /// </summary>
         /*
-        <example>fvrt_9568d189-8776-44a5-a8c8-defc981e44de</example>
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
+        [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
+        public string OwnerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Tags
+        /// Gets or Sets OwnerName
         /// </summary>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Tags { get; set; }
+        [DataMember(Name = "ownerName", IsRequired = true, EmitDefaultValue = true)]
+        public string OwnerName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        public string Title { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,11 +74,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Favorite {\n");
-            sb.Append("  FavoriteId: ").Append(FavoriteId).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class NotificationV2DataEventAnnouncement {\n");
+            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
+            sb.Append("  OwnerName: ").Append(OwnerName).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,15 +98,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Favorite);
+            return this.Equals(input as NotificationV2DataEventAnnouncement);
         }
 
         /// <summary>
-        /// Returns true if Favorite instances are equal
+        /// Returns true if NotificationV2DataEventAnnouncement instances are equal
         /// </summary>
-        /// <param name="input">Instance of Favorite to be compared</param>
+        /// <param name="input">Instance of NotificationV2DataEventAnnouncement to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Favorite input)
+        public bool Equals(NotificationV2DataEventAnnouncement input)
         {
             if (input == null)
             {
@@ -124,24 +114,19 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.FavoriteId == input.FavoriteId ||
-                    (this.FavoriteId != null &&
-                    this.FavoriteId.Equals(input.FavoriteId))
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.OwnerName == input.OwnerName ||
+                    (this.OwnerName != null &&
+                    this.OwnerName.Equals(input.OwnerName))
                 ) && 
                 (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 );
         }
 
@@ -154,19 +139,18 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.FavoriteId != null)
+                if (this.OwnerId != null)
                 {
-                    hashCode = (hashCode * 59) + this.FavoriteId.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
                 }
-                if (this.Id != null)
+                if (this.OwnerName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OwnerName.GetHashCode();
                 }
-                if (this.Tags != null)
+                if (this.Title != null)
                 {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 return hashCode;
             }
         }

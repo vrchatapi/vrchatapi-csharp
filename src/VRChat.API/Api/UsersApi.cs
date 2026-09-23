@@ -66,6 +66,56 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> CheckUserPersistenceExistsWithHttpInfo(string userId, string worldId);
         /// <summary>
+        /// Clear User Tutorials
+        /// </summary>
+        /// <remarks>
+        /// Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>CurrentUser</returns>
+        CurrentUser ClearUserTutorials(string userId, string? xPlatform = default, string? xStore = default);
+
+        /// <summary>
+        /// Clear User Tutorials
+        /// </summary>
+        /// <remarks>
+        /// Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>ApiResponse of CurrentUser</returns>
+        ApiResponse<CurrentUser> ClearUserTutorialsWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default);
+        /// <summary>
+        /// Complete User Tutorial
+        /// </summary>
+        /// <remarks>
+        /// Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>CurrentUser</returns>
+        CurrentUser CompleteUserTutorial(string userId, string? xPlatform = default, string? xStore = default);
+
+        /// <summary>
+        /// Complete User Tutorial
+        /// </summary>
+        /// <remarks>
+        /// Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>ApiResponse of CurrentUser</returns>
+        ApiResponse<CurrentUser> CompleteUserTutorialWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default);
+        /// <summary>
         /// Delete All User Persistence Data
         /// </summary>
         /// <remarks>
@@ -295,8 +345,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>User</returns>
-        User GetUser(string userId);
+        /// <returns>UserResponse</returns>
+        UserResponse GetUser(string userId);
 
         /// <summary>
         /// Get User by ID
@@ -306,8 +356,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of User</returns>
-        ApiResponse<User> GetUserWithHttpInfo(string userId);
+        /// <returns>ApiResponse of UserResponse</returns>
+        ApiResponse<UserResponse> GetUserWithHttpInfo(string userId);
         /// <summary>
         /// Get user&#39;s permissions for all joined groups.
         /// </summary>
@@ -339,9 +389,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
-        /// <returns>User</returns>
+        /// <returns>UserResponse</returns>
         [Obsolete]
-        User GetUserByName(string username);
+        UserResponse GetUserByName(string username);
 
         /// <summary>
         /// Get User by Username
@@ -351,9 +401,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
-        /// <returns>ApiResponse of User</returns>
+        /// <returns>ApiResponse of UserResponse</returns>
         [Obsolete]
-        ApiResponse<User> GetUserByNameWithHttpInfo(string username);
+        ApiResponse<UserResponse> GetUserByNameWithHttpInfo(string username);
         /// <summary>
         /// Get User Client Config
         /// </summary>
@@ -410,8 +460,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>GetUserGroupInstances200Response</returns>
-        GetUserGroupInstances200Response GetUserGroupInstances(string userId);
+        /// <returns>UserGroupInstanceListResponse</returns>
+        UserGroupInstanceListResponse GetUserGroupInstances(string userId);
 
         /// <summary>
         /// Get User Group Instances
@@ -421,8 +471,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of GetUserGroupInstances200Response</returns>
-        ApiResponse<GetUserGroupInstances200Response> GetUserGroupInstancesWithHttpInfo(string userId);
+        /// <returns>ApiResponse of UserGroupInstanceListResponse</returns>
+        ApiResponse<UserGroupInstanceListResponse> GetUserGroupInstancesWithHttpInfo(string userId);
         /// <summary>
         /// Get User Group Instances for a specific Group
         /// </summary>
@@ -432,8 +482,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <returns>GetUserGroupInstances200Response</returns>
-        GetUserGroupInstances200Response GetUserGroupInstancesForGroup(string userId, string groupId);
+        /// <returns>UserGroupInstanceListResponse</returns>
+        UserGroupInstanceListResponse GetUserGroupInstancesForGroup(string userId, string groupId);
 
         /// <summary>
         /// Get User Group Instances for a specific Group
@@ -444,8 +494,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <returns>ApiResponse of GetUserGroupInstances200Response</returns>
-        ApiResponse<GetUserGroupInstances200Response> GetUserGroupInstancesForGroupWithHttpInfo(string userId, string groupId);
+        /// <returns>ApiResponse of UserGroupInstanceListResponse</returns>
+        ApiResponse<UserGroupInstanceListResponse> GetUserGroupInstancesForGroupWithHttpInfo(string userId, string groupId);
         /// <summary>
         /// Get User Group Requests
         /// </summary>
@@ -557,23 +607,27 @@ namespace VRChat.API.Api
         /// Get User Tutorial Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <returns>TutorialStatus</returns>
-        TutorialStatus GetUserTutorialStatus(string userId);
+        TutorialStatus GetUserTutorialStatus(string userId, string? xPlatform = default, string? xStore = default);
 
         /// <summary>
         /// Get User Tutorial Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <returns>ApiResponse of TutorialStatus</returns>
-        ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId);
+        ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default);
         /// <summary>
         /// Remove User Tags
         /// </summary>
@@ -800,6 +854,60 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> CheckUserPersistenceExistsWithHttpInfoAsync(string userId, string worldId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Clear User Tutorials
+        /// </summary>
+        /// <remarks>
+        /// Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrentUser</returns>
+        System.Threading.Tasks.Task<CurrentUser> ClearUserTutorialsAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Clear User Tutorials
+        /// </summary>
+        /// <remarks>
+        /// Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> ClearUserTutorialsWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Complete User Tutorial
+        /// </summary>
+        /// <remarks>
+        /// Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrentUser</returns>
+        System.Threading.Tasks.Task<CurrentUser> CompleteUserTutorialAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Complete User Tutorial
+        /// </summary>
+        /// <remarks>
+        /// Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> CompleteUserTutorialWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete All User Persistence Data
         /// </summary>
@@ -1051,8 +1159,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
-        System.Threading.Tasks.Task<User> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of UserResponse</returns>
+        System.Threading.Tasks.Task<UserResponse> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User by ID
@@ -1063,8 +1171,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        System.Threading.Tasks.Task<ApiResponse<User>> GetUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (UserResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserResponse>> GetUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get user&#39;s permissions for all joined groups.
         /// </summary>
@@ -1099,9 +1207,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
+        /// <returns>Task of UserResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<User> GetUserByNameAsync(string username, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<UserResponse> GetUserByNameAsync(string username, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User by Username
@@ -1112,9 +1220,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
+        /// <returns>Task of ApiResponse (UserResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<User>> GetUserByNameWithHttpInfoAsync(string username, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<UserResponse>> GetUserByNameWithHttpInfoAsync(string username, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Client Config
         /// </summary>
@@ -1176,8 +1284,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetUserGroupInstances200Response</returns>
-        System.Threading.Tasks.Task<GetUserGroupInstances200Response> GetUserGroupInstancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of UserGroupInstanceListResponse</returns>
+        System.Threading.Tasks.Task<UserGroupInstanceListResponse> GetUserGroupInstancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Group Instances
@@ -1188,8 +1296,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetUserGroupInstances200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetUserGroupInstances200Response>> GetUserGroupInstancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (UserGroupInstanceListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserGroupInstanceListResponse>> GetUserGroupInstancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Group Instances for a specific Group
         /// </summary>
@@ -1200,8 +1308,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetUserGroupInstances200Response</returns>
-        System.Threading.Tasks.Task<GetUserGroupInstances200Response> GetUserGroupInstancesForGroupAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of UserGroupInstanceListResponse</returns>
+        System.Threading.Tasks.Task<UserGroupInstanceListResponse> GetUserGroupInstancesForGroupAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Group Instances for a specific Group
@@ -1213,8 +1321,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetUserGroupInstances200Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetUserGroupInstances200Response>> GetUserGroupInstancesForGroupWithHttpInfoAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (UserGroupInstanceListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserGroupInstanceListResponse>> GetUserGroupInstancesForGroupWithHttpInfoAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get User Group Requests
         /// </summary>
@@ -1336,25 +1444,29 @@ namespace VRChat.API.Api
         /// Get User Tutorial Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TutorialStatus</returns>
-        System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get User Tutorial Status
         /// </summary>
         /// <remarks>
-        /// Gets the status of completed or outstanding tutorials for the specified user.
+        /// Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TutorialStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove User Tags
         /// </summary>
@@ -2062,6 +2174,342 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Clear User Tutorials Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>CurrentUser</returns>
+        public CurrentUser ClearUserTutorials(string userId, string? xPlatform = default, string? xStore = default)
+        {
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = ClearUserTutorialsWithHttpInfo(userId, xPlatform, xStore);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearUserTutorials", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Clear User Tutorials Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>ApiResponse of CurrentUser</returns>
+        public VRChat.API.Client.ApiResponse<CurrentUser> ClearUserTutorialsWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->ClearUserTutorials");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<CurrentUser>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Clear User Tutorials Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrentUser</returns>
+        public async System.Threading.Tasks.Task<CurrentUser> ClearUserTutorialsAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await ClearUserTutorialsWithHttpInfoAsync(userId, xPlatform, xStore, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ClearUserTutorials", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Clear User Tutorials Clears every tutorial the user completed on a platform, whatever &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; name, and returns the current user. Tutorials of other kinds, such as &#x60;platform-agnostic:custom:onboarding-tutorial-world:v1&#x60;, stay completed.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> ClearUserTutorialsWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->ClearUserTutorials");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<CurrentUser>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Complete User Tutorial Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>CurrentUser</returns>
+        public CurrentUser CompleteUserTutorial(string userId, string? xPlatform = default, string? xStore = default)
+        {
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = CompleteUserTutorialWithHttpInfo(userId, xPlatform, xStore);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CompleteUserTutorial", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Complete User Tutorial Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <returns>ApiResponse of CurrentUser</returns>
+        public VRChat.API.Client.ApiResponse<CurrentUser> CompleteUserTutorialWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->CompleteUserTutorial");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<CurrentUser>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Complete User Tutorial Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CurrentUser</returns>
+        public async System.Threading.Tasks.Task<CurrentUser> CompleteUserTutorialAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await CompleteUserTutorialWithHttpInfoAsync(userId, xPlatform, xStore, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CompleteUserTutorial", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Complete User Tutorial Marks the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60; completed, and returns the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> CompleteUserTutorialWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling UsersApi->CompleteUserTutorial");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUser>("/users/{userId}/tutorial", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
             }
         }
 
@@ -3578,10 +4026,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>User</returns>
-        public User GetUser(string userId)
+        /// <returns>UserResponse</returns>
+        public UserResponse GetUser(string userId)
         {
-            VRChat.API.Client.ApiResponse<User> localVarResponse = GetUserWithHttpInfo(userId);
+            VRChat.API.Client.ApiResponse<UserResponse> localVarResponse = GetUserWithHttpInfo(userId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
@@ -3598,8 +4046,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of User</returns>
-        public VRChat.API.Client.ApiResponse<User> GetUserWithHttpInfo(string userId)
+        /// <returns>ApiResponse of UserResponse</returns>
+        public VRChat.API.Client.ApiResponse<UserResponse> GetUserWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3633,13 +4081,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<User>("/users/{userId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<UserResponse>("/users/{userId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<User>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(User), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserResponse), ex.Message);
             }
         }
 
@@ -3649,10 +4097,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
-        public async System.Threading.Tasks.Task<User> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of UserResponse</returns>
+        public async System.Threading.Tasks.Task<UserResponse> GetUserAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<User> localVarResponse = await GetUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UserResponse> localVarResponse = await GetUserWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUser", localVarResponse);
@@ -3670,8 +4118,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<User>> GetUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (UserResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserResponse>> GetUserWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -3707,13 +4155,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/users/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserResponse>("/users/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<User>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(User), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserResponse), ex.Message);
             }
         }
 
@@ -3878,11 +4326,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
-        /// <returns>User</returns>
+        /// <returns>UserResponse</returns>
         [Obsolete]
-        public User GetUserByName(string username)
+        public UserResponse GetUserByName(string username)
         {
-            VRChat.API.Client.ApiResponse<User> localVarResponse = GetUserByNameWithHttpInfo(username);
+            VRChat.API.Client.ApiResponse<UserResponse> localVarResponse = GetUserByNameWithHttpInfo(username);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserByName", localVarResponse);
@@ -3899,9 +4347,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
-        /// <returns>ApiResponse of User</returns>
+        /// <returns>ApiResponse of UserResponse</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<User> GetUserByNameWithHttpInfo(string username)
+        public VRChat.API.Client.ApiResponse<UserResponse> GetUserByNameWithHttpInfo(string username)
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -3935,13 +4383,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<User>("/users/{username}/name", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<UserResponse>("/users/{username}/name", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<User>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(User), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserResponse), ex.Message);
             }
         }
 
@@ -3951,11 +4399,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of User</returns>
+        /// <returns>Task of UserResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<User> GetUserByNameAsync(string username, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<UserResponse> GetUserByNameAsync(string username, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<User> localVarResponse = await GetUserByNameWithHttpInfoAsync(username, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UserResponse> localVarResponse = await GetUserByNameWithHttpInfoAsync(username, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserByName", localVarResponse);
@@ -3973,9 +4421,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username">Username of the user</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (User)</returns>
+        /// <returns>Task of ApiResponse (UserResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<User>> GetUserByNameWithHttpInfoAsync(string username, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserResponse>> GetUserByNameWithHttpInfoAsync(string username, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -4011,13 +4459,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<User>("/users/{username}/name", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserResponse>("/users/{username}/name", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<User>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(User), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserResponse), ex.Message);
             }
         }
 
@@ -4350,10 +4798,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>GetUserGroupInstances200Response</returns>
-        public GetUserGroupInstances200Response GetUserGroupInstances(string userId)
+        /// <returns>UserGroupInstanceListResponse</returns>
+        public UserGroupInstanceListResponse GetUserGroupInstances(string userId)
         {
-            VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> localVarResponse = GetUserGroupInstancesWithHttpInfo(userId);
+            VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> localVarResponse = GetUserGroupInstancesWithHttpInfo(userId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserGroupInstances", localVarResponse);
@@ -4370,8 +4818,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of GetUserGroupInstances200Response</returns>
-        public VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> GetUserGroupInstancesWithHttpInfo(string userId)
+        /// <returns>ApiResponse of UserGroupInstanceListResponse</returns>
+        public VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> GetUserGroupInstancesWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4405,13 +4853,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<GetUserGroupInstances200Response>("/users/{userId}/instances/groups", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<UserGroupInstanceListResponse>("/users/{userId}/instances/groups", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetUserGroupInstances200Response), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserGroupInstanceListResponse), ex.Message);
             }
         }
 
@@ -4421,10 +4869,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetUserGroupInstances200Response</returns>
-        public async System.Threading.Tasks.Task<GetUserGroupInstances200Response> GetUserGroupInstancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of UserGroupInstanceListResponse</returns>
+        public async System.Threading.Tasks.Task<UserGroupInstanceListResponse> GetUserGroupInstancesAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> localVarResponse = await GetUserGroupInstancesWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> localVarResponse = await GetUserGroupInstancesWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserGroupInstances", localVarResponse);
@@ -4442,8 +4890,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetUserGroupInstances200Response)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>> GetUserGroupInstancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (UserGroupInstanceListResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>> GetUserGroupInstancesWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4479,13 +4927,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<GetUserGroupInstances200Response>("/users/{userId}/instances/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserGroupInstanceListResponse>("/users/{userId}/instances/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetUserGroupInstances200Response), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserGroupInstanceListResponse), ex.Message);
             }
         }
 
@@ -4495,10 +4943,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <returns>GetUserGroupInstances200Response</returns>
-        public GetUserGroupInstances200Response GetUserGroupInstancesForGroup(string userId, string groupId)
+        /// <returns>UserGroupInstanceListResponse</returns>
+        public UserGroupInstanceListResponse GetUserGroupInstancesForGroup(string userId, string groupId)
         {
-            VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> localVarResponse = GetUserGroupInstancesForGroupWithHttpInfo(userId, groupId);
+            VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> localVarResponse = GetUserGroupInstancesForGroupWithHttpInfo(userId, groupId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserGroupInstancesForGroup", localVarResponse);
@@ -4516,8 +4964,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
-        /// <returns>ApiResponse of GetUserGroupInstances200Response</returns>
-        public VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> GetUserGroupInstancesForGroupWithHttpInfo(string userId, string groupId)
+        /// <returns>ApiResponse of UserGroupInstanceListResponse</returns>
+        public VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> GetUserGroupInstancesForGroupWithHttpInfo(string userId, string groupId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4556,13 +5004,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<GetUserGroupInstances200Response>("/users/{userId}/instances/groups/{groupId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<UserGroupInstanceListResponse>("/users/{userId}/instances/groups/{groupId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetUserGroupInstances200Response), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserGroupInstanceListResponse), ex.Message);
             }
         }
 
@@ -4573,10 +5021,10 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetUserGroupInstances200Response</returns>
-        public async System.Threading.Tasks.Task<GetUserGroupInstances200Response> GetUserGroupInstancesForGroupAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of UserGroupInstanceListResponse</returns>
+        public async System.Threading.Tasks.Task<UserGroupInstanceListResponse> GetUserGroupInstancesForGroupAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response> localVarResponse = await GetUserGroupInstancesForGroupWithHttpInfoAsync(userId, groupId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse> localVarResponse = await GetUserGroupInstancesForGroupWithHttpInfoAsync(userId, groupId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserGroupInstancesForGroup", localVarResponse);
@@ -4595,8 +5043,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetUserGroupInstances200Response)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>> GetUserGroupInstancesForGroupWithHttpInfoAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (UserGroupInstanceListResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>> GetUserGroupInstancesForGroupWithHttpInfoAsync(string userId, string groupId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -4637,13 +5085,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<GetUserGroupInstances200Response>("/users/{userId}/instances/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<UserGroupInstanceListResponse>("/users/{userId}/instances/groups/{groupId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<GetUserGroupInstances200Response>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GetUserGroupInstances200Response), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UserGroupInstanceListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UserGroupInstanceListResponse), ex.Message);
             }
         }
 
@@ -5378,14 +5826,16 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <returns>TutorialStatus</returns>
-        public TutorialStatus GetUserTutorialStatus(string userId)
+        public TutorialStatus GetUserTutorialStatus(string userId, string? xPlatform = default, string? xStore = default)
         {
-            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = GetUserTutorialStatusWithHttpInfo(userId);
+            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = GetUserTutorialStatusWithHttpInfo(userId, xPlatform, xStore);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserTutorialStatus", localVarResponse);
@@ -5398,12 +5848,14 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <returns>ApiResponse of TutorialStatus</returns>
-        public VRChat.API.Client.ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId)
+        public VRChat.API.Client.ApiResponse<TutorialStatus> GetUserTutorialStatusWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -5426,6 +5878,14 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -5448,15 +5908,17 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of TutorialStatus</returns>
-        public async System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<TutorialStatus> GetUserTutorialStatusAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = await GetUserTutorialStatusWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<TutorialStatus> localVarResponse = await GetUserTutorialStatusWithHttpInfoAsync(userId, xPlatform, xStore, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetUserTutorialStatus", localVarResponse);
@@ -5469,13 +5931,15 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user.
+        /// Get User Tutorial Status Gets the status of completed or outstanding tutorials for the specified user. &#x60;tutorialKey&#x60; and &#x60;completed&#x60; describe the tutorial named by &#x60;X-Platform&#x60; and &#x60;X-Store&#x60;.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="xPlatform">The platform the tutorial belongs to. &#x60;standalonewindows&#x60;, &#x60;android&#x60; and &#x60;ios&#x60; are kept; any other value is recorded as &#x60;null&#x60;. (optional)</param>
+        /// <param name="xStore">The store the tutorial belongs to, recorded as sent. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (TutorialStatus)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<TutorialStatus>> GetUserTutorialStatusWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -5500,6 +5964,14 @@ namespace VRChat.API.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            if (xPlatform != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Platform", VRChat.API.Client.ClientUtils.ParameterToString(xPlatform)); // header parameter
+            }
+            if (xStore != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Store", VRChat.API.Client.ClientUtils.ParameterToString(xStore)); // header parameter
+            }
 
             // authentication (authCookie) required
             // cookie parameter support

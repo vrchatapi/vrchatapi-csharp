@@ -54,7 +54,7 @@ namespace VRChat.API.Model
         /// <param name="notag">notag.</param>
         /// <param name="varParams">varParams.</param>
         /// <param name="personalizedResults">personalizedResults.</param>
-        /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
+        /// <param name="platform">Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers. (required).</param>
         /// <param name="region">region.</param>
         /// <param name="scope">scope.</param>
         /// <param name="shortName">shortName.</param>
@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="type">Type is not present if it is a world..</param>
         /// <param name="upcomingOffsetMinutes">upcomingOffsetMinutes.</param>
         /// <param name="worldPool">worldPool.</param>
-        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, string groupPool = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, string name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, string shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default, string worldPool = default)
+        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, string groupPool = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, Object name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, Object shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default, string worldPool = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
@@ -210,7 +210,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
+        public Object Name { get; set; }
 
         /// <summary>
         /// Gets or Sets NonFeaturedResults
@@ -240,12 +240,9 @@ namespace VRChat.API.Model
         public string PersonalizedResults { get; set; }
 
         /// <summary>
-        /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
+        /// Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.
         /// </summary>
-        /// <value>This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        /*
-        <example>standalonewindows</example>
-        */
+        /// <value>Usually \&quot;ThisPlatformSupported\&quot;, but can also be other values such as \&quot;all\&quot; or platform specific identifiers.</value>
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
@@ -268,7 +265,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ShortName
         /// </summary>
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public string ShortName { get; set; }
+        public Object ShortName { get; set; }
 
         /// <summary>
         /// Gets or Sets SortHeading
@@ -719,10 +716,10 @@ namespace VRChat.API.Model
                 yield return new ValidationResult("Invalid value for Index, must be a value greater than or equal to 0.", new [] { "Index" });
             }
 
-            // Name (string) minLength
-            if (this.Name != null && this.Name.Length < 1)
+            // Platform (string) minLength
+            if (this.Platform != null && this.Platform.Length < 1)
             {
-                yield return new ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+                yield return new ValidationResult("Invalid value for Platform, length must be greater than 1.", new [] { "Platform" });
             }
 
             // SortHeading (string) minLength

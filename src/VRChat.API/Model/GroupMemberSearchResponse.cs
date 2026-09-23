@@ -20,31 +20,32 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GetGroupPosts200Response
+    /// GroupMemberSearchResponse
     /// </summary>
-    [DataContract(Name = "getGroupPosts_200_response")]
-    public partial class GetGroupPosts200Response : IEquatable<GetGroupPosts200Response>, IValidatableObject
+    [DataContract(Name = "GroupMemberSearchResponse")]
+    public partial class GroupMemberSearchResponse : IEquatable<GroupMemberSearchResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetGroupPosts200Response" /> class.
+        /// Initializes a new instance of the <see cref="GroupMemberSearchResponse" /> class.
         /// </summary>
-        /// <param name="posts">posts.</param>
-        /// <param name="total">total.</param>
-        public GetGroupPosts200Response(List<GroupPost> posts = default, int total = default)
+        /// <param name="results">results.</param>
+        /// <param name="total">Number of members returned.</param>
+        public GroupMemberSearchResponse(List<GroupMember> results = default, int total = default)
         {
-            this.Posts = posts;
+            this.Results = results;
             this.Total = total;
         }
 
         /// <summary>
-        /// Gets or Sets Posts
+        /// Gets or Sets Results
         /// </summary>
-        [DataMember(Name = "posts", EmitDefaultValue = false)]
-        public List<GroupPost> Posts { get; set; }
+        [DataMember(Name = "results", EmitDefaultValue = false)]
+        public List<GroupMember> Results { get; set; }
 
         /// <summary>
-        /// Gets or Sets Total
+        /// Number of members returned
         /// </summary>
+        /// <value>Number of members returned</value>
         [DataMember(Name = "total", EmitDefaultValue = false)]
         public int Total { get; set; }
 
@@ -55,8 +56,8 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetGroupPosts200Response {\n");
-            sb.Append("  Posts: ").Append(Posts).Append("\n");
+            sb.Append("class GroupMemberSearchResponse {\n");
+            sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -78,15 +79,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetGroupPosts200Response);
+            return this.Equals(input as GroupMemberSearchResponse);
         }
 
         /// <summary>
-        /// Returns true if GetGroupPosts200Response instances are equal
+        /// Returns true if GroupMemberSearchResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetGroupPosts200Response to be compared</param>
+        /// <param name="input">Instance of GroupMemberSearchResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetGroupPosts200Response input)
+        public bool Equals(GroupMemberSearchResponse input)
         {
             if (input == null)
             {
@@ -94,10 +95,10 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Posts == input.Posts ||
-                    this.Posts != null &&
-                    input.Posts != null &&
-                    this.Posts.SequenceEqual(input.Posts)
+                    this.Results == input.Results ||
+                    this.Results != null &&
+                    input.Results != null &&
+                    this.Results.SequenceEqual(input.Results)
                 ) && 
                 (
                     this.Total == input.Total ||
@@ -114,9 +115,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Posts != null)
+                if (this.Results != null)
                 {
-                    hashCode = (hashCode * 59) + this.Posts.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Total.GetHashCode();
                 return hashCode;

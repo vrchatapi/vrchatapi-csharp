@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="requireClientTags">requireClientTags.</param>
         /// <param name="startDate">startDate.</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="tags">tags (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         public InfoPush(Object clientMinVersion = default, DateTime createdAt = default, InfoPushData data = default, DateTime? endDate = default, InfoPushExperiment experiment = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, List<string> regions = default, ReleaseStatus releaseStatus = default, List<string> requireClientTags = default, DateTime? startDate = default, List<string> tags = default, DateTime updatedAt = default)
         {
@@ -154,9 +154,8 @@ namespace VRChat.API.Model
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 

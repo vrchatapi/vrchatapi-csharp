@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="userDisplayName">userDisplayName.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        public Transaction(TransactionAgreement agreement = default, DateTime createdAt = default, string error = default, string id = default, bool isGift = false, bool isTokens = false, bool sandbox = false, TransactionStatus status = default, TransactionSteamInfo steam = default, Subscription subscription = default, DateTime updatedAt = default, string userDisplayName = default, string userId = default)
+        public Transaction(Object agreement = default, DateTime createdAt = default, string error = default, string id = default, bool isGift = false, bool isTokens = false, bool sandbox = false, TransactionStatus status = default, TransactionSteamInfo steam = default, Subscription subscription = default, DateTime updatedAt = default, string userDisplayName = default, string userId = default)
         {
             this.CreatedAt = createdAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -75,8 +75,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Agreement
         /// </summary>
-        [DataMember(Name = "agreement", EmitDefaultValue = false)]
-        public TransactionAgreement Agreement { get; set; }
+        [DataMember(Name = "agreement", EmitDefaultValue = true)]
+        public Object Agreement { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedAt

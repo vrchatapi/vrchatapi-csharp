@@ -50,7 +50,7 @@ namespace VRChat.API.Model
         /// <param name="name">name (required).</param>
         /// <param name="ownerDisplayName">ownerDisplayName (required).</param>
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="tags">tags (required).</param>
         /// <param name="type">type (required).</param>
         /// <param name="visibility">visibility (required).</param>
         public FavoriteGroup(string displayName = default, string id = default, string name = default, string ownerDisplayName = default, string ownerId = default, List<string> tags = default, FavoriteType type = default, FavoriteGroupVisibility visibility = default)
@@ -109,9 +109,8 @@ namespace VRChat.API.Model
         public string OwnerId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 

@@ -161,7 +161,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Recurrence
         /// </summary>
-        [DataMember(Name = "recurrence", EmitDefaultValue = true)]
+        [DataMember(Name = "recurrence", EmitDefaultValue = false)]
         public CalendarEventRecurrence Recurrence { get; set; }
 
         /// <summary>

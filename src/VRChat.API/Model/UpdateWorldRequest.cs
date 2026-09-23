@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="previewYoutubeId">previewYoutubeId.</param>
         /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="releaseStatus">releaseStatus.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="urlList">urlList.</param>
@@ -160,9 +160,8 @@ namespace VRChat.API.Model
         public int RecommendedCapacity { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 

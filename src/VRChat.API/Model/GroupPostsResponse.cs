@@ -20,33 +20,33 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GetUserGroupInstances200Response
+    /// GroupPostsResponse
     /// </summary>
-    [DataContract(Name = "getUserGroupInstances_200_response")]
-    public partial class GetUserGroupInstances200Response : IEquatable<GetUserGroupInstances200Response>, IValidatableObject
+    [DataContract(Name = "GroupPostsResponse")]
+    public partial class GroupPostsResponse : IEquatable<GroupPostsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetUserGroupInstances200Response" /> class.
+        /// Initializes a new instance of the <see cref="GroupPostsResponse" /> class.
         /// </summary>
-        /// <param name="fetchedAt">fetchedAt.</param>
-        /// <param name="instances">instances.</param>
-        public GetUserGroupInstances200Response(DateTime fetchedAt = default, List<Instance> instances = default)
+        /// <param name="posts">posts.</param>
+        /// <param name="total">total.</param>
+        public GroupPostsResponse(List<GroupPost> posts = default, int total = default)
         {
-            this.FetchedAt = fetchedAt;
-            this.Instances = instances;
+            this.Posts = posts;
+            this.Total = total;
         }
 
         /// <summary>
-        /// Gets or Sets FetchedAt
+        /// Gets or Sets Posts
         /// </summary>
-        [DataMember(Name = "fetchedAt", EmitDefaultValue = false)]
-        public DateTime FetchedAt { get; set; }
+        [DataMember(Name = "posts", EmitDefaultValue = false)]
+        public List<GroupPost> Posts { get; set; }
 
         /// <summary>
-        /// Gets or Sets Instances
+        /// Gets or Sets Total
         /// </summary>
-        [DataMember(Name = "instances", EmitDefaultValue = false)]
-        public List<Instance> Instances { get; set; }
+        [DataMember(Name = "total", EmitDefaultValue = false)]
+        public int Total { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,9 +55,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GetUserGroupInstances200Response {\n");
-            sb.Append("  FetchedAt: ").Append(FetchedAt).Append("\n");
-            sb.Append("  Instances: ").Append(Instances).Append("\n");
+            sb.Append("class GroupPostsResponse {\n");
+            sb.Append("  Posts: ").Append(Posts).Append("\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -78,15 +78,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetUserGroupInstances200Response);
+            return this.Equals(input as GroupPostsResponse);
         }
 
         /// <summary>
-        /// Returns true if GetUserGroupInstances200Response instances are equal
+        /// Returns true if GroupPostsResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetUserGroupInstances200Response to be compared</param>
+        /// <param name="input">Instance of GroupPostsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetUserGroupInstances200Response input)
+        public bool Equals(GroupPostsResponse input)
         {
             if (input == null)
             {
@@ -94,14 +94,14 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.FetchedAt == input.FetchedAt ||
-                    this.FetchedAt.Equals(input.FetchedAt)
+                    this.Posts == input.Posts ||
+                    this.Posts != null &&
+                    input.Posts != null &&
+                    this.Posts.SequenceEqual(input.Posts)
                 ) && 
                 (
-                    this.Instances == input.Instances ||
-                    this.Instances != null &&
-                    input.Instances != null &&
-                    this.Instances.SequenceEqual(input.Instances)
+                    this.Total == input.Total ||
+                    this.Total.Equals(input.Total)
                 );
         }
 
@@ -114,11 +114,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.FetchedAt.GetHashCode();
-                if (this.Instances != null)
+                if (this.Posts != null)
                 {
-                    hashCode = (hashCode * 59) + this.Instances.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Posts.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Total.GetHashCode();
                 return hashCode;
             }
         }

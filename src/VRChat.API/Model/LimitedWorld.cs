@@ -61,10 +61,10 @@ namespace VRChat.API.Model
         /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="storeId">storeId.</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="tags">tags (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        /// <param name="unityPackages">  (required).</param>
+        /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="visits">visits (default to 0).</param>
         public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, List<Object> disabledPropAbilities = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", bool pendingUpload = default, int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
@@ -272,9 +272,8 @@ namespace VRChat.API.Model
         public string StoreId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
@@ -291,9 +290,8 @@ namespace VRChat.API.Model
         public List<string> UdonProducts { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets UnityPackages
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "unityPackages", IsRequired = true, EmitDefaultValue = true)]
         public List<LimitedUnityPackage> UnityPackages { get; set; }
 

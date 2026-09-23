@@ -20,34 +20,40 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// SearchGroupMembers200Response
+    /// NotificationV2DataGroupTransfer
     /// </summary>
-    [DataContract(Name = "searchGroupMembers_200_response")]
-    public partial class SearchGroupMembers200Response : IEquatable<SearchGroupMembers200Response>, IValidatableObject
+    [DataContract(Name = "NotificationV2DataGroupTransfer")]
+    public partial class NotificationV2DataGroupTransfer : IEquatable<NotificationV2DataGroupTransfer>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchGroupMembers200Response" /> class.
+        /// Initializes a new instance of the <see cref="NotificationV2DataGroupTransfer" /> class.
         /// </summary>
-        /// <param name="results">results.</param>
-        /// <param name="total">Number of members returned.</param>
-        public SearchGroupMembers200Response(List<GroupMember> results = default, int total = default)
+        [JsonConstructorAttribute]
+        protected NotificationV2DataGroupTransfer() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationV2DataGroupTransfer" /> class.
+        /// </summary>
+        /// <param name="groupName">groupName (required).</param>
+        /// <param name="ownerUserDisplayName">ownerUserDisplayName (required).</param>
+        public NotificationV2DataGroupTransfer(string groupName = default, string ownerUserDisplayName = default)
         {
-            this.Results = results;
-            this.Total = total;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.GroupName = groupName;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.OwnerUserDisplayName = ownerUserDisplayName;
         }
 
         /// <summary>
-        /// Gets or Sets Results
+        /// Gets or Sets GroupName
         /// </summary>
-        [DataMember(Name = "results", EmitDefaultValue = false)]
-        public List<GroupMember> Results { get; set; }
+        [DataMember(Name = "groupName", IsRequired = true, EmitDefaultValue = true)]
+        public string GroupName { get; set; }
 
         /// <summary>
-        /// Number of members returned
+        /// Gets or Sets OwnerUserDisplayName
         /// </summary>
-        /// <value>Number of members returned</value>
-        [DataMember(Name = "total", EmitDefaultValue = false)]
-        public int Total { get; set; }
+        [DataMember(Name = "ownerUserDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        public string OwnerUserDisplayName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,9 +62,9 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SearchGroupMembers200Response {\n");
-            sb.Append("  Results: ").Append(Results).Append("\n");
-            sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("class NotificationV2DataGroupTransfer {\n");
+            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
+            sb.Append("  OwnerUserDisplayName: ").Append(OwnerUserDisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -79,15 +85,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as SearchGroupMembers200Response);
+            return this.Equals(input as NotificationV2DataGroupTransfer);
         }
 
         /// <summary>
-        /// Returns true if SearchGroupMembers200Response instances are equal
+        /// Returns true if NotificationV2DataGroupTransfer instances are equal
         /// </summary>
-        /// <param name="input">Instance of SearchGroupMembers200Response to be compared</param>
+        /// <param name="input">Instance of NotificationV2DataGroupTransfer to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SearchGroupMembers200Response input)
+        public bool Equals(NotificationV2DataGroupTransfer input)
         {
             if (input == null)
             {
@@ -95,14 +101,14 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
+                    this.GroupName == input.GroupName ||
+                    (this.GroupName != null &&
+                    this.GroupName.Equals(input.GroupName))
                 ) && 
                 (
-                    this.Total == input.Total ||
-                    this.Total.Equals(input.Total)
+                    this.OwnerUserDisplayName == input.OwnerUserDisplayName ||
+                    (this.OwnerUserDisplayName != null &&
+                    this.OwnerUserDisplayName.Equals(input.OwnerUserDisplayName))
                 );
         }
 
@@ -115,11 +121,14 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Results != null)
+                if (this.GroupName != null)
                 {
-                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
+                    hashCode = (hashCode * 59) + this.GroupName.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                if (this.OwnerUserDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerUserDisplayName.GetHashCode();
+                }
                 return hashCode;
             }
         }

@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="slimInstances">slimInstances.</param>
         /// <param name="storeId">storeId.</param>
-        /// <param name="tags">  (required).</param>
+        /// <param name="tags">tags (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
         /// <param name="unityPackages">Empty if unauthenticated..</param>
@@ -334,9 +334,8 @@ namespace VRChat.API.Model
         public string StoreId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 

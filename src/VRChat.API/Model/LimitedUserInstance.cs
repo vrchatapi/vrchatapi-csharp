@@ -61,7 +61,7 @@ namespace VRChat.API.Model
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
         /// <param name="allowAvatarCopying">allowAvatarCopying (required).</param>
         /// <param name="bio">bio.</param>
-        /// <param name="bioLinks"> .</param>
+        /// <param name="bioLinks">bioLinks.</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
         /// <param name="currentAvatarTags">currentAvatarTags (required).</param>
         /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
@@ -147,9 +147,8 @@ namespace VRChat.API.Model
         public string Bio { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets BioLinks
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "bioLinks", EmitDefaultValue = false)]
         public List<string> BioLinks { get; set; }
 

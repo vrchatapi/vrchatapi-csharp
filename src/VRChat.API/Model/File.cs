@@ -68,8 +68,8 @@ namespace VRChat.API.Model
         /// <param name="modifiedThumbnailFileName">modifiedThumbnailFileName.</param>
         /// <param name="name">name (required).</param>
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="tags">  (required).</param>
-        /// <param name="versions">  (required).</param>
+        /// <param name="tags">tags (required).</param>
+        /// <param name="versions">versions (required).</param>
         public File(ImageAnimationStyle? animationStyle = default, string extension = default, int frames = default, int framesOverTime = default, string id = default, ImageLoopStyle? loopStyle = default, ImageMask? maskTag = default, MIMEType mimeType = default, string modifiedThumbnailFileName = default, string name = default, string ownerId = default, List<string> tags = default, List<FileVersion> versions = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -154,16 +154,14 @@ namespace VRChat.API.Model
         public string OwnerId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Versions
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "versions", IsRequired = true, EmitDefaultValue = true)]
         public List<FileVersion> Versions { get; set; }
 

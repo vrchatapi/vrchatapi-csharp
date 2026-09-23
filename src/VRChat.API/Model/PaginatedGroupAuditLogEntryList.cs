@@ -29,7 +29,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="PaginatedGroupAuditLogEntryList" /> class.
         /// </summary>
         /// <param name="hasNext">Whether there are more results after this page..</param>
-        /// <param name="results"> .</param>
+        /// <param name="results">results.</param>
         /// <param name="totalCount">The total number of results that the query would return if there were no pagination..</param>
         public PaginatedGroupAuditLogEntryList(bool hasNext = default, List<GroupAuditLogEntry> results = default, int totalCount = default)
         {
@@ -46,9 +46,8 @@ namespace VRChat.API.Model
         public bool HasNext { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Results
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "results", EmitDefaultValue = false)]
         public List<GroupAuditLogEntry> Results { get; set; }
 

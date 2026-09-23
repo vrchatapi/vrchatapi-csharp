@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="senderUsername">The name of the user who sent the notification..</param>
         /// <param name="type">type (required).</param>
-        public SentNotification(DateTime createdAt = default, Dictionary<string, string> details = default, string id = default, string message = default, string receiverUserId = default, string senderUserId = default, string senderUsername = default, NotificationType type = default)
+        public SentNotification(DateTime createdAt = default, SentNotificationDetails details = default, string id = default, string message = default, string receiverUserId = default, string senderUserId = default, string senderUsername = default, NotificationType type = default)
         {
             this.CreatedAt = createdAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -74,7 +74,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name = "details", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, string> Details { get; set; }
+        public SentNotificationDetails Details { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -175,9 +175,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Details == input.Details ||
-                    this.Details != null &&
-                    input.Details != null &&
-                    this.Details.SequenceEqual(input.Details)
+                    (this.Details != null &&
+                    this.Details.Equals(input.Details))
                 ) && 
                 (
                     this.Id == input.Id ||

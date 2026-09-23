@@ -40,7 +40,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="CreateGroupPostRequest" /> class.
         /// </summary>
         /// <param name="imageId">imageId.</param>
-        /// <param name="roleIds"> .</param>
+        /// <param name="roleIds">roleIds.</param>
         /// <param name="sendNotification">Send notification to group members. (required) (default to false).</param>
         /// <param name="text">Post text (required).</param>
         /// <param name="title">Post title (required).</param>
@@ -67,9 +67,8 @@ namespace VRChat.API.Model
         public string ImageId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIds
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIds", EmitDefaultValue = false)]
         public List<string> RoleIds { get; set; }
 

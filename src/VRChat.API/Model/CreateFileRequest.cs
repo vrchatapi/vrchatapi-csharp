@@ -42,7 +42,7 @@ namespace VRChat.API.Model
         /// <param name="extension">extension (required).</param>
         /// <param name="mimeType">mimeType (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         public CreateFileRequest(string extension = default, MIMEType mimeType = default, string name = default, List<string> tags = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -66,9 +66,8 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 

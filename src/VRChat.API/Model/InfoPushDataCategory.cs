@@ -33,7 +33,7 @@ namespace VRChat.API.Model
         /// <param name="maxCells">maxCells.</param>
         /// <param name="name">name.</param>
         /// <param name="type">type.</param>
-        public InfoPushDataCategory(List<string> ids = default, InfoPushIpsQuery ipsQuery = default, int maxCells = default, string name = default, string type = default)
+        public InfoPushDataCategory(List<string> ids = default, InfoPushIpsQuery ipsQuery = default, int maxCells = default, Object name = default, string type = default)
         {
             this.Ids = ids;
             this.IpsQuery = ipsQuery;
@@ -63,8 +63,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public Object Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Type

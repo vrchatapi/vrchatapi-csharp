@@ -36,10 +36,10 @@ namespace VRChat.API.Model
         /// <param name="description">Description of the gallery..</param>
         /// <param name="membersOnly">Whether the gallery is members only. (default to false).</param>
         /// <param name="name">Name of the gallery. (required).</param>
-        /// <param name="roleIdsToAutoApprove"> .</param>
-        /// <param name="roleIdsToManage"> .</param>
-        /// <param name="roleIdsToSubmit"> .</param>
-        /// <param name="roleIdsToView"> .</param>
+        /// <param name="roleIdsToAutoApprove">roleIdsToAutoApprove.</param>
+        /// <param name="roleIdsToManage">roleIdsToManage.</param>
+        /// <param name="roleIdsToSubmit">roleIdsToSubmit.</param>
+        /// <param name="roleIdsToView">roleIdsToView.</param>
         public CreateGroupGalleryRequest(string description = default, bool membersOnly = false, string name = default, List<string> roleIdsToAutoApprove = default, List<string> roleIdsToManage = default, List<string> roleIdsToSubmit = default, List<string> roleIdsToView = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -83,30 +83,26 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIdsToAutoApprove
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIdsToAutoApprove", EmitDefaultValue = true)]
         public List<string> RoleIdsToAutoApprove { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIdsToManage
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIdsToManage", EmitDefaultValue = true)]
         public List<string> RoleIdsToManage { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIdsToSubmit
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIdsToSubmit", EmitDefaultValue = true)]
         public List<string> RoleIdsToSubmit { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets RoleIdsToView
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "roleIdsToView", EmitDefaultValue = true)]
         public List<string> RoleIdsToView { get; set; }
 

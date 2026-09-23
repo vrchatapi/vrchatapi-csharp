@@ -68,7 +68,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="varVersion">varVersion (required) (default to 2).</param>
-        public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, Dictionary<string, string> data = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
+        public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, NotificationV2Data data = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
         {
             this.CanDelete = canDelete;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -146,7 +146,7 @@ Group:
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, string> Data { get; set; }
+        public NotificationV2Data Data { get; set; }
 
         /// <summary>
         /// Gets or Sets Details
@@ -393,9 +393,8 @@ Group:
                 ) && 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.Details == input.Details ||

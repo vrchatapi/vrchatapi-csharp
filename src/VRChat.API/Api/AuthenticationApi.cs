@@ -219,8 +219,8 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.  &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrentUser</returns>
-        CurrentUser GetCurrentUser();
+        /// <returns>CurrentUserLoginResponse</returns>
+        CurrentUserLoginResponse GetCurrentUser();
 
         /// <summary>
         /// Login and/or Get Current User Info
@@ -229,8 +229,8 @@ namespace VRChat.API.Api
         /// This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.  &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo();
+        /// <returns>ApiResponse of CurrentUserLoginResponse</returns>
+        ApiResponse<CurrentUserLoginResponse> GetCurrentUserWithHttpInfo();
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -250,6 +250,25 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;AvatarModeration&gt;</returns>
         ApiResponse<List<AvatarModeration>> GetGlobalAvatarModerationsWithHttpInfo();
+        /// <summary>
+        /// Get Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Returns the interests and preferences the current user has turned on.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InterestsAndPreferences</returns>
+        InterestsAndPreferences GetInterestsAndPreferences();
+
+        /// <summary>
+        /// Get Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Returns the interests and preferences the current user has turned on.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InterestsAndPreferences</returns>
+        ApiResponse<InterestsAndPreferences> GetInterestsAndPreferencesWithHttpInfo();
         /// <summary>
         /// Get Moderation Reports
         /// </summary>
@@ -365,9 +384,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <returns>CurrentUser</returns>
+        /// <returns>CurrentUserLoginResponse</returns>
         [Obsolete]
-        CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest);
+        CurrentUserLoginResponse RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest);
 
         /// <summary>
         /// Register User Account
@@ -377,9 +396,9 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <returns>ApiResponse of CurrentUser</returns>
+        /// <returns>ApiResponse of CurrentUserLoginResponse</returns>
         [Obsolete]
-        ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest);
+        ApiResponse<CurrentUserLoginResponse> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest);
         /// <summary>
         /// Resend Email Confirmation
         /// </summary>
@@ -420,6 +439,27 @@ namespace VRChat.API.Api
         /// <param name="submitModerationReportRequest"></param>
         /// <returns>ApiResponse of ModerationReport</returns>
         ApiResponse<ModerationReport> SubmitModerationReportWithHttpInfo(SubmitModerationReportRequest submitModerationReportRequest);
+        /// <summary>
+        /// Update Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <returns>Success</returns>
+        Success UpdateInterestsAndPreferences(InterestsAndPreferences interestsAndPreferences);
+
+        /// <summary>
+        /// Update Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <returns>ApiResponse of Success</returns>
+        ApiResponse<Success> UpdateInterestsAndPreferencesWithHttpInfo(InterestsAndPreferences interestsAndPreferences);
         /// <summary>
         /// Verify 2FA code
         /// </summary>
@@ -774,8 +814,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of CurrentUserLoginResponse</returns>
+        System.Threading.Tasks.Task<CurrentUserLoginResponse> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Login and/or Get Current User Info
@@ -785,8 +825,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (CurrentUserLoginResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CurrentUserLoginResponse>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -808,6 +848,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AvatarModeration&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AvatarModeration>>> GetGlobalAvatarModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Returns the interests and preferences the current user has turned on.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InterestsAndPreferences</returns>
+        System.Threading.Tasks.Task<InterestsAndPreferences> GetInterestsAndPreferencesAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Returns the interests and preferences the current user has turned on.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InterestsAndPreferences)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InterestsAndPreferences>> GetInterestsAndPreferencesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Moderation Reports
         /// </summary>
@@ -934,9 +995,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrentUser</returns>
+        /// <returns>Task of CurrentUserLoginResponse</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<CurrentUserLoginResponse> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Register User Account
@@ -947,9 +1008,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        /// <returns>Task of ApiResponse (CurrentUserLoginResponse)</returns>
         [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<CurrentUserLoginResponse>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Resend Email Confirmation
         /// </summary>
@@ -994,6 +1055,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ModerationReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<ModerationReport>> SubmitModerationReportWithHttpInfoAsync(SubmitModerationReportRequest submitModerationReportRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        System.Threading.Tasks.Task<Success> UpdateInterestsAndPreferencesAsync(InterestsAndPreferences interestsAndPreferences, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Interests and Preferences
+        /// </summary>
+        /// <remarks>
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Success>> UpdateInterestsAndPreferencesWithHttpInfoAsync(InterestsAndPreferences interestsAndPreferences, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Verify 2FA code
         /// </summary>
@@ -2643,10 +2727,10 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.  &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrentUser</returns>
-        public CurrentUser GetCurrentUser()
+        /// <returns>CurrentUserLoginResponse</returns>
+        public CurrentUserLoginResponse GetCurrentUser()
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = GetCurrentUserWithHttpInfo();
+            VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> localVarResponse = GetCurrentUserWithHttpInfo();
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
@@ -2662,8 +2746,8 @@ namespace VRChat.API.Api
         /// Login and/or Get Current User Info This endpoint does the following two operations:   1) Checks if you are already logged in by looking for a valid &#x60;auth&#x60; cookie. If you are have a valid auth cookie then no additional auth-related actions are taken. If you are **not** logged in then it will log you in with the &#x60;Authorization&#x60; header and set the &#x60;auth&#x60; cookie. The &#x60;auth&#x60; cookie will only be sent once.   2) If logged in, this function will also return the CurrentUser object containing detailed information about the currently logged in user.  The auth string after &#x60;Authorization: Basic {string}&#x60; is a base64-encoded string of the username and password, both individually url-encoded, and then joined with a colon.  &gt; base64(urlencode(username):urlencode(password))  **WARNING: Session Limit:** Each authentication with login credentials counts as a separate session, out of which you have a limited amount. Make sure to save and reuse the &#x60;auth&#x60; cookie if you are often restarting the program. The provided API libraries automatically save cookies during runtime, but does not persist during restart. While it can be fine to use username/password during development, expect in production to very fast run into the rate-limit and be temporarily blocked from making new sessions until older ones expire. The exact number of simultaneous sessions is unknown/undisclosed.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrentUser</returns>
-        public VRChat.API.Client.ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo()
+        /// <returns>ApiResponse of CurrentUserLoginResponse</returns>
+        public VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> GetCurrentUserWithHttpInfo()
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2704,13 +2788,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<CurrentUserLoginResponse>("/auth/user", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUserLoginResponse), ex.Message);
             }
         }
 
@@ -2719,10 +2803,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of CurrentUserLoginResponse</returns>
+        public async System.Threading.Tasks.Task<CurrentUserLoginResponse> GetCurrentUserAsync(System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await GetCurrentUserWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> localVarResponse = await GetCurrentUserWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetCurrentUser", localVarResponse);
@@ -2739,8 +2823,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (CurrentUserLoginResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2783,13 +2867,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<CurrentUser>("/auth/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<CurrentUserLoginResponse>("/auth/user", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUserLoginResponse), ex.Message);
             }
         }
 
@@ -2920,6 +3004,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<AvatarModeration>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<AvatarModeration>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Interests and Preferences Returns the interests and preferences the current user has turned on.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InterestsAndPreferences</returns>
+        public InterestsAndPreferences GetInterestsAndPreferences()
+        {
+            VRChat.API.Client.ApiResponse<InterestsAndPreferences> localVarResponse = GetInterestsAndPreferencesWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInterestsAndPreferences", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Interests and Preferences Returns the interests and preferences the current user has turned on.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InterestsAndPreferences</returns>
+        public VRChat.API.Client.ApiResponse<InterestsAndPreferences> GetInterestsAndPreferencesWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<InterestsAndPreferences>("/auth/user/interestsAndPreferences", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InterestsAndPreferences>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InterestsAndPreferences), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Interests and Preferences Returns the interests and preferences the current user has turned on.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InterestsAndPreferences</returns>
+        public async System.Threading.Tasks.Task<InterestsAndPreferences> GetInterestsAndPreferencesAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<InterestsAndPreferences> localVarResponse = await GetInterestsAndPreferencesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInterestsAndPreferences", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Interests and Preferences Returns the interests and preferences the current user has turned on.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InterestsAndPreferences)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InterestsAndPreferences>> GetInterestsAndPreferencesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InterestsAndPreferences>("/auth/user/interestsAndPreferences", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InterestsAndPreferences>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InterestsAndPreferences), ex.Message);
             }
         }
 
@@ -3644,11 +3858,11 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <returns>CurrentUser</returns>
+        /// <returns>CurrentUserLoginResponse</returns>
         [Obsolete]
-        public CurrentUser RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest)
+        public CurrentUserLoginResponse RegisterUserAccount(RegisterUserAccountRequest registerUserAccountRequest)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = RegisterUserAccountWithHttpInfo(registerUserAccountRequest);
+            VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> localVarResponse = RegisterUserAccountWithHttpInfo(registerUserAccountRequest);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
@@ -3665,9 +3879,9 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
-        /// <returns>ApiResponse of CurrentUser</returns>
+        /// <returns>ApiResponse of CurrentUserLoginResponse</returns>
         [Obsolete]
-        public VRChat.API.Client.ApiResponse<CurrentUser> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest)
+        public VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> RegisterUserAccountWithHttpInfo(RegisterUserAccountRequest registerUserAccountRequest)
         {
             // verify the required parameter 'registerUserAccountRequest' is set
             if (registerUserAccountRequest == null)
@@ -3696,13 +3910,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Post<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Post<CurrentUserLoginResponse>("/auth/register", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUserLoginResponse), ex.Message);
             }
         }
 
@@ -3712,11 +3926,11 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of CurrentUser</returns>
+        /// <returns>Task of CurrentUserLoginResponse</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<CurrentUser> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<CurrentUserLoginResponse> RegisterUserAccountAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CurrentUser> localVarResponse = await RegisterUserAccountWithHttpInfoAsync(registerUserAccountRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CurrentUserLoginResponse> localVarResponse = await RegisterUserAccountWithHttpInfoAsync(registerUserAccountRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RegisterUserAccount", localVarResponse);
@@ -3734,9 +3948,9 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="registerUserAccountRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
+        /// <returns>Task of ApiResponse (CurrentUserLoginResponse)</returns>
         [Obsolete]
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUser>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>> RegisterUserAccountWithHttpInfoAsync(RegisterUserAccountRequest registerUserAccountRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'registerUserAccountRequest' is set
             if (registerUserAccountRequest == null)
@@ -3767,13 +3981,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUser>("/auth/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CurrentUserLoginResponse>("/auth/register", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<CurrentUser>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUser), ex.Message);
+                return new VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUserLoginResponse), ex.Message);
             }
         }
 
@@ -4050,6 +4264,152 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<ModerationReport>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ModerationReport), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <returns>Success</returns>
+        public Success UpdateInterestsAndPreferences(InterestsAndPreferences interestsAndPreferences)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = UpdateInterestsAndPreferencesWithHttpInfo(interestsAndPreferences);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateInterestsAndPreferences", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <returns>ApiResponse of Success</returns>
+        public VRChat.API.Client.ApiResponse<Success> UpdateInterestsAndPreferencesWithHttpInfo(InterestsAndPreferences interestsAndPreferences)
+        {
+            // verify the required parameter 'interestsAndPreferences' is set
+            if (interestsAndPreferences == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'interestsAndPreferences' when calling AuthenticationApi->UpdateInterestsAndPreferences");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = interestsAndPreferences;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<Success>("/auth/user/interestsAndPreferences", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        public async System.Threading.Tasks.Task<Success> UpdateInterestsAndPreferencesAsync(InterestsAndPreferences interestsAndPreferences, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await UpdateInterestsAndPreferencesWithHttpInfoAsync(interestsAndPreferences, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateInterestsAndPreferences", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interestsAndPreferences"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> UpdateInterestsAndPreferencesWithHttpInfoAsync(InterestsAndPreferences interestsAndPreferences, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'interestsAndPreferences' is set
+            if (interestsAndPreferences == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'interestsAndPreferences' when calling AuthenticationApi->UpdateInterestsAndPreferences");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = interestsAndPreferences;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/user/interestsAndPreferences", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 

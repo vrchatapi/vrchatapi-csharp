@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="nameplateId">nameplateId.</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         public UpdateGroupRequest(string bannerId = default, string description = default, string iconId = default, GroupJoinState? joinState = default, List<string> languages = default, List<string> links = default, string name = default, string nameplateId = default, string rules = default, string shortCode = default, List<string> tags = default)
         {
             this.BannerId = bannerId;
@@ -116,9 +116,8 @@ namespace VRChat.API.Model
         public string ShortCode { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 

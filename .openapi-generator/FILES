@@ -122,6 +122,7 @@ src/VRChat.API/Model/CreateProductRequest.cs
 src/VRChat.API/Model/CreatePropRequest.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CurrentUser.cs
+src/VRChat.API/Model/CurrentUserLoginResponse.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeclineGroupInviteRequest.cs
 src/VRChat.API/Model/DeveloperType.cs
@@ -164,9 +165,6 @@ src/VRChat.API/Model/FileVersionUploadStatus.cs
 src/VRChat.API/Model/FinishFileDataUploadRequest.cs
 src/VRChat.API/Model/FollowCalendarEventRequest.cs
 src/VRChat.API/Model/FriendStatus.cs
-src/VRChat.API/Model/GetGroupGalleryImages200Response.cs
-src/VRChat.API/Model/GetGroupPosts200Response.cs
-src/VRChat.API/Model/GetUserGroupInstances200Response.cs
 src/VRChat.API/Model/Group.cs
 src/VRChat.API/Model/GroupAccessType.cs
 src/VRChat.API/Model/GroupAnnouncement.cs
@@ -181,12 +179,14 @@ src/VRChat.API/Model/GroupJoinRequestAction.cs
 src/VRChat.API/Model/GroupJoinState.cs
 src/VRChat.API/Model/GroupMember.cs
 src/VRChat.API/Model/GroupMemberLimitedUser.cs
+src/VRChat.API/Model/GroupMemberSearchResponse.cs
 src/VRChat.API/Model/GroupMemberStatus.cs
 src/VRChat.API/Model/GroupMyMember.cs
 src/VRChat.API/Model/GroupPermission.cs
 src/VRChat.API/Model/GroupPermissions.cs
 src/VRChat.API/Model/GroupPost.cs
 src/VRChat.API/Model/GroupPostVisibility.cs
+src/VRChat.API/Model/GroupPostsResponse.cs
 src/VRChat.API/Model/GroupPrivacy.cs
 src/VRChat.API/Model/GroupRole.cs
 src/VRChat.API/Model/GroupRoleTemplate.cs
@@ -221,6 +221,7 @@ src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
 src/VRChat.API/Model/InstanceType.cs
 src/VRChat.API/Model/InstanceVibe.cs
+src/VRChat.API/Model/InterestsAndPreferences.cs
 src/VRChat.API/Model/Inventory.cs
 src/VRChat.API/Model/InventoryAsset.cs
 src/VRChat.API/Model/InventoryConsumptionResults.cs
@@ -255,12 +256,14 @@ src/VRChat.API/Model/LimitedUserGroups.cs
 src/VRChat.API/Model/LimitedUserInstance.cs
 src/VRChat.API/Model/LimitedUserSearch.cs
 src/VRChat.API/Model/LimitedWorld.cs
+src/VRChat.API/Model/LocalizedString.cs
 src/VRChat.API/Model/MIMEType.cs
 src/VRChat.API/Model/ModerateUserRequest.cs
 src/VRChat.API/Model/ModerationReport.cs
 src/VRChat.API/Model/MutualFriend.cs
 src/VRChat.API/Model/Mutuals.cs
 src/VRChat.API/Model/Notification.cs
+src/VRChat.API/Model/NotificationDetailBoop.cs
 src/VRChat.API/Model/NotificationDetailInvite.cs
 src/VRChat.API/Model/NotificationDetailInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailRequestInvite.cs
@@ -268,6 +271,13 @@ src/VRChat.API/Model/NotificationDetailRequestInviteResponse.cs
 src/VRChat.API/Model/NotificationDetailVoteToKick.cs
 src/VRChat.API/Model/NotificationType.cs
 src/VRChat.API/Model/NotificationV2.cs
+src/VRChat.API/Model/NotificationV2Data.cs
+src/VRChat.API/Model/NotificationV2DataBadgeEarned.cs
+src/VRChat.API/Model/NotificationV2DataBoop.cs
+src/VRChat.API/Model/NotificationV2DataEventAnnouncement.cs
+src/VRChat.API/Model/NotificationV2DataGroupAnnouncement.cs
+src/VRChat.API/Model/NotificationV2DataGroupInformative.cs
+src/VRChat.API/Model/NotificationV2DataGroupTransfer.cs
 src/VRChat.API/Model/NotificationV2DetailsBoop.cs
 src/VRChat.API/Model/NotificationV2Response.cs
 src/VRChat.API/Model/NotificationV2Type.cs
@@ -322,6 +332,7 @@ src/VRChat.API/Model/ReportCategory.cs
 src/VRChat.API/Model/ReportReason.cs
 src/VRChat.API/Model/RepresentedGroup.cs
 src/VRChat.API/Model/RequestInviteRequest.cs
+src/VRChat.API/Model/RequiresTwoFactorAuth.cs
 src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/RespondNotificationV2Request.cs
 src/VRChat.API/Model/Response.cs
@@ -331,9 +342,9 @@ src/VRChat.API/Model/RewardRedemptionData.cs
 src/VRChat.API/Model/RewardRedemptionRequest.cs
 src/VRChat.API/Model/RewardRedemptionResult.cs
 src/VRChat.API/Model/RouteNotImplemented.cs
-src/VRChat.API/Model/SearchGroupMembers200Response.cs
 src/VRChat.API/Model/SellerEligibility.cs
 src/VRChat.API/Model/SentNotification.cs
+src/VRChat.API/Model/SentNotificationDetails.cs
 src/VRChat.API/Model/ServiceQueueStats.cs
 src/VRChat.API/Model/ServiceStatus.cs
 src/VRChat.API/Model/ShareInventoryItemDirectRequest.cs
@@ -364,6 +375,7 @@ src/VRChat.API/Model/TransactionSteamWalletInfo.cs
 src/VRChat.API/Model/TransferGroupRequest.cs
 src/VRChat.API/Model/TutorialStatus.cs
 src/VRChat.API/Model/TwoFactorAuthCode.cs
+src/VRChat.API/Model/TwoFactorAuthType.cs
 src/VRChat.API/Model/TwoFactorEmailCode.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodes.cs
 src/VRChat.API/Model/TwoFactorRecoveryCodesOtpInner.cs
@@ -395,8 +407,10 @@ src/VRChat.API/Model/UserClientConfig.cs
 src/VRChat.API/Model/UserCosmetic.cs
 src/VRChat.API/Model/UserCreditsEligible.cs
 src/VRChat.API/Model/UserExists.cs
+src/VRChat.API/Model/UserGroupInstanceListResponse.cs
 src/VRChat.API/Model/UserNote.cs
 src/VRChat.API/Model/UserNoteTargetUser.cs
+src/VRChat.API/Model/UserResponse.cs
 src/VRChat.API/Model/UserState.cs
 src/VRChat.API/Model/UserStatus.cs
 src/VRChat.API/Model/UserSubscription.cs

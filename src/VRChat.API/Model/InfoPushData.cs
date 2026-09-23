@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="videoUrl">videoUrl.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, string description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, string name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, string shortName = default, Object showInWorldIds = default, string template = default, string thumbnailImageUrl = default, string title = default, string tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, Object description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, Object name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, Object shortName = default, Object showInWorldIds = default, string template = default, string thumbnailImageUrl = default, string title = default, Object tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
@@ -176,8 +176,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        [DataMember(Name = "description", EmitDefaultValue = true)]
+        public Object Description { get; set; }
 
         /// <summary>
         /// Gets or Sets DisclaimerText
@@ -260,8 +260,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = true)]
+        public Object Name { get; set; }
 
         /// <summary>
         /// Gets or Sets OnPressed
@@ -292,7 +292,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ShortName
         /// </summary>
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public string ShortName { get; set; }
+        public Object ShortName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShowInWorldIds
@@ -321,8 +321,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TooltipDescription
         /// </summary>
-        [DataMember(Name = "tooltipDescription", EmitDefaultValue = false)]
-        public string TooltipDescription { get; set; }
+        [DataMember(Name = "tooltipDescription", EmitDefaultValue = true)]
+        public Object TooltipDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion

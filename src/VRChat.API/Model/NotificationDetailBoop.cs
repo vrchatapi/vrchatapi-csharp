@@ -20,43 +20,47 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// An offset-based list of CalendarEvents
+    /// Either inventoryItemId by itself, or emojiId with optional emojiVersion
     /// </summary>
-    [DataContract(Name = "PaginatedCalendarEventList")]
-    public partial class PaginatedCalendarEventList : IEquatable<PaginatedCalendarEventList>, IValidatableObject
+    [DataContract(Name = "NotificationDetailBoop")]
+    public partial class NotificationDetailBoop : IEquatable<NotificationDetailBoop>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PaginatedCalendarEventList" /> class.
+        /// Initializes a new instance of the <see cref="NotificationDetailBoop" /> class.
         /// </summary>
-        /// <param name="hasNext">Whether there are more results after this page..</param>
-        /// <param name="results">results.</param>
-        /// <param name="totalCount">The total number of results that the query would return if there were no pagination..</param>
-        public PaginatedCalendarEventList(bool hasNext = default, List<CalendarEvent> results = default, int totalCount = default)
+        /// <param name="emojiId">emojiId.</param>
+        /// <param name="emojiVersion">emojiVersion.</param>
+        /// <param name="inventoryItemId">inventoryItemId.</param>
+        public NotificationDetailBoop(string emojiId = default, int emojiVersion = default, string inventoryItemId = default)
         {
-            this.HasNext = hasNext;
-            this.Results = results;
-            this.TotalCount = totalCount;
+            this.EmojiId = emojiId;
+            this.EmojiVersion = emojiVersion;
+            this.InventoryItemId = inventoryItemId;
         }
 
         /// <summary>
-        /// Whether there are more results after this page.
+        /// Gets or Sets EmojiId
         /// </summary>
-        /// <value>Whether there are more results after this page.</value>
-        [DataMember(Name = "hasNext", EmitDefaultValue = true)]
-        public bool HasNext { get; set; }
+        /*
+        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
+        */
+        [DataMember(Name = "emojiId", EmitDefaultValue = false)]
+        public string EmojiId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Results
+        /// Gets or Sets EmojiVersion
         /// </summary>
-        [DataMember(Name = "results", EmitDefaultValue = false)]
-        public List<CalendarEvent> Results { get; set; }
+        [DataMember(Name = "emojiVersion", EmitDefaultValue = false)]
+        public int EmojiVersion { get; set; }
 
         /// <summary>
-        /// The total number of results that the query would return if there were no pagination.
+        /// Gets or Sets InventoryItemId
         /// </summary>
-        /// <value>The total number of results that the query would return if there were no pagination.</value>
-        [DataMember(Name = "totalCount", EmitDefaultValue = false)]
-        public int TotalCount { get; set; }
+        /*
+        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
+        */
+        [DataMember(Name = "inventoryItemId", EmitDefaultValue = false)]
+        public string InventoryItemId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,10 +69,10 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class PaginatedCalendarEventList {\n");
-            sb.Append("  HasNext: ").Append(HasNext).Append("\n");
-            sb.Append("  Results: ").Append(Results).Append("\n");
-            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            sb.Append("class NotificationDetailBoop {\n");
+            sb.Append("  EmojiId: ").Append(EmojiId).Append("\n");
+            sb.Append("  EmojiVersion: ").Append(EmojiVersion).Append("\n");
+            sb.Append("  InventoryItemId: ").Append(InventoryItemId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,15 +93,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PaginatedCalendarEventList);
+            return this.Equals(input as NotificationDetailBoop);
         }
 
         /// <summary>
-        /// Returns true if PaginatedCalendarEventList instances are equal
+        /// Returns true if NotificationDetailBoop instances are equal
         /// </summary>
-        /// <param name="input">Instance of PaginatedCalendarEventList to be compared</param>
+        /// <param name="input">Instance of NotificationDetailBoop to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PaginatedCalendarEventList input)
+        public bool Equals(NotificationDetailBoop input)
         {
             if (input == null)
             {
@@ -105,18 +109,18 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.HasNext == input.HasNext ||
-                    this.HasNext.Equals(input.HasNext)
+                    this.EmojiId == input.EmojiId ||
+                    (this.EmojiId != null &&
+                    this.EmojiId.Equals(input.EmojiId))
                 ) && 
                 (
-                    this.Results == input.Results ||
-                    this.Results != null &&
-                    input.Results != null &&
-                    this.Results.SequenceEqual(input.Results)
+                    this.EmojiVersion == input.EmojiVersion ||
+                    this.EmojiVersion.Equals(input.EmojiVersion)
                 ) && 
                 (
-                    this.TotalCount == input.TotalCount ||
-                    this.TotalCount.Equals(input.TotalCount)
+                    this.InventoryItemId == input.InventoryItemId ||
+                    (this.InventoryItemId != null &&
+                    this.InventoryItemId.Equals(input.InventoryItemId))
                 );
         }
 
@@ -129,12 +133,15 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.HasNext.GetHashCode();
-                if (this.Results != null)
+                if (this.EmojiId != null)
                 {
-                    hashCode = (hashCode * 59) + this.Results.GetHashCode();
+                    hashCode = (hashCode * 59) + this.EmojiId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.TotalCount.GetHashCode();
+                hashCode = (hashCode * 59) + this.EmojiVersion.GetHashCode();
+                if (this.InventoryItemId != null)
+                {
+                    hashCode = (hashCode * 59) + this.InventoryItemId.GetHashCode();
+                }
                 return hashCode;
             }
         }

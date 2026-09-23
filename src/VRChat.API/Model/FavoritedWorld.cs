@@ -64,10 +64,10 @@ namespace VRChat.API.Model
         /// <param name="recommendedCapacity">recommendedCapacity.</param>
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="storeId">storeId.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
-        /// <param name="unityPackages"> .</param>
+        /// <param name="unityPackages">unityPackages.</param>
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion.</param>
@@ -298,9 +298,8 @@ namespace VRChat.API.Model
         public string StoreId { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
@@ -317,9 +316,8 @@ namespace VRChat.API.Model
         public List<string> UdonProducts { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets UnityPackages
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "unityPackages", EmitDefaultValue = false)]
         public List<UnityPackage> UnityPackages { get; set; }
 

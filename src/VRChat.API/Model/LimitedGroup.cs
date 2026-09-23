@@ -39,7 +39,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt.</param>
         /// <param name="description">description.</param>
         /// <param name="discriminator">discriminator.</param>
-        /// <param name="galleries"> .</param>
+        /// <param name="galleries">galleries.</param>
         /// <param name="iconId">iconId.</param>
         /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">id.</param>
@@ -52,7 +52,7 @@ namespace VRChat.API.Model
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
-        /// <param name="tags"> .</param>
+        /// <param name="tags">tags.</param>
         public LimitedGroup(string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isSearchable = default, int memberCount = default, GroupMemberStatus? membershipStatus = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, string rules = default, string shortCode = default, List<string> tags = default)
         {
             this.BannerId = bannerId;
@@ -110,9 +110,8 @@ namespace VRChat.API.Model
         public string Discriminator { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Galleries
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "galleries", EmitDefaultValue = false)]
         public List<GroupGallery> Galleries { get; set; }
 
@@ -193,9 +192,8 @@ namespace VRChat.API.Model
         public string ShortCode { get; set; }
 
         /// <summary>
-        ///  
+        /// Gets or Sets Tags
         /// </summary>
-        /// <value> </value>
         [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
