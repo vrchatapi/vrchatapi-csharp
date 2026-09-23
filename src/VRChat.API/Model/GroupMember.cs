@@ -196,7 +196,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = false)]
         public GroupMemberLimitedUser User { get; set; }
 
         /// <summary>
