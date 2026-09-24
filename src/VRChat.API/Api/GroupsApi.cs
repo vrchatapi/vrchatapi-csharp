@@ -254,8 +254,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <returns></returns>
-        void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
+        /// <returns>Success</returns>
+        Success CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
 
         /// <summary>
         /// Invite User to Group
@@ -266,8 +266,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
+        /// <returns>ApiResponse of Success</returns>
+        ApiResponse<Success> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest);
         /// <summary>
         /// Create GroupRole
         /// </summary>
@@ -415,8 +415,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns></returns>
-        void DeleteGroupInvite(string groupId, string userId);
+        /// <returns>Success</returns>
+        Success DeleteGroupInvite(string groupId, string userId);
 
         /// <summary>
         /// Delete User Invite
@@ -427,8 +427,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId);
+        /// <returns>ApiResponse of Success</returns>
+        ApiResponse<Success> DeleteGroupInviteWithHttpInfo(string groupId, string userId);
         /// <summary>
         /// Delete a Group post
         /// </summary>
@@ -1497,8 +1497,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Success</returns>
+        System.Threading.Tasks.Task<Success> CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Invite User to Group
@@ -1510,8 +1510,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Success)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Success>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create GroupRole
         /// </summary>
@@ -1672,8 +1672,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Success</returns>
+        System.Threading.Tasks.Task<Success> DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete User Invite
@@ -1685,8 +1685,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Success)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Success>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a Group post
         /// </summary>
@@ -4337,10 +4337,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <returns></returns>
-        public void CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
+        /// <returns>Success</returns>
+        public Success CreateGroupInvite(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = CreateGroupInviteWithHttpInfo(groupId, createGroupInviteRequest);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
@@ -4349,6 +4349,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -4357,8 +4358,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
+        /// <returns>ApiResponse of Success</returns>
+        public VRChat.API.Client.ApiResponse<Success> CreateGroupInviteWithHttpInfo(string groupId, CreateGroupInviteRequest createGroupInviteRequest)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4398,13 +4399,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Post<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Post<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 
@@ -4415,10 +4416,10 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Success</returns>
+        public async System.Threading.Tasks.Task<Success> CreateGroupInviteAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await CreateGroupInviteWithHttpInfoAsync(groupId, createGroupInviteRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateGroupInvite", localVarResponse);
@@ -4427,6 +4428,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -4436,8 +4438,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="createGroupInviteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Success)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> CreateGroupInviteWithHttpInfoAsync(string groupId, CreateGroupInviteRequest createGroupInviteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4479,13 +4481,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/groups/{groupId}/invites", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 
@@ -5437,10 +5439,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns></returns>
-        public void DeleteGroupInvite(string groupId, string userId)
+        /// <returns>Success</returns>
+        public Success DeleteGroupInvite(string groupId, string userId)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = DeleteGroupInviteWithHttpInfo(groupId, userId);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = DeleteGroupInviteWithHttpInfo(groupId, userId);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
@@ -5449,6 +5451,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -5457,8 +5460,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public VRChat.API.Client.ApiResponse<Object> DeleteGroupInviteWithHttpInfo(string groupId, string userId)
+        /// <returns>ApiResponse of Success</returns>
+        public VRChat.API.Client.ApiResponse<Success> DeleteGroupInviteWithHttpInfo(string groupId, string userId)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -5497,13 +5500,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Delete<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Delete<Success>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 
@@ -5514,10 +5517,10 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Success</returns>
+        public async System.Threading.Tasks.Task<Success> DeleteGroupInviteAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await DeleteGroupInviteWithHttpInfoAsync(groupId, userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteGroupInvite", localVarResponse);
@@ -5526,6 +5529,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -5535,8 +5539,8 @@ namespace VRChat.API.Api
         /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Success)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> DeleteGroupInviteWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -5577,13 +5581,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<Success>("/groups/{groupId}/invites/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
             }
         }
 

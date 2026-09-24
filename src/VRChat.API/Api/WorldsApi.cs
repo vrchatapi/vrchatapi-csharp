@@ -138,8 +138,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <returns></returns>
-        void DeleteWorld(string worldId);
+        /// <returns>Object</returns>
+        Object DeleteWorld(string worldId);
 
         /// <summary>
         /// Delete World
@@ -149,7 +149,7 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
+        /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId);
         /// <summary>
         /// Delete World Platform
@@ -675,8 +675,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete World
@@ -687,7 +687,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
+        /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete World Platform
@@ -2070,8 +2070,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <returns></returns>
-        public void DeleteWorld(string worldId)
+        /// <returns>Object</returns>
+        public Object DeleteWorld(string worldId)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = DeleteWorldWithHttpInfo(worldId);
             if (this.ExceptionFactory != null)
@@ -2082,6 +2082,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -2089,7 +2090,7 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
+        /// <returns>ApiResponse of Object</returns>
         public VRChat.API.Client.ApiResponse<Object> DeleteWorldWithHttpInfo(string worldId)
         {
             // verify the required parameter 'worldId' is set
@@ -2140,8 +2141,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> DeleteWorldAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Object> localVarResponse = await DeleteWorldWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -2152,6 +2153,7 @@ namespace VRChat.API.Api
                     throw _exception;
                 }
             }
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -2160,7 +2162,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="worldId">Must be a valid world ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse</returns>
+        /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> DeleteWorldWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'worldId' is set
