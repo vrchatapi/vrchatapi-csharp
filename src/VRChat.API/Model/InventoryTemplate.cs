@@ -39,7 +39,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryTemplate" /> class.
         /// </summary>
-        /// <param name="attribution">attribution.</param>
+        /// <param name="attribution">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="collections">collections (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
@@ -101,8 +101,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets Attribution
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "attribution", EmitDefaultValue = true)]
         public Object Attribution { get; set; }
 

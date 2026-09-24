@@ -39,7 +39,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPush" /> class.
         /// </summary>
-        /// <param name="clientMinVersion">clientMinVersion.</param>
+        /// <param name="clientMinVersion">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="endDate">endDate.</param>
@@ -78,8 +78,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets ClientMinVersion
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "clientMinVersion", EmitDefaultValue = true)]
         public Object ClientMinVersion { get; set; }
 

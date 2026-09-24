@@ -46,7 +46,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="InventoryItem" /> class.
         /// </summary>
         /// <param name="acquisition">acquisition.</param>
-        /// <param name="attribution">attribution.</param>
+        /// <param name="attribution">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="collections">collections (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="defaultAttributes">defaultAttributes (required).</param>
@@ -125,8 +125,9 @@ namespace VRChat.API.Model
         public string Acquisition { get; set; }
 
         /// <summary>
-        /// Gets or Sets Attribution
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "attribution", EmitDefaultValue = true)]
         public Object Attribution { get; set; }
 

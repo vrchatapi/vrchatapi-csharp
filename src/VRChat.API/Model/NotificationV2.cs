@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="details">details.</param>
-        /// <param name="displayData">displayData.</param>
+        /// <param name="displayData">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="expiresAt">expiresAt (required).</param>
         /// <param name="expiryAfterSeen">expiryAfterSeen (required).</param>
         /// <param name="id">id (required).</param>
@@ -155,8 +155,9 @@ Group:
         public NotificationV2DetailsBoop Details { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayData
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "displayData", EmitDefaultValue = true)]
         public Object DisplayData { get; set; }
 

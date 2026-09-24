@@ -53,11 +53,11 @@ namespace VRChat.API.Model
         /// <param name="mediaType">mediaType.</param>
         /// <param name="name">name.</param>
         /// <param name="onPressed">onPressed.</param>
-        /// <param name="overrideName">overrideName.</param>
+        /// <param name="overrideName">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="rows">Number of rows to render..</param>
         /// <param name="search">search.</param>
         /// <param name="shortName">shortName.</param>
-        /// <param name="showInWorldIds">showInWorldIds.</param>
+        /// <param name="showInWorldIds">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="template">template.</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
         /// <param name="title">title.</param>
@@ -270,8 +270,9 @@ namespace VRChat.API.Model
         public InfoPushDataClickable OnPressed { get; set; }
 
         /// <summary>
-        /// Gets or Sets OverrideName
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "overrideName", EmitDefaultValue = true)]
         public Object OverrideName { get; set; }
 
@@ -295,8 +296,9 @@ namespace VRChat.API.Model
         public Object ShortName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ShowInWorldIds
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "showInWorldIds", EmitDefaultValue = true)]
         public Object ShowInWorldIds { get; set; }
 

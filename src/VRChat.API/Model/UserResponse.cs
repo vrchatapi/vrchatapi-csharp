@@ -142,7 +142,7 @@ namespace VRChat.API.Model
         /// <param name="statusHistory">statusHistory.</param>
         /// <param name="steamDetails">Details of an account on another service linked to this one..</param>
         /// <param name="steamId">steamId.</param>
-        /// <param name="temporaryExpiryDate">temporaryExpiryDate.</param>
+        /// <param name="temporaryExpiryDate">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="twitchDetails">Details of an account on another service linked to this one..</param>
         /// <param name="twitchId">twitchId.</param>
         /// <param name="twoFactorAuthEnabled">twoFactorAuthEnabled.</param>
@@ -808,8 +808,9 @@ namespace VRChat.API.Model
         public string SteamId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TemporaryExpiryDate
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "temporaryExpiryDate", EmitDefaultValue = true)]
         public Object TemporaryExpiryDate { get; set; }
 

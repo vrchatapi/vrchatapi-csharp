@@ -49,7 +49,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="oculusSku">oculusSku.</param>
         /// <param name="period">period (required).</param>
-        /// <param name="periodAmount">periodAmount.</param>
+        /// <param name="periodAmount">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="picoSku">picoSku.</param>
         /// <param name="steamItemId">steamItemId (required).</param>
         /// <param name="tier">tier (required).</param>
@@ -137,8 +137,9 @@ namespace VRChat.API.Model
         public string OculusSku { get; set; }
 
         /// <summary>
-        /// Gets or Sets PeriodAmount
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "periodAmount", EmitDefaultValue = true)]
         public Object PeriodAmount { get; set; }
 

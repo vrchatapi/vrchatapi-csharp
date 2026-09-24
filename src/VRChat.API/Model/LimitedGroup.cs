@@ -47,8 +47,8 @@ namespace VRChat.API.Model
         /// <param name="memberCount">memberCount.</param>
         /// <param name="membershipStatus">membershipStatus.</param>
         /// <param name="name">name.</param>
-        /// <param name="nameplateId">nameplateId.</param>
-        /// <param name="nameplateUrl">nameplateUrl.</param>
+        /// <param name="nameplateId">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
+        /// <param name="nameplateUrl">An unknown value. Consider [contributing](https://vrchat.community/contributing)..</param>
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="rules">rules.</param>
         /// <param name="shortCode">shortCode.</param>
@@ -155,14 +155,16 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameplateId
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "nameplateId", EmitDefaultValue = true)]
         public Object NameplateId { get; set; }
 
         /// <summary>
-        /// Gets or Sets NameplateUrl
+        /// An unknown value. Consider [contributing](https://vrchat.community/contributing).
         /// </summary>
+        /// <value>An unknown value. Consider [contributing](https://vrchat.community/contributing).</value>
         [DataMember(Name = "nameplateUrl", EmitDefaultValue = true)]
         public Object NameplateUrl { get; set; }
 
