@@ -443,7 +443,7 @@ namespace VRChat.API.Api
         /// Update Interests and Preferences
         /// </summary>
         /// <remarks>
-        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -454,7 +454,7 @@ namespace VRChat.API.Api
         /// Update Interests and Preferences
         /// </summary>
         /// <remarks>
-        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -1059,7 +1059,7 @@ namespace VRChat.API.Api
         /// Update Interests and Preferences
         /// </summary>
         /// <remarks>
-        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -1071,7 +1071,7 @@ namespace VRChat.API.Api
         /// Update Interests and Preferences
         /// </summary>
         /// <remarks>
-        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -4268,7 +4268,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -4288,7 +4288,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -4339,7 +4339,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>
@@ -4360,7 +4360,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value, and an unknown key or a value that is not a boolean is ignored.
+        /// Update Interests and Preferences Turns interests and preferences on with &#x60;true&#x60; and off with &#x60;false&#x60;. A key the body leaves out keeps its value.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interestsAndPreferences"></param>

@@ -53,8 +53,9 @@ namespace VRChat.API.Model
         /// <param name="requireClientTags">requireClientTags.</param>
         /// <param name="startDate">startDate.</param>
         /// <param name="tags">tags (required).</param>
+        /// <param name="type">type.</param>
         /// <param name="updatedAt">updatedAt (required).</param>
-        public InfoPush(Object clientMinVersion = default, DateTime createdAt = default, InfoPushData data = default, DateTime? endDate = default, InfoPushExperiment experiment = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, List<string> regions = default, ReleaseStatus releaseStatus = default, List<string> requireClientTags = default, DateTime? startDate = default, List<string> tags = default, DateTime updatedAt = default)
+        public InfoPush(Object clientMinVersion = default, DateTime createdAt = default, InfoPushData data = default, DateTime? endDate = default, InfoPushExperiment experiment = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, List<string> regions = default, ReleaseStatus releaseStatus = default, List<string> requireClientTags = default, DateTime? startDate = default, List<string> tags = default, string type = default, DateTime updatedAt = default)
         {
             this.CreatedAt = createdAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -75,6 +76,7 @@ namespace VRChat.API.Model
             this.Regions = regions;
             this.RequireClientTags = requireClientTags;
             this.StartDate = startDate;
+            this.Type = type;
         }
 
         /// <summary>
@@ -161,6 +163,15 @@ namespace VRChat.API.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        /*
+        <example>ContentShelf</example>
+        */
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public string Type { get; set; }
+
+        /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
@@ -188,6 +199,7 @@ namespace VRChat.API.Model
             sb.Append("  RequireClientTags: ").Append(RequireClientTags).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -294,6 +306,11 @@ namespace VRChat.API.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.UpdatedAt == input.UpdatedAt ||
                     this.UpdatedAt.Equals(input.UpdatedAt)
                 );
@@ -351,6 +368,10 @@ namespace VRChat.API.Model
                 if (this.Tags != null)
                 {
                     hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.Type != null)
+                {
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
                 return hashCode;

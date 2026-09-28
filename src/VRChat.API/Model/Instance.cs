@@ -71,6 +71,7 @@ namespace VRChat.API.Model
         /// <param name="description">description.</param>
         /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="displayName">displayName.</param>
+        /// <param name="displayVibeId">displayVibeId.</param>
         /// <param name="dominantLanguage">dominantLanguage.</param>
         /// <param name="friends">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="full">full (required) (default to false).</param>
@@ -112,7 +113,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public Instance(bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<Object> creationLanguages = default, string creatorId = default, string description = default, List<Object> disabledPropAbilities = default, string displayName = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public Instance(bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<Object> creationLanguages = default, string creatorId = default, string description = default, List<Object> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ClientNumber = clientNumber;
@@ -158,6 +159,7 @@ namespace VRChat.API.Model
             this.Description = description;
             this.DisabledPropAbilities = disabledPropAbilities;
             this.DisplayName = displayName;
+            this.DisplayVibeId = displayVibeId;
             this.DominantLanguage = dominantLanguage;
             this.Friends = friends;
             this.GameServerVersion = gameServerVersion;
@@ -282,6 +284,15 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayVibeId
+        /// </summary>
+        /*
+        <example>ivib_2d8445c4-f47b-4635-b565-467fc32c4003</example>
+        */
+        [DataMember(Name = "displayVibeId", EmitDefaultValue = false)]
+        public string DisplayVibeId { get; set; }
 
         /// <summary>
         /// Gets or Sets DominantLanguage
@@ -586,6 +597,7 @@ namespace VRChat.API.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  DisplayVibeId: ").Append(DisplayVibeId).Append("\n");
             sb.Append("  DominantLanguage: ").Append(DominantLanguage).Append("\n");
             sb.Append("  Friends: ").Append(Friends).Append("\n");
             sb.Append("  Full: ").Append(Full).Append("\n");
@@ -730,6 +742,11 @@ namespace VRChat.API.Model
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.DisplayVibeId == input.DisplayVibeId ||
+                    (this.DisplayVibeId != null &&
+                    this.DisplayVibeId.Equals(input.DisplayVibeId))
                 ) && 
                 (
                     this.DominantLanguage == input.DominantLanguage ||
@@ -986,6 +1003,10 @@ namespace VRChat.API.Model
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.DisplayVibeId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayVibeId.GetHashCode();
                 }
                 if (this.DominantLanguage != null)
                 {

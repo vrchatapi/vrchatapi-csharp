@@ -36,6 +36,8 @@ namespace VRChat.API.Model
         /// <param name="categories">categories.</param>
         /// <param name="category">category.</param>
         /// <param name="contentList">contentList.</param>
+        /// <param name="contentSource">contentSource.</param>
+        /// <param name="controls">controls.</param>
         /// <param name="cta">cta.</param>
         /// <param name="deliveryBehavior">deliveryBehavior.</param>
         /// <param name="description">description.</param>
@@ -54,10 +56,14 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="onPressed">onPressed.</param>
         /// <param name="overrideName">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
+        /// <param name="presentation">presentation.</param>
+        /// <param name="promotion">promotion.</param>
         /// <param name="rows">Number of rows to render..</param>
+        /// <param name="schemaVersion">schemaVersion.</param>
         /// <param name="search">search.</param>
         /// <param name="shortName">shortName.</param>
         /// <param name="showInWorldIds">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
+        /// <param name="subtitle">subtitle.</param>
         /// <param name="template">template.</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
         /// <param name="title">title.</param>
@@ -67,7 +73,7 @@ namespace VRChat.API.Model
         /// <param name="videoUrl">videoUrl.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, Object description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, Object name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, int? rows = default, InfoPushDataSearch search = default, Object shortName = default, Object showInWorldIds = default, string template = default, string thumbnailImageUrl = default, string title = default, Object tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, Object description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, Object name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, Object shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, Object tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
@@ -77,6 +83,8 @@ namespace VRChat.API.Model
             this.Categories = categories;
             this.Category = category;
             this.ContentList = contentList;
+            this.ContentSource = contentSource;
+            this.Controls = controls;
             this.Cta = cta;
             this.DeliveryBehavior = deliveryBehavior;
             this.Description = description;
@@ -95,10 +103,14 @@ namespace VRChat.API.Model
             this.Name = name;
             this.OnPressed = onPressed;
             this.OverrideName = overrideName;
+            this.Presentation = presentation;
+            this.Promotion = promotion;
             this.Rows = rows;
+            this.SchemaVersion = schemaVersion;
             this.Search = search;
             this.ShortName = shortName;
             this.ShowInWorldIds = showInWorldIds;
+            this.Subtitle = subtitle;
             this.Template = template;
             this.ThumbnailImageUrl = thumbnailImageUrl;
             this.Title = title;
@@ -160,6 +172,18 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "contentList", EmitDefaultValue = false)]
         public DynamicContentRow ContentList { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ContentSource
+        /// </summary>
+        [DataMember(Name = "contentSource", EmitDefaultValue = false)]
+        public InfoPushDataContentSource ContentSource { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Controls
+        /// </summary>
+        [DataMember(Name = "controls", EmitDefaultValue = false)]
+        public List<InfoPushDataControl> Controls { get; set; }
 
         /// <summary>
         /// Gets or Sets Cta
@@ -277,11 +301,32 @@ namespace VRChat.API.Model
         public Object OverrideName { get; set; }
 
         /// <summary>
+        /// Gets or Sets Presentation
+        /// </summary>
+        [DataMember(Name = "presentation", EmitDefaultValue = false)]
+        public InfoPushDataPresentation Presentation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Promotion
+        /// </summary>
+        [DataMember(Name = "promotion", EmitDefaultValue = false)]
+        public InfoPushDataPromotion Promotion { get; set; }
+
+        /// <summary>
         /// Number of rows to render.
         /// </summary>
         /// <value>Number of rows to render.</value>
         [DataMember(Name = "rows", EmitDefaultValue = true)]
         public int? Rows { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SchemaVersion
+        /// </summary>
+        /*
+        <example>1</example>
+        */
+        [DataMember(Name = "schemaVersion", EmitDefaultValue = false)]
+        public int SchemaVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets Search
@@ -301,6 +346,15 @@ namespace VRChat.API.Model
         /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
         [DataMember(Name = "showInWorldIds", EmitDefaultValue = true)]
         public Object ShowInWorldIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Subtitle
+        /// </summary>
+        /*
+        <example>Hangouts where everyone&#39;s still finding their feet</example>
+        */
+        [DataMember(Name = "subtitle", EmitDefaultValue = false)]
+        public string Subtitle { get; set; }
 
         /// <summary>
         /// Gets or Sets Template
@@ -378,6 +432,8 @@ namespace VRChat.API.Model
             sb.Append("  Categories: ").Append(Categories).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  ContentList: ").Append(ContentList).Append("\n");
+            sb.Append("  ContentSource: ").Append(ContentSource).Append("\n");
+            sb.Append("  Controls: ").Append(Controls).Append("\n");
             sb.Append("  Cta: ").Append(Cta).Append("\n");
             sb.Append("  DeliveryBehavior: ").Append(DeliveryBehavior).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -396,10 +452,14 @@ namespace VRChat.API.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
             sb.Append("  OverrideName: ").Append(OverrideName).Append("\n");
+            sb.Append("  Presentation: ").Append(Presentation).Append("\n");
+            sb.Append("  Promotion: ").Append(Promotion).Append("\n");
             sb.Append("  Rows: ").Append(Rows).Append("\n");
+            sb.Append("  SchemaVersion: ").Append(SchemaVersion).Append("\n");
             sb.Append("  Search: ").Append(Search).Append("\n");
             sb.Append("  ShortName: ").Append(ShortName).Append("\n");
             sb.Append("  ShowInWorldIds: ").Append(ShowInWorldIds).Append("\n");
+            sb.Append("  Subtitle: ").Append(Subtitle).Append("\n");
             sb.Append("  Template: ").Append(Template).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
@@ -484,6 +544,17 @@ namespace VRChat.API.Model
                     this.ContentList == input.ContentList ||
                     (this.ContentList != null &&
                     this.ContentList.Equals(input.ContentList))
+                ) && 
+                (
+                    this.ContentSource == input.ContentSource ||
+                    (this.ContentSource != null &&
+                    this.ContentSource.Equals(input.ContentSource))
+                ) && 
+                (
+                    this.Controls == input.Controls ||
+                    this.Controls != null &&
+                    input.Controls != null &&
+                    this.Controls.SequenceEqual(input.Controls)
                 ) && 
                 (
                     this.Cta == input.Cta ||
@@ -576,9 +647,23 @@ namespace VRChat.API.Model
                     this.OverrideName.Equals(input.OverrideName))
                 ) && 
                 (
+                    this.Presentation == input.Presentation ||
+                    (this.Presentation != null &&
+                    this.Presentation.Equals(input.Presentation))
+                ) && 
+                (
+                    this.Promotion == input.Promotion ||
+                    (this.Promotion != null &&
+                    this.Promotion.Equals(input.Promotion))
+                ) && 
+                (
                     this.Rows == input.Rows ||
                     (this.Rows != null &&
                     this.Rows.Equals(input.Rows))
+                ) && 
+                (
+                    this.SchemaVersion == input.SchemaVersion ||
+                    this.SchemaVersion.Equals(input.SchemaVersion)
                 ) && 
                 (
                     this.Search == input.Search ||
@@ -594,6 +679,11 @@ namespace VRChat.API.Model
                     this.ShowInWorldIds == input.ShowInWorldIds ||
                     (this.ShowInWorldIds != null &&
                     this.ShowInWorldIds.Equals(input.ShowInWorldIds))
+                ) && 
+                (
+                    this.Subtitle == input.Subtitle ||
+                    (this.Subtitle != null &&
+                    this.Subtitle.Equals(input.Subtitle))
                 ) && 
                 (
                     this.Template == input.Template ||
@@ -682,6 +772,14 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
                 }
+                if (this.ContentSource != null)
+                {
+                    hashCode = (hashCode * 59) + this.ContentSource.GetHashCode();
+                }
+                if (this.Controls != null)
+                {
+                    hashCode = (hashCode * 59) + this.Controls.GetHashCode();
+                }
                 if (this.Cta != null)
                 {
                     hashCode = (hashCode * 59) + this.Cta.GetHashCode();
@@ -748,10 +846,19 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.OverrideName.GetHashCode();
                 }
+                if (this.Presentation != null)
+                {
+                    hashCode = (hashCode * 59) + this.Presentation.GetHashCode();
+                }
+                if (this.Promotion != null)
+                {
+                    hashCode = (hashCode * 59) + this.Promotion.GetHashCode();
+                }
                 if (this.Rows != null)
                 {
                     hashCode = (hashCode * 59) + this.Rows.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.SchemaVersion.GetHashCode();
                 if (this.Search != null)
                 {
                     hashCode = (hashCode * 59) + this.Search.GetHashCode();
@@ -763,6 +870,10 @@ namespace VRChat.API.Model
                 if (this.ShowInWorldIds != null)
                 {
                     hashCode = (hashCode * 59) + this.ShowInWorldIds.GetHashCode();
+                }
+                if (this.Subtitle != null)
+                {
+                    hashCode = (hashCode * 59) + this.Subtitle.GetHashCode();
                 }
                 if (this.Template != null)
                 {
