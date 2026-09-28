@@ -98,6 +98,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
         /// <param name="activeFriends">activeFriends.</param>
+        /// <param name="allowWorldsToCountFriendsInInstance">The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026..</param>
         /// <param name="appleId">appleId.</param>
         /// <param name="authToken">The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register).</param>
         /// <param name="completedTutorials">completedTutorials.</param>
@@ -154,7 +155,7 @@ namespace VRChat.API.Model
         /// <param name="username">Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user..</param>
         /// <param name="usesGeneratedPassword">usesGeneratedPassword.</param>
         /// <param name="viveId">viveId.</param>
-        public UserResponse(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default, List<string> activeFriends = default, string appleId = default, string authToken = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DiscordDetails discordDetails = default, string discordId = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, bool isAdult = default, bool isBoopingEnabled = true, bool isTemporary = false, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, Object temporaryExpiryDate = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
+        public UserResponse(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default, List<string> activeFriends = default, bool allowWorldsToCountFriendsInInstance = default, string appleId = default, string authToken = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DiscordDetails discordDetails = default, string discordId = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, bool isAdult = default, bool isBoopingEnabled = true, bool isTemporary = false, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, Object temporaryExpiryDate = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -205,6 +206,7 @@ namespace VRChat.API.Model
             this.TravelingToWorld = travelingToWorld;
             this.WorldId = worldId;
             this.ActiveFriends = activeFriends;
+            this.AllowWorldsToCountFriendsInInstance = allowWorldsToCountFriendsInInstance;
             this.AppleId = appleId;
             this.AuthToken = authToken;
             this.CompletedTutorials = completedTutorials;
@@ -514,6 +516,13 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "activeFriends", EmitDefaultValue = false)]
         public List<string> ActiveFriends { get; set; }
+
+        /// <summary>
+        /// The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026.
+        /// </summary>
+        /// <value>The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026.</value>
+        [DataMember(Name = "allowWorldsToCountFriendsInInstance", EmitDefaultValue = true)]
+        public bool AllowWorldsToCountFriendsInInstance { get; set; }
 
         /// <summary>
         /// Gets or Sets AppleId
@@ -931,6 +940,7 @@ namespace VRChat.API.Model
             sb.Append("  TravelingToWorld: ").Append(TravelingToWorld).Append("\n");
             sb.Append("  WorldId: ").Append(WorldId).Append("\n");
             sb.Append("  ActiveFriends: ").Append(ActiveFriends).Append("\n");
+            sb.Append("  AllowWorldsToCountFriendsInInstance: ").Append(AllowWorldsToCountFriendsInInstance).Append("\n");
             sb.Append("  AppleId: ").Append(AppleId).Append("\n");
             sb.Append("  AuthToken: ").Append(AuthToken).Append("\n");
             sb.Append("  CompletedTutorials: ").Append(CompletedTutorials).Append("\n");
@@ -1218,6 +1228,10 @@ namespace VRChat.API.Model
                     this.ActiveFriends != null &&
                     input.ActiveFriends != null &&
                     this.ActiveFriends.SequenceEqual(input.ActiveFriends)
+                ) && 
+                (
+                    this.AllowWorldsToCountFriendsInInstance == input.AllowWorldsToCountFriendsInInstance ||
+                    this.AllowWorldsToCountFriendsInInstance.Equals(input.AllowWorldsToCountFriendsInInstance)
                 ) && 
                 (
                     this.AppleId == input.AppleId ||
@@ -1634,6 +1648,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ActiveFriends.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.AllowWorldsToCountFriendsInInstance.GetHashCode();
                 if (this.AppleId != null)
                 {
                     hashCode = (hashCode * 59) + this.AppleId.GetHashCode();

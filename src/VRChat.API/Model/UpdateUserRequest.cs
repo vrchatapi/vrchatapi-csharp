@@ -35,6 +35,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="UpdateUserRequest" /> class.
         /// </summary>
         /// <param name="acceptedTOSVersion">acceptedTOSVersion.</param>
+        /// <param name="allowWorldsToCountFriendsInInstance">The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026..</param>
         /// <param name="birthday">birthday.</param>
         /// <param name="contentFilters">These tags begin with &#x60;content_&#x60; and control content gating.</param>
         /// <param name="currentPassword">currentPassword.</param>
@@ -50,9 +51,10 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription.</param>
         /// <param name="tags">tags.</param>
         /// <param name="unsubscribe">unsubscribe.</param>
-        public UpdateUserRequest(int acceptedTOSVersion = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
+        public UpdateUserRequest(int acceptedTOSVersion = default, bool allowWorldsToCountFriendsInInstance = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
+            this.AllowWorldsToCountFriendsInInstance = allowWorldsToCountFriendsInInstance;
             this.Birthday = birthday;
             this.ContentFilters = contentFilters;
             this.CurrentPassword = currentPassword;
@@ -75,6 +77,13 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "acceptedTOSVersion", EmitDefaultValue = false)]
         public int AcceptedTOSVersion { get; set; }
+
+        /// <summary>
+        /// The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026.
+        /// </summary>
+        /// <value>The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026.</value>
+        [DataMember(Name = "allowWorldsToCountFriendsInInstance", EmitDefaultValue = true)]
+        public bool AllowWorldsToCountFriendsInInstance { get; set; }
 
         /// <summary>
         /// Gets or Sets Birthday
@@ -175,6 +184,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateUserRequest {\n");
             sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
+            sb.Append("  AllowWorldsToCountFriendsInInstance: ").Append(AllowWorldsToCountFriendsInInstance).Append("\n");
             sb.Append("  Birthday: ").Append(Birthday).Append("\n");
             sb.Append("  ContentFilters: ").Append(ContentFilters).Append("\n");
             sb.Append("  CurrentPassword: ").Append(CurrentPassword).Append("\n");
@@ -228,6 +238,10 @@ namespace VRChat.API.Model
                 (
                     this.AcceptedTOSVersion == input.AcceptedTOSVersion ||
                     this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
+                ) && 
+                (
+                    this.AllowWorldsToCountFriendsInInstance == input.AllowWorldsToCountFriendsInInstance ||
+                    this.AllowWorldsToCountFriendsInInstance.Equals(input.AllowWorldsToCountFriendsInInstance)
                 ) && 
                 (
                     this.Birthday == input.Birthday ||
@@ -311,6 +325,7 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowWorldsToCountFriendsInInstance.GetHashCode();
                 hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
                 if (this.ContentFilters != null)
                 {
