@@ -37,13 +37,14 @@ namespace VRChat.API.Model
         /// <param name="contentId">contentId (required).</param>
         /// <param name="contentName">contentName (required).</param>
         /// <param name="contentThumbnailImageUrl">contentThumbnailImageUrl (required).</param>
+        /// <param name="created">created (required).</param>
         /// <param name="description">The subjective reason for the report (required).</param>
         /// <param name="evidenceRequired">evidenceRequired (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="reason">Valid values are the strings in the array &#x60;$.reportOptions[type][category]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportReasons[type]&#x60;. (required).</param>
         /// <param name="supportRequired">supportRequired (required).</param>
         /// <param name="type">Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;. (required).</param>
-        public ModerationReport(string category = default, string contentId = default, string contentName = default, string contentThumbnailImageUrl = default, string description = default, bool evidenceRequired = default, string id = default, string reason = default, bool supportRequired = default, string type = default)
+        public ModerationReport(string category = default, string contentId = default, string contentName = default, string contentThumbnailImageUrl = default, DateTime created = default, string description = default, bool? evidenceRequired = default, string id = default, string reason = default, bool supportRequired = default, string type = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Category = category;
@@ -53,8 +54,10 @@ namespace VRChat.API.Model
             this.ContentName = contentName;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ContentThumbnailImageUrl = contentThumbnailImageUrl;
+            this.Created = created;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EvidenceRequired = evidenceRequired;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
@@ -97,6 +100,12 @@ namespace VRChat.API.Model
         public string ContentThumbnailImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets Created
+        /// </summary>
+        [DataMember(Name = "created", IsRequired = true, EmitDefaultValue = true)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
         /// The subjective reason for the report
         /// </summary>
         /// <value>The subjective reason for the report</value>
@@ -110,7 +119,7 @@ namespace VRChat.API.Model
         /// Gets or Sets EvidenceRequired
         /// </summary>
         [DataMember(Name = "evidenceRequired", IsRequired = true, EmitDefaultValue = true)]
-        public bool EvidenceRequired { get; set; }
+        public bool? EvidenceRequired { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -156,6 +165,7 @@ namespace VRChat.API.Model
             sb.Append("  ContentId: ").Append(ContentId).Append("\n");
             sb.Append("  ContentName: ").Append(ContentName).Append("\n");
             sb.Append("  ContentThumbnailImageUrl: ").Append(ContentThumbnailImageUrl).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EvidenceRequired: ").Append(EvidenceRequired).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -218,13 +228,18 @@ namespace VRChat.API.Model
                     this.ContentThumbnailImageUrl.Equals(input.ContentThumbnailImageUrl))
                 ) && 
                 (
+                    this.Created == input.Created ||
+                    this.Created.Equals(input.Created)
+                ) && 
+                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.EvidenceRequired == input.EvidenceRequired ||
-                    this.EvidenceRequired.Equals(input.EvidenceRequired)
+                    (this.EvidenceRequired != null &&
+                    this.EvidenceRequired.Equals(input.EvidenceRequired))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -272,11 +287,15 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ContentThumbnailImageUrl.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.EvidenceRequired.GetHashCode();
+                if (this.EvidenceRequired != null)
+                {
+                    hashCode = (hashCode * 59) + this.EvidenceRequired.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
