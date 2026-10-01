@@ -48,7 +48,8 @@ namespace VRChat.API.Model
         /// <param name="ownerId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="privacy">privacy.</param>
         /// <param name="shortCode">shortCode.</param>
-        public LimitedUserGroups(string bannerId = default, string bannerUrl = default, string description = default, string discriminator = default, string groupId = default, string iconId = default, string iconUrl = default, string id = default, bool isRepresenting = default, DateTime? lastPostCreatedAt = default, DateTime? lastPostReadAt = default, int memberCount = default, string memberVisibility = default, bool mutualGroup = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, string privacy = default, string shortCode = default)
+        /// <param name="storeId">storeId.</param>
+        public LimitedUserGroups(string bannerId = default, string bannerUrl = default, string description = default, string discriminator = default, string groupId = default, string iconId = default, string iconUrl = default, string id = default, bool isRepresenting = default, DateTime? lastPostCreatedAt = default, DateTime? lastPostReadAt = default, int memberCount = default, string memberVisibility = default, bool mutualGroup = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, string privacy = default, string shortCode = default, string storeId = default)
         {
             this.BannerId = bannerId;
             this.BannerUrl = bannerUrl;
@@ -70,6 +71,7 @@ namespace VRChat.API.Model
             this.OwnerId = ownerId;
             this.Privacy = privacy;
             this.ShortCode = shortCode;
+            this.StoreId = storeId;
         }
 
         /// <summary>
@@ -211,6 +213,15 @@ namespace VRChat.API.Model
         public string ShortCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets StoreId
+        /// </summary>
+        /*
+        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
+        */
+        [DataMember(Name = "storeId", EmitDefaultValue = false)]
+        public string StoreId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,6 +249,7 @@ namespace VRChat.API.Model
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  Privacy: ").Append(Privacy).Append("\n");
             sb.Append("  ShortCode: ").Append(ShortCode).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -369,6 +381,11 @@ namespace VRChat.API.Model
                     this.ShortCode == input.ShortCode ||
                     (this.ShortCode != null &&
                     this.ShortCode.Equals(input.ShortCode))
+                ) && 
+                (
+                    this.StoreId == input.StoreId ||
+                    (this.StoreId != null &&
+                    this.StoreId.Equals(input.StoreId))
                 );
         }
 
@@ -451,6 +468,10 @@ namespace VRChat.API.Model
                 if (this.ShortCode != null)
                 {
                     hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();
+                }
+                if (this.StoreId != null)
+                {
+                    hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
                 }
                 return hashCode;
             }

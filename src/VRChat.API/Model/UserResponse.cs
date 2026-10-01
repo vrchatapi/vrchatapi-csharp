@@ -70,6 +70,7 @@ namespace VRChat.API.Model
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="dateJoined">dateJoined (required).</param>
         /// <param name="developerType">developerType (required).</param>
+        /// <param name="discordId">discordId.</param>
         /// <param name="displayName">displayName (required).</param>
         /// <param name="friendKey">friendKey (required).</param>
         /// <param name="friendRequestStatus">State of a friend request between the caller and this user. VRChat sends the string &#x60;\&quot;null\&quot;&#x60;, not JSON &#x60;null&#x60;..</param>
@@ -108,7 +109,6 @@ namespace VRChat.API.Model
         /// <param name="currentAvatarTags">currentAvatarTags.</param>
         /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="discordDetails">discordDetails.</param>
-        /// <param name="discordId">https://discord.com/developers/docs/reference#snowflakes.</param>
         /// <param name="emailVerified">emailVerified.</param>
         /// <param name="fallbackAvatar">fallbackAvatar.</param>
         /// <param name="friendGroupNames">Always empty array..</param>
@@ -155,7 +155,7 @@ namespace VRChat.API.Model
         /// <param name="username">Your own unique name, used during login. Distinct from &#x60;displayName&#x60;, and never returned for another user..</param>
         /// <param name="usesGeneratedPassword">usesGeneratedPassword.</param>
         /// <param name="viveId">viveId.</param>
-        public UserResponse(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default, List<string> activeFriends = default, bool allowWorldsToCountFriendsInInstance = default, string appleId = default, string authToken = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DiscordDetails discordDetails = default, string discordId = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, bool isAdult = default, bool isBoopingEnabled = true, bool isTemporary = false, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, Object temporaryExpiryDate = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
+        public UserResponse(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, Object appleDetails = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, string lastActivity = default, string lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default, List<string> activeFriends = default, bool allowWorldsToCountFriendsInInstance = default, string appleId = default, string authToken = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DiscordDetails discordDetails = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, bool isAdult = default, bool isBoopingEnabled = true, bool isTemporary = false, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, Object temporaryExpiryDate = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -189,6 +189,7 @@ namespace VRChat.API.Model
             this.BannerColor = bannerColor;
             this.BannerType = bannerType;
             this.BannerUrl = bannerUrl;
+            this.DiscordId = discordId;
             this.FriendRequestStatus = friendRequestStatus;
             this.IconFrame = iconFrame;
             this.IconUrl = iconUrl;
@@ -216,7 +217,6 @@ namespace VRChat.API.Model
             this.CurrentAvatarTags = currentAvatarTags;
             this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.DiscordDetails = discordDetails;
-            this.DiscordId = discordId;
             this.EmailVerified = emailVerified;
             this.FallbackAvatar = fallbackAvatar;
             this.FriendGroupNames = friendGroupNames;
@@ -336,6 +336,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "date_joined", IsRequired = true, EmitDefaultValue = true)]
         public DateOnly DateJoined { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DiscordId
+        /// </summary>
+        [DataMember(Name = "discordId", EmitDefaultValue = false)]
+        public string DiscordId { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -590,16 +596,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "discordDetails", EmitDefaultValue = false)]
         public DiscordDetails DiscordDetails { get; set; }
-
-        /// <summary>
-        /// https://discord.com/developers/docs/reference#snowflakes
-        /// </summary>
-        /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
-        /*
-        <example>1280064052206370848</example>
-        */
-        [DataMember(Name = "discordId", EmitDefaultValue = false)]
-        public string DiscordId { get; set; }
 
         /// <summary>
         /// Gets or Sets EmailVerified
@@ -912,6 +908,7 @@ namespace VRChat.API.Model
             sb.Append("  BannerUrl: ").Append(BannerUrl).Append("\n");
             sb.Append("  DateJoined: ").Append(DateJoined).Append("\n");
             sb.Append("  DeveloperType: ").Append(DeveloperType).Append("\n");
+            sb.Append("  DiscordId: ").Append(DiscordId).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  FriendKey: ").Append(FriendKey).Append("\n");
             sb.Append("  FriendRequestStatus: ").Append(FriendRequestStatus).Append("\n");
@@ -950,7 +947,6 @@ namespace VRChat.API.Model
             sb.Append("  CurrentAvatarTags: ").Append(CurrentAvatarTags).Append("\n");
             sb.Append("  CurrentAvatarThumbnailImageUrl: ").Append(CurrentAvatarThumbnailImageUrl).Append("\n");
             sb.Append("  DiscordDetails: ").Append(DiscordDetails).Append("\n");
-            sb.Append("  DiscordId: ").Append(DiscordId).Append("\n");
             sb.Append("  EmailVerified: ").Append(EmailVerified).Append("\n");
             sb.Append("  FallbackAvatar: ").Append(FallbackAvatar).Append("\n");
             sb.Append("  FriendGroupNames: ").Append(FriendGroupNames).Append("\n");
@@ -1090,6 +1086,11 @@ namespace VRChat.API.Model
                 (
                     this.DeveloperType == input.DeveloperType ||
                     this.DeveloperType.Equals(input.DeveloperType)
+                ) && 
+                (
+                    this.DiscordId == input.DiscordId ||
+                    (this.DiscordId != null &&
+                    this.DiscordId.Equals(input.DiscordId))
                 ) && 
                 (
                     this.DisplayName == input.DisplayName ||
@@ -1280,11 +1281,6 @@ namespace VRChat.API.Model
                     this.DiscordDetails == input.DiscordDetails ||
                     (this.DiscordDetails != null &&
                     this.DiscordDetails.Equals(input.DiscordDetails))
-                ) && 
-                (
-                    this.DiscordId == input.DiscordId ||
-                    (this.DiscordId != null &&
-                    this.DiscordId.Equals(input.DiscordId))
                 ) && 
                 (
                     this.EmailVerified == input.EmailVerified ||
@@ -1548,6 +1544,10 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.DateJoined.GetHashCode();
                 hashCode = (hashCode * 59) + this.DeveloperType.GetHashCode();
+                if (this.DiscordId != null)
+                {
+                    hashCode = (hashCode * 59) + this.DiscordId.GetHashCode();
+                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
@@ -1684,10 +1684,6 @@ namespace VRChat.API.Model
                 if (this.DiscordDetails != null)
                 {
                     hashCode = (hashCode * 59) + this.DiscordDetails.GetHashCode();
-                }
-                if (this.DiscordId != null)
-                {
-                    hashCode = (hashCode * 59) + this.DiscordId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.EmailVerified.GetHashCode();
                 if (this.FallbackAvatar != null)
