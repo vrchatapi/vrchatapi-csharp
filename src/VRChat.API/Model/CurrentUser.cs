@@ -61,6 +61,7 @@ namespace VRChat.API.Model
         /// <param name="acceptedTOSVersion">acceptedTOSVersion (required).</param>
         /// <param name="accountDeletionDate">accountDeletionDate.</param>
         /// <param name="accountDeletionLog">accountDeletionLog.</param>
+        /// <param name="accountStanding">accountStanding.</param>
         /// <param name="activeFriends">activeFriends.</param>
         /// <param name="ageVerificationStatus">ageVerificationStatus (required).</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+). (required).</param>
@@ -155,7 +156,7 @@ namespace VRChat.API.Model
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, bool allowWorldsToCountFriendsInInstance = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, string accountStanding = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, bool allowWorldsToCountFriendsInInstance = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -226,6 +227,7 @@ namespace VRChat.API.Model
             this.AcceptedPrivacyVersion = acceptedPrivacyVersion;
             this.AccountDeletionDate = accountDeletionDate;
             this.AccountDeletionLog = accountDeletionLog;
+            this.AccountStanding = accountStanding;
             this.ActiveFriends = activeFriends;
             this.AllowWorldsToCountFriendsInInstance = allowWorldsToCountFriendsInInstance;
             this.AppleDetails = appleDetails;
@@ -309,6 +311,15 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "accountDeletionLog", EmitDefaultValue = true)]
         public List<AccountDeletionLog> AccountDeletionLog { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AccountStanding
+        /// </summary>
+        /*
+        <example>good</example>
+        */
+        [DataMember(Name = "accountStanding", EmitDefaultValue = false)]
+        public string AccountStanding { get; set; }
 
         /// <summary>
         /// Gets or Sets ActiveFriends
@@ -924,6 +935,7 @@ namespace VRChat.API.Model
             sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
             sb.Append("  AccountDeletionDate: ").Append(AccountDeletionDate).Append("\n");
             sb.Append("  AccountDeletionLog: ").Append(AccountDeletionLog).Append("\n");
+            sb.Append("  AccountStanding: ").Append(AccountStanding).Append("\n");
             sb.Append("  ActiveFriends: ").Append(ActiveFriends).Append("\n");
             sb.Append("  AgeVerificationStatus: ").Append(AgeVerificationStatus).Append("\n");
             sb.Append("  AgeVerified: ").Append(AgeVerified).Append("\n");
@@ -1071,6 +1083,11 @@ namespace VRChat.API.Model
                     this.AccountDeletionLog != null &&
                     input.AccountDeletionLog != null &&
                     this.AccountDeletionLog.SequenceEqual(input.AccountDeletionLog)
+                ) && 
+                (
+                    this.AccountStanding == input.AccountStanding ||
+                    (this.AccountStanding != null &&
+                    this.AccountStanding.Equals(input.AccountStanding))
                 ) && 
                 (
                     this.ActiveFriends == input.ActiveFriends ||
@@ -1545,6 +1562,10 @@ namespace VRChat.API.Model
                 if (this.AccountDeletionLog != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountDeletionLog.GetHashCode();
+                }
+                if (this.AccountStanding != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccountStanding.GetHashCode();
                 }
                 if (this.ActiveFriends != null)
                 {
