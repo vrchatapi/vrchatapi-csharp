@@ -41,9 +41,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LocationType
         /// </summary>
-        /*
-        <example>undefined</example>
-        */
         [DataMember(Name = "locationType", EmitDefaultValue = false)]
         public string LocationType { get; set; }
 
@@ -51,9 +48,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 

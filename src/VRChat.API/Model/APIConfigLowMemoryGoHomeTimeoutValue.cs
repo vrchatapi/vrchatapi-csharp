@@ -37,9 +37,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Timeout
         /// </summary>
-        /*
-        <example>-1</example>
-        */
         [DataMember(Name = "timeout", EmitDefaultValue = false)]
         public int Timeout { get; set; }
 

@@ -177,19 +177,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
-        [DataMember(Name = "imageId", EmitDefaultValue = false)]
+        [DataMember(Name = "imageId", EmitDefaultValue = true)]
         public string ImageId { get; set; }
 
         /// <summary>
@@ -226,9 +220,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
 
@@ -241,7 +232,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Recurrence
         /// </summary>
-        [DataMember(Name = "recurrence", EmitDefaultValue = false)]
+        [DataMember(Name = "recurrence", EmitDefaultValue = true)]
         public CalendarEventRecurrence Recurrence { get; set; }
 
         /// <summary>
@@ -254,10 +245,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SeriesId
         /// </summary>
-        /*
-        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
-        */
-        [DataMember(Name = "seriesId", EmitDefaultValue = false)]
+        [DataMember(Name = "seriesId", EmitDefaultValue = true)]
         public string SeriesId { get; set; }
 
         /// <summary>
@@ -282,9 +270,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        /*
-        <example>event</example>
-        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

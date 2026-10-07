@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="id">The id of this service, NOT the id of the thing this service was requested for. (required).</param>
         /// <param name="progress">progress (required).</param>
-        /// <param name="requesterUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="requesterUserId">The id of the user who requested this service. (required).</param>
         /// <param name="state">state (required).</param>
         /// <param name="subjectId">The id of the thing this service was requested for. (required).</param>
         /// <param name="subjectType">The kind of the thing this service was requested for. (required).</param>
@@ -82,12 +82,9 @@ namespace VRChat.API.Model
         public List<Object> Progress { get; set; }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// The id of the user who requested this service.
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
+        /// <value>The id of the user who requested this service.</value>
         [DataMember(Name = "requesterUserId", IsRequired = true, EmitDefaultValue = true)]
         public string RequesterUserId { get; set; }
 

@@ -140,9 +140,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        /*
-        <example>2025-06-13T05:00:45.455Z</example>
-        */
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
@@ -167,9 +164,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ExpiryDate
         /// </summary>
-        /*
-        <example>2025-06-13T05:00:45.455Z</example>
-        */
         [DataMember(Name = "expiryDate", EmitDefaultValue = true)]
         public DateTime? ExpiryDate { get; set; }
 
@@ -183,18 +177,12 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "holderId", IsRequired = true, EmitDefaultValue = true)]
         public string HolderId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -255,36 +243,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TemplateId
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateCreatedAt
         /// </summary>
-        /*
-        <example>2025-06-09T16:31:40.785Z</example>
-        */
         [DataMember(Name = "template_created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime TemplateCreatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateUpdatedAt
         /// </summary>
-        /*
-        <example>2025-06-25T00:34:14.578Z</example>
-        */
         [DataMember(Name = "template_updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime TemplateUpdatedAt { get; set; }
 
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        /*
-        <example>2025-06-25T00:34:15.965Z</example>
-        */
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 

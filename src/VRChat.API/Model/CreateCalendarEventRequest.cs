@@ -102,9 +102,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CloseInstanceAfterEndMinutes
         /// </summary>
-        /*
-        <example>5</example>
-        */
         [DataMember(Name = "closeInstanceAfterEndMinutes", EmitDefaultValue = false)]
         public int CloseInstanceAfterEndMinutes { get; set; }
 
@@ -130,27 +127,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GuestEarlyJoinMinutes
         /// </summary>
-        /*
-        <example>5</example>
-        */
         [DataMember(Name = "guestEarlyJoinMinutes", EmitDefaultValue = false)]
         public int GuestEarlyJoinMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets HostEarlyJoinMinutes
         /// </summary>
-        /*
-        <example>60</example>
-        */
         [DataMember(Name = "hostEarlyJoinMinutes", EmitDefaultValue = false)]
         public int HostEarlyJoinMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -169,9 +157,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ParentId
         /// </summary>
-        /*
-        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
-        */
         [DataMember(Name = "parentId", EmitDefaultValue = false)]
         public string ParentId { get; set; }
 
@@ -197,9 +182,6 @@ namespace VRChat.API.Model
         /// Send notification to group members.
         /// </summary>
         /// <value>Send notification to group members.</value>
-        /*
-        <example>false</example>
-        */
         [DataMember(Name = "sendCreationNotification", IsRequired = true, EmitDefaultValue = true)]
         public bool SendCreationNotification { get; set; }
 
@@ -220,18 +202,12 @@ namespace VRChat.API.Model
         /// Event title
         /// </summary>
         /// <value>Event title</value>
-        /*
-        <example>Performance Event!</example>
-        */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Gets or Sets UsesInstanceOverflow
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "usesInstanceOverflow", EmitDefaultValue = true)]
         public bool UsesInstanceOverflow { get; set; }
 

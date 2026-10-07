@@ -83,18 +83,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets HighlightListingId
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "highlightListingId", EmitDefaultValue = false)]
         public string HighlightListingId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>ess_964dd7aa-f881-4ba1-adf7-261e906b9189</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -113,18 +107,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ShelfBackgroundImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfBackgroundImageId", EmitDefaultValue = false)]
         public string ShelfBackgroundImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfClientBannerImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfClientBannerImageId", EmitDefaultValue = false)]
         public string ShelfClientBannerImageId { get; set; }
 
@@ -137,9 +125,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ShelfIconImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfIconImageId", EmitDefaultValue = false)]
         public string ShelfIconImageId { get; set; }
 
@@ -152,36 +137,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ShelfMobileHeroBannerImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfMobileHeroBannerImageId", EmitDefaultValue = false)]
         public string ShelfMobileHeroBannerImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfMobileLogoImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfMobileLogoImageId", EmitDefaultValue = false)]
         public string ShelfMobileLogoImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfMobileSecondaryBannerImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfMobileSecondaryBannerImageId", EmitDefaultValue = false)]
         public string ShelfMobileSecondaryBannerImageId { get; set; }
 
         /// <summary>
         /// Gets or Sets ShelfTabBackgroundImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "shelfTabBackgroundImageId", EmitDefaultValue = false)]
         public string ShelfTabBackgroundImageId { get; set; }
 

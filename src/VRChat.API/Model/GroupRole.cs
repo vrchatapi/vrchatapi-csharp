@@ -83,18 +83,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
-        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -137,9 +131,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ProductId
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "productId", EmitDefaultValue = false)]
         public string ProductId { get; set; }
 

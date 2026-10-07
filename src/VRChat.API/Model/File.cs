@@ -96,9 +96,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Extension
         /// </summary>
-        /*
-        <example>.unitypackage</example>
-        */
         [DataMember(Name = "extension", IsRequired = true, EmitDefaultValue = true)]
         public string Extension { get; set; }
 
@@ -119,27 +116,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ModifiedThumbnailFileName
         /// </summary>
-        /*
-        <example>thumbnails/file_00000000-0000-0000-0000-000000000000.ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff.1.modified-thumbnail-256.png</example>
-        */
         [DataMember(Name = "modifiedThumbnailFileName", EmitDefaultValue = false)]
         public string ModifiedThumbnailFileName { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /*
-        <example>Example File</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -147,9 +135,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 

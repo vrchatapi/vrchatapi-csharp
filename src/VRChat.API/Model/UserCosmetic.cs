@@ -74,18 +74,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateId
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public string TemplateId { get; set; }
 

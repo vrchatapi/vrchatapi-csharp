@@ -615,8 +615,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>Object</returns>
-        Object GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
+        /// <returns>GroupGalleryImageListResponse</returns>
+        GroupGalleryImageListResponse GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -631,8 +631,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
+        /// <returns>ApiResponse of GroupGalleryImageListResponse</returns>
+        ApiResponse<GroupGalleryImageListResponse> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -1018,12 +1018,12 @@ namespace VRChat.API.Api
         /// Search for members in the group by displayName.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>GroupMemberSearchResponse</returns>
-        GroupMemberSearchResponse SearchGroupMembers(string groupId, string query, int? n = default, int? offset = default);
+        GroupMemberSearchResponse SearchGroupMembers(string query, string groupId, int? n = default, int? offset = default);
 
         /// <summary>
         /// Search Group Members
@@ -1032,12 +1032,12 @@ namespace VRChat.API.Api
         /// Search for members in the group by displayName.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of GroupMemberSearchResponse</returns>
-        ApiResponse<GroupMemberSearchResponse> SearchGroupMembersWithHttpInfo(string groupId, string query, int? n = default, int? offset = default);
+        ApiResponse<GroupMemberSearchResponse> SearchGroupMembersWithHttpInfo(string query, string groupId, int? n = default, int? offset = default);
         /// <summary>
         /// Search Group
         /// </summary>
@@ -1888,8 +1888,8 @@ namespace VRChat.API.Api
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of GroupGalleryImageListResponse</returns>
+        System.Threading.Tasks.Task<GroupGalleryImageListResponse> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Gallery Images
@@ -1905,8 +1905,8 @@ namespace VRChat.API.Api
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (GroupGalleryImageListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GroupGalleryImageListResponse>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Instances
         /// </summary>
@@ -2324,13 +2324,13 @@ namespace VRChat.API.Api
         /// Search for members in the group by displayName.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMemberSearchResponse</returns>
-        System.Threading.Tasks.Task<GroupMemberSearchResponse> SearchGroupMembersAsync(string groupId, string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<GroupMemberSearchResponse> SearchGroupMembersAsync(string query, string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Group Members
@@ -2339,13 +2339,13 @@ namespace VRChat.API.Api
         /// Search for members in the group by displayName.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMemberSearchResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GroupMemberSearchResponse>> SearchGroupMembersWithHttpInfoAsync(string groupId, string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<GroupMemberSearchResponse>> SearchGroupMembersWithHttpInfoAsync(string query, string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search Group
         /// </summary>
@@ -6769,10 +6769,10 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>Object</returns>
-        public Object GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
+        /// <returns>GroupGalleryImageListResponse</returns>
+        public GroupGalleryImageListResponse GetGroupGalleryImages(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, v, approved);
+            VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse> localVarResponse = GetGroupGalleryImagesWithHttpInfo(groupId, groupGalleryId, n, offset, v, approved);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
@@ -6794,8 +6794,8 @@ namespace VRChat.API.Api
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public VRChat.API.Client.ApiResponse<Object> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
+        /// <returns>ApiResponse of GroupGalleryImageListResponse</returns>
+        public VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse> GetGroupGalleryImagesWithHttpInfo(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6850,13 +6850,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<Object>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<GroupGalleryImageListResponse>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryImageListResponse), ex.Message);
             }
         }
 
@@ -6871,10 +6871,10 @@ namespace VRChat.API.Api
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of GroupGalleryImageListResponse</returns>
+        public async System.Threading.Tasks.Task<GroupGalleryImageListResponse> GetGroupGalleryImagesAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, v, approved, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse> localVarResponse = await GetGroupGalleryImagesWithHttpInfoAsync(groupId, groupGalleryId, n, offset, v, approved, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupGalleryImages", localVarResponse);
@@ -6897,8 +6897,8 @@ namespace VRChat.API.Api
         /// <param name="v">Response version. &#x60;2&#x60; wraps the images in a paginated object. (optional)</param>
         /// <param name="approved">If specified, only returns images that have been approved or not approved. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (GroupGalleryImageListResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse>> GetGroupGalleryImagesWithHttpInfoAsync(string groupId, string groupGalleryId, int? n = default, int? offset = default, int? v = default, bool? approved = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6955,13 +6955,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<GroupGalleryImageListResponse>("/groups/{groupId}/galleries/{groupGalleryId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<GroupGalleryImageListResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(GroupGalleryImageListResponse), ex.Message);
             }
         }
 
@@ -9525,14 +9525,14 @@ namespace VRChat.API.Api
         /// Search Group Members Search for members in the group by displayName.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>GroupMemberSearchResponse</returns>
-        public GroupMemberSearchResponse SearchGroupMembers(string groupId, string query, int? n = default, int? offset = default)
+        public GroupMemberSearchResponse SearchGroupMembers(string query, string groupId, int? n = default, int? offset = default)
         {
-            VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> localVarResponse = SearchGroupMembersWithHttpInfo(groupId, query, n, offset);
+            VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> localVarResponse = SearchGroupMembersWithHttpInfo(query, groupId, n, offset);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
@@ -9548,20 +9548,20 @@ namespace VRChat.API.Api
         /// Search Group Members Search for members in the group by displayName.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <returns>ApiResponse of GroupMemberSearchResponse</returns>
-        public VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> SearchGroupMembersWithHttpInfo(string groupId, string query, int? n = default, int? offset = default)
+        public VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> SearchGroupMembersWithHttpInfo(string query, string groupId, int? n = default, int? offset = default)
         {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->SearchGroupMembers");
-
             // verify the required parameter 'query' is set
             if (query == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'query' when calling GroupsApi->SearchGroupMembers");
+
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->SearchGroupMembers");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -9614,15 +9614,15 @@ namespace VRChat.API.Api
         /// Search Group Members Search for members in the group by displayName.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupMemberSearchResponse</returns>
-        public async System.Threading.Tasks.Task<GroupMemberSearchResponse> SearchGroupMembersAsync(string groupId, string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<GroupMemberSearchResponse> SearchGroupMembersAsync(string query, string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> localVarResponse = await SearchGroupMembersWithHttpInfoAsync(groupId, query, n, offset, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<GroupMemberSearchResponse> localVarResponse = await SearchGroupMembersWithHttpInfoAsync(query, groupId, n, offset, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchGroupMembers", localVarResponse);
@@ -9638,21 +9638,21 @@ namespace VRChat.API.Api
         /// Search Group Members Search for members in the group by displayName.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="query">Filter for member displayName.</param>
+        /// <param name="groupId">Must be a valid group ID.</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GroupMemberSearchResponse)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMemberSearchResponse>> SearchGroupMembersWithHttpInfoAsync(string groupId, string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<GroupMemberSearchResponse>> SearchGroupMembersWithHttpInfoAsync(string query, string groupId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->SearchGroupMembers");
-
             // verify the required parameter 'query' is set
             if (query == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'query' when calling GroupsApi->SearchGroupMembers");
+
+            // verify the required parameter 'groupId' is set
+            if (groupId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'groupId' when calling GroupsApi->SearchGroupMembers");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();

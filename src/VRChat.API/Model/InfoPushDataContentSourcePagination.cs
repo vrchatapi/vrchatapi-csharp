@@ -54,45 +54,30 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CursorParam
         /// </summary>
-        /*
-        <example>nextCursor</example>
-        */
         [DataMember(Name = "cursorParam", IsRequired = true, EmitDefaultValue = true)]
         public string CursorParam { get; set; }
 
         /// <summary>
         /// Gets or Sets CursorResponseField
         /// </summary>
-        /*
-        <example>nextCursor</example>
-        */
         [DataMember(Name = "cursorResponseField", IsRequired = true, EmitDefaultValue = true)]
         public string CursorResponseField { get; set; }
 
         /// <summary>
         /// Gets or Sets PageSize
         /// </summary>
-        /*
-        <example>50</example>
-        */
         [DataMember(Name = "pageSize", IsRequired = true, EmitDefaultValue = true)]
         public int PageSize { get; set; }
 
         /// <summary>
         /// Gets or Sets PageSizeParam
         /// </summary>
-        /*
-        <example>n</example>
-        */
         [DataMember(Name = "pageSizeParam", IsRequired = true, EmitDefaultValue = true)]
         public string PageSizeParam { get; set; }
 
         /// <summary>
         /// Gets or Sets Style
         /// </summary>
-        /*
-        <example>cursor</example>
-        */
         [DataMember(Name = "style", IsRequired = true, EmitDefaultValue = true)]
         public string Style { get; set; }
 

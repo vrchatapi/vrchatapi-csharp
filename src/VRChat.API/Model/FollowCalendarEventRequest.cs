@@ -42,9 +42,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IsFollowing
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "isFollowing", IsRequired = true, EmitDefaultValue = true)]
         public bool IsFollowing { get; set; }
 

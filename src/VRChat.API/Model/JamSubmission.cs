@@ -78,18 +78,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>jsub_f01f44fa-89fa-443c-ab4c-7fed9245970f</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets JamId
         /// </summary>
-        /*
-        <example>jam_0b7e3f6d-4647-4648-b2a1-1431e76906d9</example>
-        */
         [DataMember(Name = "jamId", IsRequired = true, EmitDefaultValue = true)]
         public string JamId { get; set; }
 
@@ -103,9 +97,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "submitterId", IsRequired = true, EmitDefaultValue = true)]
         public string SubmitterId { get; set; }
 

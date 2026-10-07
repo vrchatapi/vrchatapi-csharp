@@ -132,36 +132,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
         [DataMember(Name = "groupId", EmitDefaultValue = false)]
         public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupRoleId
         /// </summary>
-        /*
-        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
-        */
         [DataMember(Name = "groupRoleId", EmitDefaultValue = false)]
         public string GroupRoleId { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 

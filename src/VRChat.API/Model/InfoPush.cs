@@ -120,9 +120,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>launch-beta</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -165,9 +162,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        /*
-        <example>ContentShelf</example>
-        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 

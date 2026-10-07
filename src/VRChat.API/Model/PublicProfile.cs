@@ -145,9 +145,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
@@ -155,9 +152,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
@@ -189,9 +183,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -228,9 +219,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CurrentAvatar
         /// </summary>
-        /*
-        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
-        */
         [DataMember(Name = "currentAvatar", EmitDefaultValue = false)]
         public string CurrentAvatar { get; set; }
 
@@ -244,9 +232,6 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
-        */
         [DataMember(Name = "currentAvatarImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarImageUrl { get; set; }
 
@@ -266,9 +251,6 @@ namespace VRChat.API.Model
         /// When profilePicOverride is not empty, use it instead.
         /// </summary>
         /// <value>When profilePicOverride is not empty, use it instead.</value>
-        /*
-        <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
-        */
         [DataMember(Name = "currentAvatarThumbnailImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
@@ -312,9 +294,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
@@ -357,7 +336,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets RepresentedGroup
         /// </summary>
-        [DataMember(Name = "representedGroup", EmitDefaultValue = false)]
+        [DataMember(Name = "representedGroup", EmitDefaultValue = true)]
         public ProfileRepresentedGroup RepresentedGroup { get; set; }
 
         /// <summary>
@@ -370,9 +349,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
@@ -380,9 +356,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
@@ -396,9 +369,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }
 

@@ -41,7 +41,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="accessType">accessType (required).</param>
         /// <param name="description">The description of the calendar event. (required).</param>
-        /// <param name="imageId">imageId (required).</param>
+        /// <param name="imageId">The image file ID for the event. (required).</param>
         /// <param name="title">The title of the calendar event. (required).</param>
         /// <param name="type">The type of calendar entry. (required).</param>
         public GroupAuditLogEntryDataGroupCalendarEventCreate(CalendarEventAccess accessType = default, string description = default, string imageId = default, string title = default, string type = default)
@@ -65,11 +65,9 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageId
+        /// The image file ID for the event.
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
+        /// <value>The image file ID for the event.</value>
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 

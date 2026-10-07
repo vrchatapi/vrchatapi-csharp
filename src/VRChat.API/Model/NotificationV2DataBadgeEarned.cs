@@ -55,9 +55,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets BadgeId
         /// </summary>
-        /*
-        <example>bdg_a60e514a-8cb7-4702-8f24-2786992be1a8</example>
-        */
         [DataMember(Name = "badgeId", IsRequired = true, EmitDefaultValue = true)]
         public string BadgeId { get; set; }
 

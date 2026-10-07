@@ -64,7 +64,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ActivePayout
         /// </summary>
-        [DataMember(Name = "activePayout", EmitDefaultValue = false)]
+        [DataMember(Name = "activePayout", EmitDefaultValue = true)]
         public EconomyPayout ActivePayout { get; set; }
 
         /// <summary>

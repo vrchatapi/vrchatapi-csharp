@@ -28,7 +28,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationDetailRequestInvite" /> class.
         /// </summary>
-        /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
+        /// <param name="platform">TODO: Does this still exist?.</param>
         /// <param name="requestMessage">Used when using InviteMessage Slot..</param>
         public NotificationDetailRequestInvite(string platform = default, string requestMessage = default)
         {
@@ -37,12 +37,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
+        /// TODO: Does this still exist?
         /// </summary>
-        /// <value>This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        /*
-        <example>standalonewindows</example>
-        */
+        /// <value>TODO: Does this still exist?</value>
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 

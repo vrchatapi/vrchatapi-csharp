@@ -47,9 +47,6 @@ namespace VRChat.API.Model
         /// The text to show when &#x60;key&#x60; cannot be resolved.
         /// </summary>
         /// <value>The text to show when &#x60;key&#x60; cannot be resolved.</value>
-        /*
-        <example>carnival</example>
-        */
         [DataMember(Name = "fallback", IsRequired = true, EmitDefaultValue = true)]
         public string Fallback { get; set; }
 
@@ -57,9 +54,6 @@ namespace VRChat.API.Model
         /// The localization key.
         /// </summary>
         /// <value>The localization key.</value>
-        /*
-        <example>SuggestedSearch/Carnival/Name/carnival</example>
-        */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 

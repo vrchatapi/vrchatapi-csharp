@@ -186,9 +186,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Active
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "active", EmitDefaultValue = true)]
         public bool Active { get; set; }
 
@@ -207,28 +204,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CanRequestInvite
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "canRequestInvite", EmitDefaultValue = true)]
         public bool CanRequestInvite { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        /*
-        <example>8</example>
-        */
         [DataMember(Name = "capacity", EmitDefaultValue = false)]
         public int Capacity { get; set; }
 
         /// <summary>
         /// Gets or Sets CategoryId
         /// </summary>
-        /*
-        <example>icat_44bc6a70-493f-4f84-8a3b-1f290c864c2a</example>
-        */
-        [DataMember(Name = "categoryId", EmitDefaultValue = false)]
+        [DataMember(Name = "categoryId", EmitDefaultValue = true)]
         public string CategoryId { get; set; }
 
         /// <summary>
@@ -261,10 +249,7 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
-        [DataMember(Name = "creatorId", EmitDefaultValue = false)]
+        [DataMember(Name = "creatorId", EmitDefaultValue = true)]
         public string CreatorId { get; set; }
 
         /// <summary>
@@ -288,10 +273,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets DisplayVibeId
         /// </summary>
-        /*
-        <example>ivib_2d8445c4-f47b-4635-b565-467fc32c4003</example>
-        */
-        [DataMember(Name = "displayVibeId", EmitDefaultValue = false)]
+        [DataMember(Name = "displayVibeId", EmitDefaultValue = true)]
         public string DisplayVibeId { get; set; }
 
         /// <summary>
@@ -304,9 +286,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "friends", EmitDefaultValue = false)]
         public string Friends { get; set; }
 
@@ -338,9 +317,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "hidden", EmitDefaultValue = false)]
         public string Hidden { get; set; }
 
@@ -348,9 +324,6 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        /*
-        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -358,9 +331,6 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        /*
-        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
@@ -393,9 +363,6 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
         [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
         public string Location { get; set; }
 
@@ -408,18 +375,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets NUsers
         /// </summary>
-        /*
-        <example>6</example>
-        */
         [DataMember(Name = "n_users", IsRequired = true, EmitDefaultValue = true)]
         public int NUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /*
-        <example>12345</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -433,9 +394,6 @@ namespace VRChat.API.Model
         /// A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise
         /// </summary>
         /// <value>A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "ownerId", EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -461,9 +419,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "private", EmitDefaultValue = false)]
         public string Private { get; set; }
 
@@ -476,18 +431,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets QueueSize
         /// </summary>
-        /*
-        <example>6</example>
-        */
         [DataMember(Name = "queueSize", IsRequired = true, EmitDefaultValue = true)]
         public int QueueSize { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
-        /*
-        <example>6</example>
-        */
         [DataMember(Name = "recommendedCapacity", IsRequired = true, EmitDefaultValue = true)]
         public int RecommendedCapacity { get; set; }
 
@@ -500,18 +449,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        /*
-        <example>7eavhhng</example>
-        */
         [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortName
         /// </summary>
-        /*
-        <example>02u7yz8j</example>
-        */
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
         public string ShortName { get; set; }
 
@@ -525,18 +468,12 @@ namespace VRChat.API.Model
         /// The tags array on Instances usually contain the language tags of the people in the instance. 
         /// </summary>
         /// <value>The tags array on Instances usually contain the language tags of the people in the instance. </value>
-        /*
-        <example>[&quot;language_eng&quot;,&quot;language_jpn&quot;,&quot;show_social_rank&quot;]</example>
-        */
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or Sets UserCount
         /// </summary>
-        /*
-        <example>6</example>
-        */
         [DataMember(Name = "userCount", IsRequired = true, EmitDefaultValue = true)]
         public int UserCount { get; set; }
 
@@ -569,9 +506,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
         public string WorldId { get; set; }
 

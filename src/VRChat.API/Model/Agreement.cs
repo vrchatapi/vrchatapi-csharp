@@ -68,9 +68,6 @@ namespace VRChat.API.Model
         /// The full text of the agreement.
         /// </summary>
         /// <value>The full text of the agreement.</value>
-        /*
-        <example>By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.</example>
-        */
         [DataMember(Name = "agreementFulltext", EmitDefaultValue = false)]
         public string AgreementFulltext { get; set; }
 
@@ -78,9 +75,6 @@ namespace VRChat.API.Model
         /// The id of the content being uploaded, such as a WorldID, AvatarID, or PropID.
         /// </summary>
         /// <value>The id of the content being uploaded, such as a WorldID, AvatarID, or PropID.</value>
-        /*
-        <example>avtr_c38a1615-5bf5-42b4-84eb-a8b6c37cbd11</example>
-        */
         [DataMember(Name = "contentId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentId { get; set; }
 
@@ -108,9 +102,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public string UserId { get; set; }
 
@@ -118,9 +109,6 @@ namespace VRChat.API.Model
         /// The version of the agreement.
         /// </summary>
         /// <value>The version of the agreement.</value>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int VarVersion { get; set; }
 

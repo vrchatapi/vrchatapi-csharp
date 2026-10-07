@@ -43,36 +43,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Default
         /// </summary>
-        /*
-        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
-        */
         [DataMember(Name = "Default", EmitDefaultValue = false)]
         public string Default { get; set; }
 
         /// <summary>
         /// Gets or Sets Pico
         /// </summary>
-        /*
-        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
-        */
         [DataMember(Name = "Pico", EmitDefaultValue = false)]
         public string Pico { get; set; }
 
         /// <summary>
         /// Gets or Sets Quest
         /// </summary>
-        /*
-        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
-        */
         [DataMember(Name = "Quest", EmitDefaultValue = false)]
         public string Quest { get; set; }
 
         /// <summary>
         /// Gets or Sets XRElite
         /// </summary>
-        /*
-        <example>https://help.vrchat.com/hc/en-us/articles/9521522810899-Where-do-I-find-my-output-logs#h_01HT1ZV67JGKX5AE4R1P28XMXR</example>
-        */
         [DataMember(Name = "XRElite", EmitDefaultValue = false)]
         public string XRElite { get; set; }
 

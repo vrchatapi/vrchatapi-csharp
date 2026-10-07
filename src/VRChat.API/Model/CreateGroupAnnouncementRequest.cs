@@ -50,9 +50,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "imageId", EmitDefaultValue = false)]
         public string ImageId { get; set; }
 
@@ -60,9 +57,6 @@ namespace VRChat.API.Model
         /// Send notification to group members.
         /// </summary>
         /// <value>Send notification to group members.</value>
-        /*
-        <example>false</example>
-        */
         [DataMember(Name = "sendNotification", EmitDefaultValue = true)]
         public bool SendNotification { get; set; }
 
@@ -70,9 +64,6 @@ namespace VRChat.API.Model
         /// Announcement text
         /// </summary>
         /// <value>Announcement text</value>
-        /*
-        <example>Come join us for the event!</example>
-        */
         [DataMember(Name = "text", IsRequired = true, EmitDefaultValue = true)]
         public string Text { get; set; }
 
@@ -80,9 +71,6 @@ namespace VRChat.API.Model
         /// Announcement title
         /// </summary>
         /// <value>Announcement title</value>
-        /*
-        <example>Event is starting soon!</example>
-        */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

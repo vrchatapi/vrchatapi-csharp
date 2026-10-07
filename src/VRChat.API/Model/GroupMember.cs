@@ -117,9 +117,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
         [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
 
@@ -133,9 +130,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>gmem_95cdb3b4-4643-4eb6-bdab-46a4e1e5ce37</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -143,9 +137,6 @@ namespace VRChat.API.Model
         /// Whether the user is representing the group. This makes the group show up above the name tag in-game.
         /// </summary>
         /// <value>Whether the user is representing the group. This makes the group show up above the name tag in-game.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "isRepresenting", IsRequired = true, EmitDefaultValue = true)]
         public bool IsRepresenting { get; set; }
 
@@ -196,25 +187,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public GroupMemberLimitedUser User { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public string UserId { get; set; }
 
         /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
-        /*
-        <example>visible</example>
-        */
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
         public string Visibility { get; set; }
 

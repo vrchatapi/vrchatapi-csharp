@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="accessType">accessType (required).</param>
         /// <param name="description">The description of the calendar event. (required).</param>
-        /// <param name="imageId">imageId (required).</param>
+        /// <param name="imageId">The image file ID for the event. (required).</param>
         /// <param name="title">The title of the calendar event. (required).</param>
         /// <param name="type">The type of calendar entry. (required).</param>
         /// <param name="category">The category of the event. (required).</param>
@@ -64,9 +64,9 @@ namespace VRChat.API.Model
         /// <param name="languages">The languages for the event. (required).</param>
         /// <param name="occurrenceKind">occurrenceKind (required).</param>
         /// <param name="occurrenceModified">occurrenceModified (required).</param>
-        /// <param name="ownerId">ownerId (required).</param>
+        /// <param name="ownerId">The ID of the group that owns the event. (required).</param>
         /// <param name="platforms">The supported platforms. (required).</param>
-        /// <param name="recurrence">recurrence (required).</param>
+        /// <param name="recurrence">The recurrence rule. (required).</param>
         /// <param name="roleIds">Group roles that may join this event. (required).</param>
         /// <param name="seriesId">The ID of the recurring series the event belongs to. (required).</param>
         /// <param name="shortCode">The short code. (required).</param>
@@ -130,11 +130,9 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageId
+        /// The image file ID for the event.
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
+        /// <value>The image file ID for the event.</value>
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 
@@ -243,11 +241,9 @@ namespace VRChat.API.Model
         public string OccurrenceModified { get; set; }
 
         /// <summary>
-        /// Gets or Sets OwnerId
+        /// The ID of the group that owns the event.
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The ID of the group that owns the event.</value>
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -259,8 +255,9 @@ namespace VRChat.API.Model
         public List<string> Platforms { get; set; }
 
         /// <summary>
-        /// Gets or Sets Recurrence
+        /// The recurrence rule.
         /// </summary>
+        /// <value>The recurrence rule.</value>
         [DataMember(Name = "recurrence", IsRequired = true, EmitDefaultValue = true)]
         public CalendarEventRecurrence Recurrence { get; set; }
 

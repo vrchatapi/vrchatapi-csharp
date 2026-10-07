@@ -52,9 +52,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
-        /*
-        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
-        */
         [DataMember(Name = "storeId", EmitDefaultValue = false)]
         public string StoreId { get; set; }
 
@@ -62,9 +59,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 

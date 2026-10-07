@@ -45,18 +45,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SecureName
         /// </summary>
-        /*
-        <example>7eavhhng</example>
-        */
         [DataMember(Name = "secureName", IsRequired = true, EmitDefaultValue = true)]
         public string SecureName { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortName
         /// </summary>
-        /*
-        <example>02u7yz8j</example>
-        */
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
         public string ShortName { get; set; }
 

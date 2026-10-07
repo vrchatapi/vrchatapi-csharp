@@ -46,9 +46,6 @@ namespace VRChat.API.Model
         /// https://discord.com/developers/docs/reference#snowflakes
         /// </summary>
         /// <value>https://discord.com/developers/docs/reference#snowflakes</value>
-        /*
-        <example>1280064052206370848</example>
-        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 

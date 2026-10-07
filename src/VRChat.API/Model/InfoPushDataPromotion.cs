@@ -51,18 +51,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>kaguyaEN-content</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Impressions
         /// </summary>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "impressions", IsRequired = true, EmitDefaultValue = true)]
         public int Impressions { get; set; }
 
@@ -75,9 +69,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        /*
-        <example>notification</example>
-        */
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

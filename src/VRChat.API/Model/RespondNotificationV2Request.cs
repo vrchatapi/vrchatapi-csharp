@@ -52,19 +52,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ResponseType
         /// </summary>
-        /*
-        <example>Accept:
-  value: accept
-Boop:
-  value: boop
-Decline:
-  value: decline
-Delete:
-  value: delete
-Unsubscribe:
-  value: unsubscribe
-</example>
-        */
         [DataMember(Name = "responseType", IsRequired = true, EmitDefaultValue = true)]
         public string ResponseType { get; set; }
 

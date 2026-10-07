@@ -41,9 +41,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets EmojiId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "emojiId", EmitDefaultValue = false)]
         public string EmojiId { get; set; }
 
@@ -56,9 +53,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets InventoryItemId
         /// </summary>
-        /*
-        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
-        */
         [DataMember(Name = "inventoryItemId", EmitDefaultValue = false)]
         public string InventoryItemId { get; set; }
 

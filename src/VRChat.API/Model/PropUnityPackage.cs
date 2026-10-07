@@ -57,18 +57,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AssetUrl
         /// </summary>
-        /*
-        <example>https://api.vrchat.cloud/api/1/file/file_c991c050-8b43-4046-8182-24d068524ac5/24/file</example>
-        */
         [DataMember(Name = "assetUrl", IsRequired = true, EmitDefaultValue = true)]
         public string AssetUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets AssetVersion
         /// </summary>
-        /*
-        <example>4</example>
-        */
         [DataMember(Name = "assetVersion", IsRequired = true, EmitDefaultValue = true)]
         public int AssetVersion { get; set; }
 
@@ -76,9 +70,6 @@ namespace VRChat.API.Model
         /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        /*
-        <example>standalonewindows</example>
-        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
@@ -91,9 +82,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UnityVersion
         /// </summary>
-        /*
-        <example>2022.3.22f1</example>
-        */
         [DataMember(Name = "unityVersion", IsRequired = true, EmitDefaultValue = true)]
         public string UnityVersion { get; set; }
 

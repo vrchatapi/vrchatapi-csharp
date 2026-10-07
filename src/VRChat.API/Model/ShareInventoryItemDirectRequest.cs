@@ -46,9 +46,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ItemId
         /// </summary>
-        /*
-        <example>inv_10bce5b0-2d2b-44e0-900d-db6534615162</example>
-        */
         [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
         public string ItemId { get; set; }
 

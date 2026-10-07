@@ -59,9 +59,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TargetAvatarId
         /// </summary>
-        /*
-        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
-        */
         [DataMember(Name = "targetAvatarId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetAvatarId { get; set; }
 

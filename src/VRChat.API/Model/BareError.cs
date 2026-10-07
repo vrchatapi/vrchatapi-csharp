@@ -43,9 +43,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Error
         /// </summary>
-        /*
-        <example>You&#39;re not who I was expecting!</example>
-        */
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 

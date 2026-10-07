@@ -72,18 +72,12 @@ namespace VRChat.API.Model
         /// Valid values are the keys of the object &#x60;$.reportOptions[type]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportCategories[type]&#x60;.
         /// </summary>
         /// <value>Valid values are the keys of the object &#x60;$.reportOptions[type]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportCategories[type]&#x60;.</value>
-        /*
-        <example>behavior</example>
-        */
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 
         /// <summary>
         /// Gets or Sets ContentId
         /// </summary>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "contentId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentId { get; set; }
 
@@ -109,9 +103,6 @@ namespace VRChat.API.Model
         /// The subjective reason for the report
         /// </summary>
         /// <value>The subjective reason for the report</value>
-        /*
-        <example>iz bulli</example>
-        */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -124,9 +115,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>modReport_a09eb23c-2c62-4ea9-b885-6198f23c5313</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -147,9 +135,6 @@ namespace VRChat.API.Model
         /// Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;.
         /// </summary>
         /// <value>Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;.</value>
-        /*
-        <example>user</example>
-        */
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

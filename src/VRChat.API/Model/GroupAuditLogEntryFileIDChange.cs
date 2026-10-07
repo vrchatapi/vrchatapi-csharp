@@ -46,18 +46,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets New
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "new", IsRequired = true, EmitDefaultValue = true)]
         public string New { get; set; }
 
         /// <summary>
         /// Gets or Sets Old
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "old", IsRequired = true, EmitDefaultValue = true)]
         public string Old { get; set; }
 

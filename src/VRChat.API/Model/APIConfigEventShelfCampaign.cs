@@ -48,27 +48,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        /*
-        <example>Include this event in the VRChat Tanabata event shelf.</example>
-        */
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        /*
-        <example>tanabata</example>
-        */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /*
-        <example>Tanabata Homeworld Moderation</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

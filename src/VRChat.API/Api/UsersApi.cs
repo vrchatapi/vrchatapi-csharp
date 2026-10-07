@@ -782,8 +782,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
-        /// <returns>Object</returns>
-        Object UpdateUserNote(UpdateUserNoteRequest updateUserNoteRequest);
+        /// <returns>UpdateUserNoteResponse</returns>
+        UpdateUserNoteResponse UpdateUserNote(UpdateUserNoteRequest updateUserNoteRequest);
 
         /// <summary>
         /// Update User Note
@@ -793,8 +793,8 @@ namespace VRChat.API.Api
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> UpdateUserNoteWithHttpInfo(UpdateUserNoteRequest updateUserNoteRequest);
+        /// <returns>ApiResponse of UpdateUserNoteResponse</returns>
+        ApiResponse<UpdateUserNoteResponse> UpdateUserNoteWithHttpInfo(UpdateUserNoteRequest updateUserNoteRequest);
         #endregion Synchronous Operations
     }
 
@@ -1634,8 +1634,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> UpdateUserNoteAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of UpdateUserNoteResponse</returns>
+        System.Threading.Tasks.Task<UpdateUserNoteResponse> UpdateUserNoteAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update User Note
@@ -1646,8 +1646,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateUserNoteWithHttpInfoAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (UpdateUserNoteResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UpdateUserNoteResponse>> UpdateUserNoteWithHttpInfoAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -6976,10 +6976,10 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
-        /// <returns>Object</returns>
-        public Object UpdateUserNote(UpdateUserNoteRequest updateUserNoteRequest)
+        /// <returns>UpdateUserNoteResponse</returns>
+        public UpdateUserNoteResponse UpdateUserNote(UpdateUserNoteRequest updateUserNoteRequest)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateUserNoteWithHttpInfo(updateUserNoteRequest);
+            VRChat.API.Client.ApiResponse<UpdateUserNoteResponse> localVarResponse = UpdateUserNoteWithHttpInfo(updateUserNoteRequest);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateUserNote", localVarResponse);
@@ -6996,8 +6996,8 @@ namespace VRChat.API.Api
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
-        /// <returns>ApiResponse of Object</returns>
-        public VRChat.API.Client.ApiResponse<Object> UpdateUserNoteWithHttpInfo(UpdateUserNoteRequest updateUserNoteRequest)
+        /// <returns>ApiResponse of UpdateUserNoteResponse</returns>
+        public VRChat.API.Client.ApiResponse<UpdateUserNoteResponse> UpdateUserNoteWithHttpInfo(UpdateUserNoteRequest updateUserNoteRequest)
         {
             // verify the required parameter 'updateUserNoteRequest' is set
             if (updateUserNoteRequest == null)
@@ -7032,13 +7032,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Post<Object>("/userNotes", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Post<UpdateUserNoteResponse>("/userNotes", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UpdateUserNoteResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UpdateUserNoteResponse), ex.Message);
             }
         }
 
@@ -7048,10 +7048,10 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> UpdateUserNoteAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of UpdateUserNoteResponse</returns>
+        public async System.Threading.Tasks.Task<UpdateUserNoteResponse> UpdateUserNoteAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateUserNoteWithHttpInfoAsync(updateUserNoteRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<UpdateUserNoteResponse> localVarResponse = await UpdateUserNoteWithHttpInfoAsync(updateUserNoteRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateUserNote", localVarResponse);
@@ -7069,8 +7069,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateUserNoteRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateUserNoteWithHttpInfoAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (UpdateUserNoteResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<UpdateUserNoteResponse>> UpdateUserNoteWithHttpInfoAsync(UpdateUserNoteRequest updateUserNoteRequest, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'updateUserNoteRequest' is set
             if (updateUserNoteRequest == null)
@@ -7107,13 +7107,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/userNotes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PostAsync<UpdateUserNoteResponse>("/userNotes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<UpdateUserNoteResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(UpdateUserNoteResponse), ex.Message);
             }
         }
 

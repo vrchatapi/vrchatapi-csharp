@@ -111,9 +111,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -126,9 +123,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CreatedAt
         /// </summary>
-        /*
-        <example>2025-06-12T20:21:15.056Z</example>
-        */
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
 
@@ -165,9 +159,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -210,9 +201,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ProductId
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "productId", EmitDefaultValue = false)]
         public string ProductId { get; set; }
 
@@ -225,9 +213,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        /*
-        <example>live</example>
-        */
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
@@ -240,9 +225,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UpdatedAt
         /// </summary>
-        /*
-        <example>2025-06-10T20:37:31.837Z</example>
-        */
         [DataMember(Name = "updated_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 

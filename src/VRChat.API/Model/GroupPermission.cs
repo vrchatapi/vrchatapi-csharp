@@ -48,9 +48,6 @@ namespace VRChat.API.Model
         /// Whether the user is allowed to add this permission to a role.
         /// </summary>
         /// <value>Whether the user is allowed to add this permission to a role.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "allowedToAdd", EmitDefaultValue = true)]
         public bool AllowedToAdd { get; set; }
 
@@ -65,9 +62,6 @@ namespace VRChat.API.Model
         /// The display name of the permission.
         /// </summary>
         /// <value>The display name of the permission.</value>
-        /*
-        <example>Manage Group Data</example>
-        */
         [DataMember(Name = "displayName", EmitDefaultValue = false)]
         public string DisplayName { get; set; }
 
@@ -75,9 +69,6 @@ namespace VRChat.API.Model
         /// Human-readable description of the permission.
         /// </summary>
         /// <value>Human-readable description of the permission.</value>
-        /*
-        <example>Allows role to edit group details (name, description, joinState, initialRoles, etc).</example>
-        */
         [DataMember(Name = "help", EmitDefaultValue = false)]
         public string Help { get; set; }
 
@@ -85,9 +76,6 @@ namespace VRChat.API.Model
         /// Whether this permission is a \&quot;management\&quot; permission.
         /// </summary>
         /// <value>Whether this permission is a \&quot;management\&quot; permission.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "isManagementPermission", EmitDefaultValue = true)]
         public bool IsManagementPermission { get; set; }
 
@@ -95,9 +83,6 @@ namespace VRChat.API.Model
         /// The name of the permission.
         /// </summary>
         /// <value>The name of the permission.</value>
-        /*
-        <example>group-data-manage</example>
-        */
         [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 

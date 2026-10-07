@@ -65,9 +65,6 @@ namespace VRChat.API.Model
         /// Tilia account identifier.
         /// </summary>
         /// <value>Tilia account identifier.</value>
-        /*
-        <example>acct_2YYRz9C5xbJWrhI5RLWPnwDLMyq</example>
-        */
         [DataMember(Name = "account_id", IsRequired = true, EmitDefaultValue = true)]
         public string AccountId { get; set; }
 
@@ -75,9 +72,6 @@ namespace VRChat.API.Model
         /// KYC verification identifier.
         /// </summary>
         /// <value>KYC verification identifier.</value>
-        /*
-        <example>kyc_2tDKpjafhPTG729ceA2oIcsQlWA</example>
-        */
         [DataMember(Name = "kyc_id", IsRequired = true, EmitDefaultValue = true)]
         public string KycId { get; set; }
 
@@ -85,9 +79,6 @@ namespace VRChat.API.Model
         /// Requirement state reported by Tilia.
         /// </summary>
         /// <value>Requirement state reported by Tilia.</value>
-        /*
-        <example>NONE</example>
-        */
         [DataMember(Name = "kyc_requirements", IsRequired = true, EmitDefaultValue = true)]
         public string KycRequirements { get; set; }
 
@@ -102,9 +93,6 @@ namespace VRChat.API.Model
         /// PII verification level.
         /// </summary>
         /// <value>PII verification level.</value>
-        /*
-        <example>FULL</example>
-        */
         [DataMember(Name = "pii_level", IsRequired = true, EmitDefaultValue = true)]
         public string PiiLevel { get; set; }
 
@@ -119,9 +107,6 @@ namespace VRChat.API.Model
         /// Overall KYC state.
         /// </summary>
         /// <value>Overall KYC state.</value>
-        /*
-        <example>ACCEPT</example>
-        */
         [DataMember(Name = "state", IsRequired = true, EmitDefaultValue = true)]
         public string State { get; set; }
 

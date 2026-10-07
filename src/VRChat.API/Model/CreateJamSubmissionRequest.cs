@@ -47,9 +47,6 @@ namespace VRChat.API.Model
         /// The id of the uploaded content (e.g., avatar, world) being submitted.
         /// </summary>
         /// <value>The id of the uploaded content (e.g., avatar, world) being submitted.</value>
-        /*
-        <example>avtr_c38a1615-5bf5-42b4-84eb-a8b6c37cbd11</example>
-        */
         [DataMember(Name = "contentId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentId { get; set; }
 
@@ -57,9 +54,6 @@ namespace VRChat.API.Model
         /// A description of the content being submitted.
         /// </summary>
         /// <value>A description of the content being submitted.</value>
-        /*
-        <example>My awesomely unique avatar for the jam!</example>
-        */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 

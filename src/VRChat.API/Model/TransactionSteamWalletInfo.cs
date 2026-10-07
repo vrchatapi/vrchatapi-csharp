@@ -52,18 +52,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Country
         /// </summary>
-        /*
-        <example>SE</example>
-        */
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
         /// </summary>
-        /*
-        <example>EUR</example>
-        */
         [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
         public string Currency { get; set; }
 
@@ -76,9 +70,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        /*
-        <example>Trusted</example>
-        */
         [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
         public string Status { get; set; }
 

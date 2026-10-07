@@ -43,9 +43,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        /*
-        <example>redirect_00000000-0000-0000-0000-000000000000</example>
-        */
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 

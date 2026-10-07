@@ -75,18 +75,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        /*
-        <example>399</example>
-        */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public int Amount { get; set; }
 
         /// <summary>
         /// Gets or Sets Balance
         /// </summary>
-        /*
-        <example>399</example>
-        */
         [DataMember(Name = "balance", IsRequired = true, EmitDefaultValue = true)]
         public int Balance { get; set; }
 
@@ -99,18 +93,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FromUserDisplayName
         /// </summary>
-        /*
-        <example>VRChat</example>
-        */
         [DataMember(Name = "fromUserDisplayName", IsRequired = true, EmitDefaultValue = true)]
         public string FromUserDisplayName { get; set; }
 
         /// <summary>
         /// Gets or Sets ListingDisplayName
         /// </summary>
-        /*
-        <example>Lucky Red Envelope</example>
-        */
         [DataMember(Name = "listingDisplayName", IsRequired = true, EmitDefaultValue = true)]
         public string ListingDisplayName { get; set; }
 
@@ -118,36 +106,24 @@ namespace VRChat.API.Model
         /// Where (first- or third-party) the purchase was made
         /// </summary>
         /// <value>Where (first- or third-party) the purchase was made</value>
-        /*
-        <example>VRChat</example>
-        */
         [DataMember(Name = "platform", IsRequired = true, EmitDefaultValue = true)]
         public string Platform { get; set; }
 
         /// <summary>
         /// Gets or Sets PurchaseId
         /// </summary>
-        /*
-        <example>pur_f0446b91-e0f7-403e-8932-609d5057898c</example>
-        */
         [DataMember(Name = "purchaseId", IsRequired = true, EmitDefaultValue = true)]
         public string PurchaseId { get; set; }
 
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        /*
-        <example>3002</example>
-        */
         [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
         public int Reason { get; set; }
 
         /// <summary>
         /// Gets or Sets ReasonLabel
         /// </summary>
-        /*
-        <example>Promo Credit</example>
-        */
         [DataMember(Name = "reasonLabel", IsRequired = true, EmitDefaultValue = true)]
         public string ReasonLabel { get; set; }
 

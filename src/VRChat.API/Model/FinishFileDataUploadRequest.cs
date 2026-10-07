@@ -56,9 +56,6 @@ namespace VRChat.API.Model
         /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
-        /*
-        <example>0</example>
-        */
         [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
         [Obsolete]
         public string MaxParts { get; set; }
@@ -67,9 +64,6 @@ namespace VRChat.API.Model
         /// Always a zero in string form, despite how many parts uploaded.
         /// </summary>
         /// <value>Always a zero in string form, despite how many parts uploaded.</value>
-        /*
-        <example>0</example>
-        */
         [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
         [Obsolete]
         public string NextPartNumber { get; set; }

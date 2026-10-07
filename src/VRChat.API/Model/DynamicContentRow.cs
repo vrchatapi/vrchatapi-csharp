@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="type">Type is not present if it is a world..</param>
         /// <param name="upcomingOffsetMinutes">upcomingOffsetMinutes.</param>
         /// <param name="worldPool">worldPool.</param>
-        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, string groupPool = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, Object name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, Object shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default, string worldPool = default)
+        public DynamicContentRow(List<string> anyStyle = default, List<string> anyTag = default, bool avatarSpecific = default, string bannersTag = default, List<string> categories = default, string featuredResults = default, string groupPool = default, int index = default, string marketplace = default, int maxPrice = default, int minOccupants = default, int minPrice = default, int minimumInterestCount = default, int minimumRemainingMinutes = default, string mode = default, int n = default, DynamicContentRowName name = default, string nonFeaturedResults = default, List<string> notag = default, Dictionary<string, Object> varParams = default, string personalizedResults = default, string platform = default, string region = default, string scope = default, DynamicContentRowShortName shortName = default, string sortHeading = default, string sortOrder = default, string sortOwnership = default, string style = default, string tag = default, List<string> tags = default, string type = default, int upcomingOffsetMinutes = default, string worldPool = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
@@ -146,9 +146,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GroupPool
         /// </summary>
-        /*
-        <example>mine</example>
-        */
         [DataMember(Name = "groupPool", EmitDefaultValue = false)]
         public string GroupPool { get; set; }
 
@@ -210,7 +207,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public Object Name { get; set; }
+        public DynamicContentRowName Name { get; set; }
 
         /// <summary>
         /// Gets or Sets NonFeaturedResults
@@ -233,9 +230,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PersonalizedResults
         /// </summary>
-        /*
-        <example>include</example>
-        */
         [DataMember(Name = "personalizedResults", EmitDefaultValue = false)]
         public string PersonalizedResults { get; set; }
 
@@ -255,9 +249,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Scope
         /// </summary>
-        /*
-        <example>all</example>
-        */
         [DataMember(Name = "scope", EmitDefaultValue = false)]
         public string Scope { get; set; }
 
@@ -265,7 +256,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ShortName
         /// </summary>
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public Object ShortName { get; set; }
+        public DynamicContentRowShortName ShortName { get; set; }
 
         /// <summary>
         /// Gets or Sets SortHeading
@@ -295,9 +286,6 @@ namespace VRChat.API.Model
         /// Tag to filter content for this row. Not a &#x60;Tag&#x60;: that type forbids the empty string, which this field uses for a row that is not tag-filtered.
         /// </summary>
         /// <value>Tag to filter content for this row. Not a &#x60;Tag&#x60;: that type forbids the empty string, which this field uses for a row that is not tag-filtered.</value>
-        /*
-        <example>admin_spotlight_pc</example>
-        */
         [DataMember(Name = "tag", EmitDefaultValue = true)]
         public string Tag { get; set; }
 
@@ -311,27 +299,18 @@ namespace VRChat.API.Model
         /// Type is not present if it is a world.
         /// </summary>
         /// <value>Type is not present if it is a world.</value>
-        /*
-        <example>avatar</example>
-        */
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets UpcomingOffsetMinutes
         /// </summary>
-        /*
-        <example>10080</example>
-        */
         [DataMember(Name = "upcomingOffsetMinutes", EmitDefaultValue = false)]
         public int UpcomingOffsetMinutes { get; set; }
 
         /// <summary>
         /// Gets or Sets WorldPool
         /// </summary>
-        /*
-        <example>trending</example>
-        */
         [DataMember(Name = "worldPool", EmitDefaultValue = false)]
         public string WorldPool { get; set; }
 

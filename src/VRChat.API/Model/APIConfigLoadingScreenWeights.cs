@@ -41,27 +41,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Announcement
         /// </summary>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "announcement", EmitDefaultValue = false)]
         public int Announcement { get; set; }
 
         /// <summary>
         /// Gets or Sets Informational
         /// </summary>
-        /*
-        <example>89</example>
-        */
         [DataMember(Name = "informational", EmitDefaultValue = false)]
         public int Informational { get; set; }
 
         /// <summary>
         /// Gets or Sets Promotional
         /// </summary>
-        /*
-        <example>10</example>
-        */
         [DataMember(Name = "promotional", EmitDefaultValue = false)]
         public int Promotional { get; set; }
 

@@ -63,27 +63,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
-        /*
-        <example>Avatar-MyAvatar-Un.file_00000000-0000-0000-0000-000000000000.1.unitypackage</example>
-        */
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets MaxParts
         /// </summary>
-        /*
-        <example>1000</example>
-        */
         [DataMember(Name = "maxParts", IsRequired = true, EmitDefaultValue = true)]
         public int MaxParts { get; set; }
 
         /// <summary>
         /// Gets or Sets NextPartNumber
         /// </summary>
-        /*
-        <example>0</example>
-        */
         [DataMember(Name = "nextPartNumber", IsRequired = true, EmitDefaultValue = true)]
         public int NextPartNumber { get; set; }
 
@@ -96,9 +87,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets UploadId
         /// </summary>
-        /*
-        <example>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx..xxxxxxxxxxxxxxxxxxxxxxx</example>
-        */
         [DataMember(Name = "uploadId", IsRequired = true, EmitDefaultValue = true)]
         public string UploadId { get; set; }
 

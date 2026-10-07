@@ -61,15 +61,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Icon
         /// </summary>
-        /*
-        <example>Bell:
-  value: bell
-Bell Slash:
-  value: bell-slash
-Check:
-  value: check
-</example>
-        */
         [DataMember(Name = "icon", IsRequired = true, EmitDefaultValue = true)]
         public string Icon { get; set; }
 
@@ -88,19 +79,6 @@ Check:
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        /*
-        <example>Accept:
-  value: accept
-Boop:
-  value: boop
-Decline:
-  value: decline
-Delete:
-  value: delete
-Unsubscribe:
-  value: unsubscribe
-</example>
-        */
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

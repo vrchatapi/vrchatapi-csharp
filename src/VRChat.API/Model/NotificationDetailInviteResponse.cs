@@ -46,9 +46,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets InResponseTo
         /// </summary>
-        /*
-        <example>not_00000000-0000-0000-0000-000000000000</example>
-        */
         [DataMember(Name = "inResponseTo", IsRequired = true, EmitDefaultValue = true)]
         public string InResponseTo { get; set; }
 

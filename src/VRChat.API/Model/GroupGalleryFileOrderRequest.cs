@@ -46,9 +46,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets GalleryId
         /// </summary>
-        /*
-        <example>ggal_a03a4b55-4ca6-4490-9519-40ba6351a233</example>
-        */
         [DataMember(Name = "galleryId", IsRequired = true, EmitDefaultValue = true)]
         public string GalleryId { get; set; }
 

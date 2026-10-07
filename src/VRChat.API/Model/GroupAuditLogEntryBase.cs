@@ -34,13 +34,13 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryBase" /> class.
         /// </summary>
         /// <param name="actorDisplayName">The display name of the user who performed the action. (required).</param>
-        /// <param name="actorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="actorId">The ID of the user who performed the action. (required).</param>
         /// <param name="createdAt">When the action was performed. (required).</param>
         /// <param name="description">A human-readable description of the event. (required).</param>
-        /// <param name="eventType">The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;. (required) (default to &quot;group.update&quot;).</param>
-        /// <param name="groupId">groupId (required).</param>
-        /// <param name="id">id (required).</param>
-        public GroupAuditLogEntryBase(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = @"group.update", string groupId = default, string id = default)
+        /// <param name="eventType">The type of event that occurred. (required).</param>
+        /// <param name="groupId">The ID of the group the entry belongs to. (required).</param>
+        /// <param name="id">The unique ID of this audit log entry. (required).</param>
+        public GroupAuditLogEntryBase(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ActorDisplayName = actorDisplayName;
@@ -65,12 +65,9 @@ namespace VRChat.API.Model
         public string ActorDisplayName { get; set; }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// The ID of the user who performed the action.
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
+        /// <value>The ID of the user who performed the action.</value>
         [DataMember(Name = "actorId", IsRequired = true, EmitDefaultValue = true)]
         public string ActorId { get; set; }
 
@@ -89,30 +86,23 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;.
+        /// The type of event that occurred.
         /// </summary>
-        /// <value>The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;.</value>
-        /*
-        <example>group.role.update</example>
-        */
+        /// <value>The type of event that occurred.</value>
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public string EventType { get; set; }
 
         /// <summary>
-        /// Gets or Sets GroupId
+        /// The ID of the group the entry belongs to.
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The ID of the group the entry belongs to.</value>
         [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique ID of this audit log entry.
         /// </summary>
-        /*
-        <example>gaud_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The unique ID of this audit log entry.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 

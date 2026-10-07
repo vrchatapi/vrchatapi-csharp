@@ -92,9 +92,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "gradientEnd", EmitDefaultValue = false)]
         public string GradientEnd { get; set; }
 
@@ -102,9 +99,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "gradientStart", EmitDefaultValue = false)]
         public string GradientStart { get; set; }
 
@@ -130,9 +124,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PropId
         /// </summary>
-        /*
-        <example>prop_829ba6f6-b837-49d9-b9a9-056b82103b58</example>
-        */
         [DataMember(Name = "propId", EmitDefaultValue = false)]
         public string PropId { get; set; }
 

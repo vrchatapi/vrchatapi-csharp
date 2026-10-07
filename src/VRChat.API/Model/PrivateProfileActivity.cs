@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public PrivateProfileActivity(string instanceId = default, string lastActivity = default, string lastLogin = default, string location = default, string platform = default, UserState? state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
+        public PrivateProfileActivity(string instanceId = default, PrivateProfileActivityLastActivity lastActivity = default, PrivateProfileActivityLastActivity lastLogin = default, string location = default, string platform = default, UserState? state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
             this.InstanceId = instanceId;
             this.LastActivity = lastActivity;
@@ -62,9 +62,6 @@ namespace VRChat.API.Model
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
         /// </summary>
         /// <value>InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.</value>
-        /*
-        <example>12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
         [DataMember(Name = "instanceId", EmitDefaultValue = false)]
         public string InstanceId { get; set; }
 
@@ -72,21 +69,18 @@ namespace VRChat.API.Model
         /// Gets or Sets LastActivity
         /// </summary>
         [DataMember(Name = "last_activity", EmitDefaultValue = false)]
-        public string LastActivity { get; set; }
+        public PrivateProfileActivityLastActivity LastActivity { get; set; }
 
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
         [DataMember(Name = "last_login", EmitDefaultValue = false)]
-        public string LastLogin { get; set; }
+        public PrivateProfileActivityLastActivity LastLogin { get; set; }
 
         /// <summary>
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd:12345~hidden(usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469)~region(eu)~nonce(27e8414a-59a0-4f3d-af1f-f27557eb49a2)</example>
-        */
         [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
@@ -94,9 +88,6 @@ namespace VRChat.API.Model
         /// This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.
         /// </summary>
         /// <value>This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;.</value>
-        /*
-        <example>standalonewindows</example>
-        */
         [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
@@ -122,9 +113,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "worldId", EmitDefaultValue = false)]
         public string WorldId { get; set; }
 

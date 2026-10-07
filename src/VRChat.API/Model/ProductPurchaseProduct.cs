@@ -64,19 +64,13 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
-        [DataMember(Name = "imageId", EmitDefaultValue = false)]
+        [DataMember(Name = "imageId", EmitDefaultValue = true)]
         public string ImageId { get; set; }
 
         /// <summary>

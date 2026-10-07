@@ -34,12 +34,12 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryUnknown" /> class.
         /// </summary>
         /// <param name="actorDisplayName">The display name of the user who performed the action. (required).</param>
-        /// <param name="actorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="actorId">The ID of the user who performed the action. (required).</param>
         /// <param name="createdAt">When the action was performed. (required).</param>
         /// <param name="description">A human-readable description of the event. (required).</param>
         /// <param name="eventType">eventType (required).</param>
-        /// <param name="groupId">groupId (required).</param>
-        /// <param name="id">id (required).</param>
+        /// <param name="groupId">The ID of the group the entry belongs to. (required).</param>
+        /// <param name="id">The unique ID of this audit log entry. (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="targetId">targetId (required).</param>
         public GroupAuditLogEntryUnknown(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default, Dictionary<string, Object> data = default, string targetId = default)
@@ -71,12 +71,9 @@ namespace VRChat.API.Model
         public string ActorDisplayName { get; set; }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// The ID of the user who performed the action.
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
+        /// <value>The ID of the user who performed the action.</value>
         [DataMember(Name = "actorId", IsRequired = true, EmitDefaultValue = true)]
         public string ActorId { get; set; }
 
@@ -101,20 +98,16 @@ namespace VRChat.API.Model
         public string EventType { get; set; }
 
         /// <summary>
-        /// Gets or Sets GroupId
+        /// The ID of the group the entry belongs to.
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The ID of the group the entry belongs to.</value>
         [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique ID of this audit log entry.
         /// </summary>
-        /*
-        <example>gaud_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The unique ID of this audit log entry.</value>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -129,6 +122,15 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "targetId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetId { get; set; }
+
+        [System.Runtime.Serialization.OnDeserialized]
+        internal void OnDeserializedEventTypeNotEnum(System.Runtime.Serialization.StreamingContext context)
+        {
+            if (this.EventType == "group.announcement" || this.EventType == "group.calendarEvent.create" || this.EventType == "group.calendarEvent.delete" || this.EventType == "group.gallery.create" || this.EventType == "group.gallery.delete" || this.EventType == "group.gallery.update" || this.EventType == "group.instance.announcement" || this.EventType == "group.instance.close" || this.EventType == "group.instance.create" || this.EventType == "group.instance.kick" || this.EventType == "group.instance.warn" || this.EventType == "group.invite.cancel" || this.EventType == "group.invite.create" || this.EventType == "group.member.join" || this.EventType == "group.member.leave" || this.EventType == "group.member.remove" || this.EventType == "group.member.role.assign" || this.EventType == "group.member.role.unassign" || this.EventType == "group.member.user.update" || this.EventType == "group.post.create" || this.EventType == "group.post.delete" || this.EventType == "group.post.update" || this.EventType == "group.request.block" || this.EventType == "group.request.create" || this.EventType == "group.request.reject" || this.EventType == "group.request.withdraw" || this.EventType == "group.role.create" || this.EventType == "group.role.delete" || this.EventType == "group.role.update" || this.EventType == "group.update" || this.EventType == "group.user.ban" || this.EventType == "group.user.unban")
+            {
+                throw new ArgumentException("Invalid value for EventType, must not be a value excluded by the 'not' schema.");
+            }
+        }
 
         /// <summary>
         /// Returns the string presentation of the object

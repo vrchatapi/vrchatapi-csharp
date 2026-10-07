@@ -129,6 +129,8 @@ src/VRChat.API/Model/DeveloperType.cs
 src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DiscordDetails.cs
 src/VRChat.API/Model/DynamicContentRow.cs
+src/VRChat.API/Model/DynamicContentRowName.cs
+src/VRChat.API/Model/DynamicContentRowShortName.cs
 src/VRChat.API/Model/EarningsMetrics.cs
 src/VRChat.API/Model/EarningsMetricsTotals.cs
 src/VRChat.API/Model/EconomyAccount.cs
@@ -171,7 +173,6 @@ src/VRChat.API/Model/GroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntry.cs
 src/VRChat.API/Model/GroupAuditLogEntryBase.cs
 src/VRChat.API/Model/GroupAuditLogEntryBooleanChange.cs
-src/VRChat.API/Model/GroupAuditLogEntryData.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventDelete.cs
@@ -237,6 +238,7 @@ src/VRChat.API/Model/GroupGalleryFileOrder.cs
 src/VRChat.API/Model/GroupGalleryFileOrderRequest.cs
 src/VRChat.API/Model/GroupGalleryImage.cs
 src/VRChat.API/Model/GroupGalleryImageList.cs
+src/VRChat.API/Model/GroupGalleryImageListResponse.cs
 src/VRChat.API/Model/GroupInstance.cs
 src/VRChat.API/Model/GroupJoinRequestAction.cs
 src/VRChat.API/Model/GroupJoinState.cs
@@ -269,6 +271,7 @@ src/VRChat.API/Model/InfoPushDataArticle.cs
 src/VRChat.API/Model/InfoPushDataArticleContent.cs
 src/VRChat.API/Model/InfoPushDataCallToAction.cs
 src/VRChat.API/Model/InfoPushDataCategory.cs
+src/VRChat.API/Model/InfoPushDataCategoryName.cs
 src/VRChat.API/Model/InfoPushDataClickable.cs
 src/VRChat.API/Model/InfoPushDataContentSource.cs
 src/VRChat.API/Model/InfoPushDataContentSourcePagination.cs
@@ -373,6 +376,7 @@ src/VRChat.API/Model/Print.cs
 src/VRChat.API/Model/PrintFiles.cs
 src/VRChat.API/Model/PrivateProfile.cs
 src/VRChat.API/Model/PrivateProfileActivity.cs
+src/VRChat.API/Model/PrivateProfileActivityLastActivity.cs
 src/VRChat.API/Model/Product.cs
 src/VRChat.API/Model/ProductListing.cs
 src/VRChat.API/Model/ProductListingAttribution.cs
@@ -470,6 +474,7 @@ src/VRChat.API/Model/UpdateTiliaTOSRequest.cs
 src/VRChat.API/Model/UpdateUserBadgeRequest.cs
 src/VRChat.API/Model/UpdateUserClientConfigRequest.cs
 src/VRChat.API/Model/UpdateUserNoteRequest.cs
+src/VRChat.API/Model/UpdateUserNoteResponse.cs
 src/VRChat.API/Model/UpdateUserRequest.cs
 src/VRChat.API/Model/UpdateWorldRequest.cs
 src/VRChat.API/Model/User.cs

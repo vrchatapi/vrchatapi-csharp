@@ -114,9 +114,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
@@ -129,9 +126,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Capacity
         /// </summary>
-        /*
-        <example>8</example>
-        */
         [DataMember(Name = "capacity", IsRequired = true, EmitDefaultValue = true)]
         public int Capacity { get; set; }
 
@@ -156,18 +150,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Favorites
         /// </summary>
-        /*
-        <example>12024</example>
-        */
         [DataMember(Name = "favorites", IsRequired = true, EmitDefaultValue = true)]
         public int Favorites { get; set; }
 
         /// <summary>
         /// Gets or Sets Heat
         /// </summary>
-        /*
-        <example>5</example>
-        */
         [DataMember(Name = "heat", IsRequired = true, EmitDefaultValue = true)]
         public int Heat { get; set; }
 
@@ -175,9 +163,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -196,9 +181,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LabsPublicationDate
         /// </summary>
-        /*
-        <example>none</example>
-        */
         [DataMember(Name = "labsPublicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string LabsPublicationDate { get; set; }
 
@@ -211,9 +193,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Occupants
         /// </summary>
-        /*
-        <example>47</example>
-        */
         [DataMember(Name = "occupants", IsRequired = true, EmitDefaultValue = true)]
         public int Occupants { get; set; }
 
@@ -232,9 +211,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Popularity
         /// </summary>
-        /*
-        <example>8</example>
-        */
         [DataMember(Name = "popularity", IsRequired = true, EmitDefaultValue = true)]
         public int Popularity { get; set; }
 
@@ -247,27 +223,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PublicationDate
         /// </summary>
-        /*
-        <example>none</example>
-        */
         [DataMember(Name = "publicationDate", IsRequired = true, EmitDefaultValue = true)]
         public string PublicationDate { get; set; }
 
         /// <summary>
         /// Gets or Sets RecommendedCapacity
         /// </summary>
-        /*
-        <example>16</example>
-        */
         [DataMember(Name = "recommendedCapacity", EmitDefaultValue = false)]
         public int RecommendedCapacity { get; set; }
 
         /// <summary>
         /// Gets or Sets StoreId
         /// </summary>
-        /*
-        <example>esto_713b247d-2b5d-41a0-bba3-50db28dc1498</example>
-        */
         [DataMember(Name = "storeId", EmitDefaultValue = false)]
         public string StoreId { get; set; }
 
@@ -304,9 +271,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Visits
         /// </summary>
-        /*
-        <example>9988675</example>
-        */
         [DataMember(Name = "visits", EmitDefaultValue = false)]
         public int Visits { get; set; }
 

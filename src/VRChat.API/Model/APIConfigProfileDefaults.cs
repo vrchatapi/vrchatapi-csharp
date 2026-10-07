@@ -46,9 +46,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
@@ -56,9 +53,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
@@ -66,9 +60,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
@@ -76,9 +67,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
@@ -86,9 +74,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }
 

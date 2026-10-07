@@ -57,9 +57,6 @@ namespace VRChat.API.Model
         /// Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.
         /// </summary>
         /// <value>Typically \&quot;Deletion requested\&quot; or \&quot;Deletion canceled\&quot;. Other messages like \&quot;Deletion completed\&quot; may exist, but are these are not possible to see as a regular user.</value>
-        /*
-        <example>Deletion requested</example>
-        */
         [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 

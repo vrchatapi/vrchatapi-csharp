@@ -108,9 +108,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
-        /*
-        <example>OpenURL</example>
-        */
         [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
         public CommandEnum Command { get; set; }
         /// <summary>

@@ -33,7 +33,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryDataGroupMemberRole" /> class.
         /// </summary>
-        /// <param name="roleId">roleId (required).</param>
+        /// <param name="roleId">The ID of the role that was assigned or unassigned. (required).</param>
         /// <param name="roleName">The name of the role that was assigned or unassigned. (required).</param>
         public GroupAuditLogEntryDataGroupMemberRole(string roleId = default, string roleName = default)
         {
@@ -44,11 +44,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets RoleId
+        /// The ID of the role that was assigned or unassigned.
         /// </summary>
-        /*
-        <example>grol_459d3911-f672-44bc-b84d-e54ffe7960fe</example>
-        */
+        /// <value>The ID of the role that was assigned or unassigned.</value>
         [DataMember(Name = "roleId", IsRequired = true, EmitDefaultValue = true)]
         public string RoleId { get; set; }
 

@@ -56,9 +56,6 @@ namespace VRChat.API.Model
         /// Description of the gallery.
         /// </summary>
         /// <value>Description of the gallery.</value>
-        /*
-        <example>Example Description</example>
-        */
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
@@ -66,9 +63,6 @@ namespace VRChat.API.Model
         /// Whether the gallery is members only.
         /// </summary>
         /// <value>Whether the gallery is members only.</value>
-        /*
-        <example>false</example>
-        */
         [DataMember(Name = "membersOnly", EmitDefaultValue = true)]
         public bool MembersOnly { get; set; }
 
@@ -76,9 +70,6 @@ namespace VRChat.API.Model
         /// Name of the gallery.
         /// </summary>
         /// <value>Name of the gallery.</value>
-        /*
-        <example>Example Gallery</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 

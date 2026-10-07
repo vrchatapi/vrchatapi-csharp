@@ -59,9 +59,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ListingVariantId
         /// </summary>
-        /*
-        <example>listvar_e8658b56-1662-436c-935a-afcf6a7d4fed</example>
-        */
         [DataMember(Name = "listingVariantId", IsRequired = true, EmitDefaultValue = true)]
         public string ListingVariantId { get; set; }
 

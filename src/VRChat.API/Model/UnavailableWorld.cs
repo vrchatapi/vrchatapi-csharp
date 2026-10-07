@@ -61,9 +61,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AuthorName
         /// </summary>
-        /*
-        <example>???</example>
-        */
         [DataMember(Name = "authorName", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorName { get; set; }
 
@@ -77,9 +74,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -98,9 +92,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /*
-        <example>???</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
@@ -113,9 +104,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ThumbnailImageUrl
         /// </summary>
-        /*
-        <example>https://assets.vrchat.com/default/unavailable-world.png</example>
-        */
         [DataMember(Name = "thumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ThumbnailImageUrl { get; set; }
 

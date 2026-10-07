@@ -61,36 +61,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Control
         /// </summary>
-        /*
-        <example>select</example>
-        */
         [DataMember(Name = "control", IsRequired = true, EmitDefaultValue = true)]
         public string Control { get; set; }
 
         /// <summary>
         /// Gets or Sets Display
         /// </summary>
-        /*
-        <example>overflow</example>
-        */
         [DataMember(Name = "display", IsRequired = true, EmitDefaultValue = true)]
         public string Display { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>categories</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Kind
         /// </summary>
-        /*
-        <example>filter</example>
-        */
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public string Kind { get; set; }
 
@@ -109,9 +97,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Selection
         /// </summary>
-        /*
-        <example>multiple</example>
-        */
         [DataMember(Name = "selection", IsRequired = true, EmitDefaultValue = true)]
         public string Selection { get; set; }
 

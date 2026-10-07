@@ -16,126 +16,221 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
     /// NotificationV2Data
     /// </summary>
+    [JsonConverter(typeof(NotificationV2DataJsonConverter))]
     [DataContract(Name = "NotificationV2_data")]
-    public partial class NotificationV2Data : IEquatable<NotificationV2Data>, IValidatableObject
+    public partial class NotificationV2Data : AbstractOpenAPISchema, IEquatable<NotificationV2Data>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class.
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="Object" /> class
         /// </summary>
-        /// <param name="badgeDescription">badgeDescription.</param>
-        /// <param name="badgeId">badgeId.</param>
-        /// <param name="badgeName">badgeName.</param>
-        /// <param name="boopingUserDisplayName">boopingUserDisplayName.</param>
-        /// <param name="ownerId">ownerId.</param>
-        /// <param name="ownerName">ownerName.</param>
-        /// <param name="title">title.</param>
-        /// <param name="announcementTitle">announcementTitle.</param>
-        /// <param name="groupId">groupId.</param>
-        /// <param name="groupName">groupName.</param>
-        /// <param name="transferTargetDisplayName">transferTargetDisplayName.</param>
-        /// <param name="ownerUserDisplayName">ownerUserDisplayName.</param>
-        public NotificationV2Data(string badgeDescription = default, string badgeId = default, string badgeName = default, string boopingUserDisplayName = default, string ownerId = default, string ownerName = default, string title = default, string announcementTitle = default, string groupId = default, string groupName = default, string transferTargetDisplayName = default, string ownerUserDisplayName = default)
+        /// <param name="actualInstance">An instance of Object.</param>
+        public NotificationV2Data(Object actualInstance)
         {
-            this.BadgeDescription = badgeDescription;
-            this.BadgeId = badgeId;
-            this.BadgeName = badgeName;
-            this.BoopingUserDisplayName = boopingUserDisplayName;
-            this.OwnerId = ownerId;
-            this.OwnerName = ownerName;
-            this.Title = title;
-            this.AnnouncementTitle = announcementTitle;
-            this.GroupId = groupId;
-            this.GroupName = groupName;
-            this.TransferTargetDisplayName = transferTargetDisplayName;
-            this.OwnerUserDisplayName = ownerUserDisplayName;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// Gets or Sets BadgeDescription
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataBadgeEarned" /> class
         /// </summary>
-        [DataMember(Name = "badgeDescription", EmitDefaultValue = false)]
-        public string BadgeDescription { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataBadgeEarned.</param>
+        public NotificationV2Data(NotificationV2DataBadgeEarned actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets BadgeId
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataBoop" /> class
         /// </summary>
-        /*
-        <example>bdg_a60e514a-8cb7-4702-8f24-2786992be1a8</example>
-        */
-        [DataMember(Name = "badgeId", EmitDefaultValue = false)]
-        public string BadgeId { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataBoop.</param>
+        public NotificationV2Data(NotificationV2DataBoop actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets BadgeName
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataEventAnnouncement" /> class
         /// </summary>
-        [DataMember(Name = "badgeName", EmitDefaultValue = false)]
-        public string BadgeName { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataEventAnnouncement.</param>
+        public NotificationV2Data(NotificationV2DataEventAnnouncement actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets BoopingUserDisplayName
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataGroupAnnouncement" /> class
         /// </summary>
-        [DataMember(Name = "boopingUserDisplayName", EmitDefaultValue = false)]
-        public string BoopingUserDisplayName { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataGroupAnnouncement.</param>
+        public NotificationV2Data(NotificationV2DataGroupAnnouncement actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets OwnerId
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataGroupInformative" /> class
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
-        [DataMember(Name = "ownerId", EmitDefaultValue = false)]
-        public string OwnerId { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataGroupInformative.</param>
+        public NotificationV2Data(NotificationV2DataGroupInformative actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets OwnerName
+        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
+        /// with the <see cref="NotificationV2DataGroupTransfer" /> class
         /// </summary>
-        [DataMember(Name = "ownerName", EmitDefaultValue = false)]
-        public string OwnerName { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2DataGroupTransfer.</param>
+        public NotificationV2Data(NotificationV2DataGroupTransfer actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets Title
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
-        public string Title { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(NotificationV2DataBadgeEarned) || value is NotificationV2DataBadgeEarned)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2DataBoop) || value is NotificationV2DataBoop)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2DataEventAnnouncement) || value is NotificationV2DataEventAnnouncement)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2DataGroupAnnouncement) || value is NotificationV2DataGroupAnnouncement)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2DataGroupInformative) || value is NotificationV2DataGroupInformative)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2DataGroupTransfer) || value is NotificationV2DataGroupTransfer)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(Object) || value is Object)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    // Allow setting unknown types to handle unexpected responses gracefully
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    this._actualInstance = value;
+                }
+            }
+        }
 
         /// <summary>
-        /// Gets or Sets AnnouncementTitle
+        /// Get the actual instance of `Object`. If the actual instance is not `Object`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        [DataMember(Name = "announcementTitle", EmitDefaultValue = false)]
-        public string AnnouncementTitle { get; set; }
+        /// <returns>An instance of Object</returns>
+        public Object GetObject()
+        {
+            return (Object)this.ActualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets GroupId
+        /// Get the actual instance of `NotificationV2DataBadgeEarned`. If the actual instance is not `NotificationV2DataBadgeEarned`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
-        [DataMember(Name = "groupId", EmitDefaultValue = false)]
-        public string GroupId { get; set; }
+        /// <returns>An instance of NotificationV2DataBadgeEarned</returns>
+        public NotificationV2DataBadgeEarned GetNotificationV2DataBadgeEarned()
+        {
+            return (NotificationV2DataBadgeEarned)this.ActualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets GroupName
+        /// Get the actual instance of `NotificationV2DataBoop`. If the actual instance is not `NotificationV2DataBoop`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        [DataMember(Name = "groupName", EmitDefaultValue = false)]
-        public string GroupName { get; set; }
+        /// <returns>An instance of NotificationV2DataBoop</returns>
+        public NotificationV2DataBoop GetNotificationV2DataBoop()
+        {
+            return (NotificationV2DataBoop)this.ActualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets TransferTargetDisplayName
+        /// Get the actual instance of `NotificationV2DataEventAnnouncement`. If the actual instance is not `NotificationV2DataEventAnnouncement`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        [DataMember(Name = "transferTargetDisplayName", EmitDefaultValue = false)]
-        public string TransferTargetDisplayName { get; set; }
+        /// <returns>An instance of NotificationV2DataEventAnnouncement</returns>
+        public NotificationV2DataEventAnnouncement GetNotificationV2DataEventAnnouncement()
+        {
+            return (NotificationV2DataEventAnnouncement)this.ActualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets OwnerUserDisplayName
+        /// Get the actual instance of `NotificationV2DataGroupAnnouncement`. If the actual instance is not `NotificationV2DataGroupAnnouncement`,
+        /// the InvalidClassException will be thrown
         /// </summary>
-        [DataMember(Name = "ownerUserDisplayName", EmitDefaultValue = false)]
-        public string OwnerUserDisplayName { get; set; }
+        /// <returns>An instance of NotificationV2DataGroupAnnouncement</returns>
+        public NotificationV2DataGroupAnnouncement GetNotificationV2DataGroupAnnouncement()
+        {
+            return (NotificationV2DataGroupAnnouncement)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `NotificationV2DataGroupInformative`. If the actual instance is not `NotificationV2DataGroupInformative`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of NotificationV2DataGroupInformative</returns>
+        public NotificationV2DataGroupInformative GetNotificationV2DataGroupInformative()
+        {
+            return (NotificationV2DataGroupInformative)this.ActualInstance;
+        }
+
+        /// <summary>
+        /// Get the actual instance of `NotificationV2DataGroupTransfer`. If the actual instance is not `NotificationV2DataGroupTransfer`,
+        /// the InvalidClassException will be thrown
+        /// </summary>
+        /// <returns>An instance of NotificationV2DataGroupTransfer</returns>
+        public NotificationV2DataGroupTransfer GetNotificationV2DataGroupTransfer()
+        {
+            return (NotificationV2DataGroupTransfer)this.ActualInstance;
+        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -143,20 +238,9 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class NotificationV2Data {\n");
-            sb.Append("  BadgeDescription: ").Append(BadgeDescription).Append("\n");
-            sb.Append("  BadgeId: ").Append(BadgeId).Append("\n");
-            sb.Append("  BadgeName: ").Append(BadgeName).Append("\n");
-            sb.Append("  BoopingUserDisplayName: ").Append(BoopingUserDisplayName).Append("\n");
-            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
-            sb.Append("  OwnerName: ").Append(OwnerName).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  AnnouncementTitle: ").Append(AnnouncementTitle).Append("\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
-            sb.Append("  GroupName: ").Append(GroupName).Append("\n");
-            sb.Append("  TransferTargetDisplayName: ").Append(TransferTargetDisplayName).Append("\n");
-            sb.Append("  OwnerUserDisplayName: ").Append(OwnerUserDisplayName).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -165,9 +249,181 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, NotificationV2Data.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of NotificationV2Data
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of NotificationV2Data</returns>
+        public static NotificationV2Data FromJson(string jsonString)
+        {
+            NotificationV2Data newNotificationV2Data = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newNotificationV2Data;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataBadgeEarned).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataBadgeEarned>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataBadgeEarned>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataBadgeEarned");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataBadgeEarned: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataBoop).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataBoop>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataBoop>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataBoop");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataBoop: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataEventAnnouncement).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataEventAnnouncement>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataEventAnnouncement>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataEventAnnouncement");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataEventAnnouncement: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataGroupAnnouncement).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupAnnouncement>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupAnnouncement>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataGroupAnnouncement");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataGroupAnnouncement: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataGroupInformative).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupInformative>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupInformative>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataGroupInformative");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataGroupInformative: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2DataGroupTransfer).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupTransfer>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupTransfer>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2DataGroupTransfer");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataGroupTransfer: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(Object).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<Object>(jsonString, NotificationV2Data.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<Object>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("Object");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Object: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                // No match found, return null to handle unexpected responses gracefully
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+                return null;
+            }
+            else if (match > 1)
+            {
+                // Multiple matches found, use the first match and log a warning
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newNotificationV2Data;
         }
 
         /// <summary>
@@ -188,70 +444,9 @@ namespace VRChat.API.Model
         public bool Equals(NotificationV2Data input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.BadgeDescription == input.BadgeDescription ||
-                    (this.BadgeDescription != null &&
-                    this.BadgeDescription.Equals(input.BadgeDescription))
-                ) && 
-                (
-                    this.BadgeId == input.BadgeId ||
-                    (this.BadgeId != null &&
-                    this.BadgeId.Equals(input.BadgeId))
-                ) && 
-                (
-                    this.BadgeName == input.BadgeName ||
-                    (this.BadgeName != null &&
-                    this.BadgeName.Equals(input.BadgeName))
-                ) && 
-                (
-                    this.BoopingUserDisplayName == input.BoopingUserDisplayName ||
-                    (this.BoopingUserDisplayName != null &&
-                    this.BoopingUserDisplayName.Equals(input.BoopingUserDisplayName))
-                ) && 
-                (
-                    this.OwnerId == input.OwnerId ||
-                    (this.OwnerId != null &&
-                    this.OwnerId.Equals(input.OwnerId))
-                ) && 
-                (
-                    this.OwnerName == input.OwnerName ||
-                    (this.OwnerName != null &&
-                    this.OwnerName.Equals(input.OwnerName))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.AnnouncementTitle == input.AnnouncementTitle ||
-                    (this.AnnouncementTitle != null &&
-                    this.AnnouncementTitle.Equals(input.AnnouncementTitle))
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.GroupName == input.GroupName ||
-                    (this.GroupName != null &&
-                    this.GroupName.Equals(input.GroupName))
-                ) && 
-                (
-                    this.TransferTargetDisplayName == input.TransferTargetDisplayName ||
-                    (this.TransferTargetDisplayName != null &&
-                    this.TransferTargetDisplayName.Equals(input.TransferTargetDisplayName))
-                ) && 
-                (
-                    this.OwnerUserDisplayName == input.OwnerUserDisplayName ||
-                    (this.OwnerUserDisplayName != null &&
-                    this.OwnerUserDisplayName.Equals(input.OwnerUserDisplayName))
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -263,54 +458,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.BadgeDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeDescription.GetHashCode();
-                }
-                if (this.BadgeId != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeId.GetHashCode();
-                }
-                if (this.BadgeName != null)
-                {
-                    hashCode = (hashCode * 59) + this.BadgeName.GetHashCode();
-                }
-                if (this.BoopingUserDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.BoopingUserDisplayName.GetHashCode();
-                }
-                if (this.OwnerId != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
-                }
-                if (this.OwnerName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerName.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.AnnouncementTitle != null)
-                {
-                    hashCode = (hashCode * 59) + this.AnnouncementTitle.GetHashCode();
-                }
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.GroupName != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupName.GetHashCode();
-                }
-                if (this.TransferTargetDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.TransferTargetDisplayName.GetHashCode();
-                }
-                if (this.OwnerUserDisplayName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OwnerUserDisplayName.GetHashCode();
-                }
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
@@ -320,9 +469,57 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
+        }
+    }
+
+    /// <summary>
+    /// Custom JSON converter for NotificationV2Data
+    /// </summary>
+    public class NotificationV2DataJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(NotificationV2Data).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return NotificationV2Data.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return NotificationV2Data.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

@@ -73,7 +73,7 @@ namespace VRChat.API.Model
         /// <param name="videoUrl">videoUrl.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, Object description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, Object name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, Object shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, Object tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, InfoPushDataCategoryName description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, InfoPushDataCategoryName name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, DynamicContentRowShortName shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, InfoPushDataCategoryName tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
@@ -137,9 +137,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AvatarId
         /// </summary>
-        /*
-        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
-        */
         [DataMember(Name = "avatarId", EmitDefaultValue = false)]
         public string AvatarId { get; set; }
 
@@ -200,8 +197,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = true)]
-        public Object Description { get; set; }
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public InfoPushDataCategoryName Description { get; set; }
 
         /// <summary>
         /// Gets or Sets DisclaimerText
@@ -242,9 +239,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ImageFileId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "imageFileId", EmitDefaultValue = false)]
         public string ImageFileId { get; set; }
 
@@ -275,22 +269,19 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MediaType
         /// </summary>
-        /*
-        <example>video</example>
-        */
         [DataMember(Name = "mediaType", EmitDefaultValue = false)]
         public string MediaType { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public Object Name { get; set; }
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public InfoPushDataCategoryName Name { get; set; }
 
         /// <summary>
         /// Gets or Sets OnPressed
         /// </summary>
-        [DataMember(Name = "onPressed", EmitDefaultValue = false)]
+        [DataMember(Name = "onPressed", EmitDefaultValue = true)]
         public InfoPushDataClickable OnPressed { get; set; }
 
         /// <summary>
@@ -322,9 +313,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SchemaVersion
         /// </summary>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "schemaVersion", EmitDefaultValue = false)]
         public int SchemaVersion { get; set; }
 
@@ -338,7 +326,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ShortName
         /// </summary>
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public Object ShortName { get; set; }
+        public DynamicContentRowShortName ShortName { get; set; }
 
         /// <summary>
         /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
@@ -350,9 +338,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Subtitle
         /// </summary>
-        /*
-        <example>Hangouts where everyone&#39;s still finding their feet</example>
-        */
         [DataMember(Name = "subtitle", EmitDefaultValue = false)]
         public string Subtitle { get; set; }
 
@@ -377,24 +362,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets TooltipDescription
         /// </summary>
-        [DataMember(Name = "tooltipDescription", EmitDefaultValue = true)]
-        public Object TooltipDescription { get; set; }
+        [DataMember(Name = "tooltipDescription", EmitDefaultValue = false)]
+        public InfoPushDataCategoryName TooltipDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
         /// </summary>
-        /*
-        <example>2021.3.4</example>
-        */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public string VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets VideoFileId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "videoFileId", EmitDefaultValue = false)]
         public string VideoFileId { get; set; }
 

@@ -39,8 +39,8 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryDataGroupPostCreate" /> class.
         /// </summary>
-        /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="imageId">imageId (required).</param>
+        /// <param name="authorId">The ID of the post author. (required).</param>
+        /// <param name="imageId">The image file ID attached to the post. (required).</param>
         /// <param name="text">The text content of the post. (required).</param>
         /// <param name="title">The title of the post. (required).</param>
         /// <param name="visibility">visibility (required).</param>
@@ -63,21 +63,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// The ID of the post author.
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
+        /// <value>The ID of the post author.</value>
         [DataMember(Name = "authorId", IsRequired = true, EmitDefaultValue = true)]
         public string AuthorId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ImageId
+        /// The image file ID attached to the post.
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
+        /// <value>The image file ID attached to the post.</value>
         [DataMember(Name = "imageId", IsRequired = true, EmitDefaultValue = true)]
         public string ImageId { get; set; }
 

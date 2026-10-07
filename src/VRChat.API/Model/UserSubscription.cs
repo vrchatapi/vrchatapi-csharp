@@ -97,9 +97,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        /*
-        <example>9999</example>
-        */
         [DataMember(Name = "amount", IsRequired = true, EmitDefaultValue = true)]
         public decimal Amount { get; set; }
 
@@ -112,9 +109,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        /*
-        <example>VRChat Plus (Yearly)</example>
-        */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
@@ -127,9 +121,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>vrchatplus-yearly</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
@@ -160,9 +151,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets SteamItemId
         /// </summary>
-        /*
-        <example>5000</example>
-        */
         [DataMember(Name = "steamItemId", EmitDefaultValue = false)]
         public string SteamItemId { get; set; }
 
@@ -170,27 +158,18 @@ namespace VRChat.API.Model
         /// Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.
         /// </summary>
         /// <value>Which \&quot;Store\&quot; it came from. Right now only Stores are \&quot;Steam\&quot; and \&quot;Admin\&quot;.</value>
-        /*
-        <example>Steam</example>
-        */
         [DataMember(Name = "store", IsRequired = true, EmitDefaultValue = true)]
         public string Store { get; set; }
 
         /// <summary>
         /// Gets or Sets Tier
         /// </summary>
-        /*
-        <example>5</example>
-        */
         [DataMember(Name = "tier", IsRequired = true, EmitDefaultValue = true)]
         public int Tier { get; set; }
 
         /// <summary>
         /// Gets or Sets TransactionId
         /// </summary>
-        /*
-        <example>txn_e5c72948-e735-4880-8245-24b2a41198b0</example>
-        */
         [DataMember(Name = "transactionId", IsRequired = true, EmitDefaultValue = true)]
         public string TransactionId { get; set; }
 

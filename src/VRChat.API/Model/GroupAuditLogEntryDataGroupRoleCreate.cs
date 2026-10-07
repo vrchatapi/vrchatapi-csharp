@@ -41,8 +41,8 @@ namespace VRChat.API.Model
         /// <param name="permissions">The permissions assigned to this role. (required).</param>
         /// <param name="requiresPurchase">Whether the role requires a purchase. (required).</param>
         /// <param name="requiresTwoFactor">Whether the role requires two-factor authentication. (required).</param>
-        /// <param name="groupId">groupId (required).</param>
-        /// <param name="lastUpdatedByUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="groupId">The group ID. (required).</param>
+        /// <param name="lastUpdatedByUserId">The ID of the user who last updated the role. (required).</param>
         public GroupAuditLogEntryDataGroupRoleCreate(string description = default, bool isAddedOnJoin = default, bool isSelfAssignable = default, string name = default, int order = default, List<GroupPermissions> permissions = default, bool requiresPurchase = default, bool requiresTwoFactor = default, string groupId = default, string lastUpdatedByUserId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -119,21 +119,16 @@ namespace VRChat.API.Model
         public bool RequiresTwoFactor { get; set; }
 
         /// <summary>
-        /// Gets or Sets GroupId
+        /// The group ID.
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
+        /// <value>The group ID.</value>
         [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
         public string GroupId { get; set; }
 
         /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// The ID of the user who last updated the role.
         /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
+        /// <value>The ID of the user who last updated the role.</value>
         [DataMember(Name = "lastUpdatedByUserId", IsRequired = true, EmitDefaultValue = true)]
         public string LastUpdatedByUserId { get; set; }
 

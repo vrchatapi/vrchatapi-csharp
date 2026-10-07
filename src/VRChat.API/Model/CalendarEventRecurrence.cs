@@ -78,9 +78,6 @@ namespace VRChat.API.Model
         /// The timezone the event will be scheduled in, in Area/Location format
         /// </summary>
         /// <value>The timezone the event will be scheduled in, in Area/Location format</value>
-        /*
-        <example>America/Chicago</example>
-        */
         [DataMember(Name = "timezone", IsRequired = true, EmitDefaultValue = true)]
         public string Timezone { get; set; }
 

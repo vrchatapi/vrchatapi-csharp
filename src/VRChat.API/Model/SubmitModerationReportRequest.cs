@@ -57,9 +57,6 @@ namespace VRChat.API.Model
         /// Valid values are the keys of the object &#x60;$.reportOptions[type]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportCategories[type]&#x60;.
         /// </summary>
         /// <value>Valid values are the keys of the object &#x60;$.reportOptions[type]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportCategories[type]&#x60;.</value>
-        /*
-        <example>behavior</example>
-        */
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public string Category { get; set; }
 
@@ -67,9 +64,6 @@ namespace VRChat.API.Model
         /// The id of the user, group, world, avatar, inventory item, print, etc. being reported.
         /// </summary>
         /// <value>The id of the user, group, world, avatar, inventory item, print, etc. being reported.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "contentId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentId { get; set; }
 
@@ -77,9 +71,6 @@ namespace VRChat.API.Model
         /// The subjective reason for the report
         /// </summary>
         /// <value>The subjective reason for the report</value>
-        /*
-        <example>iz bulli</example>
-        */
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
@@ -93,9 +84,6 @@ namespace VRChat.API.Model
         /// Valid values are the strings in the array &#x60;$.reportOptions[type][category]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportReasons[type]&#x60;.
         /// </summary>
         /// <value>Valid values are the strings in the array &#x60;$.reportOptions[type][category]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportReasons[type]&#x60;.</value>
-        /*
-        <example>child</example>
-        */
         [DataMember(Name = "reason", IsRequired = true, EmitDefaultValue = true)]
         public string Reason { get; set; }
 
@@ -103,9 +91,6 @@ namespace VRChat.API.Model
         /// Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;.
         /// </summary>
         /// <value>Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;.</value>
-        /*
-        <example>user</example>
-        */
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
         public string Type { get; set; }
 

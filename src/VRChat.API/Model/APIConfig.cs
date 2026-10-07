@@ -680,18 +680,12 @@ namespace VRChat.API.Model
         /// Current version number of the Terms of Service
         /// </summary>
         /// <value>Current version number of the Terms of Service</value>
-        /*
-        <example>7</example>
-        */
         [DataMember(Name = "currentTOSVersion", IsRequired = true, EmitDefaultValue = true)]
         public int CurrentTOSVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultAvatar
         /// </summary>
-        /*
-        <example>avtr_912d66a4-4714-43b8-8407-7de2cafbf55b</example>
-        */
         [DataMember(Name = "defaultAvatar", IsRequired = true, EmitDefaultValue = true)]
         public string DefaultAvatar { get; set; }
 
@@ -988,9 +982,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "homeWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HomeWorldId { get; set; }
 
@@ -1005,9 +996,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "hubWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string HubWorldId { get; set; }
 
@@ -1069,9 +1057,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets MaximumUnityVersionForUploads
         /// </summary>
-        /*
-        <example>2023.0.0f0</example>
-        */
         [DataMember(Name = "maximumUnityVersionForUploads", EmitDefaultValue = false)]
         public string MaximumUnityVersionForUploads { get; set; }
 
@@ -1147,9 +1132,6 @@ namespace VRChat.API.Model
         /// Overrides &#x60;player-url-resolver-version&#x60; on GeForce Now.
         /// </summary>
         /// <value>Overrides &#x60;player-url-resolver-version&#x60; on GeForce Now.</value>
-        /*
-        <example>2026-07-04-GFN</example>
-        */
         [DataMember(Name = "player-url-resolver-version-gfn-override", EmitDefaultValue = false)]
         public string PlayerUrlResolverVersionGfnOverride { get; set; }
 
@@ -1267,9 +1249,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "timeOutWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TimeOutWorldId { get; set; }
 
@@ -1284,9 +1263,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "tutorialWorldId", IsRequired = true, EmitDefaultValue = true)]
         public string TutorialWorldId { get; set; }
 

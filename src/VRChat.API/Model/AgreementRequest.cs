@@ -57,9 +57,6 @@ namespace VRChat.API.Model
         /// The full text of the agreement (currently &#x60;By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.&#x60;).
         /// </summary>
         /// <value>The full text of the agreement (currently &#x60;By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.&#x60;).</value>
-        /*
-        <example>By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.</example>
-        */
         [DataMember(Name = "agreementFulltext", IsRequired = true, EmitDefaultValue = true)]
         public string AgreementFulltext { get; set; }
 
@@ -67,9 +64,6 @@ namespace VRChat.API.Model
         /// The id of the content being uploaded, such as a WorldID, AvatarID, or PropID.
         /// </summary>
         /// <value>The id of the content being uploaded, such as a WorldID, AvatarID, or PropID.</value>
-        /*
-        <example>avtr_c38a1615-5bf5-42b4-84eb-a8b6c37cbd11</example>
-        */
         [DataMember(Name = "contentId", IsRequired = true, EmitDefaultValue = true)]
         public string ContentId { get; set; }
 
@@ -77,9 +71,6 @@ namespace VRChat.API.Model
         /// The version of the agreement (currently &#x60;1&#x60;).
         /// </summary>
         /// <value>The version of the agreement (currently &#x60;1&#x60;).</value>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int VarVersion { get; set; }
 

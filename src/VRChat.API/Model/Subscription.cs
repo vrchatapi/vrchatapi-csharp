@@ -90,9 +90,6 @@ namespace VRChat.API.Model
         /// How many subscriptions a gifted bundle grants.
         /// </summary>
         /// <value>How many subscriptions a gifted bundle grants.</value>
-        /*
-        <example>5</example>
-        */
         [DataMember(Name = "bulkSize", EmitDefaultValue = false)]
         public int BulkSize { get; set; }
 
@@ -106,9 +103,6 @@ namespace VRChat.API.Model
         /// Discount applied to a gifted bundle.
         /// </summary>
         /// <value>Discount applied to a gifted bundle.</value>
-        /*
-        <example>10</example>
-        */
         [DataMember(Name = "discountPercentage", EmitDefaultValue = false)]
         public int DiscountPercentage { get; set; }
 

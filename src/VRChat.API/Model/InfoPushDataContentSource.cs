@@ -71,9 +71,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets AttributionResponseField
         /// </summary>
-        /*
-        <example>attributionId</example>
-        */
         [DataMember(Name = "attributionResponseField", EmitDefaultValue = false)]
         public string AttributionResponseField { get; set; }
 
@@ -86,27 +83,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Endpoint
         /// </summary>
-        /*
-        <example>/api/1/instances/discover</example>
-        */
         [DataMember(Name = "endpoint", IsRequired = true, EmitDefaultValue = true)]
         public string Endpoint { get; set; }
 
         /// <summary>
         /// Gets or Sets Kind
         /// </summary>
-        /*
-        <example>instanceDiscover</example>
-        */
         [DataMember(Name = "kind", IsRequired = true, EmitDefaultValue = true)]
         public string Kind { get; set; }
 
         /// <summary>
         /// Gets or Sets Method
         /// </summary>
-        /*
-        <example>GET</example>
-        */
         [DataMember(Name = "method", IsRequired = true, EmitDefaultValue = true)]
         public string Method { get; set; }
 
@@ -131,27 +119,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ResponseType
         /// </summary>
-        /*
-        <example>instance</example>
-        */
         [DataMember(Name = "responseType", IsRequired = true, EmitDefaultValue = true)]
         public string ResponseType { get; set; }
 
         /// <summary>
         /// Gets or Sets ResultsField
         /// </summary>
-        /*
-        <example>instances</example>
-        */
         [DataMember(Name = "resultsField", IsRequired = true, EmitDefaultValue = true)]
         public string ResultsField { get; set; }
 
         /// <summary>
         /// Gets or Sets SchemaVersion
         /// </summary>
-        /*
-        <example>1</example>
-        */
         [DataMember(Name = "schemaVersion", IsRequired = true, EmitDefaultValue = true)]
         public int SchemaVersion { get; set; }
 

@@ -55,45 +55,30 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Body
         /// </summary>
-        /*
-        <example>Visit the store to check out the new Cosmic Princess Kaguya items!</example>
-        */
         [DataMember(Name = "body", IsRequired = true, EmitDefaultValue = true)]
         public string Body { get; set; }
 
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
-        /*
-        <example>OpenListingDetails</example>
-        */
         [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
         public string Command { get; set; }
 
         /// <summary>
         /// Gets or Sets ImageUrl
         /// </summary>
-        /*
-        <example>https://assets.vrchat.com/ips/assets/ipsai_4b9857b7-4396-488a-931a-cbd71a445e81.png</example>
-        */
         [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Parameter
         /// </summary>
-        /*
-        <example>prod_efc9804b-d0d7-477b-ac4d-3b9663dca14b</example>
-        */
         [DataMember(Name = "parameter", IsRequired = true, EmitDefaultValue = true)]
         public string Parameter { get; set; }
 
         /// <summary>
         /// Gets or Sets Title
         /// </summary>
-        /*
-        <example>Cosmic Princess Kaguya!</example>
-        */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 

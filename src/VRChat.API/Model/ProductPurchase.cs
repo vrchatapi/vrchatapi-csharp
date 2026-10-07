@@ -153,9 +153,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "buyerId", IsRequired = true, EmitDefaultValue = true)]
         public string BuyerId { get; set; }
 
@@ -216,18 +213,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets ListingId
         /// </summary>
-        /*
-        <example>prod_bfbc2315-247a-44d7-bfea-5237f8d56cb4</example>
-        */
         [DataMember(Name = "listingId", IsRequired = true, EmitDefaultValue = true)]
         public string ListingId { get; set; }
 
         /// <summary>
         /// Gets or Sets ListingImageId
         /// </summary>
-        /*
-        <example>file_ce35d830-e20a-4df0-a6d4-5aaef4508044</example>
-        */
         [DataMember(Name = "listingImageId", IsRequired = true, EmitDefaultValue = true)]
         public string ListingImageId { get; set; }
 
@@ -294,9 +285,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PurchaseId
         /// </summary>
-        /*
-        <example>pur_f0446b91-e0f7-403e-8932-609d5057898c</example>
-        */
         [DataMember(Name = "purchaseId", IsRequired = true, EmitDefaultValue = true)]
         public string PurchaseId { get; set; }
 
@@ -358,9 +346,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "receiverId", IsRequired = true, EmitDefaultValue = true)]
         public string ReceiverId { get; set; }
 
@@ -386,9 +371,6 @@ namespace VRChat.API.Model
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
         /// </summary>
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "sellerId", IsRequired = true, EmitDefaultValue = true)]
         public string SellerId { get; set; }
 

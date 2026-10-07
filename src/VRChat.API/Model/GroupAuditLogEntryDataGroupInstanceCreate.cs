@@ -39,9 +39,9 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryDataGroupInstanceCreate" /> class.
         /// </summary>
-        /// <param name="calendarEntryId">calendarEntryId (required).</param>
+        /// <param name="calendarEntryId">The calendar entry ID if the instance was created from a calendar event. (required).</param>
         /// <param name="groupAccessType">groupAccessType (required).</param>
-        /// <param name="roleIds">roleIds (required).</param>
+        /// <param name="roleIds">The role IDs that have access to the instance. (required).</param>
         public GroupAuditLogEntryDataGroupInstanceCreate(string calendarEntryId = default, GroupAccessType groupAccessType = default, List<string> roleIds = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -52,17 +52,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets CalendarEntryId
+        /// The calendar entry ID if the instance was created from a calendar event.
         /// </summary>
-        /*
-        <example>cal_6b182f0c-61ef-4bdf-97fe-94f63bcba27b</example>
-        */
+        /// <value>The calendar entry ID if the instance was created from a calendar event.</value>
         [DataMember(Name = "calendarEntryId", IsRequired = true, EmitDefaultValue = true)]
         public string CalendarEntryId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RoleIds
+        /// The role IDs that have access to the instance.
         /// </summary>
+        /// <value>The role IDs that have access to the instance.</value>
         [DataMember(Name = "roleIds", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RoleIds { get; set; }
 

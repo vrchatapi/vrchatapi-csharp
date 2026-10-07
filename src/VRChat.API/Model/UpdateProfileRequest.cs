@@ -134,9 +134,6 @@ namespace VRChat.API.Model
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
         /// </summary>
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
-        /*
-        <example>3cc92c</example>
-        */
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -155,9 +152,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IconFrame
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "iconFrame", EmitDefaultValue = false)]
         public string IconFrame { get; set; }
 
@@ -170,18 +164,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets NameplateEffect
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "nameplateEffect", EmitDefaultValue = false)]
         public string NameplateEffect { get; set; }
 
         /// <summary>
         /// Gets or Sets ProfileEffect
         /// </summary>
-        /*
-        <example>invt_b80ce14b-038b-4f56-b970-d232771d62e3</example>
-        */
         [DataMember(Name = "profileEffect", EmitDefaultValue = false)]
         public string ProfileEffect { get; set; }
 

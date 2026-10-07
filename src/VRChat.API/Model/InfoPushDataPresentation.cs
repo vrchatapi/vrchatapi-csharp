@@ -43,9 +43,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Layout
         /// </summary>
-        /*
-        <example>EqualParts_4_Grid</example>
-        */
         [DataMember(Name = "layout", IsRequired = true, EmitDefaultValue = true)]
         public string Layout { get; set; }
 

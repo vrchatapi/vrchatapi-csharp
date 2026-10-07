@@ -59,36 +59,24 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets IconUrl
         /// </summary>
-        /*
-        <example>vrchat://category_hangout</example>
-        */
         [DataMember(Name = "iconUrl", IsRequired = true, EmitDefaultValue = true)]
         public string IconUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
-        /*
-        <example>icat_44bc6a70-493f-4f84-8a3b-1f290c864c2a</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        /*
-        <example>Hangout</example>
-        */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Order
         /// </summary>
-        /*
-        <example>0</example>
-        */
         [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]
         public int Order { get; set; }
 

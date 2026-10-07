@@ -60,9 +60,6 @@ namespace VRChat.API.Model
         /// Required for \&quot;afterDate\&quot; - The date and time after which the event will stop being scheduled, **without timezone or offset**
         /// </summary>
         /// <value>Required for \&quot;afterDate\&quot; - The date and time after which the event will stop being scheduled, **without timezone or offset**</value>
-        /*
-        <example>2026-12-31T23:59:00</example>
-        */
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public string Date { get; set; }
 

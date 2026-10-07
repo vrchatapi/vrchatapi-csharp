@@ -49,9 +49,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
-        /*
-        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
-        */
         [DataMember(Name = "ownerId", IsRequired = true, EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 

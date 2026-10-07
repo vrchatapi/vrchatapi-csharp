@@ -118,9 +118,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CategoryId
         /// </summary>
-        /*
-        <example>icat_44bc6a70-493f-4f84-8a3b-1f290c864c2a</example>
-        */
         [DataMember(Name = "categoryId", EmitDefaultValue = false)]
         public string CategoryId { get; set; }
 
@@ -172,9 +169,6 @@ namespace VRChat.API.Model
         /// A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise
         /// </summary>
         /// <value>A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise</value>
-        /*
-        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
-        */
         [DataMember(Name = "ownerId", EmitDefaultValue = true)]
         public string OwnerId { get; set; }
 
@@ -207,9 +201,6 @@ namespace VRChat.API.Model
         /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
         /// </summary>
         /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
-        /*
-        <example>wrld_4432ea9b-729c-46e3-8eaf-846aa0a37fdd</example>
-        */
         [DataMember(Name = "worldId", IsRequired = true, EmitDefaultValue = true)]
         public string WorldId { get; set; }
 
