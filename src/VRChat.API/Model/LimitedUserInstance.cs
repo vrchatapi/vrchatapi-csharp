@@ -62,9 +62,9 @@ namespace VRChat.API.Model
         /// <param name="allowAvatarCopying">allowAvatarCopying (required).</param>
         /// <param name="bio">bio.</param>
         /// <param name="bioLinks">bioLinks.</param>
-        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
-        /// <param name="currentAvatarTags">currentAvatarTags (required).</param>
-        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead. (required).</param>
+        /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
+        /// <param name="currentAvatarTags">currentAvatarTags.</param>
+        /// <param name="currentAvatarThumbnailImageUrl">When profilePicOverride is not empty, use it instead..</param>
         /// <param name="dateJoined">dateJoined (required).</param>
         /// <param name="developerType">developerType (required).</param>
         /// <param name="displayName">displayName (required).</param>
@@ -90,12 +90,6 @@ namespace VRChat.API.Model
             this.AgeVerified = ageVerified;
             this.AllowAvatarCopying = allowAvatarCopying;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarImageUrl = currentAvatarImageUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarTags = currentAvatarTags;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.DateJoined = dateJoined;
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -118,6 +112,9 @@ namespace VRChat.API.Model
             this.Tags = tags;
             this.Bio = bio;
             this.BioLinks = bioLinks;
+            this.CurrentAvatarImageUrl = currentAvatarImageUrl;
+            this.CurrentAvatarTags = currentAvatarTags;
+            this.CurrentAvatarThumbnailImageUrl = currentAvatarThumbnailImageUrl;
             this.ImageUrl = imageUrl;
             this.LastMobile = lastMobile;
             this.Platform = platform;
@@ -159,13 +156,13 @@ namespace VRChat.API.Model
         /*
         <example>https://api.vrchat.cloud/api/1/file/file_ae46d521-7281-4b38-b365-804b32a1d6a7/1/file</example>
         */
-        [DataMember(Name = "currentAvatarImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarImageUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentAvatarTags
         /// </summary>
-        [DataMember(Name = "currentAvatarTags", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarTags", EmitDefaultValue = false)]
         public List<string> CurrentAvatarTags { get; set; }
 
         /// <summary>
@@ -175,7 +172,7 @@ namespace VRChat.API.Model
         /*
         <example>https://api.vrchat.cloud/api/1/image/file_aae83ed9-d42d-4d72-9f4b-9f1e41ed17e1/1/256</example>
         */
-        [DataMember(Name = "currentAvatarThumbnailImageUrl", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "currentAvatarThumbnailImageUrl", EmitDefaultValue = false)]
         public string CurrentAvatarThumbnailImageUrl { get; set; }
 
         /// <summary>
