@@ -18,21 +18,21 @@ namespace VRChat.API.Model
     public abstract partial class AbstractOpenAPISchema
     {
         /// <summary>
-        /// Whether this instance holds a <typeparamref name="T"/>.
+        /// The value this instance holds: one of the union's member types.
         /// </summary>
-        public bool Is<T>() => ActualInstance is T;
+        public object Value => ActualInstance;
 
         /// <summary>
-        /// The <typeparamref name="T"/> this instance holds, throwing <see cref="System.InvalidCastException"/> when it holds another type.
+        /// Whether this instance holds a <typeparamref name="T"/>.
         /// </summary>
-        public T As<T>() => (T)ActualInstance;
+        public bool Is<T>() => Value is T;
 
         /// <summary>
         /// Gets the <typeparamref name="T"/> this instance holds, if it holds one.
         /// </summary>
         public bool TryGet<T>(out T value)
         {
-            if (ActualInstance is T instance)
+            if (Value is T instance)
             {
                 value = instance;
                 return true;
