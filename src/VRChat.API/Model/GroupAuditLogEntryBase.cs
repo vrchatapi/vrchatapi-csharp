@@ -20,29 +20,27 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// A group audit log entry. The shape of &#x60;data&#x60; depends on &#x60;eventType&#x60;.
+    /// GroupAuditLogEntryBase
     /// </summary>
-    [DataContract(Name = "GroupAuditLogEntry")]
-    public partial class GroupAuditLogEntry : IEquatable<GroupAuditLogEntry>, IValidatableObject
+    [DataContract(Name = "GroupAuditLogEntryBase")]
+    public partial class GroupAuditLogEntryBase : IEquatable<GroupAuditLogEntryBase>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAuditLogEntry" /> class.
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntryBase" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GroupAuditLogEntry() { }
+        protected GroupAuditLogEntryBase() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAuditLogEntry" /> class.
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntryBase" /> class.
         /// </summary>
         /// <param name="actorDisplayName">The display name of the user who performed the action. (required).</param>
         /// <param name="actorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="createdAt">When the action was performed. (required).</param>
         /// <param name="description">A human-readable description of the event. (required).</param>
-        /// <param name="eventType">eventType (required).</param>
+        /// <param name="eventType">The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;. (required) (default to &quot;group.update&quot;).</param>
         /// <param name="groupId">groupId (required).</param>
         /// <param name="id">id (required).</param>
-        /// <param name="data">data (required).</param>
-        /// <param name="targetId">targetId (required).</param>
-        public GroupAuditLogEntry(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default, GroupAuditLogEntryEventData data = default, string targetId = default)
+        public GroupAuditLogEntryBase(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = @"group.update", string groupId = default, string id = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ActorDisplayName = actorDisplayName;
@@ -57,10 +55,6 @@ namespace VRChat.API.Model
             this.GroupId = groupId;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Data = data;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.TargetId = targetId;
         }
 
         /// <summary>
@@ -95,8 +89,12 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventType
+        /// The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;.
         /// </summary>
+        /// <value>The type of event that occurred. This is a string that is prefixed with the type of object that the event occurred on. For example, a group role update event would be prefixed with &#x60;group.role&#x60;.</value>
+        /*
+        <example>group.role.update</example>
+        */
         [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
         public string EventType { get; set; }
 
@@ -119,25 +117,13 @@ namespace VRChat.API.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public GroupAuditLogEntryEventData Data { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TargetId
-        /// </summary>
-        [DataMember(Name = "targetId", IsRequired = true, EmitDefaultValue = true)]
-        public string TargetId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GroupAuditLogEntry {\n");
+            sb.Append("class GroupAuditLogEntryBase {\n");
             sb.Append("  ActorDisplayName: ").Append(ActorDisplayName).Append("\n");
             sb.Append("  ActorId: ").Append(ActorId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
@@ -145,8 +131,6 @@ namespace VRChat.API.Model
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  TargetId: ").Append(TargetId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,15 +151,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GroupAuditLogEntry);
+            return this.Equals(input as GroupAuditLogEntryBase);
         }
 
         /// <summary>
-        /// Returns true if GroupAuditLogEntry instances are equal
+        /// Returns true if GroupAuditLogEntryBase instances are equal
         /// </summary>
-        /// <param name="input">Instance of GroupAuditLogEntry to be compared</param>
+        /// <param name="input">Instance of GroupAuditLogEntryBase to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GroupAuditLogEntry input)
+        public bool Equals(GroupAuditLogEntryBase input)
         {
             if (input == null)
             {
@@ -215,16 +199,6 @@ namespace VRChat.API.Model
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.TargetId == input.TargetId ||
-                    (this.TargetId != null &&
-                    this.TargetId.Equals(input.TargetId))
                 );
         }
 
@@ -261,14 +235,6 @@ namespace VRChat.API.Model
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.TargetId != null)
-                {
-                    hashCode = (hashCode * 59) + this.TargetId.GetHashCode();
                 }
                 return hashCode;
             }
