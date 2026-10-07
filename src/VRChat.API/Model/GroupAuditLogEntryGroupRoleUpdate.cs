@@ -52,17 +52,83 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntryGroupRoleUpdate" /> class.
         /// </summary>
-        /// <param name="data">data (required).</param>
+        /// <param name="actorDisplayName">The display name of the user who performed the action. (required).</param>
+        /// <param name="actorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="createdAt">When the action was performed. (required).</param>
+        /// <param name="description">A human-readable description of the event. (required).</param>
         /// <param name="eventType">eventType (required).</param>
+        /// <param name="groupId">groupId (required).</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="data">data (required).</param>
         /// <param name="targetId">targetId (required).</param>
-        public GroupAuditLogEntryGroupRoleUpdate(GroupAuditLogEntryDataGroupRoleUpdate data = default, EventTypeEnum eventType = default, string targetId = default)
+        public GroupAuditLogEntryGroupRoleUpdate(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, EventTypeEnum eventType = default, string groupId = default, string id = default, GroupAuditLogEntryDataGroupRoleUpdate data = default, string targetId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Data = data;
+            this.ActorDisplayName = actorDisplayName;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ActorId = actorId;
+            this.CreatedAt = createdAt;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Description = description;
             this.EventType = eventType;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.GroupId = groupId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Id = id;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Data = data;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetId = targetId;
         }
+
+        /// <summary>
+        /// The display name of the user who performed the action.
+        /// </summary>
+        /// <value>The display name of the user who performed the action.</value>
+        [DataMember(Name = "actorDisplayName", IsRequired = true, EmitDefaultValue = true)]
+        public string ActorDisplayName { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        /*
+        <example>usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469</example>
+        */
+        [DataMember(Name = "actorId", IsRequired = true, EmitDefaultValue = true)]
+        public string ActorId { get; set; }
+
+        /// <summary>
+        /// When the action was performed.
+        /// </summary>
+        /// <value>When the action was performed.</value>
+        [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// A human-readable description of the event.
+        /// </summary>
+        /// <value>A human-readable description of the event.</value>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GroupId
+        /// </summary>
+        /*
+        <example>grp_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
+        [DataMember(Name = "groupId", IsRequired = true, EmitDefaultValue = true)]
+        public string GroupId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        /*
+        <example>gaud_71a7ff59-112c-4e78-a990-c7cc650776e5</example>
+        */
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
@@ -87,8 +153,14 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class GroupAuditLogEntryGroupRoleUpdate {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  ActorDisplayName: ").Append(ActorDisplayName).Append("\n");
+            sb.Append("  ActorId: ").Append(ActorId).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  TargetId: ").Append(TargetId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -126,13 +198,42 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.ActorDisplayName == input.ActorDisplayName ||
+                    (this.ActorDisplayName != null &&
+                    this.ActorDisplayName.Equals(input.ActorDisplayName))
+                ) && 
+                (
+                    this.ActorId == input.ActorId ||
+                    (this.ActorId != null &&
+                    this.ActorId.Equals(input.ActorId))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 ) && 
                 (
                     this.EventType == input.EventType ||
                     this.EventType.Equals(input.EventType)
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.TargetId == input.TargetId ||
@@ -150,11 +251,32 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ActorDisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActorDisplayName.GetHashCode();
+                }
+                if (this.ActorId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ActorId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 if (this.TargetId != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetId.GetHashCode();

@@ -171,6 +171,7 @@ src/VRChat.API/Model/GroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntry.cs
 src/VRChat.API/Model/GroupAuditLogEntryBase.cs
 src/VRChat.API/Model/GroupAuditLogEntryBooleanChange.cs
+src/VRChat.API/Model/GroupAuditLogEntryData.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventDelete.cs
@@ -192,8 +193,6 @@ src/VRChat.API/Model/GroupAuditLogEntryDataGroupRoleCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupRoleDelete.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupRoleUpdate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupUpdate.cs
-src/VRChat.API/Model/GroupAuditLogEntryEvent.cs
-src/VRChat.API/Model/GroupAuditLogEntryEventData.cs
 src/VRChat.API/Model/GroupAuditLogEntryFileIDChange.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupCalendarEventCreate.cs

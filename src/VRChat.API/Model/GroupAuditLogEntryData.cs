@@ -20,10 +20,10 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GroupAuditLogEntryEventData
+    /// GroupAuditLogEntryData
     /// </summary>
-    [DataContract(Name = "GroupAuditLogEntryEvent_data")]
-    public partial class GroupAuditLogEntryEventData : IEquatable<GroupAuditLogEntryEventData>, IValidatableObject
+    [DataContract(Name = "GroupAuditLogEntry_data")]
+    public partial class GroupAuditLogEntryData : IEquatable<GroupAuditLogEntryData>, IValidatableObject
     {
 
         /// <summary>
@@ -43,8 +43,14 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "groupAccessType", EmitDefaultValue = false)]
         public GroupAccessType? GroupAccessType { get; set; }
+
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAuditLogEntryEventData" /> class.
+        /// Gets or Sets Visibility
+        /// </summary>
+        [DataMember(Name = "visibility", EmitDefaultValue = false)]
+        public GroupPostVisibility? Visibility { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntryData" /> class.
         /// </summary>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="imageId">imageId.</param>
@@ -91,16 +97,19 @@ namespace VRChat.API.Model
         /// <param name="roleId">roleId.</param>
         /// <param name="roleName">The name of the role that was assigned or unassigned..</param>
         /// <param name="managerNotes">managerNotes.</param>
+        /// <param name="visibility">visibility.</param>
         /// <param name="editorId">editorId.</param>
         /// <param name="imageUrl">The URL of the post image..</param>
-        /// <param name="groupId">groupId.</param>
-        /// <param name="lastUpdatedByUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
-        /// <param name="defaultRole">Whether the role is the group&#39;s default role..</param>
-        /// <param name="isManagementRole">Whether the role is a management role..</param>
         /// <param name="isAddedOnJoin">isAddedOnJoin.</param>
         /// <param name="isSelfAssignable">isSelfAssignable.</param>
         /// <param name="order">order.</param>
         /// <param name="permissions">permissions.</param>
+        /// <param name="requiresPurchase">Whether the role requires a purchase..</param>
+        /// <param name="requiresTwoFactor">Whether the role requires two-factor authentication..</param>
+        /// <param name="groupId">groupId.</param>
+        /// <param name="lastUpdatedByUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="defaultRole">Whether the role is the group&#39;s default role..</param>
+        /// <param name="isManagementRole">Whether the role is a management role..</param>
         /// <param name="allowGroupJoinPrompt">allowGroupJoinPrompt.</param>
         /// <param name="bannerId">bannerId.</param>
         /// <param name="iconId">iconId.</param>
@@ -108,7 +117,7 @@ namespace VRChat.API.Model
         /// <param name="links">links.</param>
         /// <param name="nameplateId">nameplateId.</param>
         /// <param name="rules">rules.</param>
-        public GroupAuditLogEntryEventData(string authorId = default, string imageId = default, bool sendNotification = default, Object text = default, Object title = default, CalendarEventAccess? accessType = default, Object description = default, string type = default, string category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, int durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, int interestedUserCount = default, bool isDraft = default, Object languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string occurrenceModified = default, string ownerId = default, List<string> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, Object shortCode = default, DateTime startsAt = default, Object tags = default, DateTime updatedAt = default, bool usesInstanceOverflow = default, Object membersOnly = default, Object name = default, List<string> roleIdsToAutoApprove = default, List<string> roleIdsToManage = default, List<string> roleIdsToSubmit = default, List<string> roleIdsToView = default, string message = default, GroupAccessType? groupAccessType = default, string calendarEntryId = default, string location = default, string roleId = default, string roleName = default, GroupAuditLogEntryStringChange managerNotes = default, Object editorId = default, string imageUrl = default, string groupId = default, string lastUpdatedByUserId = default, bool defaultRole = default, bool isManagementRole = default, GroupAuditLogEntryBooleanChange isAddedOnJoin = default, GroupAuditLogEntryBooleanChange isSelfAssignable = default, GroupAuditLogEntryIntegerChange order = default, GroupAuditLogEntryStringListChange permissions = default, GroupAuditLogEntryBooleanChange allowGroupJoinPrompt = default, GroupAuditLogEntryFileIDChange bannerId = default, GroupAuditLogEntryFileIDChange iconId = default, GroupAuditLogEntryJoinStateChange joinState = default, GroupAuditLogEntryStringListChange links = default, GroupAuditLogEntryFileIDChange nameplateId = default, GroupAuditLogEntryStringChange rules = default)
+        public GroupAuditLogEntryData(string authorId = default, string imageId = default, bool sendNotification = default, Object text = default, Object title = default, CalendarEventAccess? accessType = default, Object description = default, string type = default, string category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, int durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, int interestedUserCount = default, bool isDraft = default, Object languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string occurrenceModified = default, string ownerId = default, List<string> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, Object shortCode = default, DateTime startsAt = default, Object tags = default, DateTime updatedAt = default, bool usesInstanceOverflow = default, Object membersOnly = default, Object name = default, List<string> roleIdsToAutoApprove = default, List<string> roleIdsToManage = default, List<string> roleIdsToSubmit = default, List<string> roleIdsToView = default, string message = default, GroupAccessType? groupAccessType = default, string calendarEntryId = default, string location = default, string roleId = default, string roleName = default, GroupAuditLogEntryStringChange managerNotes = default, GroupPostVisibility? visibility = default, Object editorId = default, string imageUrl = default, Object isAddedOnJoin = default, Object isSelfAssignable = default, Object order = default, Object permissions = default, bool requiresPurchase = default, bool requiresTwoFactor = default, string groupId = default, string lastUpdatedByUserId = default, bool defaultRole = default, bool isManagementRole = default, GroupAuditLogEntryBooleanChange allowGroupJoinPrompt = default, GroupAuditLogEntryFileIDChange bannerId = default, GroupAuditLogEntryFileIDChange iconId = default, GroupAuditLogEntryJoinStateChange joinState = default, GroupAuditLogEntryStringListChange links = default, GroupAuditLogEntryFileIDChange nameplateId = default, GroupAuditLogEntryStringChange rules = default)
         {
             this.AuthorId = authorId;
             this.ImageId = imageId;
@@ -155,16 +164,19 @@ namespace VRChat.API.Model
             this.RoleId = roleId;
             this.RoleName = roleName;
             this.ManagerNotes = managerNotes;
+            this.Visibility = visibility;
             this.EditorId = editorId;
             this.ImageUrl = imageUrl;
-            this.GroupId = groupId;
-            this.LastUpdatedByUserId = lastUpdatedByUserId;
-            this.DefaultRole = defaultRole;
-            this.IsManagementRole = isManagementRole;
             this.IsAddedOnJoin = isAddedOnJoin;
             this.IsSelfAssignable = isSelfAssignable;
             this.Order = order;
             this.Permissions = permissions;
+            this.RequiresPurchase = requiresPurchase;
+            this.RequiresTwoFactor = requiresTwoFactor;
+            this.GroupId = groupId;
+            this.LastUpdatedByUserId = lastUpdatedByUserId;
+            this.DefaultRole = defaultRole;
+            this.IsManagementRole = isManagementRole;
             this.AllowGroupJoinPrompt = allowGroupJoinPrompt;
             this.BannerId = bannerId;
             this.IconId = iconId;
@@ -481,6 +493,44 @@ namespace VRChat.API.Model
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// Gets or Sets IsAddedOnJoin
+        /// </summary>
+        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = true)]
+        public Object IsAddedOnJoin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsSelfAssignable
+        /// </summary>
+        [DataMember(Name = "isSelfAssignable", EmitDefaultValue = true)]
+        public Object IsSelfAssignable { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Order
+        /// </summary>
+        [DataMember(Name = "order", EmitDefaultValue = true)]
+        public Object Order { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Permissions
+        /// </summary>
+        [DataMember(Name = "permissions", EmitDefaultValue = true)]
+        public Object Permissions { get; set; }
+
+        /// <summary>
+        /// Whether the role requires a purchase.
+        /// </summary>
+        /// <value>Whether the role requires a purchase.</value>
+        [DataMember(Name = "requiresPurchase", EmitDefaultValue = true)]
+        public bool RequiresPurchase { get; set; }
+
+        /// <summary>
+        /// Whether the role requires two-factor authentication.
+        /// </summary>
+        /// <value>Whether the role requires two-factor authentication.</value>
+        [DataMember(Name = "requiresTwoFactor", EmitDefaultValue = true)]
+        public bool RequiresTwoFactor { get; set; }
+
+        /// <summary>
         /// Gets or Sets GroupId
         /// </summary>
         /*
@@ -512,30 +562,6 @@ namespace VRChat.API.Model
         /// <value>Whether the role is a management role.</value>
         [DataMember(Name = "isManagementRole", EmitDefaultValue = true)]
         public bool IsManagementRole { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsAddedOnJoin
-        /// </summary>
-        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = false)]
-        public GroupAuditLogEntryBooleanChange IsAddedOnJoin { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsSelfAssignable
-        /// </summary>
-        [DataMember(Name = "isSelfAssignable", EmitDefaultValue = false)]
-        public GroupAuditLogEntryBooleanChange IsSelfAssignable { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Order
-        /// </summary>
-        [DataMember(Name = "order", EmitDefaultValue = false)]
-        public GroupAuditLogEntryIntegerChange Order { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Permissions
-        /// </summary>
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
-        public GroupAuditLogEntryStringListChange Permissions { get; set; }
 
         /// <summary>
         /// Gets or Sets AllowGroupJoinPrompt
@@ -586,7 +612,7 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GroupAuditLogEntryEventData {\n");
+            sb.Append("class GroupAuditLogEntryData {\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  ImageId: ").Append(ImageId).Append("\n");
             sb.Append("  SendNotification: ").Append(SendNotification).Append("\n");
@@ -632,16 +658,19 @@ namespace VRChat.API.Model
             sb.Append("  RoleId: ").Append(RoleId).Append("\n");
             sb.Append("  RoleName: ").Append(RoleName).Append("\n");
             sb.Append("  ManagerNotes: ").Append(ManagerNotes).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  EditorId: ").Append(EditorId).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
-            sb.Append("  LastUpdatedByUserId: ").Append(LastUpdatedByUserId).Append("\n");
-            sb.Append("  DefaultRole: ").Append(DefaultRole).Append("\n");
-            sb.Append("  IsManagementRole: ").Append(IsManagementRole).Append("\n");
             sb.Append("  IsAddedOnJoin: ").Append(IsAddedOnJoin).Append("\n");
             sb.Append("  IsSelfAssignable: ").Append(IsSelfAssignable).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("  RequiresPurchase: ").Append(RequiresPurchase).Append("\n");
+            sb.Append("  RequiresTwoFactor: ").Append(RequiresTwoFactor).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  LastUpdatedByUserId: ").Append(LastUpdatedByUserId).Append("\n");
+            sb.Append("  DefaultRole: ").Append(DefaultRole).Append("\n");
+            sb.Append("  IsManagementRole: ").Append(IsManagementRole).Append("\n");
             sb.Append("  AllowGroupJoinPrompt: ").Append(AllowGroupJoinPrompt).Append("\n");
             sb.Append("  BannerId: ").Append(BannerId).Append("\n");
             sb.Append("  IconId: ").Append(IconId).Append("\n");
@@ -669,15 +698,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GroupAuditLogEntryEventData);
+            return this.Equals(input as GroupAuditLogEntryData);
         }
 
         /// <summary>
-        /// Returns true if GroupAuditLogEntryEventData instances are equal
+        /// Returns true if GroupAuditLogEntryData instances are equal
         /// </summary>
-        /// <param name="input">Instance of GroupAuditLogEntryEventData to be compared</param>
+        /// <param name="input">Instance of GroupAuditLogEntryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GroupAuditLogEntryEventData input)
+        public bool Equals(GroupAuditLogEntryData input)
         {
             if (input == null)
             {
@@ -900,6 +929,10 @@ namespace VRChat.API.Model
                     this.ManagerNotes.Equals(input.ManagerNotes))
                 ) && 
                 (
+                    this.Visibility == input.Visibility ||
+                    this.Visibility.Equals(input.Visibility)
+                ) && 
+                (
                     this.EditorId == input.EditorId ||
                     (this.EditorId != null &&
                     this.EditorId.Equals(input.EditorId))
@@ -908,24 +941,6 @@ namespace VRChat.API.Model
                     this.ImageUrl == input.ImageUrl ||
                     (this.ImageUrl != null &&
                     this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.GroupId == input.GroupId ||
-                    (this.GroupId != null &&
-                    this.GroupId.Equals(input.GroupId))
-                ) && 
-                (
-                    this.LastUpdatedByUserId == input.LastUpdatedByUserId ||
-                    (this.LastUpdatedByUserId != null &&
-                    this.LastUpdatedByUserId.Equals(input.LastUpdatedByUserId))
-                ) && 
-                (
-                    this.DefaultRole == input.DefaultRole ||
-                    this.DefaultRole.Equals(input.DefaultRole)
-                ) && 
-                (
-                    this.IsManagementRole == input.IsManagementRole ||
-                    this.IsManagementRole.Equals(input.IsManagementRole)
                 ) && 
                 (
                     this.IsAddedOnJoin == input.IsAddedOnJoin ||
@@ -946,6 +961,32 @@ namespace VRChat.API.Model
                     this.Permissions == input.Permissions ||
                     (this.Permissions != null &&
                     this.Permissions.Equals(input.Permissions))
+                ) && 
+                (
+                    this.RequiresPurchase == input.RequiresPurchase ||
+                    this.RequiresPurchase.Equals(input.RequiresPurchase)
+                ) && 
+                (
+                    this.RequiresTwoFactor == input.RequiresTwoFactor ||
+                    this.RequiresTwoFactor.Equals(input.RequiresTwoFactor)
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
+                ) && 
+                (
+                    this.LastUpdatedByUserId == input.LastUpdatedByUserId ||
+                    (this.LastUpdatedByUserId != null &&
+                    this.LastUpdatedByUserId.Equals(input.LastUpdatedByUserId))
+                ) && 
+                (
+                    this.DefaultRole == input.DefaultRole ||
+                    this.DefaultRole.Equals(input.DefaultRole)
+                ) && 
+                (
+                    this.IsManagementRole == input.IsManagementRole ||
+                    this.IsManagementRole.Equals(input.IsManagementRole)
                 ) && 
                 (
                     this.AllowGroupJoinPrompt == input.AllowGroupJoinPrompt ||
@@ -1125,6 +1166,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Visibility.GetHashCode();
                 if (this.EditorId != null)
                 {
                     hashCode = (hashCode * 59) + this.EditorId.GetHashCode();
@@ -1133,16 +1175,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
-                if (this.GroupId != null)
-                {
-                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
-                }
-                if (this.LastUpdatedByUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.LastUpdatedByUserId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.DefaultRole.GetHashCode();
-                hashCode = (hashCode * 59) + this.IsManagementRole.GetHashCode();
                 if (this.IsAddedOnJoin != null)
                 {
                     hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
@@ -1159,6 +1191,18 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RequiresPurchase.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
+                }
+                if (this.LastUpdatedByUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastUpdatedByUserId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.DefaultRole.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsManagementRole.GetHashCode();
                 if (this.AllowGroupJoinPrompt != null)
                 {
                     hashCode = (hashCode * 59) + this.AllowGroupJoinPrompt.GetHashCode();

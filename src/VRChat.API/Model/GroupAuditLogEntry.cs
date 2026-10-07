@@ -42,7 +42,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="targetId">targetId (required).</param>
-        public GroupAuditLogEntry(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default, GroupAuditLogEntryEventData data = default, string targetId = default)
+        public GroupAuditLogEntry(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default, GroupAuditLogEntryData data = default, string targetId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ActorDisplayName = actorDisplayName;
@@ -122,7 +122,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public GroupAuditLogEntryEventData Data { get; set; }
+        public GroupAuditLogEntryData Data { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetId
