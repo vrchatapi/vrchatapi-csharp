@@ -182,11 +182,11 @@ namespace VRChat.API.Client
 
         /// <summary>
         /// Logs in as the currently configured user. Will throw an exception unless <b><c>throwOnFail</c></b> is set to <b><c>true</c></b>.
-        /// <br /> If successful, the <see cref="CurrentUserLoginResponse"/> will be returned, otherwise <b><c>null</c></b> (if <b><c>throwOnFail</c></b> is false).
+        /// <br /> If successful, the <see cref="CurrentUser"/> will be returned, otherwise <b><c>null</c></b> (if <b><c>throwOnFail</c></b> is false).
         /// </summary>
         /// <param name="ct">Cancellation token for cancelling any asynchronous operations</param>
-        /// <returns>A <see cref="Task"/> of <see cref="CurrentUserLoginResponse"/> with the currently logged in user, if successful.</returns>
-        Task<CurrentUserLoginResponse> LoginAsync(CancellationToken ct = default);
+        /// <returns>A <see cref="Task"/> of <see cref="CurrentUser"/> with the currently logged in user, if successful.</returns>
+        Task<CurrentUser> LoginAsync(CancellationToken ct = default);
 
         /// <summary>
         /// Authenticates the current user using an external two-factor authentication code provider.
@@ -199,8 +199,8 @@ namespace VRChat.API.Client
         /// implementation of <see cref="ITwoFactorCode"/> containing the code to use for authentication.</param>
         /// <param name="ct">A cancellation token that can be used to cancel the login operation.</param>
         /// <returns>A task that represents the asynchronous operation. The task result contains the authenticated <see
-        /// cref="CurrentUserLoginResponse"/> instance if login succeeds.</returns>
-        Task<CurrentUserLoginResponse> LoginWithExternalCodeAsync(Func<List<TwoFactorAuthType>, ITwoFactorCode> codeAction, CancellationToken ct = default);
+        /// cref="CurrentUser"/> instance if login succeeds.</returns>
+        Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<TwoFactorAuthType>, ITwoFactorCode> codeAction, CancellationToken ct = default);
     }
 
     /// <summary>
@@ -362,7 +362,7 @@ namespace VRChat.API.Client
         /// <inheritdoc/>
         public async Task<VRChatLoginResult> TryLoginAsync(CancellationToken ct = default)
         {
-            CurrentUserLoginResponse user = null;
+            CurrentUser user = null;
             try
             {
                 user = await this.LoginAsync(ct);
@@ -383,7 +383,7 @@ namespace VRChat.API.Client
         }
 
         /// <inheritdoc/>
-        public async Task<CurrentUserLoginResponse> LoginAsync(CancellationToken ct = default)
+        public async Task<CurrentUser> LoginAsync(CancellationToken ct = default)
         {
             if (_twoFactorSecret == null)
                 throw new ArgumentNullException("This method only supports logging in with Two-Factor TOTP authentication. Please use VRChatClientBuilder.WithTwoFactorSecret() to use this method");
@@ -395,7 +395,9 @@ namespace VRChat.API.Client
                 throw new UnauthorizedAccessException("401 Unauthorized", new Exception(response.RawContent));
             }
 
-            if (response.Data.RequiresTwoFactorAuth != null && response.Data.RequiresTwoFactorAuth.Contains(TwoFactorAuthType.Totp))
+            var pending = response.Data?.ActualInstance as RequiresTwoFactorAuth;
+
+            if (pending != null && pending.VarRequiresTwoFactorAuth.Contains(TwoFactorAuthType.Totp))
             {
                 var totp = new Totp(Base32Encoding.ToBytes(_twoFactorSecret));
                 var twoFactorResponse = await this.Authentication.Verify2FAWithHttpInfoAsync(new TwoFactorAuthCode(totp.ComputeTotp()), ct);
@@ -405,17 +407,17 @@ namespace VRChat.API.Client
 
                 response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(ct);
             }
-            else if (response.Data.RequiresTwoFactorAuth != null)
+            else if (pending != null)
                 throw new InvalidOperationException("This account does not have TOTP Two Factor Authentication set up on it. This method only supports Two-Factor TOTP authentication");
 
-            var user = response.Data;
+            var user = response.Data?.ActualInstance as CurrentUser;
 
             this.IsLoggedIn = response.StatusCode == HttpStatusCode.OK && user != null;
             return response.StatusCode == HttpStatusCode.OK ? user : null;
         }
 
         /// <inheritdoc/>
-        public async Task<CurrentUserLoginResponse> LoginWithExternalCodeAsync(Func<List<TwoFactorAuthType>, ITwoFactorCode> codeAction, CancellationToken ct = default)
+        public async Task<CurrentUser> LoginWithExternalCodeAsync(Func<List<TwoFactorAuthType>, ITwoFactorCode> codeAction, CancellationToken ct = default)
         {
             ApiResponse<CurrentUserLoginResponse> response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(cancellationToken: ct);
 
@@ -424,9 +426,11 @@ namespace VRChat.API.Client
                 throw new UnauthorizedAccessException("401 Unauthorized", new Exception(response.RawContent));
             }
 
-            if (response.Data.RequiresTwoFactorAuth != null)
+            var pending = response.Data?.ActualInstance as RequiresTwoFactorAuth;
+
+            if (pending != null)
             {
-                ITwoFactorCode code = codeAction?.Invoke(response.Data.RequiresTwoFactorAuth);
+                ITwoFactorCode code = codeAction?.Invoke(pending.VarRequiresTwoFactorAuth);
 
                 if(code is TwoFactorEmailCode emailCode)
                 {
@@ -446,7 +450,7 @@ namespace VRChat.API.Client
                 response = await this.Authentication.GetCurrentUserWithHttpInfoAsync(ct);
             }
            
-            var user = response.Data;
+            var user = response.Data?.ActualInstance as CurrentUser;
             this.IsLoggedIn = response.StatusCode == HttpStatusCode.OK && user != null;
             return response.StatusCode == HttpStatusCode.OK ? user : null;
         }

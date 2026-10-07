@@ -47,13 +47,6 @@ cp wrapper/VRChat.API.Extensions.Hosting/vrc_cat.png src/VRChat.API/vrc_cat.png
 cp README.md src/VRChat.API/
 cp README.md src/
 
-# The only edit to generated code that no template or partial class can express: CurrentUser is
-# also returned mid-login, before two-factor verification, with most of its fields absent. The
-# specification marks them required, which makes deserialising that response throw, so the
-# generated attributes are relaxed for this one model.
-patch_generated src/VRChat.API/Model/CurrentUser.cs \
-  'IsRequired = true' 's/IsRequired = true/IsRequired = false/g'
-
 # VRChat.API.Extensions.Hosting is hand-maintained, so its version is stamped rather than generated.
 patch_generated wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj \
   '<Version>' "s|<Version>[^<]*</Version>|<Version>${version}</Version>|g"

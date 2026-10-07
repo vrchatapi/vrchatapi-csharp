@@ -23,7 +23,7 @@ public class HomeController : Controller
     [Route("/api/users/current")]
     public async Task<IActionResult> GetCurrentUserAsync()
     {
-        var user = await _vrchat.Authentication.GetCurrentUserAsync();
+        var user = (await _vrchat.Authentication.GetCurrentUserAsync()).GetCurrentUser();
 
         // Profile fields (bio, bio links, badges, ...) are no longer part of CurrentUser.
         // They live behind getPublicProfile; asSelf includes the owner-only view.
@@ -45,7 +45,7 @@ public class HomeController : Controller
     [Route("/api/users/{id}")]
     public async Task<IActionResult> GetUserByIdAsync(string id)
     {
-        var user = await _vrchat.Users.GetUserAsync(id);
+        var user = (await _vrchat.Users.GetUserAsync(id)).GetUser();
 
         // User no longer carries the profile or current-avatar fields; fetch them from the
         // public profile instead.

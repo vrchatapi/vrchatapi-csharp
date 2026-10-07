@@ -21,7 +21,7 @@ namespace VRChat.API.Examples.Console
             var currentUser = await vrchat.LoginAsync();
             System.Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
 
-            var user = await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
+            var user = (await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e")).GetUser();
             System.Console.WriteLine($"Found user {user.DisplayName}, joined at {user.DateJoined}");
 
             var world = await vrchat.Worlds.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
