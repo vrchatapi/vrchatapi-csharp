@@ -73,15 +73,12 @@
         {{^vendorExtensions.x-duplicated-data-type}}
         {{^isNull}}
 
+        {{^isAnyType}}{{^isFreeFormObject}}
         /// <summary>
-        /// Get the actual instance of `{{dataType}}`. If the actual instance is not `{{dataType}}`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>{{dataType}}</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of {{dataType}}</returns>
-        public {{{dataType}}} Get{{#lambda.titlecase}}{{baseType}}{{/lambda.titlecase}}{{#isArray}}{{#lambda.titlecase}}{{{dataFormat}}}{{/lambda.titlecase}}{{/isArray}}()
-        {
-            return ({{{dataType}}})this.ActualInstance;
-        }
+        public static implicit operator {{{dataType}}}({{classname}} value) => ({{{dataType}}})value?.ActualInstance;
+        {{/isFreeFormObject}}{{/isAnyType}}
         {{/isNull}}
         {{/vendorExtensions.x-duplicated-data-type}}
         {{/composedSchemas.oneOf}}
