@@ -34,6 +34,7 @@ openapi-generator generate \
 -g csharp \
 -t ./templates \
 --library httpclient \
+--inline-schema-name-mappings Transaction_agreement=TransactionAgreementOrString \
 --additional-properties=packageGuid=1c420561-97f1-4810-ad2d-cd344d27170a,packageName=VRChat.API,packageVersion="${version}",targetFramework=net8.0,licenseId=MIT,equatable=true,packageAuthors="VRChat API Docs Community",packageCompany="VRChat API Docs Community",packageTitle="VRChat API Library for .NET",packageDescription="VRChat API Library for .NET",packageCopyright="Copyright © 2021 Owners of GitHub organisation \"vrchatapi\" and individual contributors." \
 --git-user-id=vrchatapi \
 --git-repo-id=vrchatapi-csharp \
