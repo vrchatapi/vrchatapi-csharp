@@ -23,11 +23,6 @@ namespace VRChat.API.Model
         public object Value => ActualInstance;
 
         /// <summary>
-        /// Whether this instance holds a <typeparamref name="T"/>.
-        /// </summary>
-        public bool Is<T>() => Value is T;
-
-        /// <summary>
         /// Gets the <typeparamref name="T"/> this instance holds, if it holds one.
         /// </summary>
         public bool TryGet<T>(out T value)
