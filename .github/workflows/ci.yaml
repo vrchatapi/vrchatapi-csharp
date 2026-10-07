@@ -47,11 +47,13 @@ jobs:
         with:
           bundle: openapi-3.1.yaml
 
-      # The SDK is a major version ahead of the specification.
+      # The SDK is a major and a minor version ahead of the specification.
       - id: version
         run: |
           version="${PASSED_VERSION:-$(yq -r '.info.version' openapi-3.1.yaml)}"
-          version="$(( ${version%%.*} + 1 )).${version#*.}${VERSION_POSTPEND}"
+          major="${version%%.*}"
+          rest="${version#*.}"
+          version="$(( major + 1 )).$(( ${rest%%.*} + 1 )).${rest#*.}${VERSION_POSTPEND}"
 
           echo "version=${version}" >> $GITHUB_OUTPUT
 
