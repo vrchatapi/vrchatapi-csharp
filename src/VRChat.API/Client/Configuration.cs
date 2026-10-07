@@ -109,7 +109,7 @@ namespace VRChat.API.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("vrchatapi-csharp");
+            UserAgent = "vrchatapi-csharp";
             BasePath = "https://api.vrchat.cloud/api/1";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();

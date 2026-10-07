@@ -37,7 +37,7 @@ namespace VRChat.API.Model
         /// <param name="isAddedOnJoin">Whether the role is automatically assigned on join. (required).</param>
         /// <param name="isSelfAssignable">Whether users can self-assign this role. (required).</param>
         /// <param name="name">The role name. (required).</param>
-        /// <param name="order">The display order of the role..</param>
+        /// <param name="order">The display order of the role. (required).</param>
         /// <param name="permissions">The permissions assigned to this role. (required).</param>
         /// <param name="requiresPurchase">Whether the role requires a purchase. (required).</param>
         /// <param name="requiresTwoFactor">Whether the role requires two-factor authentication. (required).</param>
@@ -52,6 +52,7 @@ namespace VRChat.API.Model
             this.IsSelfAssignable = isSelfAssignable;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
+            this.Order = order;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Permissions = permissions;
             this.RequiresPurchase = requiresPurchase;
@@ -59,7 +60,6 @@ namespace VRChat.API.Model
             this.CreatedAt = createdAt;
             this.DefaultRole = defaultRole;
             this.IsManagementRole = isManagementRole;
-            this.Order = order;
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace VRChat.API.Model
         /// The display order of the role.
         /// </summary>
         /// <value>The display order of the role.</value>
-        [DataMember(Name = "order", EmitDefaultValue = false)]
+        [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]
         public int Order { get; set; }
 
         /// <summary>
