@@ -301,6 +301,22 @@
         {{/isEnum}}
         {{/isInherited}}
         {{/vars}}
+        {{! https://github.com/OpenAPITools/openapi-generator/pull/25103 }}
+        {{#vars}}
+        {{^isEnum}}
+        {{#composedSchemas.not.isEnum}}
+        [System.Runtime.Serialization.OnDeserialized]
+        internal void OnDeserialized{{name}}NotEnum(System.Runtime.Serialization.StreamingContext context)
+        {
+            if ({{#composedSchemas.not.allowableValues.values}}this.{{name}} == "{{{.}}}"{{^-last}} || {{/-last}}{{/composedSchemas.not.allowableValues.values}})
+            {
+                throw new ArgumentException("Invalid value for {{name}}, must not be a value excluded by the 'not' schema.");
+            }
+        }
+
+        {{/composedSchemas.not.isEnum}}
+        {{/isEnum}}
+        {{/vars}}
         {{#isAdditionalPropertiesTrue}}
         /// <summary>
         /// Gets or Sets additional properties
