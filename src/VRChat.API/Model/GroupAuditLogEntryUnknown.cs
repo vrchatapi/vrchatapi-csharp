@@ -37,12 +37,12 @@ namespace VRChat.API.Model
         /// <param name="actorId">The ID of the user who performed the action. (required).</param>
         /// <param name="createdAt">When the action was performed. (required).</param>
         /// <param name="description">A human-readable description of the event. (required).</param>
-        /// <param name="eventType">eventType (required).</param>
         /// <param name="groupId">The ID of the group the entry belongs to. (required).</param>
         /// <param name="id">The unique ID of this audit log entry. (required).</param>
         /// <param name="data">data (required).</param>
+        /// <param name="eventType">The type of event that occurred. (required).</param>
         /// <param name="targetId">targetId (required).</param>
-        public GroupAuditLogEntryUnknown(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string eventType = default, string groupId = default, string id = default, Dictionary<string, Object> data = default, string targetId = default)
+        public GroupAuditLogEntryUnknown(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string groupId = default, string id = default, Dictionary<string, Object> data = default, string eventType = default, string targetId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ActorDisplayName = actorDisplayName;
@@ -52,13 +52,13 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.EventType = eventType;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.GroupId = groupId;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.EventType = eventType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetId = targetId;
         }
@@ -92,12 +92,6 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventType
-        /// </summary>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
-        public string EventType { get; set; }
-
-        /// <summary>
         /// The ID of the group the entry belongs to.
         /// </summary>
         /// <value>The ID of the group the entry belongs to.</value>
@@ -116,6 +110,13 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, Object> Data { get; set; }
+
+        /// <summary>
+        /// The type of event that occurred.
+        /// </summary>
+        /// <value>The type of event that occurred.</value>
+        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
+        public string EventType { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetId
@@ -144,10 +145,10 @@ namespace VRChat.API.Model
             sb.Append("  ActorId: ").Append(ActorId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  TargetId: ").Append(TargetId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -204,11 +205,6 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
-                ) && 
-                (
                     this.GroupId == input.GroupId ||
                     (this.GroupId != null &&
                     this.GroupId.Equals(input.GroupId))
@@ -223,6 +219,11 @@ namespace VRChat.API.Model
                     this.Data != null &&
                     input.Data != null &&
                     this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.EventType == input.EventType ||
+                    (this.EventType != null &&
+                    this.EventType.Equals(input.EventType))
                 ) && 
                 (
                     this.TargetId == input.TargetId ||
@@ -253,10 +254,6 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.EventType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
                 if (this.GroupId != null)
                 {
                     hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
@@ -268,6 +265,10 @@ namespace VRChat.API.Model
                 if (this.Data != null)
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
+                }
+                if (this.EventType != null)
+                {
+                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 }
                 if (this.TargetId != null)
                 {
