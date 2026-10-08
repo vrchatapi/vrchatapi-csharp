@@ -443,6 +443,7 @@ src/VRChat.API/Model/TiliaTOS.cs
 src/VRChat.API/Model/TokenBundle.cs
 src/VRChat.API/Model/Transaction.cs
 src/VRChat.API/Model/TransactionAgreement.cs
+src/VRChat.API/Model/TransactionAgreementOrString.cs
 src/VRChat.API/Model/TransactionStatus.cs
 src/VRChat.API/Model/TransactionSteamInfo.cs
 src/VRChat.API/Model/TransactionSteamWalletInfo.cs
@@ -464,6 +465,7 @@ src/VRChat.API/Model/UpdateGroupMemberRequest.cs
 src/VRChat.API/Model/UpdateGroupRepresentationRequest.cs
 src/VRChat.API/Model/UpdateGroupRequest.cs
 src/VRChat.API/Model/UpdateGroupRoleRequest.cs
+src/VRChat.API/Model/UpdateInstanceRequest.cs
 src/VRChat.API/Model/UpdateInventoryItemRequest.cs
 src/VRChat.API/Model/UpdateInviteMessageRequest.cs
 src/VRChat.API/Model/UpdateListingRequest.cs

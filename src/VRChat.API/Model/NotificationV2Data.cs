@@ -162,75 +162,49 @@ namespace VRChat.API.Model
             }
         }
 
-        /// <summary>
-        /// Get the actual instance of `Object`. If the actual instance is not `Object`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Object</returns>
-        public Object GetObject()
-        {
-            return (Object)this.ActualInstance;
-        }
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataBadgeEarned`. If the actual instance is not `NotificationV2DataBadgeEarned`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataBadgeEarned</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataBadgeEarned</returns>
-        public NotificationV2DataBadgeEarned GetNotificationV2DataBadgeEarned()
-        {
-            return (NotificationV2DataBadgeEarned)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataBadgeEarned(NotificationV2Data value) => (NotificationV2DataBadgeEarned)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataBoop`. If the actual instance is not `NotificationV2DataBoop`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataBoop</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataBoop</returns>
-        public NotificationV2DataBoop GetNotificationV2DataBoop()
-        {
-            return (NotificationV2DataBoop)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataBoop(NotificationV2Data value) => (NotificationV2DataBoop)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataEventAnnouncement`. If the actual instance is not `NotificationV2DataEventAnnouncement`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataEventAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataEventAnnouncement</returns>
-        public NotificationV2DataEventAnnouncement GetNotificationV2DataEventAnnouncement()
-        {
-            return (NotificationV2DataEventAnnouncement)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataEventAnnouncement(NotificationV2Data value) => (NotificationV2DataEventAnnouncement)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataGroupAnnouncement`. If the actual instance is not `NotificationV2DataGroupAnnouncement`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataGroupAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataGroupAnnouncement</returns>
-        public NotificationV2DataGroupAnnouncement GetNotificationV2DataGroupAnnouncement()
-        {
-            return (NotificationV2DataGroupAnnouncement)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataGroupAnnouncement(NotificationV2Data value) => (NotificationV2DataGroupAnnouncement)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataGroupInformative`. If the actual instance is not `NotificationV2DataGroupInformative`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataGroupInformative</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataGroupInformative</returns>
-        public NotificationV2DataGroupInformative GetNotificationV2DataGroupInformative()
-        {
-            return (NotificationV2DataGroupInformative)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataGroupInformative(NotificationV2Data value) => (NotificationV2DataGroupInformative)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationV2DataGroupTransfer`. If the actual instance is not `NotificationV2DataGroupTransfer`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationV2DataGroupTransfer</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationV2DataGroupTransfer</returns>
-        public NotificationV2DataGroupTransfer GetNotificationV2DataGroupTransfer()
-        {
-            return (NotificationV2DataGroupTransfer)this.ActualInstance;
-        }
+        public static implicit operator NotificationV2DataGroupTransfer(NotificationV2Data value) => (NotificationV2DataGroupTransfer)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

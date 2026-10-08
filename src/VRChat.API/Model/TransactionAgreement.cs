@@ -16,91 +16,182 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
-using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// TransactionAgreement
+    /// Represents a single Transaction, which is likely between VRChat and Steam.
     /// </summary>
-    [JsonConverter(typeof(TransactionAgreementJsonConverter))]
-    [DataContract(Name = "Transaction_agreement")]
-    public partial class TransactionAgreement : AbstractOpenAPISchema, IEquatable<TransactionAgreement>, IValidatableObject
+    [DataContract(Name = "TransactionAgreement")]
+    public partial class TransactionAgreement : IEquatable<TransactionAgreement>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionAgreement" /> class
-        /// with the <see cref="string" /> class
+        /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
         /// </summary>
-        /// <param name="actualInstance">An instance of string.</param>
-        public TransactionAgreement(string actualInstance)
+        [JsonConstructorAttribute]
+        protected TransactionAgreement() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
+        /// </summary>
+        /// <param name="agreement">agreement (required).</param>
+        /// <param name="agreementId">agreementId (required).</param>
+        /// <param name="billingType">billingType (required).</param>
+        /// <param name="currency">currency (required).</param>
+        /// <param name="endDate">endDate (required).</param>
+        /// <param name="failedAttempts">failedAttempts (required).</param>
+        /// <param name="frequency">frequency (required).</param>
+        /// <param name="itemId">itemId (required).</param>
+        /// <param name="lastAmount">lastAmount (required).</param>
+        /// <param name="lastAmountVat">lastAmountVat (required).</param>
+        /// <param name="lastPayment">lastPayment (required).</param>
+        /// <param name="nextPayment">nextPayment (required).</param>
+        /// <param name="outstanding">outstanding (required).</param>
+        /// <param name="period">period (required).</param>
+        /// <param name="recurringAmt">recurringAmt (required).</param>
+        /// <param name="startDate">startDate (required).</param>
+        /// <param name="status">This is NOT TransactionStatus, but whatever Steam return. (required).</param>
+        /// <param name="timeCreated">timeCreated (required).</param>
+        public TransactionAgreement(string agreement = default, string agreementId = default, string billingType = default, string currency = default, string endDate = default, int failedAttempts = default, int frequency = default, int itemId = default, decimal lastAmount = default, decimal lastAmountVat = default, string lastPayment = default, string nextPayment = default, int outstanding = default, string period = default, decimal recurringAmt = default, string startDate = default, string status = default, string timeCreated = default)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Agreement = agreement;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.AgreementId = agreementId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.BillingType = billingType;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Currency = currency;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.EndDate = endDate;
+            this.FailedAttempts = failedAttempts;
+            this.Frequency = frequency;
+            this.ItemId = itemId;
+            this.LastAmount = lastAmount;
+            this.LastAmountVat = lastAmountVat;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.LastPayment = lastPayment;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.NextPayment = nextPayment;
+            this.Outstanding = outstanding;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Period = period;
+            this.RecurringAmt = recurringAmt;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.StartDate = startDate;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Status = status;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.TimeCreated = timeCreated;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TransactionAgreement" /> class
-        /// with the <see cref="TransactionAgreement" /> class
+        /// Gets or Sets Agreement
         /// </summary>
-        /// <param name="actualInstance">An instance of TransactionAgreement.</param>
-        public TransactionAgreement(TransactionAgreement actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
-        }
-
-
-        private Object _actualInstance;
+        [DataMember(Name = "agreement", IsRequired = true, EmitDefaultValue = true)]
+        public string Agreement { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActualInstance
+        /// Gets or Sets AgreementId
         /// </summary>
-        public override Object ActualInstance
-        {
-            get
-            {
-                return _actualInstance;
-            }
-            set
-            {
-                if (value.GetType() == typeof(TransactionAgreement) || value is TransactionAgreement)
-                {
-                    this._actualInstance = value;
-                }
-                else if (value.GetType() == typeof(string) || value is string)
-                {
-                    this._actualInstance = value;
-                }
-                else
-                {
-                    // Allow setting unknown types to handle unexpected responses gracefully
-                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
-                    this._actualInstance = value;
-                }
-            }
-        }
+        [DataMember(Name = "agreementId", IsRequired = true, EmitDefaultValue = true)]
+        public string AgreementId { get; set; }
 
         /// <summary>
-        /// Get the actual instance of `string`. If the actual instance is not `string`,
-        /// the InvalidClassException will be thrown
+        /// Gets or Sets BillingType
         /// </summary>
-        /// <returns>An instance of string</returns>
-        public string GetString()
-        {
-            return (string)this.ActualInstance;
-        }
+        [DataMember(Name = "billingType", IsRequired = true, EmitDefaultValue = true)]
+        public string BillingType { get; set; }
 
         /// <summary>
-        /// Get the actual instance of `TransactionAgreement`. If the actual instance is not `TransactionAgreement`,
-        /// the InvalidClassException will be thrown
+        /// Gets or Sets Currency
         /// </summary>
-        /// <returns>An instance of TransactionAgreement</returns>
-        public TransactionAgreement GetTransactionAgreement()
-        {
-            return (TransactionAgreement)this.ActualInstance;
-        }
+        [DataMember(Name = "currency", IsRequired = true, EmitDefaultValue = true)]
+        public string Currency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EndDate
+        /// </summary>
+        [DataMember(Name = "endDate", IsRequired = true, EmitDefaultValue = true)]
+        public string EndDate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FailedAttempts
+        /// </summary>
+        [DataMember(Name = "failedAttempts", IsRequired = true, EmitDefaultValue = true)]
+        public int FailedAttempts { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Frequency
+        /// </summary>
+        [DataMember(Name = "frequency", IsRequired = true, EmitDefaultValue = true)]
+        public int Frequency { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemId
+        /// </summary>
+        [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
+        public int ItemId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastAmount
+        /// </summary>
+        [DataMember(Name = "lastAmount", IsRequired = true, EmitDefaultValue = true)]
+        public decimal LastAmount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastAmountVat
+        /// </summary>
+        [DataMember(Name = "lastAmountVat", IsRequired = true, EmitDefaultValue = true)]
+        public decimal LastAmountVat { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastPayment
+        /// </summary>
+        [DataMember(Name = "lastPayment", IsRequired = true, EmitDefaultValue = true)]
+        public string LastPayment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets NextPayment
+        /// </summary>
+        [DataMember(Name = "nextPayment", IsRequired = true, EmitDefaultValue = true)]
+        public string NextPayment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Outstanding
+        /// </summary>
+        [DataMember(Name = "outstanding", IsRequired = true, EmitDefaultValue = true)]
+        public int Outstanding { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Period
+        /// </summary>
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        public string Period { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RecurringAmt
+        /// </summary>
+        [DataMember(Name = "recurringAmt", IsRequired = true, EmitDefaultValue = true)]
+        public decimal RecurringAmt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StartDate
+        /// </summary>
+        [DataMember(Name = "startDate", IsRequired = true, EmitDefaultValue = true)]
+        public string StartDate { get; set; }
+
+        /// <summary>
+        /// This is NOT TransactionStatus, but whatever Steam return.
+        /// </summary>
+        /// <value>This is NOT TransactionStatus, but whatever Steam return.</value>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TimeCreated
+        /// </summary>
+        [DataMember(Name = "timeCreated", IsRequired = true, EmitDefaultValue = true)]
+        public string TimeCreated { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,9 +199,26 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             sb.Append("class TransactionAgreement {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  Agreement: ").Append(Agreement).Append("\n");
+            sb.Append("  AgreementId: ").Append(AgreementId).Append("\n");
+            sb.Append("  BillingType: ").Append(BillingType).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  FailedAttempts: ").Append(FailedAttempts).Append("\n");
+            sb.Append("  Frequency: ").Append(Frequency).Append("\n");
+            sb.Append("  ItemId: ").Append(ItemId).Append("\n");
+            sb.Append("  LastAmount: ").Append(LastAmount).Append("\n");
+            sb.Append("  LastAmountVat: ").Append(LastAmountVat).Append("\n");
+            sb.Append("  LastPayment: ").Append(LastPayment).Append("\n");
+            sb.Append("  NextPayment: ").Append(NextPayment).Append("\n");
+            sb.Append("  Outstanding: ").Append(Outstanding).Append("\n");
+            sb.Append("  Period: ").Append(Period).Append("\n");
+            sb.Append("  RecurringAmt: ").Append(RecurringAmt).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  TimeCreated: ").Append(TimeCreated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,81 +227,9 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, TransactionAgreement.SerializerSettings);
-        }
-
-        /// <summary>
-        /// Converts the JSON string into an instance of TransactionAgreement
-        /// </summary>
-        /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of TransactionAgreement</returns>
-        public static TransactionAgreement FromJson(string jsonString)
-        {
-            TransactionAgreement newTransactionAgreement = null;
-
-            if (string.IsNullOrEmpty(jsonString))
-            {
-                return newTransactionAgreement;
-            }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(TransactionAgreement).GetProperty("AdditionalProperties") == null)
-                {
-                    newTransactionAgreement = new TransactionAgreement(JsonConvert.DeserializeObject<TransactionAgreement>(jsonString, TransactionAgreement.SerializerSettings));
-                }
-                else
-                {
-                    newTransactionAgreement = new TransactionAgreement(JsonConvert.DeserializeObject<TransactionAgreement>(jsonString, TransactionAgreement.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("TransactionAgreement");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TransactionAgreement: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(string).GetProperty("AdditionalProperties") == null)
-                {
-                    newTransactionAgreement = new TransactionAgreement(JsonConvert.DeserializeObject<string>(jsonString, TransactionAgreement.SerializerSettings));
-                }
-                else
-                {
-                    newTransactionAgreement = new TransactionAgreement(JsonConvert.DeserializeObject<string>(jsonString, TransactionAgreement.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("string");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
-            }
-
-            if (match == 0)
-            {
-                // No match found, return null to handle unexpected responses gracefully
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
-                return null;
-            }
-            else if (match > 1)
-            {
-                // Multiple matches found, use the first match and log a warning
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newTransactionAgreement;
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -214,9 +250,93 @@ namespace VRChat.API.Model
         public bool Equals(TransactionAgreement input)
         {
             if (input == null)
+            {
                 return false;
-
-            return this.ActualInstance.Equals(input.ActualInstance);
+            }
+            return 
+                (
+                    this.Agreement == input.Agreement ||
+                    (this.Agreement != null &&
+                    this.Agreement.Equals(input.Agreement))
+                ) && 
+                (
+                    this.AgreementId == input.AgreementId ||
+                    (this.AgreementId != null &&
+                    this.AgreementId.Equals(input.AgreementId))
+                ) && 
+                (
+                    this.BillingType == input.BillingType ||
+                    (this.BillingType != null &&
+                    this.BillingType.Equals(input.BillingType))
+                ) && 
+                (
+                    this.Currency == input.Currency ||
+                    (this.Currency != null &&
+                    this.Currency.Equals(input.Currency))
+                ) && 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
+                ) && 
+                (
+                    this.FailedAttempts == input.FailedAttempts ||
+                    this.FailedAttempts.Equals(input.FailedAttempts)
+                ) && 
+                (
+                    this.Frequency == input.Frequency ||
+                    this.Frequency.Equals(input.Frequency)
+                ) && 
+                (
+                    this.ItemId == input.ItemId ||
+                    this.ItemId.Equals(input.ItemId)
+                ) && 
+                (
+                    this.LastAmount == input.LastAmount ||
+                    this.LastAmount.Equals(input.LastAmount)
+                ) && 
+                (
+                    this.LastAmountVat == input.LastAmountVat ||
+                    this.LastAmountVat.Equals(input.LastAmountVat)
+                ) && 
+                (
+                    this.LastPayment == input.LastPayment ||
+                    (this.LastPayment != null &&
+                    this.LastPayment.Equals(input.LastPayment))
+                ) && 
+                (
+                    this.NextPayment == input.NextPayment ||
+                    (this.NextPayment != null &&
+                    this.NextPayment.Equals(input.NextPayment))
+                ) && 
+                (
+                    this.Outstanding == input.Outstanding ||
+                    this.Outstanding.Equals(input.Outstanding)
+                ) && 
+                (
+                    this.Period == input.Period ||
+                    (this.Period != null &&
+                    this.Period.Equals(input.Period))
+                ) && 
+                (
+                    this.RecurringAmt == input.RecurringAmt ||
+                    this.RecurringAmt.Equals(input.RecurringAmt)
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.TimeCreated == input.TimeCreated ||
+                    (this.TimeCreated != null &&
+                    this.TimeCreated.Equals(input.TimeCreated))
+                );
         }
 
         /// <summary>
@@ -228,8 +348,57 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                if (this.Agreement != null)
+                {
+                    hashCode = (hashCode * 59) + this.Agreement.GetHashCode();
+                }
+                if (this.AgreementId != null)
+                {
+                    hashCode = (hashCode * 59) + this.AgreementId.GetHashCode();
+                }
+                if (this.BillingType != null)
+                {
+                    hashCode = (hashCode * 59) + this.BillingType.GetHashCode();
+                }
+                if (this.Currency != null)
+                {
+                    hashCode = (hashCode * 59) + this.Currency.GetHashCode();
+                }
+                if (this.EndDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.FailedAttempts.GetHashCode();
+                hashCode = (hashCode * 59) + this.Frequency.GetHashCode();
+                hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastAmount.GetHashCode();
+                hashCode = (hashCode * 59) + this.LastAmountVat.GetHashCode();
+                if (this.LastPayment != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastPayment.GetHashCode();
+                }
+                if (this.NextPayment != null)
+                {
+                    hashCode = (hashCode * 59) + this.NextPayment.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Outstanding.GetHashCode();
+                if (this.Period != null)
+                {
+                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RecurringAmt.GetHashCode();
+                if (this.StartDate != null)
+                {
+                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.TimeCreated != null)
+                {
+                    hashCode = (hashCode * 59) + this.TimeCreated.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -239,59 +408,69 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            yield break;
-        }
-    }
-
-    /// <summary>
-    /// Custom JSON converter for TransactionAgreement
-    /// </summary>
-    public class TransactionAgreementJsonConverter : JsonConverter
-    {
-        /// <summary>
-        /// To write the JSON string
-        /// </summary>
-        /// <param name="writer">JSON writer</param>
-        /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="serializer">JSON Serializer</param>
-        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-        {
-            writer.WriteRawValue((string)(typeof(TransactionAgreement).GetMethod("ToJson").Invoke(value, null)));
-        }
-
-        /// <summary>
-        /// To convert a JSON string into an object
-        /// </summary>
-        /// <param name="reader">JSON reader</param>
-        /// <param name="objectType">Object type</param>
-        /// <param name="existingValue">Existing value</param>
-        /// <param name="serializer">JSON Serializer</param>
-        /// <returns>The object converted from the JSON string</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            switch(reader.TokenType) 
+            // AgreementId (string) minLength
+            if (this.AgreementId != null && this.AgreementId.Length < 1)
             {
-                case JsonToken.String: 
-                    return new TransactionAgreement(Convert.ToString(reader.Value));
-                case JsonToken.StartObject:
-                    return TransactionAgreement.FromJson(JObject.Load(reader).ToString(Formatting.None));
-                case JsonToken.StartArray:
-                    return TransactionAgreement.FromJson(JArray.Load(reader).ToString(Formatting.None));
-                default:
-                    return null;
+                yield return new ValidationResult("Invalid value for AgreementId, length must be greater than 1.", new [] { "AgreementId" });
             }
-        }
 
-        /// <summary>
-        /// Check if the object can be converted
-        /// </summary>
-        /// <param name="objectType">Object type</param>
-        /// <returns>True if the object can be converted</returns>
-        public override bool CanConvert(Type objectType)
-        {
-            return false;
+            // BillingType (string) minLength
+            if (this.BillingType != null && this.BillingType.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for BillingType, length must be greater than 1.", new [] { "BillingType" });
+            }
+
+            // Currency (string) minLength
+            if (this.Currency != null && this.Currency.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
+            }
+
+            // EndDate (string) minLength
+            if (this.EndDate != null && this.EndDate.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for EndDate, length must be greater than 1.", new [] { "EndDate" });
+            }
+
+            // LastPayment (string) minLength
+            if (this.LastPayment != null && this.LastPayment.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for LastPayment, length must be greater than 1.", new [] { "LastPayment" });
+            }
+
+            // NextPayment (string) minLength
+            if (this.NextPayment != null && this.NextPayment.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
+            }
+
+            // Period (string) minLength
+            if (this.Period != null && this.Period.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
+            }
+
+            // StartDate (string) minLength
+            if (this.StartDate != null && this.StartDate.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for StartDate, length must be greater than 1.", new [] { "StartDate" });
+            }
+
+            // Status (string) minLength
+            if (this.Status != null && this.Status.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for Status, length must be greater than 1.", new [] { "Status" });
+            }
+
+            // TimeCreated (string) minLength
+            if (this.TimeCreated != null && this.TimeCreated.Length < 1)
+            {
+                yield return new ValidationResult("Invalid value for TimeCreated, length must be greater than 1.", new [] { "TimeCreated" });
+            }
+
+            yield break;
         }
     }
 

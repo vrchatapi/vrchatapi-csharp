@@ -82,25 +82,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `User`. If the actual instance is not `User`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>User</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of User</returns>
-        public User GetUser()
-        {
-            return (User)this.ActualInstance;
-        }
+        public static implicit operator User(UserResponse value) => (User)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `CurrentUser`. If the actual instance is not `CurrentUser`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>CurrentUser</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of CurrentUser</returns>
-        public CurrentUser GetCurrentUser()
-        {
-            return (CurrentUser)this.ActualInstance;
-        }
+        public static implicit operator CurrentUser(UserResponse value) => (CurrentUser)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

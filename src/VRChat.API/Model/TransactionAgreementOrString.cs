@@ -21,18 +21,18 @@ using System.Reflection;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// UpdateUserNoteResponse
+    /// TransactionAgreementOrString
     /// </summary>
-    [JsonConverter(typeof(UpdateUserNoteResponseJsonConverter))]
-    [DataContract(Name = "UpdateUserNoteResponse")]
-    public partial class UpdateUserNoteResponse : AbstractOpenAPISchema, IEquatable<UpdateUserNoteResponse>, IValidatableObject
+    [JsonConverter(typeof(TransactionAgreementOrStringJsonConverter))]
+    [DataContract(Name = "TransactionAgreementOrString")]
+    public partial class TransactionAgreementOrString : AbstractOpenAPISchema, IEquatable<TransactionAgreementOrString>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserNoteResponse" /> class
-        /// with the <see cref="UserNote" /> class
+        /// Initializes a new instance of the <see cref="TransactionAgreementOrString" /> class
+        /// with the <see cref="string" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of UserNote.</param>
-        public UpdateUserNoteResponse(UserNote actualInstance)
+        /// <param name="actualInstance">An instance of string.</param>
+        public TransactionAgreementOrString(string actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -40,11 +40,11 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateUserNoteResponse" /> class
-        /// with the <see cref="string" /> class
+        /// Initializes a new instance of the <see cref="TransactionAgreementOrString" /> class
+        /// with the <see cref="TransactionAgreement" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of string.</param>
-        public UpdateUserNoteResponse(string actualInstance)
+        /// <param name="actualInstance">An instance of TransactionAgreement.</param>
+        public TransactionAgreementOrString(TransactionAgreement actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -65,7 +65,7 @@ namespace VRChat.API.Model
             }
             set
             {
-                if (value.GetType() == typeof(UserNote) || value is UserNote)
+                if (value.GetType() == typeof(TransactionAgreement) || value is TransactionAgreement)
                 {
                     this._actualInstance = value;
                 }
@@ -84,16 +84,16 @@ namespace VRChat.API.Model
 
         
         /// <summary>
-        /// Converts to the <c>UserNote</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// Converts to the <c>string</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        public static implicit operator UserNote(UpdateUserNoteResponse value) => (UserNote)value?.ActualInstance;
+        public static implicit operator string(TransactionAgreementOrString value) => (string)value?.ActualInstance;
         
 
         
         /// <summary>
-        /// Converts to the <c>string</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// Converts to the <c>TransactionAgreement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        public static implicit operator string(UpdateUserNoteResponse value) => (string)value?.ActualInstance;
+        public static implicit operator TransactionAgreement(TransactionAgreementOrString value) => (TransactionAgreement)value?.ActualInstance;
         
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UpdateUserNoteResponse {\n");
+            sb.Append("class TransactionAgreementOrString {\n");
             sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -115,21 +115,21 @@ namespace VRChat.API.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UpdateUserNoteResponse.SerializerSettings);
+            return JsonConvert.SerializeObject(this.ActualInstance, TransactionAgreementOrString.SerializerSettings);
         }
 
         /// <summary>
-        /// Converts the JSON string into an instance of UpdateUserNoteResponse
+        /// Converts the JSON string into an instance of TransactionAgreementOrString
         /// </summary>
         /// <param name="jsonString">JSON string</param>
-        /// <returns>An instance of UpdateUserNoteResponse</returns>
-        public static UpdateUserNoteResponse FromJson(string jsonString)
+        /// <returns>An instance of TransactionAgreementOrString</returns>
+        public static TransactionAgreementOrString FromJson(string jsonString)
         {
-            UpdateUserNoteResponse newUpdateUserNoteResponse = null;
+            TransactionAgreementOrString newTransactionAgreementOrString = null;
 
             if (string.IsNullOrEmpty(jsonString))
             {
-                return newUpdateUserNoteResponse;
+                return newTransactionAgreementOrString;
             }
             int match = 0;
             List<string> matchedTypes = new List<string>();
@@ -137,21 +137,21 @@ namespace VRChat.API.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(UserNote).GetProperty("AdditionalProperties") == null)
+                if (typeof(TransactionAgreement).GetProperty("AdditionalProperties") == null)
                 {
-                    newUpdateUserNoteResponse = new UpdateUserNoteResponse(JsonConvert.DeserializeObject<UserNote>(jsonString, UpdateUserNoteResponse.SerializerSettings));
+                    newTransactionAgreementOrString = new TransactionAgreementOrString(JsonConvert.DeserializeObject<TransactionAgreement>(jsonString, TransactionAgreementOrString.SerializerSettings));
                 }
                 else
                 {
-                    newUpdateUserNoteResponse = new UpdateUserNoteResponse(JsonConvert.DeserializeObject<UserNote>(jsonString, UpdateUserNoteResponse.AdditionalPropertiesSerializerSettings));
+                    newTransactionAgreementOrString = new TransactionAgreementOrString(JsonConvert.DeserializeObject<TransactionAgreement>(jsonString, TransactionAgreementOrString.AdditionalPropertiesSerializerSettings));
                 }
-                matchedTypes.Add("UserNote");
+                matchedTypes.Add("TransactionAgreement");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into UserNote: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into TransactionAgreement: {1}", jsonString, exception.ToString()));
             }
 
             try
@@ -159,11 +159,11 @@ namespace VRChat.API.Model
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(string).GetProperty("AdditionalProperties") == null)
                 {
-                    newUpdateUserNoteResponse = new UpdateUserNoteResponse(JsonConvert.DeserializeObject<string>(jsonString, UpdateUserNoteResponse.SerializerSettings));
+                    newTransactionAgreementOrString = new TransactionAgreementOrString(JsonConvert.DeserializeObject<string>(jsonString, TransactionAgreementOrString.SerializerSettings));
                 }
                 else
                 {
-                    newUpdateUserNoteResponse = new UpdateUserNoteResponse(JsonConvert.DeserializeObject<string>(jsonString, UpdateUserNoteResponse.AdditionalPropertiesSerializerSettings));
+                    newTransactionAgreementOrString = new TransactionAgreementOrString(JsonConvert.DeserializeObject<string>(jsonString, TransactionAgreementOrString.AdditionalPropertiesSerializerSettings));
                 }
                 matchedTypes.Add("string");
                 match++;
@@ -187,7 +187,7 @@ namespace VRChat.API.Model
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
-            return newUpdateUserNoteResponse;
+            return newTransactionAgreementOrString;
         }
 
         /// <summary>
@@ -197,15 +197,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UpdateUserNoteResponse);
+            return this.Equals(input as TransactionAgreementOrString);
         }
 
         /// <summary>
-        /// Returns true if UpdateUserNoteResponse instances are equal
+        /// Returns true if TransactionAgreementOrString instances are equal
         /// </summary>
-        /// <param name="input">Instance of UpdateUserNoteResponse to be compared</param>
+        /// <param name="input">Instance of TransactionAgreementOrString to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UpdateUserNoteResponse input)
+        public bool Equals(TransactionAgreementOrString input)
         {
             if (input == null)
                 return false;
@@ -240,9 +240,9 @@ namespace VRChat.API.Model
     }
 
     /// <summary>
-    /// Custom JSON converter for UpdateUserNoteResponse
+    /// Custom JSON converter for TransactionAgreementOrString
     /// </summary>
-    public class UpdateUserNoteResponseJsonConverter : JsonConverter
+    public class TransactionAgreementOrStringJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
@@ -252,7 +252,7 @@ namespace VRChat.API.Model
         /// <param name="serializer">JSON Serializer</param>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue((string)(typeof(UpdateUserNoteResponse).GetMethod("ToJson").Invoke(value, null)));
+            writer.WriteRawValue((string)(typeof(TransactionAgreementOrString).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
@@ -268,11 +268,11 @@ namespace VRChat.API.Model
             switch(reader.TokenType) 
             {
                 case JsonToken.String: 
-                    return new UpdateUserNoteResponse(Convert.ToString(reader.Value));
+                    return new TransactionAgreementOrString(Convert.ToString(reader.Value));
                 case JsonToken.StartObject:
-                    return UpdateUserNoteResponse.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                    return TransactionAgreementOrString.FromJson(JObject.Load(reader).ToString(Formatting.None));
                 case JsonToken.StartArray:
-                    return UpdateUserNoteResponse.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                    return TransactionAgreementOrString.FromJson(JArray.Load(reader).ToString(Formatting.None));
                 default:
                     return null;
             }

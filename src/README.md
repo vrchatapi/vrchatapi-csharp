@@ -62,7 +62,7 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
 var currentUser = await vrchat.LoginAsync();
 Console.WriteLine($"Logged in as {currentUser.DisplayName}!");
 
-var user = (await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e")).GetUser();
+User user = await vrchat.Users.GetUserAsync("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
 Console.WriteLine($"Found user {user.DisplayName}, joined at {user.DateJoined}");
 
 var world = await vrchat.Worlds.GetWorldAsync("wrld_ba913a96-fac4-4048-a062-9aa5db092812");
@@ -162,7 +162,7 @@ IVRChat vrchat = new VRChatClientBuilder() // More options available
     .Build();
 
 var response = await vrchat.Authentication.GetCurrentUserAsync();
-var methods = (response.ActualInstance as RequiresTwoFactorAuth)?.VarRequiresTwoFactorAuth ?? new List<TwoFactorAuthType>();
+var methods = response.TryGet<RequiresTwoFactorAuth>(out var pending) ? pending.VarRequiresTwoFactorAuth : new List<TwoFactorAuthType>();
 
 if(methods.Contains(TwoFactorAuthType.EmailOtp))
 {
@@ -179,7 +179,7 @@ else if(methods.Contains(TwoFactorAuthType.Totp))
     var otpResponse = await vrchat.Authentication.Verify2FAAsync(new TwoFactorAuthCode(code));
 }
 
-var user = (await vrchat.Authentication.GetCurrentUserAsync()).GetCurrentUser();
+CurrentUser user = await vrchat.Authentication.GetCurrentUserAsync();
 
 Console.WriteLine($"Logged in as {user.DisplayName}!");
 ```
@@ -221,7 +221,7 @@ try
     // so we can see what the API expects from us
     ApiResponse<CurrentUserLoginResponse> currentUserResp = authApi.GetCurrentUserWithHttpInfo();
 
-    if(currentUserResp.Data.ActualInstance is RequiresTwoFactorAuth pending)
+    if(currentUserResp.Data.TryGet<RequiresTwoFactorAuth>(out var pending))
     {
         if (pending.VarRequiresTwoFactorAuth.Contains(TwoFactorAuthType.EmailOtp)) // If the API wants us to send an Email OTP code
         {
@@ -235,10 +235,10 @@ try
     }
 
     // We can now get our CurrentUser :D
-    CurrentUser currentUser = authApi.GetCurrentUser().GetCurrentUser();
+    CurrentUser currentUser = authApi.GetCurrentUser();
     Console.WriteLine("Logged in as {0}", currentUser.DisplayName);
 
-    User user = userApi.GetUser("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e").GetUser();
+    User user = userApi.GetUser("usr_f2049d71-e76b-42d2-a8bd-43deec9c004e");
     Console.WriteLine("Found user {0}, joined {1}", user.DisplayName, user.DateJoined);
 
     World world = worldApi.GetWorld("wrld_ba913a96-fac4-4048-a062-9aa5db092812");

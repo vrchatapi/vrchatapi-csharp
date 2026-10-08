@@ -82,25 +82,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `DateTime`. If the actual instance is not `DateTime`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>DateTime</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of DateTime</returns>
-        public DateTime GetDateTime()
-        {
-            return (DateTime)ActualInstance;
-        }
+        public static implicit operator DateTime(PrivateProfileActivityLastActivity value) => (DateTime)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `string`. If the actual instance is not `string`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>string</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of string</returns>
-        public string GetString()
-        {
-            return (string)ActualInstance;
-        }
+        public static implicit operator string(PrivateProfileActivityLastActivity value) => (string)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

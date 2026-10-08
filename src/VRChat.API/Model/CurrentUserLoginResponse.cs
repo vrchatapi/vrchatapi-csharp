@@ -82,25 +82,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `CurrentUser`. If the actual instance is not `CurrentUser`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>CurrentUser</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of CurrentUser</returns>
-        public CurrentUser GetCurrentUser()
-        {
-            return (CurrentUser)this.ActualInstance;
-        }
+        public static implicit operator CurrentUser(CurrentUserLoginResponse value) => (CurrentUser)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `RequiresTwoFactorAuth`. If the actual instance is not `RequiresTwoFactorAuth`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>RequiresTwoFactorAuth</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of RequiresTwoFactorAuth</returns>
-        public RequiresTwoFactorAuth GetRequiresTwoFactorAuth()
-        {
-            return (RequiresTwoFactorAuth)this.ActualInstance;
-        }
+        public static implicit operator RequiresTwoFactorAuth(CurrentUserLoginResponse value) => (RequiresTwoFactorAuth)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

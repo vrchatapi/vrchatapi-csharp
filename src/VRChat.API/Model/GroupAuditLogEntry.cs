@@ -579,335 +579,236 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupAnnouncement`. If the actual instance is not `GroupAuditLogEntryGroupAnnouncement`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupAnnouncement</returns>
-        public GroupAuditLogEntryGroupAnnouncement GetGroupAuditLogEntryGroupAnnouncement()
-        {
-            return (GroupAuditLogEntryGroupAnnouncement)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupAnnouncement(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupAnnouncement)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupCalendarEventCreate`. If the actual instance is not `GroupAuditLogEntryGroupCalendarEventCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupCalendarEventCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupCalendarEventCreate</returns>
-        public GroupAuditLogEntryGroupCalendarEventCreate GetGroupAuditLogEntryGroupCalendarEventCreate()
-        {
-            return (GroupAuditLogEntryGroupCalendarEventCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupCalendarEventCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupCalendarEventCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupCalendarEventDelete`. If the actual instance is not `GroupAuditLogEntryGroupCalendarEventDelete`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupCalendarEventDelete</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupCalendarEventDelete</returns>
-        public GroupAuditLogEntryGroupCalendarEventDelete GetGroupAuditLogEntryGroupCalendarEventDelete()
-        {
-            return (GroupAuditLogEntryGroupCalendarEventDelete)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupCalendarEventDelete(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupCalendarEventDelete)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupGalleryCreate`. If the actual instance is not `GroupAuditLogEntryGroupGalleryCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupGalleryCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupGalleryCreate</returns>
-        public GroupAuditLogEntryGroupGalleryCreate GetGroupAuditLogEntryGroupGalleryCreate()
-        {
-            return (GroupAuditLogEntryGroupGalleryCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupGalleryCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupGalleryCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupGalleryDelete`. If the actual instance is not `GroupAuditLogEntryGroupGalleryDelete`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupGalleryDelete</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupGalleryDelete</returns>
-        public GroupAuditLogEntryGroupGalleryDelete GetGroupAuditLogEntryGroupGalleryDelete()
-        {
-            return (GroupAuditLogEntryGroupGalleryDelete)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupGalleryDelete(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupGalleryDelete)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupGalleryUpdate`. If the actual instance is not `GroupAuditLogEntryGroupGalleryUpdate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupGalleryUpdate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupGalleryUpdate</returns>
-        public GroupAuditLogEntryGroupGalleryUpdate GetGroupAuditLogEntryGroupGalleryUpdate()
-        {
-            return (GroupAuditLogEntryGroupGalleryUpdate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupGalleryUpdate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupGalleryUpdate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInstanceAnnouncement`. If the actual instance is not `GroupAuditLogEntryGroupInstanceAnnouncement`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInstanceAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInstanceAnnouncement</returns>
-        public GroupAuditLogEntryGroupInstanceAnnouncement GetGroupAuditLogEntryGroupInstanceAnnouncement()
-        {
-            return (GroupAuditLogEntryGroupInstanceAnnouncement)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInstanceAnnouncement(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInstanceAnnouncement)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInstanceClose`. If the actual instance is not `GroupAuditLogEntryGroupInstanceClose`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInstanceClose</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInstanceClose</returns>
-        public GroupAuditLogEntryGroupInstanceClose GetGroupAuditLogEntryGroupInstanceClose()
-        {
-            return (GroupAuditLogEntryGroupInstanceClose)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInstanceClose(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInstanceClose)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInstanceCreate`. If the actual instance is not `GroupAuditLogEntryGroupInstanceCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInstanceCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInstanceCreate</returns>
-        public GroupAuditLogEntryGroupInstanceCreate GetGroupAuditLogEntryGroupInstanceCreate()
-        {
-            return (GroupAuditLogEntryGroupInstanceCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInstanceCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInstanceCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInstanceKick`. If the actual instance is not `GroupAuditLogEntryGroupInstanceKick`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInstanceKick</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInstanceKick</returns>
-        public GroupAuditLogEntryGroupInstanceKick GetGroupAuditLogEntryGroupInstanceKick()
-        {
-            return (GroupAuditLogEntryGroupInstanceKick)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInstanceKick(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInstanceKick)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInstanceWarn`. If the actual instance is not `GroupAuditLogEntryGroupInstanceWarn`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInstanceWarn</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInstanceWarn</returns>
-        public GroupAuditLogEntryGroupInstanceWarn GetGroupAuditLogEntryGroupInstanceWarn()
-        {
-            return (GroupAuditLogEntryGroupInstanceWarn)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInstanceWarn(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInstanceWarn)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInviteCancel`. If the actual instance is not `GroupAuditLogEntryGroupInviteCancel`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInviteCancel</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInviteCancel</returns>
-        public GroupAuditLogEntryGroupInviteCancel GetGroupAuditLogEntryGroupInviteCancel()
-        {
-            return (GroupAuditLogEntryGroupInviteCancel)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInviteCancel(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInviteCancel)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupInviteCreate`. If the actual instance is not `GroupAuditLogEntryGroupInviteCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupInviteCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupInviteCreate</returns>
-        public GroupAuditLogEntryGroupInviteCreate GetGroupAuditLogEntryGroupInviteCreate()
-        {
-            return (GroupAuditLogEntryGroupInviteCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupInviteCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupInviteCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberJoin`. If the actual instance is not `GroupAuditLogEntryGroupMemberJoin`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberJoin</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberJoin</returns>
-        public GroupAuditLogEntryGroupMemberJoin GetGroupAuditLogEntryGroupMemberJoin()
-        {
-            return (GroupAuditLogEntryGroupMemberJoin)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberJoin(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberJoin)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberLeave`. If the actual instance is not `GroupAuditLogEntryGroupMemberLeave`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberLeave</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberLeave</returns>
-        public GroupAuditLogEntryGroupMemberLeave GetGroupAuditLogEntryGroupMemberLeave()
-        {
-            return (GroupAuditLogEntryGroupMemberLeave)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberLeave(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberLeave)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberRemove`. If the actual instance is not `GroupAuditLogEntryGroupMemberRemove`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberRemove</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberRemove</returns>
-        public GroupAuditLogEntryGroupMemberRemove GetGroupAuditLogEntryGroupMemberRemove()
-        {
-            return (GroupAuditLogEntryGroupMemberRemove)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberRemove(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberRemove)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberRoleAssign`. If the actual instance is not `GroupAuditLogEntryGroupMemberRoleAssign`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberRoleAssign</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberRoleAssign</returns>
-        public GroupAuditLogEntryGroupMemberRoleAssign GetGroupAuditLogEntryGroupMemberRoleAssign()
-        {
-            return (GroupAuditLogEntryGroupMemberRoleAssign)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberRoleAssign(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberRoleAssign)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberRoleUnassign`. If the actual instance is not `GroupAuditLogEntryGroupMemberRoleUnassign`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberRoleUnassign</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberRoleUnassign</returns>
-        public GroupAuditLogEntryGroupMemberRoleUnassign GetGroupAuditLogEntryGroupMemberRoleUnassign()
-        {
-            return (GroupAuditLogEntryGroupMemberRoleUnassign)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberRoleUnassign(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberRoleUnassign)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupMemberUserUpdate`. If the actual instance is not `GroupAuditLogEntryGroupMemberUserUpdate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupMemberUserUpdate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupMemberUserUpdate</returns>
-        public GroupAuditLogEntryGroupMemberUserUpdate GetGroupAuditLogEntryGroupMemberUserUpdate()
-        {
-            return (GroupAuditLogEntryGroupMemberUserUpdate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupMemberUserUpdate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupMemberUserUpdate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupPostCreate`. If the actual instance is not `GroupAuditLogEntryGroupPostCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupPostCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupPostCreate</returns>
-        public GroupAuditLogEntryGroupPostCreate GetGroupAuditLogEntryGroupPostCreate()
-        {
-            return (GroupAuditLogEntryGroupPostCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupPostCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupPostCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupPostDelete`. If the actual instance is not `GroupAuditLogEntryGroupPostDelete`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupPostDelete</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupPostDelete</returns>
-        public GroupAuditLogEntryGroupPostDelete GetGroupAuditLogEntryGroupPostDelete()
-        {
-            return (GroupAuditLogEntryGroupPostDelete)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupPostDelete(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupPostDelete)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupPostUpdate`. If the actual instance is not `GroupAuditLogEntryGroupPostUpdate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupPostUpdate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupPostUpdate</returns>
-        public GroupAuditLogEntryGroupPostUpdate GetGroupAuditLogEntryGroupPostUpdate()
-        {
-            return (GroupAuditLogEntryGroupPostUpdate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupPostUpdate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupPostUpdate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRequestBlock`. If the actual instance is not `GroupAuditLogEntryGroupRequestBlock`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRequestBlock</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRequestBlock</returns>
-        public GroupAuditLogEntryGroupRequestBlock GetGroupAuditLogEntryGroupRequestBlock()
-        {
-            return (GroupAuditLogEntryGroupRequestBlock)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRequestBlock(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRequestBlock)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRequestCreate`. If the actual instance is not `GroupAuditLogEntryGroupRequestCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRequestCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRequestCreate</returns>
-        public GroupAuditLogEntryGroupRequestCreate GetGroupAuditLogEntryGroupRequestCreate()
-        {
-            return (GroupAuditLogEntryGroupRequestCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRequestCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRequestCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRequestReject`. If the actual instance is not `GroupAuditLogEntryGroupRequestReject`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRequestReject</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRequestReject</returns>
-        public GroupAuditLogEntryGroupRequestReject GetGroupAuditLogEntryGroupRequestReject()
-        {
-            return (GroupAuditLogEntryGroupRequestReject)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRequestReject(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRequestReject)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRequestWithdraw`. If the actual instance is not `GroupAuditLogEntryGroupRequestWithdraw`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRequestWithdraw</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRequestWithdraw</returns>
-        public GroupAuditLogEntryGroupRequestWithdraw GetGroupAuditLogEntryGroupRequestWithdraw()
-        {
-            return (GroupAuditLogEntryGroupRequestWithdraw)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRequestWithdraw(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRequestWithdraw)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRoleCreate`. If the actual instance is not `GroupAuditLogEntryGroupRoleCreate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRoleCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRoleCreate</returns>
-        public GroupAuditLogEntryGroupRoleCreate GetGroupAuditLogEntryGroupRoleCreate()
-        {
-            return (GroupAuditLogEntryGroupRoleCreate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRoleCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRoleCreate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRoleDelete`. If the actual instance is not `GroupAuditLogEntryGroupRoleDelete`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRoleDelete</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRoleDelete</returns>
-        public GroupAuditLogEntryGroupRoleDelete GetGroupAuditLogEntryGroupRoleDelete()
-        {
-            return (GroupAuditLogEntryGroupRoleDelete)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRoleDelete(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRoleDelete)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupRoleUpdate`. If the actual instance is not `GroupAuditLogEntryGroupRoleUpdate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupRoleUpdate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupRoleUpdate</returns>
-        public GroupAuditLogEntryGroupRoleUpdate GetGroupAuditLogEntryGroupRoleUpdate()
-        {
-            return (GroupAuditLogEntryGroupRoleUpdate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupRoleUpdate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupRoleUpdate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupUpdate`. If the actual instance is not `GroupAuditLogEntryGroupUpdate`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupUpdate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupUpdate</returns>
-        public GroupAuditLogEntryGroupUpdate GetGroupAuditLogEntryGroupUpdate()
-        {
-            return (GroupAuditLogEntryGroupUpdate)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupUpdate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupUpdate)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupUserBan`. If the actual instance is not `GroupAuditLogEntryGroupUserBan`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupUserBan</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupUserBan</returns>
-        public GroupAuditLogEntryGroupUserBan GetGroupAuditLogEntryGroupUserBan()
-        {
-            return (GroupAuditLogEntryGroupUserBan)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupUserBan(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupUserBan)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryGroupUserUnban`. If the actual instance is not `GroupAuditLogEntryGroupUserUnban`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryGroupUserUnban</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryGroupUserUnban</returns>
-        public GroupAuditLogEntryGroupUserUnban GetGroupAuditLogEntryGroupUserUnban()
-        {
-            return (GroupAuditLogEntryGroupUserUnban)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryGroupUserUnban(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupUserUnban)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupAuditLogEntryUnknown`. If the actual instance is not `GroupAuditLogEntryUnknown`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupAuditLogEntryUnknown</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupAuditLogEntryUnknown</returns>
-        public GroupAuditLogEntryUnknown GetGroupAuditLogEntryUnknown()
-        {
-            return (GroupAuditLogEntryUnknown)this.ActualInstance;
-        }
+        public static implicit operator GroupAuditLogEntryUnknown(GroupAuditLogEntry value) => (GroupAuditLogEntryUnknown)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

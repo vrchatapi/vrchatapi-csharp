@@ -82,25 +82,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `List&lt;GroupGalleryImage&gt;`. If the actual instance is not `List&lt;GroupGalleryImage&gt;`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>List&lt;GroupGalleryImage&gt;</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of List&lt;GroupGalleryImage&gt;</returns>
-        public List<GroupGalleryImage> GetList()
-        {
-            return (List<GroupGalleryImage>)this.ActualInstance;
-        }
+        public static implicit operator List<GroupGalleryImage>(GroupGalleryImageListResponse value) => (List<GroupGalleryImage>)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `GroupGalleryImageList`. If the actual instance is not `GroupGalleryImageList`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>GroupGalleryImageList</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of GroupGalleryImageList</returns>
-        public GroupGalleryImageList GetGroupGalleryImageList()
-        {
-            return (GroupGalleryImageList)this.ActualInstance;
-        }
+        public static implicit operator GroupGalleryImageList(GroupGalleryImageListResponse value) => (GroupGalleryImageList)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

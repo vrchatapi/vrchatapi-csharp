@@ -91,25 +91,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `string`. If the actual instance is not `string`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>string</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of string</returns>
-        public string GetString()
-        {
-            return (string)this.ActualInstance;
-        }
+        public static implicit operator string(DynamicContentRowShortName value) => (string)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `LocalizedString`. If the actual instance is not `LocalizedString`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>LocalizedString</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of LocalizedString</returns>
-        public LocalizedString GetLocalizedString()
-        {
-            return (LocalizedString)this.ActualInstance;
-        }
+        public static implicit operator LocalizedString(DynamicContentRowShortName value) => (LocalizedString)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

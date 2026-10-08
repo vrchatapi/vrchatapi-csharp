@@ -162,75 +162,49 @@ namespace VRChat.API.Model
             }
         }
 
-        /// <summary>
-        /// Get the actual instance of `Object`. If the actual instance is not `Object`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Object</returns>
-        public Object GetObject()
-        {
-            return (Object)this.ActualInstance;
-        }
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailBoop`. If the actual instance is not `NotificationDetailBoop`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailBoop</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailBoop</returns>
-        public NotificationDetailBoop GetNotificationDetailBoop()
-        {
-            return (NotificationDetailBoop)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailBoop(SentNotificationDetails value) => (NotificationDetailBoop)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailInvite`. If the actual instance is not `NotificationDetailInvite`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailInvite</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailInvite</returns>
-        public NotificationDetailInvite GetNotificationDetailInvite()
-        {
-            return (NotificationDetailInvite)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailInvite(SentNotificationDetails value) => (NotificationDetailInvite)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailInviteResponse`. If the actual instance is not `NotificationDetailInviteResponse`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailInviteResponse</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailInviteResponse</returns>
-        public NotificationDetailInviteResponse GetNotificationDetailInviteResponse()
-        {
-            return (NotificationDetailInviteResponse)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailInviteResponse(SentNotificationDetails value) => (NotificationDetailInviteResponse)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailRequestInvite`. If the actual instance is not `NotificationDetailRequestInvite`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailRequestInvite</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailRequestInvite</returns>
-        public NotificationDetailRequestInvite GetNotificationDetailRequestInvite()
-        {
-            return (NotificationDetailRequestInvite)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailRequestInvite(SentNotificationDetails value) => (NotificationDetailRequestInvite)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailRequestInviteResponse`. If the actual instance is not `NotificationDetailRequestInviteResponse`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailRequestInviteResponse</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailRequestInviteResponse</returns>
-        public NotificationDetailRequestInviteResponse GetNotificationDetailRequestInviteResponse()
-        {
-            return (NotificationDetailRequestInviteResponse)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailRequestInviteResponse(SentNotificationDetails value) => (NotificationDetailRequestInviteResponse)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `NotificationDetailVoteToKick`. If the actual instance is not `NotificationDetailVoteToKick`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>NotificationDetailVoteToKick</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of NotificationDetailVoteToKick</returns>
-        public NotificationDetailVoteToKick GetNotificationDetailVoteToKick()
-        {
-            return (NotificationDetailVoteToKick)this.ActualInstance;
-        }
+        public static implicit operator NotificationDetailVoteToKick(SentNotificationDetails value) => (NotificationDetailVoteToKick)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

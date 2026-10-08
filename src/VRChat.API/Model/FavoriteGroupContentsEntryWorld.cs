@@ -82,25 +82,19 @@ namespace VRChat.API.Model
             }
         }
 
+        
         /// <summary>
-        /// Get the actual instance of `FavoritedWorld`. If the actual instance is not `FavoritedWorld`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>FavoritedWorld</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of FavoritedWorld</returns>
-        public FavoritedWorld GetFavoritedWorld()
-        {
-            return (FavoritedWorld)this.ActualInstance;
-        }
+        public static implicit operator FavoritedWorld(FavoriteGroupContentsEntryWorld value) => (FavoritedWorld)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Get the actual instance of `UnavailableWorld`. If the actual instance is not `UnavailableWorld`,
-        /// the InvalidClassException will be thrown
+        /// Converts to the <c>UnavailableWorld</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <returns>An instance of UnavailableWorld</returns>
-        public UnavailableWorld GetUnavailableWorld()
-        {
-            return (UnavailableWorld)this.ActualInstance;
-        }
+        public static implicit operator UnavailableWorld(FavoriteGroupContentsEntryWorld value) => (UnavailableWorld)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object

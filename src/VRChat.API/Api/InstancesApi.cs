@@ -195,6 +195,31 @@ namespace VRChat.API.Api
         /// <param name="instanceId">Must be a valid instance ID.</param>
         /// <returns>ApiResponse of InstanceShortNameResponse</returns>
         ApiResponse<InstanceShortNameResponse> GetShortNameWithHttpInfo(string worldId, string instanceId);
+        /// <summary>
+        /// Update Instance
+        /// </summary>
+        /// <remarks>
+        /// Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <returns>Instance</returns>
+        Instance UpdateInstance(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest);
+
+        /// <summary>
+        /// Update Instance
+        /// </summary>
+        /// <remarks>
+        /// Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <returns>ApiResponse of Instance</returns>
+        ApiResponse<Instance> UpdateInstanceWithHttpInfo(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest);
         #endregion Synchronous Operations
     }
 
@@ -396,6 +421,33 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceShortNameResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InstanceShortNameResponse>> GetShortNameWithHttpInfoAsync(string worldId, string instanceId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Instance
+        /// </summary>
+        /// <remarks>
+        /// Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Instance</returns>
+        System.Threading.Tasks.Task<Instance> UpdateInstanceAsync(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Instance
+        /// </summary>
+        /// <remarks>
+        /// Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Instance)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Instance>> UpdateInstanceWithHttpInfoAsync(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1808,6 +1860,180 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<InstanceShortNameResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceShortNameResponse), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Instance Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <returns>Instance</returns>
+        public Instance UpdateInstance(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest)
+        {
+            VRChat.API.Client.ApiResponse<Instance> localVarResponse = UpdateInstanceWithHttpInfo(worldId, instanceId, updateInstanceRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateInstance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Instance Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <returns>ApiResponse of Instance</returns>
+        public VRChat.API.Client.ApiResponse<Instance> UpdateInstanceWithHttpInfo(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->UpdateInstance");
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->UpdateInstance");
+
+            // verify the required parameter 'updateInstanceRequest' is set
+            if (updateInstanceRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateInstanceRequest' when calling InstancesApi->UpdateInstance");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = updateInstanceRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<Instance>("/instances/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Instance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Instance), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Instance Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Instance</returns>
+        public async System.Threading.Tasks.Task<Instance> UpdateInstanceAsync(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Instance> localVarResponse = await UpdateInstanceWithHttpInfoAsync(worldId, instanceId, updateInstanceRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateInstance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Instance Set or remove the calendar event linked to a group instance.  Updating a group instance requires both the &#x60;group-instance-manage&#x60; and &#x60;group-instance-calendar-link&#x60; permissions.  The event must begin within the next six hours or have ended within the previous six hours.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="updateInstanceRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Instance)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Instance>> UpdateInstanceWithHttpInfoAsync(string worldId, string instanceId, UpdateInstanceRequest updateInstanceRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->UpdateInstance");
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->UpdateInstance");
+
+            // verify the required parameter 'updateInstanceRequest' is set
+            if (updateInstanceRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'updateInstanceRequest' when calling InstancesApi->UpdateInstance");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = updateInstanceRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Instance>("/instances/{worldId}:{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Instance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Instance), ex.Message);
             }
         }
 
