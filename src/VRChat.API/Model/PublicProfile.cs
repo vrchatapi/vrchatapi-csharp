@@ -33,6 +33,12 @@ namespace VRChat.API.Model
         public AgeVerificationStatus? AgeVerificationStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets BannerType
+        /// </summary>
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
+        public BannerType? BannerType { get; set; }
+
+        /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
@@ -85,7 +91,7 @@ namespace VRChat.API.Model
         /// <param name="trustTags">trustTags.</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="worldFavoriteLists">The owner&#39;s public world favorite groups..</param>
-        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, string bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, string themeId = default, string themeSubtextColor = default, List<Object> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
+        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, string themeId = default, string themeSubtextColor = default, List<Object> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -191,12 +197,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "bannerCustomUrl", EmitDefaultValue = false)]
         public string BannerCustomUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerUrl
@@ -542,8 +542,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
+                    this.BannerType.Equals(input.BannerType)
                 ) && 
                 (
                     this.BannerUrl == input.BannerUrl ||
@@ -763,10 +762,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BannerCustomUrl.GetHashCode();
                 }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();

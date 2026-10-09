@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "CurrentUserPresence")]
     public partial class CurrentUserPresence : IEquatable<CurrentUserPresence>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets BannerType
+        /// </summary>
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
+        public BannerType? BannerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserPresence" /> class.
         /// </summary>
@@ -53,7 +59,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToWorld">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list..</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="world">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUserPresence(string avatarImageUrl = default, string avatarThumbnail = default, string banner = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, string currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string iconFrame = default, string iconUrl = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
+        public CurrentUserPresence(string avatarImageUrl = default, string avatarThumbnail = default, string banner = default, string bannerColor = default, BannerType? bannerType = default, string bannerUrl = default, string currentAvatarTags = default, string debugflag = default, string displayName = default, List<string> groups = default, string iconFrame = default, string iconUrl = default, string id = default, string instance = default, string instanceType = default, string isRejoining = default, string nameplateEffect = default, string platform = default, string profileEffect = default, string profilePicOverride = default, string status = default, string travelingToInstance = default, string travelingToWorld = default, string userIcon = default, string world = default)
         {
             this.AvatarImageUrl = avatarImageUrl;
             this.AvatarThumbnail = avatarThumbnail;
@@ -106,12 +112,6 @@ namespace VRChat.API.Model
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerUrl
@@ -329,8 +329,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
+                    this.BannerType.Equals(input.BannerType)
                 ) && 
                 (
                     this.BannerUrl == input.BannerUrl ||
@@ -460,10 +459,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
                 }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();

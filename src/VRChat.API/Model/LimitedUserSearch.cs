@@ -27,6 +27,12 @@ namespace VRChat.API.Model
     {
 
         /// <summary>
+        /// Gets or Sets BannerType
+        /// </summary>
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
+        public BannerType? BannerType { get; set; }
+
+        /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
         [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
@@ -61,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="status">status (required).</param>
         /// <param name="statusDescription">statusDescription (required).</param>
         /// <param name="tags">&lt;- Always empty. (required).</param>
-        public LimitedUserSearch(string bannerColor = default, string bannerType = default, string bannerUrl = default, DeveloperType developerType = default, string displayName = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, string lastPlatform = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default)
+        public LimitedUserSearch(string bannerColor = default, BannerType? bannerType = default, string bannerUrl = default, DeveloperType developerType = default, string displayName = default, string iconFrame = default, string iconUrl = default, string id = default, bool isFriend = default, string lastPlatform = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, UserStatus status = default, string statusDescription = default, List<string> tags = default)
         {
             this.DeveloperType = developerType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -92,12 +98,6 @@ namespace VRChat.API.Model
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerUrl
@@ -240,8 +240,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
+                    this.BannerType.Equals(input.BannerType)
                 ) && 
                 (
                     this.BannerUrl == input.BannerUrl ||
@@ -326,10 +325,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
                 }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();

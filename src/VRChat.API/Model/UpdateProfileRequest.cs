@@ -62,37 +62,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "backgroundType", EmitDefaultValue = false)]
         public BackgroundTypeEnum? BackgroundType { get; set; }
-        /// <summary>
-        /// Defines BannerType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BannerTypeEnum
-        {
-            /// <summary>
-            /// Enum AvatarBanner for value: avatarBanner
-            /// </summary>
-            [EnumMember(Value = "avatarBanner")]
-            AvatarBanner = 1,
-
-            /// <summary>
-            /// Enum Color for value: color
-            /// </summary>
-            [EnumMember(Value = "color")]
-            Color = 2,
-
-            /// <summary>
-            /// Enum CustomImage for value: customImage
-            /// </summary>
-            [EnumMember(Value = "customImage")]
-            CustomImage = 3
-        }
-
 
         /// <summary>
         /// Gets or Sets BannerType
         /// </summary>
         [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public BannerTypeEnum? BannerType { get; set; }
+        public BannerType? BannerType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProfileRequest" /> class.
         /// </summary>
@@ -108,7 +83,7 @@ namespace VRChat.API.Model
         /// <param name="profileEffect">profileEffect.</param>
         /// <param name="themeId">themeId.</param>
         /// <param name="userIcon">userIcon.</param>
-        public UpdateProfileRequest(string backgroundTextureId = default, BackgroundTypeEnum? backgroundType = default, string bannerColor = default, BannerTypeEnum? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string themeId = default, string userIcon = default)
+        public UpdateProfileRequest(string backgroundTextureId = default, BackgroundTypeEnum? backgroundType = default, string bannerColor = default, BannerType? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string themeId = default, string userIcon = default)
         {
             this.BackgroundTextureId = backgroundTextureId;
             this.BackgroundType = backgroundType;

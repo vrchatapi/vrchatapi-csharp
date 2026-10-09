@@ -35,6 +35,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="UpdateUserRequest" /> class.
         /// </summary>
         /// <param name="acceptedTOSVersion">acceptedTOSVersion.</param>
+        /// <param name="allowAvatarCopying">allowAvatarCopying.</param>
         /// <param name="allowWorldsToCountFriendsInInstance">The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026..</param>
         /// <param name="birthday">birthday.</param>
         /// <param name="contentFilters">These tags begin with &#x60;content_&#x60; and control content gating.</param>
@@ -43,6 +44,7 @@ namespace VRChat.API.Model
         /// <param name="email">email.</param>
         /// <param name="hasDiscordFriendsOptOut">Opt out of the Discord Friend Connections feature.</param>
         /// <param name="hasSharedConnectionsOptOut">Opt out of the Mutuals feature.</param>
+        /// <param name="homeLocation">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
         /// <param name="isBoopingEnabled">isBoopingEnabled.</param>
         /// <param name="password">MUST specify currentPassword as well to change password.</param>
         /// <param name="pronouns">pronouns.</param>
@@ -51,9 +53,10 @@ namespace VRChat.API.Model
         /// <param name="statusDescription">statusDescription.</param>
         /// <param name="tags">tags.</param>
         /// <param name="unsubscribe">unsubscribe.</param>
-        public UpdateUserRequest(int acceptedTOSVersion = default, bool allowWorldsToCountFriendsInInstance = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
+        public UpdateUserRequest(int acceptedTOSVersion = default, bool allowAvatarCopying = default, bool allowWorldsToCountFriendsInInstance = default, DateOnly birthday = default, List<ContentFilter> contentFilters = default, string currentPassword = default, string displayName = default, string email = default, bool hasDiscordFriendsOptOut = default, bool hasSharedConnectionsOptOut = default, string homeLocation = default, bool isBoopingEnabled = default, string password = default, string pronouns = default, bool revertDisplayName = default, UserStatus? status = default, string statusDescription = default, List<string> tags = default, bool unsubscribe = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
+            this.AllowAvatarCopying = allowAvatarCopying;
             this.AllowWorldsToCountFriendsInInstance = allowWorldsToCountFriendsInInstance;
             this.Birthday = birthday;
             this.ContentFilters = contentFilters;
@@ -62,6 +65,7 @@ namespace VRChat.API.Model
             this.Email = email;
             this.HasDiscordFriendsOptOut = hasDiscordFriendsOptOut;
             this.HasSharedConnectionsOptOut = hasSharedConnectionsOptOut;
+            this.HomeLocation = homeLocation;
             this.IsBoopingEnabled = isBoopingEnabled;
             this.Password = password;
             this.Pronouns = pronouns;
@@ -77,6 +81,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "acceptedTOSVersion", EmitDefaultValue = false)]
         public int AcceptedTOSVersion { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AllowAvatarCopying
+        /// </summary>
+        [DataMember(Name = "allowAvatarCopying", EmitDefaultValue = true)]
+        public bool AllowAvatarCopying { get; set; }
 
         /// <summary>
         /// The \&quot;Allow Worlds to Count Friends in Instance\&quot; setting, introduced under [Udon Methods for Friend Info](https://ask.vrchat.com/t/developer-update-24-september-2026/48972#p-90922-udon-methods-for-friend-info-13) in the Developer Update of September 24, 2026.
@@ -132,6 +142,13 @@ namespace VRChat.API.Model
         public bool HasSharedConnectionsOptOut { get; set; }
 
         /// <summary>
+        /// WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.
+        /// </summary>
+        /// <value>WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user.</value>
+        [DataMember(Name = "homeLocation", EmitDefaultValue = false)]
+        public string HomeLocation { get; set; }
+
+        /// <summary>
         /// Gets or Sets IsBoopingEnabled
         /// </summary>
         [DataMember(Name = "isBoopingEnabled", EmitDefaultValue = true)]
@@ -184,6 +201,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateUserRequest {\n");
             sb.Append("  AcceptedTOSVersion: ").Append(AcceptedTOSVersion).Append("\n");
+            sb.Append("  AllowAvatarCopying: ").Append(AllowAvatarCopying).Append("\n");
             sb.Append("  AllowWorldsToCountFriendsInInstance: ").Append(AllowWorldsToCountFriendsInInstance).Append("\n");
             sb.Append("  Birthday: ").Append(Birthday).Append("\n");
             sb.Append("  ContentFilters: ").Append(ContentFilters).Append("\n");
@@ -192,6 +210,7 @@ namespace VRChat.API.Model
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  HasDiscordFriendsOptOut: ").Append(HasDiscordFriendsOptOut).Append("\n");
             sb.Append("  HasSharedConnectionsOptOut: ").Append(HasSharedConnectionsOptOut).Append("\n");
+            sb.Append("  HomeLocation: ").Append(HomeLocation).Append("\n");
             sb.Append("  IsBoopingEnabled: ").Append(IsBoopingEnabled).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  Pronouns: ").Append(Pronouns).Append("\n");
@@ -240,6 +259,10 @@ namespace VRChat.API.Model
                     this.AcceptedTOSVersion.Equals(input.AcceptedTOSVersion)
                 ) && 
                 (
+                    this.AllowAvatarCopying == input.AllowAvatarCopying ||
+                    this.AllowAvatarCopying.Equals(input.AllowAvatarCopying)
+                ) && 
+                (
                     this.AllowWorldsToCountFriendsInInstance == input.AllowWorldsToCountFriendsInInstance ||
                     this.AllowWorldsToCountFriendsInInstance.Equals(input.AllowWorldsToCountFriendsInInstance)
                 ) && 
@@ -275,6 +298,11 @@ namespace VRChat.API.Model
                 (
                     this.HasSharedConnectionsOptOut == input.HasSharedConnectionsOptOut ||
                     this.HasSharedConnectionsOptOut.Equals(input.HasSharedConnectionsOptOut)
+                ) && 
+                (
+                    this.HomeLocation == input.HomeLocation ||
+                    (this.HomeLocation != null &&
+                    this.HomeLocation.Equals(input.HomeLocation))
                 ) && 
                 (
                     this.IsBoopingEnabled == input.IsBoopingEnabled ||
@@ -325,6 +353,7 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AcceptedTOSVersion.GetHashCode();
+                hashCode = (hashCode * 59) + this.AllowAvatarCopying.GetHashCode();
                 hashCode = (hashCode * 59) + this.AllowWorldsToCountFriendsInInstance.GetHashCode();
                 hashCode = (hashCode * 59) + this.Birthday.GetHashCode();
                 if (this.ContentFilters != null)
@@ -345,6 +374,10 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.HasDiscordFriendsOptOut.GetHashCode();
                 hashCode = (hashCode * 59) + this.HasSharedConnectionsOptOut.GetHashCode();
+                if (this.HomeLocation != null)
+                {
+                    hashCode = (hashCode * 59) + this.HomeLocation.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.IsBoopingEnabled.GetHashCode();
                 if (this.Password != null)
                 {

@@ -82,6 +82,7 @@ src/VRChat.API/Model/AvatarUnityPackageUrlObject.cs
 src/VRChat.API/Model/Badge.cs
 src/VRChat.API/Model/Balance.cs
 src/VRChat.API/Model/BanGroupMemberRequest.cs
+src/VRChat.API/Model/BannerType.cs
 src/VRChat.API/Model/BareError.cs
 src/VRChat.API/Model/Beta.cs
 src/VRChat.API/Model/BetaRegistrationNotFoundError.cs

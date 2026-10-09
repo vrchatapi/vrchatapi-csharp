@@ -33,6 +33,12 @@ namespace VRChat.API.Model
         public AgeVerificationStatus AgeVerificationStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets BannerType
+        /// </summary>
+        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
+        public BannerType? BannerType { get; set; }
+
+        /// <summary>
         /// Gets or Sets DeveloperType
         /// </summary>
         [DataMember(Name = "developerType", IsRequired = true, EmitDefaultValue = true)]
@@ -156,7 +162,7 @@ namespace VRChat.API.Model
         /// <param name="usesGeneratedPassword">usesGeneratedPassword (required).</param>
         /// <param name="viveId">viveId.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, string accountStanding = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, bool allowWorldsToCountFriendsInInstance = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, string bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
+        public CurrentUser(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, DateOnly? accountDeletionDate = default, List<AccountDeletionLog> accountDeletionLog = default, string accountStanding = default, List<string> activeFriends = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = default, bool allowWorldsToCountFriendsInInstance = default, Object appleDetails = default, string appleId = default, string authToken = default, string bannerColor = default, BannerType? bannerType = default, string bannerUrl = default, List<string> completedTutorials = default, List<string> contentFilters = default, string currentAvatar = default, string currentAvatarImageUrl = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, DiscordDetails discordDetails = default, string discordId = default, string displayName = default, bool emailVerified = default, string fallbackAvatar = default, List<string> friendGroupNames = default, string friendKey = default, string friendRequestStatus = default, List<string> friends = default, Object googleDetails = default, string googleId = default, bool hasBirthday = default, bool hasDiscordFriendsOptOut = default, bool hasEmail = default, bool hasLoggedInFromClient = default, bool hasPendingEmail = default, bool hasSharedConnectionsOptOut = default, bool hideContentFilterSettings = default, string homeLocation = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isAdult = default, bool isBoopingEnabled = true, bool isEconomyCreator = false, bool isFriend = false, bool isTemporary = false, DateTime lastActivity = default, DateTime lastLogin = default, DateTime? lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string obfuscatedEmail = default, string obfuscatedPendingEmail = default, string oculusId = default, List<string> offlineFriends = default, List<string> onlineFriends = default, List<PastDisplayName> pastDisplayNames = default, bool personalizationOptOut = default, string picoId = default, string platform = default, List<PlatformHistoryEntry> platformHistory = default, CurrentUserPresence presence = default, string profileEffect = default, string pronouns = default, List<string> pronounsHistory = default, string queuedInstance = default, bool receiveMobileInvitations = default, UserState state = default, UserStatus status = default, string statusDescription = default, bool statusFirstTime = default, List<string> statusHistory = default, Object steamDetails = default, string steamId = default, List<string> tags = default, Object temporaryExpiryDate = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, Object twitchDetails = default, string twitchId = default, bool twoFactorAuthEnabled = default, DateTime? twoFactorAuthEnabledDate = default, bool unsubscribe = default, DateTime updatedAt = default, string userLanguage = default, string userLanguageCode = default, string username = default, bool usesGeneratedPassword = default, string viveId = default, string worldId = default)
         {
             this.AcceptedTOSVersion = acceptedTOSVersion;
             this.AgeVerificationStatus = ageVerificationStatus;
@@ -364,12 +370,6 @@ namespace VRChat.API.Model
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BannerType
-        /// </summary>
-        [DataMember(Name = "bannerType", EmitDefaultValue = false)]
-        public string BannerType { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerUrl
@@ -1086,8 +1086,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
-                    (this.BannerType != null &&
-                    this.BannerType.Equals(input.BannerType))
+                    this.BannerType.Equals(input.BannerType)
                 ) && 
                 (
                     this.BannerUrl == input.BannerUrl ||
@@ -1544,10 +1543,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
                 }
-                if (this.BannerType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
                 if (this.BannerUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerUrl.GetHashCode();
