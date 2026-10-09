@@ -1,0 +1,53 @@
+
+
+#pragma warning disable CS0612
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
+using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+
+namespace VRChat.API.Model
+{
+    /// <summary>
+    /// Defines InstanceDiscoveryPlatform
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum InstanceDiscoveryPlatform
+    {
+        /// <summary>
+        /// Enum Android for value: android
+        /// </summary>
+        [EnumMember(Value = "android")]
+        Android = 1,
+
+        /// <summary>
+        /// Enum Ios for value: ios
+        /// </summary>
+        [EnumMember(Value = "ios")]
+        Ios = 2,
+
+        /// <summary>
+        /// Enum Standalonewindows for value: standalonewindows
+        /// </summary>
+        [EnumMember(Value = "standalonewindows")]
+        Standalonewindows = 3,
+
+        /// <summary>
+        /// Enum Web for value: web
+        /// </summary>
+        [EnumMember(Value = "web")]
+        Web = 4
+    }
+
+}

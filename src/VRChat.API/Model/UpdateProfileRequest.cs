@@ -71,9 +71,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProfileRequest" /> class.
         /// </summary>
+        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
         /// <param name="backgroundTextureId">backgroundTextureId.</param>
         /// <param name="backgroundType">backgroundType.</param>
         /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerCustomUrl">bannerCustomUrl.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bio">bio.</param>
         /// <param name="bioLinks">bioLinks.</param>
@@ -83,11 +86,14 @@ namespace VRChat.API.Model
         /// <param name="profileEffect">profileEffect.</param>
         /// <param name="themeId">themeId.</param>
         /// <param name="userIcon">userIcon.</param>
-        public UpdateProfileRequest(string backgroundTextureId = default, BackgroundTypeEnum? backgroundType = default, string bannerColor = default, BannerType? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string themeId = default, string userIcon = default)
+        public UpdateProfileRequest(string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTextureId = default, BackgroundTypeEnum? backgroundType = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, PublicProfileThemeID themeId = default, string userIcon = default)
         {
+            this.BackgroundGradientBottom = backgroundGradientBottom;
+            this.BackgroundGradientTop = backgroundGradientTop;
             this.BackgroundTextureId = backgroundTextureId;
             this.BackgroundType = backgroundType;
             this.BannerColor = bannerColor;
+            this.BannerCustomUrl = bannerCustomUrl;
             this.BannerType = bannerType;
             this.Bio = bio;
             this.BioLinks = bioLinks;
@@ -98,6 +104,20 @@ namespace VRChat.API.Model
             this.ThemeId = themeId;
             this.UserIcon = userIcon;
         }
+
+        /// <summary>
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
+        public string BackgroundGradientBottom { get; set; }
+
+        /// <summary>
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// </summary>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
+        public string BackgroundGradientTop { get; set; }
 
         /// <summary>
         /// Gets or Sets BackgroundTextureId
@@ -111,6 +131,12 @@ namespace VRChat.API.Model
         /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BannerCustomUrl
+        /// </summary>
+        [DataMember(Name = "bannerCustomUrl", EmitDefaultValue = false)]
+        public string BannerCustomUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Bio
@@ -152,7 +178,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ThemeId
         /// </summary>
         [DataMember(Name = "themeId", EmitDefaultValue = false)]
-        public string ThemeId { get; set; }
+        public PublicProfileThemeID ThemeId { get; set; }
 
         /// <summary>
         /// Gets or Sets UserIcon
@@ -168,9 +194,12 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateProfileRequest {\n");
+            sb.Append("  BackgroundGradientBottom: ").Append(BackgroundGradientBottom).Append("\n");
+            sb.Append("  BackgroundGradientTop: ").Append(BackgroundGradientTop).Append("\n");
             sb.Append("  BackgroundTextureId: ").Append(BackgroundTextureId).Append("\n");
             sb.Append("  BackgroundType: ").Append(BackgroundType).Append("\n");
             sb.Append("  BannerColor: ").Append(BannerColor).Append("\n");
+            sb.Append("  BannerCustomUrl: ").Append(BannerCustomUrl).Append("\n");
             sb.Append("  BannerType: ").Append(BannerType).Append("\n");
             sb.Append("  Bio: ").Append(Bio).Append("\n");
             sb.Append("  BioLinks: ").Append(BioLinks).Append("\n");
@@ -216,6 +245,16 @@ namespace VRChat.API.Model
             }
             return 
                 (
+                    this.BackgroundGradientBottom == input.BackgroundGradientBottom ||
+                    (this.BackgroundGradientBottom != null &&
+                    this.BackgroundGradientBottom.Equals(input.BackgroundGradientBottom))
+                ) && 
+                (
+                    this.BackgroundGradientTop == input.BackgroundGradientTop ||
+                    (this.BackgroundGradientTop != null &&
+                    this.BackgroundGradientTop.Equals(input.BackgroundGradientTop))
+                ) && 
+                (
                     this.BackgroundTextureId == input.BackgroundTextureId ||
                     (this.BackgroundTextureId != null &&
                     this.BackgroundTextureId.Equals(input.BackgroundTextureId))
@@ -228,6 +267,11 @@ namespace VRChat.API.Model
                     this.BannerColor == input.BannerColor ||
                     (this.BannerColor != null &&
                     this.BannerColor.Equals(input.BannerColor))
+                ) && 
+                (
+                    this.BannerCustomUrl == input.BannerCustomUrl ||
+                    (this.BannerCustomUrl != null &&
+                    this.BannerCustomUrl.Equals(input.BannerCustomUrl))
                 ) && 
                 (
                     this.BannerType == input.BannerType ||
@@ -286,6 +330,14 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.BackgroundGradientBottom != null)
+                {
+                    hashCode = (hashCode * 59) + this.BackgroundGradientBottom.GetHashCode();
+                }
+                if (this.BackgroundGradientTop != null)
+                {
+                    hashCode = (hashCode * 59) + this.BackgroundGradientTop.GetHashCode();
+                }
                 if (this.BackgroundTextureId != null)
                 {
                     hashCode = (hashCode * 59) + this.BackgroundTextureId.GetHashCode();
@@ -294,6 +346,10 @@ namespace VRChat.API.Model
                 if (this.BannerColor != null)
                 {
                     hashCode = (hashCode * 59) + this.BannerColor.GetHashCode();
+                }
+                if (this.BannerCustomUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BannerCustomUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.BannerType.GetHashCode();
                 if (this.Bio != null)

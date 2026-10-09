@@ -295,6 +295,8 @@ src/VRChat.API/Model/InfoPushIpsQuery.cs
 src/VRChat.API/Model/Instance.cs
 src/VRChat.API/Model/InstanceCategory.cs
 src/VRChat.API/Model/InstanceContentSettings.cs
+src/VRChat.API/Model/InstanceDiscovery.cs
+src/VRChat.API/Model/InstanceDiscoveryPlatform.cs
 src/VRChat.API/Model/InstancePlatforms.cs
 src/VRChat.API/Model/InstanceRegion.cs
 src/VRChat.API/Model/InstanceShortNameResponse.cs
@@ -330,6 +332,7 @@ src/VRChat.API/Model/LicenseAction.cs
 src/VRChat.API/Model/LicenseGroup.cs
 src/VRChat.API/Model/LicenseType.cs
 src/VRChat.API/Model/LimitedGroup.cs
+src/VRChat.API/Model/LimitedInstance.cs
 src/VRChat.API/Model/LimitedUnityPackage.cs
 src/VRChat.API/Model/LimitedUserFriend.cs
 src/VRChat.API/Model/LimitedUserGroups.cs
@@ -410,10 +413,12 @@ src/VRChat.API/Model/ProductType.cs
 src/VRChat.API/Model/ProfileGroup.cs
 src/VRChat.API/Model/ProfileGroups.cs
 src/VRChat.API/Model/ProfileRepresentedGroup.cs
+src/VRChat.API/Model/ProfileTheme.cs
 src/VRChat.API/Model/Prop.cs
 src/VRChat.API/Model/PropPublishStatus.cs
 src/VRChat.API/Model/PropUnityPackage.cs
 src/VRChat.API/Model/PublicProfile.cs
+src/VRChat.API/Model/PublicProfileThemeID.cs
 src/VRChat.API/Model/PurchaseContextData.cs
 src/VRChat.API/Model/PurchaseProductListingRequest.cs
 src/VRChat.API/Model/Region.cs

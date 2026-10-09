@@ -132,7 +132,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets PluginUrl
         /// </summary>
-        [DataMember(Name = "pluginUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "pluginUrl", EmitDefaultValue = true)]
         public string PluginUrl { get; set; }
 
         /// <summary>

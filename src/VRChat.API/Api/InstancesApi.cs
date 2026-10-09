@@ -68,6 +68,39 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Instance</returns>
         ApiResponse<Instance> CreateInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest);
         /// <summary>
+        /// Discover Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns instances to discover, in an order that changes between requests.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <returns>InstanceDiscovery</returns>
+        InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default);
+
+        /// <summary>
+        /// Discover Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns instances to discover, in an order that changes between requests.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <returns>ApiResponse of InstanceDiscovery</returns>
+        ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default);
+        /// <summary>
         /// List Active Instances
         /// </summary>
         /// <remarks>
@@ -304,6 +337,41 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
         System.Threading.Tasks.Task<ApiResponse<Instance>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest createInstanceRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Discover Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns instances to discover, in an order that changes between requests.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceDiscovery</returns>
+        System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Discover Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns instances to discover, in an order that changes between requests.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceDiscovery)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Active Instances
         /// </summary>
@@ -1034,6 +1102,220 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Instance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Instance), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Discover Instances Returns instances to discover, in an order that changes between requests.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <returns>InstanceDiscovery</returns>
+        public InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default)
+        {
+            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = DiscoverInstancesWithHttpInfo(n, region, platform, worldId, groupId, vibe, category);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DiscoverInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Discover Instances Returns instances to discover, in an order that changes between requests.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <returns>ApiResponse of InstanceDiscovery</returns>
+        public VRChat.API.Client.ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+            if (platform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
+            }
+            if (worldId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "worldId", worldId));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "groupId", groupId));
+            }
+            if (vibe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "vibe", vibe));
+            }
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<InstanceDiscovery>("/instances/discover", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceDiscovery>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceDiscovery), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Discover Instances Returns instances to discover, in an order that changes between requests.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceDiscovery</returns>
+        public async System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = await DiscoverInstancesWithHttpInfoAsync(n, region, platform, worldId, groupId, vibe, category, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DiscoverInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Discover Instances Returns instances to discover, in an order that changes between requests.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="region">Return only instances in this region. (optional)</param>
+        /// <param name="platform">The platform to discover instances for. (optional)</param>
+        /// <param name="worldId">Return only instances of these worlds. (optional)</param>
+        /// <param name="groupId">Return only instances of these groups. (optional)</param>
+        /// <param name="vibe"> (optional)</param>
+        /// <param name="category"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceDiscovery)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+            if (platform != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "platform", platform));
+            }
+            if (worldId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "worldId", worldId));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "groupId", groupId));
+            }
+            if (vibe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "vibe", vibe));
+            }
+            if (category != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InstanceDiscovery>("/instances/discover", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceDiscovery>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceDiscovery), ex.Message);
             }
         }
 

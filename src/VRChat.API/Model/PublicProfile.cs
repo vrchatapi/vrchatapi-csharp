@@ -91,7 +91,7 @@ namespace VRChat.API.Model
         /// <param name="trustTags">trustTags.</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="worldFavoriteLists">The owner&#39;s public world favorite groups..</param>
-        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, string themeId = default, string themeSubtextColor = default, List<Object> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
+        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, PublicProfileThemeID themeId = default, string themeSubtextColor = default, List<ProfileTheme> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -363,7 +363,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ThemeId
         /// </summary>
         [DataMember(Name = "themeId", EmitDefaultValue = false)]
-        public string ThemeId { get; set; }
+        public PublicProfileThemeID ThemeId { get; set; }
 
         /// <summary>
         /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
@@ -376,7 +376,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Themes
         /// </summary>
         [DataMember(Name = "themes", EmitDefaultValue = false)]
-        public List<Object> Themes { get; set; }
+        public List<ProfileTheme> Themes { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalPublicWorldsCount
