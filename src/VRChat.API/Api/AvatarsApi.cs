@@ -164,7 +164,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        List<Avatar> GetFavoritedAvatars(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
+        List<Avatar> GetFavoritedAvatars(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
 
         /// <summary>
         /// List Favorited Avatars
@@ -187,7 +187,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
+        ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default);
         /// <summary>
         /// Get Impostor Queue Stats
         /// </summary>
@@ -273,7 +273,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        List<Avatar> SearchAvatars(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
+        List<Avatar> SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
 
         /// <summary>
         /// Search Avatars
@@ -297,7 +297,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
+        ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -530,7 +530,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Favorited Avatars
@@ -554,7 +554,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Impostor Queue Stats
         /// </summary>
@@ -647,7 +647,7 @@ namespace VRChat.API.Api
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Avatars
@@ -672,7 +672,7 @@ namespace VRChat.API.Api
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -1817,7 +1817,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        public List<Avatar> GetFavoritedAvatars(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
+        public List<Avatar> GetFavoritedAvatars(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = GetFavoritedAvatarsWithHttpInfo(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId);
             if (this.ExceptionFactory != null)
@@ -1849,7 +1849,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
+        public VRChat.API.Client.ApiResponse<List<Avatar>> GetFavoritedAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1959,7 +1959,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Avatar>> GetFavoritedAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await GetFavoritedAvatarsWithHttpInfoAsync(featured, sort, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, userId, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1992,7 +1992,7 @@ namespace VRChat.API.Api
         /// <param name="userId">Target user to see information on, admin-only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> GetFavoritedAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? userId = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2532,7 +2532,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>List&lt;Avatar&gt;</returns>
-        public List<Avatar> SearchAvatars(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
+        public List<Avatar> SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = SearchAvatarsWithHttpInfo(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant);
             if (this.ExceptionFactory != null)
@@ -2565,7 +2565,7 @@ namespace VRChat.API.Api
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
+        public VRChat.API.Client.ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2680,7 +2680,7 @@ namespace VRChat.API.Api
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Avatar&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await SearchAvatarsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -2714,7 +2714,7 @@ namespace VRChat.API.Api
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();

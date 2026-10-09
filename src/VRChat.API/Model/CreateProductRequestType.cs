@@ -20,41 +20,46 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Instance region
+    /// Defines CreateProductRequestType
     /// </summary>
-    /// <value>Instance region</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum InstanceRegion
+    public enum CreateProductRequestType
     {
         /// <summary>
-        /// Enum Eu for value: eu
+        /// Enum Avatar for value: avatar
         /// </summary>
-        [EnumMember(Value = "eu")]
-        Eu = 1,
+        [EnumMember(Value = "avatar")]
+        Avatar = 1,
 
         /// <summary>
-        /// Enum Jp for value: jp
+        /// Enum Credit for value: credit
         /// </summary>
-        [EnumMember(Value = "jp")]
-        Jp = 2,
+        [EnumMember(Value = "credit")]
+        Credit = 2,
 
         /// <summary>
-        /// Enum Us for value: us
+        /// Enum Inventory for value: inventory
         /// </summary>
-        [EnumMember(Value = "us")]
-        Us = 3,
+        [EnumMember(Value = "inventory")]
+        Inventory = 3,
 
         /// <summary>
-        /// Enum Use for value: use
+        /// Enum Listing for value: listing
         /// </summary>
-        [EnumMember(Value = "use")]
-        Use = 4,
+        [EnumMember(Value = "listing")]
+        Listing = 4,
 
         /// <summary>
-        /// Enum Unknown for value: unknown
+        /// Enum TestBirdy for value: test_birdy
         /// </summary>
-        [EnumMember(Value = "unknown")]
-        Unknown = 5
+        [EnumMember(Value = "test_birdy")]
+        TestBirdy = 5,
+
+        /// <summary>
+        /// Enum Udon for value: udon
+        /// </summary>
+        [EnumMember(Value = "udon")]
+        Udon = 6
     }
 
 }

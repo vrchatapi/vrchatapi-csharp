@@ -20,10 +20,10 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Defines SortOption
+    /// Defines SortOptionAvatar
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum SortOption
+    public enum SortOptionAvatar
     {
         /// <summary>
         /// Enum CreatedAt for value: _created_at
@@ -44,118 +44,76 @@ namespace VRChat.API.Model
         Contains = 3,
 
         /// <summary>
+        /// Enum CountMonthlySales for value: countMonthlySales
+        /// </summary>
+        [EnumMember(Value = "countMonthlySales")]
+        CountMonthlySales = 4,
+
+        /// <summary>
         /// Enum Created for value: created
         /// </summary>
         [EnumMember(Value = "created")]
-        Created = 4,
+        Created = 5,
 
         /// <summary>
         /// Enum Exact for value: exact
         /// </summary>
         [EnumMember(Value = "exact")]
-        Exact = 5,
+        Exact = 6,
 
         /// <summary>
-        /// Enum Favorites for value: favorites
+        /// Enum ListingDate for value: listingDate
         /// </summary>
-        [EnumMember(Value = "favorites")]
-        Favorites = 6,
-
-        /// <summary>
-        /// Enum Heat for value: heat
-        /// </summary>
-        [EnumMember(Value = "heat")]
-        Heat = 7,
-
-        /// <summary>
-        /// Enum Hotness for value: hotness
-        /// </summary>
-        [EnumMember(Value = "hotness")]
-        Hotness = 8,
-
-        /// <summary>
-        /// Enum LabsPublicationDate for value: labsPublicationDate
-        /// </summary>
-        [EnumMember(Value = "labsPublicationDate")]
-        LabsPublicationDate = 9,
-
-        /// <summary>
-        /// Enum Magic for value: magic
-        /// </summary>
-        [EnumMember(Value = "magic")]
-        Magic = 10,
+        [EnumMember(Value = "listingDate")]
+        ListingDate = 7,
 
         /// <summary>
         /// Enum Name for value: name
         /// </summary>
         [EnumMember(Value = "name")]
-        Name = 11,
+        Name = 8,
 
         /// <summary>
         /// Enum Order for value: order
         /// </summary>
         [EnumMember(Value = "order")]
-        Order = 12,
+        Order = 9,
 
         /// <summary>
-        /// Enum Popularity for value: popularity
+        /// Enum Performance for value: performance
         /// </summary>
-        [EnumMember(Value = "popularity")]
-        Popularity = 13,
-
-        /// <summary>
-        /// Enum PublicationDate for value: publicationDate
-        /// </summary>
-        [EnumMember(Value = "publicationDate")]
-        PublicationDate = 14,
+        [EnumMember(Value = "performance")]
+        Performance = 10,
 
         /// <summary>
         /// Enum Random for value: random
         /// </summary>
         [EnumMember(Value = "random")]
-        Random = 15,
+        Random = 11,
 
         /// <summary>
         /// Enum Relevance for value: relevance
         /// </summary>
         [EnumMember(Value = "relevance")]
-        Relevance = 16,
-
-        /// <summary>
-        /// Enum ReportCount for value: reportCount
-        /// </summary>
-        [EnumMember(Value = "reportCount")]
-        ReportCount = 17,
-
-        /// <summary>
-        /// Enum ReportScore for value: reportScore
-        /// </summary>
-        [EnumMember(Value = "reportScore")]
-        ReportScore = 18,
+        Relevance = 12,
 
         /// <summary>
         /// Enum Shuffle for value: shuffle
         /// </summary>
         [EnumMember(Value = "shuffle")]
-        Shuffle = 19,
+        Shuffle = 13,
 
         /// <summary>
-        /// Enum Trending for value: trending
+        /// Enum TrendRank for value: trendRank
         /// </summary>
-        [EnumMember(Value = "trending")]
-        Trending = 20,
-
-        /// <summary>
-        /// Enum Trust for value: trust
-        /// </summary>
-        [EnumMember(Value = "trust")]
-        Trust = 21,
+        [EnumMember(Value = "trendRank")]
+        TrendRank = 14,
 
         /// <summary>
         /// Enum Updated for value: updated
         /// </summary>
         [EnumMember(Value = "updated")]
-        Updated = 22
+        Updated = 15
     }
 
 }

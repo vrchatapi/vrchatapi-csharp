@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Region
         /// </summary>
         [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
-        public InstanceRegion Region { get; set; }
+        public CreateInstanceRequestRegion Region { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -71,7 +71,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, string categoryId = default, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string description = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, InstanceRegion region = default, List<string> roleIds = default, InstanceType type = default, List<string> vibeIds = default, string worldId = default)
+        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, string categoryId = default, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string description = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, CreateInstanceRequestRegion region = default, List<string> roleIds = default, InstanceType type = default, List<string> vibeIds = default, string worldId = default)
         {
             this.Region = region;
             this.Type = type;

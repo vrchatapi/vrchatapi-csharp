@@ -20,11 +20,10 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Instance region
+    /// Defines CreateInstanceRequestRegion
     /// </summary>
-    /// <value>Instance region</value>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum InstanceRegion
+    public enum CreateInstanceRequestRegion
     {
         /// <summary>
         /// Enum Eu for value: eu
@@ -48,13 +47,7 @@ namespace VRChat.API.Model
         /// Enum Use for value: use
         /// </summary>
         [EnumMember(Value = "use")]
-        Use = 4,
-
-        /// <summary>
-        /// Enum Unknown for value: unknown
-        /// </summary>
-        [EnumMember(Value = "unknown")]
-        Unknown = 5
+        Use = 4
     }
 
 }

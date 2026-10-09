@@ -126,7 +126,7 @@ namespace VRChat.API.Api
         /// <param name="seen"> (optional)</param>
         /// <param name="isNavBar"> (optional)</param>
         /// <returns>Inventory</returns>
-        Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
+        Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
 
         /// <summary>
         /// Get Inventory
@@ -149,7 +149,7 @@ namespace VRChat.API.Api
         /// <param name="seen"> (optional)</param>
         /// <param name="isNavBar"> (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
+        ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default);
         /// <summary>
         /// List Inventory Collections
         /// </summary>
@@ -535,7 +535,7 @@ namespace VRChat.API.Api
         /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Inventory
@@ -559,7 +559,7 @@ namespace VRChat.API.Api
         /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Inventory Collections
         /// </summary>
@@ -1659,7 +1659,7 @@ namespace VRChat.API.Api
         /// <param name="seen"> (optional)</param>
         /// <param name="isNavBar"> (optional)</param>
         /// <returns>Inventory</returns>
-        public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
+        public Inventory GetInventory(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
         {
             VRChat.API.Client.ApiResponse<Inventory> localVarResponse = GetInventoryWithHttpInfo(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, seen, isNavBar);
             if (this.ExceptionFactory != null)
@@ -1691,7 +1691,7 @@ namespace VRChat.API.Api
         /// <param name="seen"> (optional)</param>
         /// <param name="isNavBar"> (optional)</param>
         /// <returns>ApiResponse of Inventory</returns>
-        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
+        public VRChat.API.Client.ApiResponse<Inventory> GetInventoryWithHttpInfo(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1801,7 +1801,7 @@ namespace VRChat.API.Api
         /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Inventory</returns>
-        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<Inventory> GetInventoryAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<Inventory> localVarResponse = await GetInventoryWithHttpInfoAsync(n, offset, holderId, equipSlot, order, tags, types, flags, notTypes, notFlags, archived, seen, isNavBar, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1834,7 +1834,7 @@ namespace VRChat.API.Api
         /// <param name="isNavBar"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Inventory)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, string? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Inventory>> GetInventoryWithHttpInfoAsync(int? n = default, int? offset = default, string? holderId = default, InventoryEquipSlot? equipSlot = default, InventorySortOrder? order = default, string? tags = default, InventoryItemType? types = default, InventoryFlag? flags = default, InventoryItemType? notTypes = default, InventoryFlag? notFlags = default, bool? archived = default, bool? seen = default, bool? isNavBar = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();

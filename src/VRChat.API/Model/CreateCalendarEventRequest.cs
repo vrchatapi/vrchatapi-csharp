@@ -56,11 +56,11 @@ namespace VRChat.API.Model
         /// <param name="closeInstanceAfterEndMinutes">closeInstanceAfterEndMinutes.</param>
         /// <param name="description">description (required).</param>
         /// <param name="endsAt">Time the event ends at (required).</param>
-        /// <param name="featured">featured.</param>
+        /// <param name="featured">featured (default to false).</param>
         /// <param name="guestEarlyJoinMinutes">guestEarlyJoinMinutes.</param>
         /// <param name="hostEarlyJoinMinutes">hostEarlyJoinMinutes.</param>
         /// <param name="imageId">imageId.</param>
-        /// <param name="isDraft">isDraft.</param>
+        /// <param name="isDraft">isDraft (default to true).</param>
         /// <param name="languages">languages.</param>
         /// <param name="occurrenceKind">occurrenceKind.</param>
         /// <param name="parentId">parentId.</param>
@@ -72,7 +72,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags.</param>
         /// <param name="title">Event title (required).</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CreateCalendarEventRequest(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = default, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string parentId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, bool sendCreationNotification = default, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
+        public CreateCalendarEventRequest(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, string description = default, DateTime endsAt = default, bool featured = false, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string imageId = default, bool isDraft = true, List<string> languages = default, CalendarEventOccurrenceKind? occurrenceKind = default, string parentId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, bool sendCreationNotification = default, DateTime startsAt = default, List<string> tags = default, string title = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;

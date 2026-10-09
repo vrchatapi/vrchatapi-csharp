@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ReleaseStatus
         /// </summary>
         [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
+        public UpdateAvatarRequestReleaseStatus? ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAvatarRequest" /> class.
         /// </summary>
@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="varVersion">varVersion (default to 1).</param>
-        public UpdateAvatarRequest(string assetUrl = default, string description = default, string id = default, string imageUrl = default, string name = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", int varVersion = 1)
+        public UpdateAvatarRequest(string assetUrl = default, string description = default, string id = default, string imageUrl = default, string name = default, UpdateAvatarRequestReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", int varVersion = 1)
         {
             this.AssetUrl = assetUrl;
             this.Description = description;

@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ReleaseStatus
         /// </summary>
         [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
+        public CreateAvatarRequestReleaseStatus? ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateAvatarRequest" /> class.
         /// </summary>
@@ -54,7 +54,7 @@ namespace VRChat.API.Model
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="updatedAt">A date and time of the pattern &#x60;M/d/yyyy h:mm:ss tt&#x60; (see C Sharp &#x60;System.DateTime&#x60;).</param>
         /// <param name="varVersion">varVersion (default to 1).</param>
-        public CreateAvatarRequest(string assetUrl = default, string assetVersion = default, string createdAt = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", string updatedAt = default, int varVersion = 1)
+        public CreateAvatarRequest(string assetUrl = default, string assetVersion = default, string createdAt = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, CreateAvatarRequestReleaseStatus? releaseStatus = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", string updatedAt = default, int varVersion = 1)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;

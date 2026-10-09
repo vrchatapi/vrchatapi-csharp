@@ -20,10 +20,10 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Defines MIMEType
+    /// Defines CreateFileRequestMIMEType
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum MIMEType
+    public enum CreateFileRequestMIMEType
     {
         /// <summary>
         /// Enum ApplicationGzip for value: application/gzip
@@ -32,10 +32,10 @@ namespace VRChat.API.Model
         ApplicationGzip = 1,
 
         /// <summary>
-        /// Enum ApplicationOctetStream for value: application/octet-stream
+        /// Enum ApplicationXAdminassetbundle for value: application/x-adminassetbundle
         /// </summary>
-        [EnumMember(Value = "application/octet-stream")]
-        ApplicationOctetStream = 2,
+        [EnumMember(Value = "application/x-adminassetbundle")]
+        ApplicationXAdminassetbundle = 2,
 
         /// <summary>
         /// Enum ApplicationXAvatar for value: application/x-avatar
@@ -44,22 +44,22 @@ namespace VRChat.API.Model
         ApplicationXAvatar = 3,
 
         /// <summary>
+        /// Enum ApplicationXAvatarbuilderresource for value: application/x-avatarbuilderresource
+        /// </summary>
+        [EnumMember(Value = "application/x-avatarbuilderresource")]
+        ApplicationXAvatarbuilderresource = 4,
+
+        /// <summary>
+        /// Enum ApplicationXAvatarpart for value: application/x-avatarpart
+        /// </summary>
+        [EnumMember(Value = "application/x-avatarpart")]
+        ApplicationXAvatarpart = 5,
+
+        /// <summary>
         /// Enum ApplicationXProp for value: application/x-prop
         /// </summary>
         [EnumMember(Value = "application/x-prop")]
-        ApplicationXProp = 4,
-
-        /// <summary>
-        /// Enum ApplicationXRsyncDelta for value: application/x-rsync-delta
-        /// </summary>
-        [EnumMember(Value = "application/x-rsync-delta")]
-        ApplicationXRsyncDelta = 5,
-
-        /// <summary>
-        /// Enum ApplicationXRsyncSignature for value: application/x-rsync-signature
-        /// </summary>
-        [EnumMember(Value = "application/x-rsync-signature")]
-        ApplicationXRsyncSignature = 6,
+        ApplicationXProp = 6,
 
         /// <summary>
         /// Enum ApplicationXWorld for value: application/x-world
@@ -113,7 +113,13 @@ namespace VRChat.API.Model
         /// Enum ImageWebp for value: image/webp
         /// </summary>
         [EnumMember(Value = "image/webp")]
-        ImageWebp = 15
+        ImageWebp = 15,
+
+        /// <summary>
+        /// Enum VideoMp4 for value: video/mp4
+        /// </summary>
+        [EnumMember(Value = "video/mp4")]
+        VideoMp4 = 16
     }
 
 }

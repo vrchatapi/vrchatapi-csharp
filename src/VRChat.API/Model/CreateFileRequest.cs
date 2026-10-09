@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// Gets or Sets MimeType
         /// </summary>
         [DataMember(Name = "mimeType", IsRequired = true, EmitDefaultValue = true)]
-        public MIMEType MimeType { get; set; }
+        public CreateFileRequestMIMEType MimeType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateFileRequest" /> class.
         /// </summary>
@@ -43,7 +43,7 @@ namespace VRChat.API.Model
         /// <param name="mimeType">mimeType (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="tags">tags.</param>
-        public CreateFileRequest(string extension = default, MIMEType mimeType = default, string name = default, List<string> tags = default)
+        public CreateFileRequest(string extension = default, CreateFileRequestMIMEType mimeType = default, string name = default, List<string> tags = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Extension = extension;

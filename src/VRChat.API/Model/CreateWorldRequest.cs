@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ReleaseStatus
         /// </summary>
         [DataMember(Name = "releaseStatus", EmitDefaultValue = false)]
-        public ReleaseStatus? ReleaseStatus { get; set; }
+        public CreateWorldRequestReleaseStatus? ReleaseStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateWorldRequest" /> class.
         /// </summary>
@@ -53,7 +53,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags.</param>
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
-        public CreateWorldRequest(string assetUrl = default, int assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
+        public CreateWorldRequest(string assetUrl = default, int assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, string id = default, string imageUrl = default, string name = default, string platform = default, CreateWorldRequestReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1")
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AssetUrl = assetUrl;

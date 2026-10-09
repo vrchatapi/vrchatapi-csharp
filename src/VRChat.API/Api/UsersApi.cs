@@ -660,11 +660,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>List&lt;LimitedUserSearch&gt;</returns>
-        List<LimitedUserSearch> SearchUsers(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default);
+        List<LimitedUserSearch> SearchUsers(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default);
 
         /// <summary>
         /// Search All Users
@@ -675,11 +677,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedUserSearch&gt;</returns>
-        ApiResponse<List<LimitedUserSearch>> SearchUsersWithHttpInfo(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default);
+        ApiResponse<List<LimitedUserSearch>> SearchUsersWithHttpInfo(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default);
         /// <summary>
         /// Update User Badge
         /// </summary>
@@ -1501,12 +1505,14 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedUserSearch&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedUserSearch>> SearchUsersAsync(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<LimitedUserSearch>> SearchUsersAsync(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search All Users
@@ -1517,12 +1523,14 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedUserSearch&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedUserSearch>>> SearchUsersWithHttpInfoAsync(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedUserSearch>>> SearchUsersWithHttpInfoAsync(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update User Badge
         /// </summary>
@@ -6159,13 +6167,15 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>List&lt;LimitedUserSearch&gt;</returns>
-        public List<LimitedUserSearch> SearchUsers(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default)
+        public List<LimitedUserSearch> SearchUsers(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> localVarResponse = SearchUsersWithHttpInfo(search, developerType, n, offset, isInternalVariant);
+            VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> localVarResponse = SearchUsersWithHttpInfo(search, developerType, sort, customFields, n, offset, isInternalVariant);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchUsers", localVarResponse);
@@ -6183,11 +6193,13 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedUserSearch&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> SearchUsersWithHttpInfo(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default)
+        public VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> SearchUsersWithHttpInfo(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -6212,6 +6224,14 @@ namespace VRChat.API.Api
             if (developerType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "developerType", developerType));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (customFields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "customFields", customFields));
             }
             if (n != null)
             {
@@ -6252,14 +6272,16 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedUserSearch&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedUserSearch>> SearchUsersAsync(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<LimitedUserSearch>> SearchUsersAsync(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> localVarResponse = await SearchUsersWithHttpInfoAsync(search, developerType, n, offset, isInternalVariant, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<List<LimitedUserSearch>> localVarResponse = await SearchUsersWithHttpInfoAsync(search, developerType, sort, customFields, n, offset, isInternalVariant, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchUsers", localVarResponse);
@@ -6277,12 +6299,14 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="search">Searches by &#x60;displayName&#x60;. Will return empty array if search query is empty or missing. (optional)</param>
         /// <param name="developerType">Active user by developer type, none for normal users and internal for moderators (optional)</param>
+        /// <param name="sort">The order to return users in. (optional)</param>
+        /// <param name="customFields">A comma-separated list of field names. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedUserSearch&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedUserSearch>>> SearchUsersWithHttpInfoAsync(string? search = default, string? developerType = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedUserSearch>>> SearchUsersWithHttpInfoAsync(string? search = default, string? developerType = default, UserSearchSort? sort = default, string? customFields = default, int? n = default, int? offset = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -6309,6 +6333,14 @@ namespace VRChat.API.Api
             if (developerType != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "developerType", developerType));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (customFields != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "customFields", customFields));
             }
             if (n != null)
             {

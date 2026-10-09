@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ProductType
         /// </summary>
         [DataMember(Name = "productType", IsRequired = true, EmitDefaultValue = true)]
-        public ProductType ProductType { get; set; }
+        public CreateProductRequestType ProductType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateProductRequest" /> class.
         /// </summary>
@@ -45,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="productType">productType (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="useForSubscriberList">useForSubscriberList (required).</param>
-        public CreateProductRequest(string description = default, string displayName = default, string imageId = default, ProductType productType = default, List<string> tags = default, bool useForSubscriberList = default)
+        public CreateProductRequest(string description = default, string displayName = default, string imageId = default, CreateProductRequestType productType = default, List<string> tags = default, bool useForSubscriberList = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Description = description;

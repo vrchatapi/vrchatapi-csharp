@@ -68,6 +68,29 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Instance</returns>
         ApiResponse<Instance> CreateInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest);
         /// <summary>
+        /// List Active Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns active instances, the most populated first.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Instance&gt;</returns>
+        List<Instance> GetActiveInstances(int? n = default, int? offset = default);
+
+        /// <summary>
+        /// List Active Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns active instances, the most populated first.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Instance&gt;</returns>
+        ApiResponse<List<Instance>> GetActiveInstancesWithHttpInfo(int? n = default, int? offset = default);
+        /// <summary>
         /// Get Instance
         /// </summary>
         /// <remarks>
@@ -281,6 +304,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
         System.Threading.Tasks.Task<ApiResponse<Instance>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest createInstanceRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List Active Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns active instances, the most populated first.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Instance&gt;</returns>
+        System.Threading.Tasks.Task<List<Instance>> GetActiveInstancesAsync(int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Active Instances
+        /// </summary>
+        /// <remarks>
+        /// Returns active instances, the most populated first.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Instance&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Instance>>> GetActiveInstancesWithHttpInfoAsync(int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Instance
         /// </summary>
@@ -986,6 +1034,160 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Instance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Instance), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Active Instances Returns active instances, the most populated first.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Instance&gt;</returns>
+        public List<Instance> GetActiveInstances(int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Instance>> localVarResponse = GetActiveInstancesWithHttpInfo(n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetActiveInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Active Instances Returns active instances, the most populated first.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Instance&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Instance>> GetActiveInstancesWithHttpInfo(int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Instance>>("/instances/active", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Instance>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Instance>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Active Instances Returns active instances, the most populated first.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Instance&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Instance>> GetActiveInstancesAsync(int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Instance>> localVarResponse = await GetActiveInstancesWithHttpInfoAsync(n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetActiveInstances", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Active Instances Returns active instances, the most populated first.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="n">The number of instances to return. (optional)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Instance&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Instance>>> GetActiveInstancesWithHttpInfoAsync(int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Instance>>("/instances/active", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Instance>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Instance>), ex.Message);
             }
         }
 

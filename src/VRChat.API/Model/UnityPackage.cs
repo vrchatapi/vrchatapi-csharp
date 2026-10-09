@@ -51,11 +51,12 @@ namespace VRChat.API.Model
         /// <param name="pluginUrl">pluginUrl.</param>
         /// <param name="pluginUrlObject">pluginUrlObject.</param>
         /// <param name="scanStatus">scanStatus.</param>
+        /// <param name="transpilerVersion">transpilerVersion.</param>
         /// <param name="unitySortNumber">unitySortNumber.</param>
         /// <param name="unityVersion">unityVersion (required) (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="variant">variant.</param>
         /// <param name="worldSignature">worldSignature.</param>
-        public UnityPackage(string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime? createdAt = default, string id = default, string impostorUrl = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, string scanStatus = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string variant = default, string worldSignature = default)
+        public UnityPackage(string assetUrl = default, Object assetUrlObject = default, int assetVersion = default, DateTime? createdAt = default, string id = default, string impostorUrl = default, string impostorizerVersion = default, PerformanceRatings? performanceRating = default, string platform = default, string pluginUrl = default, Object pluginUrlObject = default, string scanStatus = default, string transpilerVersion = default, long unitySortNumber = default, string unityVersion = @"5.3.4p1", string variant = default, string worldSignature = default)
         {
             this.AssetVersion = assetVersion;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -73,6 +74,7 @@ namespace VRChat.API.Model
             this.PluginUrl = pluginUrl;
             this.PluginUrlObject = pluginUrlObject;
             this.ScanStatus = scanStatus;
+            this.TranspilerVersion = transpilerVersion;
             this.UnitySortNumber = unitySortNumber;
             this.Variant = variant;
             this.WorldSignature = worldSignature;
@@ -146,6 +148,12 @@ namespace VRChat.API.Model
         public string ScanStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets TranspilerVersion
+        /// </summary>
+        [DataMember(Name = "transpilerVersion", EmitDefaultValue = false)]
+        public string TranspilerVersion { get; set; }
+
+        /// <summary>
         /// Gets or Sets UnitySortNumber
         /// </summary>
         [DataMember(Name = "unitySortNumber", EmitDefaultValue = false)]
@@ -189,6 +197,7 @@ namespace VRChat.API.Model
             sb.Append("  PluginUrl: ").Append(PluginUrl).Append("\n");
             sb.Append("  PluginUrlObject: ").Append(PluginUrlObject).Append("\n");
             sb.Append("  ScanStatus: ").Append(ScanStatus).Append("\n");
+            sb.Append("  TranspilerVersion: ").Append(TranspilerVersion).Append("\n");
             sb.Append("  UnitySortNumber: ").Append(UnitySortNumber).Append("\n");
             sb.Append("  UnityVersion: ").Append(UnityVersion).Append("\n");
             sb.Append("  Variant: ").Append(Variant).Append("\n");
@@ -287,6 +296,11 @@ namespace VRChat.API.Model
                     this.ScanStatus.Equals(input.ScanStatus))
                 ) && 
                 (
+                    this.TranspilerVersion == input.TranspilerVersion ||
+                    (this.TranspilerVersion != null &&
+                    this.TranspilerVersion.Equals(input.TranspilerVersion))
+                ) && 
+                (
                     this.UnitySortNumber == input.UnitySortNumber ||
                     this.UnitySortNumber.Equals(input.UnitySortNumber)
                 ) && 
@@ -357,6 +371,10 @@ namespace VRChat.API.Model
                 if (this.ScanStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.ScanStatus.GetHashCode();
+                }
+                if (this.TranspilerVersion != null)
+                {
+                    hashCode = (hashCode * 59) + this.TranspilerVersion.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.UnitySortNumber.GetHashCode();
                 if (this.UnityVersion != null)
