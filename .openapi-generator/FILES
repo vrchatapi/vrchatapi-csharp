@@ -60,6 +60,7 @@ src/VRChat.API/Model/APIConfigProfileDefaults.cs
 src/VRChat.API/Model/APIHealth.cs
 src/VRChat.API/Model/AbstractOpenAPISchema.cs
 src/VRChat.API/Model/AccountDeletionLog.cs
+src/VRChat.API/Model/AccountStanding.cs
 src/VRChat.API/Model/AddFavoriteRequest.cs
 src/VRChat.API/Model/AddGroupGalleryImageRequest.cs
 src/VRChat.API/Model/AdminAssetBundle.cs
@@ -182,6 +183,9 @@ src/VRChat.API/Model/GroupAuditLogEntryBooleanChange.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupCalendarEventDelete.cs
+src/VRChat.API/Model/GroupAuditLogEntryDataGroupCreate.cs
+src/VRChat.API/Model/GroupAuditLogEntryDataGroupCreateDiscoverability.cs
+src/VRChat.API/Model/GroupAuditLogEntryDataGroupCreateGallery.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupGalleryCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupGalleryDelete.cs
 src/VRChat.API/Model/GroupAuditLogEntryDataGroupGalleryUpdate.cs
@@ -204,6 +208,7 @@ src/VRChat.API/Model/GroupAuditLogEntryFileIDChange.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupAnnouncement.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupCalendarEventCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupCalendarEventDelete.cs
+src/VRChat.API/Model/GroupAuditLogEntryGroupCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupGalleryCreate.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupGalleryDelete.cs
 src/VRChat.API/Model/GroupAuditLogEntryGroupGalleryUpdate.cs

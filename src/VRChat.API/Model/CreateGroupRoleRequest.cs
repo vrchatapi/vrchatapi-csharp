@@ -28,18 +28,28 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateGroupRoleRequest" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected CreateGroupRoleRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateGroupRoleRequest" /> class.
+        /// </summary>
         /// <param name="description">description.</param>
-        /// <param name="id">id.</param>
+        /// <param name="isAddedOnJoin">isAddedOnJoin (default to false).</param>
         /// <param name="isSelfAssignable">isSelfAssignable (default to false).</param>
-        /// <param name="name">name.</param>
+        /// <param name="name">name (required).</param>
         /// <param name="permissions">permissions.</param>
-        public CreateGroupRoleRequest(string description = default, string id = default, bool isSelfAssignable = false, string name = default, List<GroupPermissions> permissions = default)
+        /// <param name="requiresPurchase">requiresPurchase (default to false).</param>
+        /// <param name="requiresTwoFactor">requiresTwoFactor (default to false).</param>
+        public CreateGroupRoleRequest(string description = default, bool isAddedOnJoin = false, bool isSelfAssignable = false, string name = default, List<GroupPermissions> permissions = default, bool requiresPurchase = false, bool requiresTwoFactor = false)
         {
-            this.Description = description;
-            this.Id = id;
-            this.IsSelfAssignable = isSelfAssignable;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Name = name;
+            this.Description = description;
+            this.IsAddedOnJoin = isAddedOnJoin;
+            this.IsSelfAssignable = isSelfAssignable;
             this.Permissions = permissions;
+            this.RequiresPurchase = requiresPurchase;
+            this.RequiresTwoFactor = requiresTwoFactor;
         }
 
         /// <summary>
@@ -49,10 +59,10 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets IsAddedOnJoin
         /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; set; }
+        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = true)]
+        public bool IsAddedOnJoin { get; set; }
 
         /// <summary>
         /// Gets or Sets IsSelfAssignable
@@ -63,7 +73,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -71,6 +81,18 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "permissions", EmitDefaultValue = false)]
         public List<GroupPermissions> Permissions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RequiresPurchase
+        /// </summary>
+        [DataMember(Name = "requiresPurchase", EmitDefaultValue = true)]
+        public bool RequiresPurchase { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RequiresTwoFactor
+        /// </summary>
+        [DataMember(Name = "requiresTwoFactor", EmitDefaultValue = true)]
+        public bool RequiresTwoFactor { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,10 +103,12 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateGroupRoleRequest {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsAddedOnJoin: ").Append(IsAddedOnJoin).Append("\n");
             sb.Append("  IsSelfAssignable: ").Append(IsSelfAssignable).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("  RequiresPurchase: ").Append(RequiresPurchase).Append("\n");
+            sb.Append("  RequiresTwoFactor: ").Append(RequiresTwoFactor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,9 +150,8 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.IsAddedOnJoin == input.IsAddedOnJoin ||
+                    this.IsAddedOnJoin.Equals(input.IsAddedOnJoin)
                 ) && 
                 (
                     this.IsSelfAssignable == input.IsSelfAssignable ||
@@ -144,6 +167,14 @@ namespace VRChat.API.Model
                     this.Permissions != null &&
                     input.Permissions != null &&
                     this.Permissions.SequenceEqual(input.Permissions)
+                ) && 
+                (
+                    this.RequiresPurchase == input.RequiresPurchase ||
+                    this.RequiresPurchase.Equals(input.RequiresPurchase)
+                ) && 
+                (
+                    this.RequiresTwoFactor == input.RequiresTwoFactor ||
+                    this.RequiresTwoFactor.Equals(input.RequiresTwoFactor)
                 );
         }
 
@@ -160,10 +191,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
                 if (this.Name != null)
                 {
@@ -173,6 +201,8 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RequiresPurchase.GetHashCode();
+                hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
                 return hashCode;
             }
         }

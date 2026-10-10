@@ -29,17 +29,21 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="UpdateGroupRoleRequest" /> class.
         /// </summary>
         /// <param name="description">description.</param>
-        /// <param name="isSelfAssignable">isSelfAssignable (default to false).</param>
+        /// <param name="isAddedOnJoin">isAddedOnJoin.</param>
+        /// <param name="isSelfAssignable">isSelfAssignable.</param>
         /// <param name="name">name.</param>
         /// <param name="order">order.</param>
         /// <param name="permissions">permissions.</param>
-        public UpdateGroupRoleRequest(string description = default, bool isSelfAssignable = false, string name = default, int order = default, List<GroupPermissions> permissions = default)
+        /// <param name="requiresTwoFactor">requiresTwoFactor.</param>
+        public UpdateGroupRoleRequest(string description = default, bool isAddedOnJoin = default, bool isSelfAssignable = default, string name = default, int order = default, List<GroupPermissions> permissions = default, bool requiresTwoFactor = default)
         {
             this.Description = description;
+            this.IsAddedOnJoin = isAddedOnJoin;
             this.IsSelfAssignable = isSelfAssignable;
             this.Name = name;
             this.Order = order;
             this.Permissions = permissions;
+            this.RequiresTwoFactor = requiresTwoFactor;
         }
 
         /// <summary>
@@ -47,6 +51,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsAddedOnJoin
+        /// </summary>
+        [DataMember(Name = "isAddedOnJoin", EmitDefaultValue = true)]
+        public bool IsAddedOnJoin { get; set; }
 
         /// <summary>
         /// Gets or Sets IsSelfAssignable
@@ -73,6 +83,12 @@ namespace VRChat.API.Model
         public List<GroupPermissions> Permissions { get; set; }
 
         /// <summary>
+        /// Gets or Sets RequiresTwoFactor
+        /// </summary>
+        [DataMember(Name = "requiresTwoFactor", EmitDefaultValue = true)]
+        public bool RequiresTwoFactor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -81,10 +97,12 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateGroupRoleRequest {\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  IsAddedOnJoin: ").Append(IsAddedOnJoin).Append("\n");
             sb.Append("  IsSelfAssignable: ").Append(IsSelfAssignable).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("  RequiresTwoFactor: ").Append(RequiresTwoFactor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,6 +144,10 @@ namespace VRChat.API.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.IsAddedOnJoin == input.IsAddedOnJoin ||
+                    this.IsAddedOnJoin.Equals(input.IsAddedOnJoin)
+                ) && 
+                (
                     this.IsSelfAssignable == input.IsSelfAssignable ||
                     this.IsSelfAssignable.Equals(input.IsSelfAssignable)
                 ) && 
@@ -143,6 +165,10 @@ namespace VRChat.API.Model
                     this.Permissions != null &&
                     input.Permissions != null &&
                     this.Permissions.SequenceEqual(input.Permissions)
+                ) && 
+                (
+                    this.RequiresTwoFactor == input.RequiresTwoFactor ||
+                    this.RequiresTwoFactor.Equals(input.RequiresTwoFactor)
                 );
         }
 
@@ -159,6 +185,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.IsAddedOnJoin.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsSelfAssignable.GetHashCode();
                 if (this.Name != null)
                 {
@@ -169,6 +196,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
                 return hashCode;
             }
         }

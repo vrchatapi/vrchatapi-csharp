@@ -66,6 +66,18 @@ namespace VRChat.API.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupAuditLogEntry" /> class
+        /// with the <see cref="GroupAuditLogEntryGroupCreate" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of GroupAuditLogEntryGroupCreate.</param>
+        public GroupAuditLogEntry(GroupAuditLogEntryGroupCreate actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntry" /> class
         /// with the <see cref="GroupAuditLogEntryGroupGalleryCreate" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of GroupAuditLogEntryGroupGalleryCreate.</param>
@@ -450,6 +462,10 @@ namespace VRChat.API.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(GroupAuditLogEntryGroupCreate) || value is GroupAuditLogEntryGroupCreate)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(GroupAuditLogEntryGroupGalleryCreate) || value is GroupAuditLogEntryGroupGalleryCreate)
                 {
                     this._actualInstance = value;
@@ -598,6 +614,13 @@ namespace VRChat.API.Model
         /// Converts to the <c>GroupAuditLogEntryGroupCalendarEventDelete</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
         public static implicit operator GroupAuditLogEntryGroupCalendarEventDelete(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupCalendarEventDelete)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>GroupAuditLogEntryGroupCreate</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator GroupAuditLogEntryGroupCreate(GroupAuditLogEntry value) => (GroupAuditLogEntryGroupCreate)value?.ActualInstance;
         
 
         
@@ -906,6 +929,26 @@ namespace VRChat.API.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into GroupAuditLogEntryGroupCalendarEventDelete: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(GroupAuditLogEntryGroupCreate).GetProperty("AdditionalProperties") == null)
+                {
+                    newGroupAuditLogEntry = new GroupAuditLogEntry(JsonConvert.DeserializeObject<GroupAuditLogEntryGroupCreate>(jsonString, GroupAuditLogEntry.SerializerSettings));
+                }
+                else
+                {
+                    newGroupAuditLogEntry = new GroupAuditLogEntry(JsonConvert.DeserializeObject<GroupAuditLogEntryGroupCreate>(jsonString, GroupAuditLogEntry.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("GroupAuditLogEntryGroupCreate");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into GroupAuditLogEntryGroupCreate: {1}", jsonString, exception.ToString()));
             }
 
             try

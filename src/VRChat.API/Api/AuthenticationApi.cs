@@ -213,6 +213,25 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Pending2FAResult</returns>
         ApiResponse<Pending2FAResult> Enable2FAWithHttpInfo();
         /// <summary>
+        /// Get Account Standing
+        /// </summary>
+        /// <remarks>
+        /// Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>AccountStanding</returns>
+        AccountStanding GetAccountStanding();
+
+        /// <summary>
+        /// Get Account Standing
+        /// </summary>
+        /// <remarks>
+        /// Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of AccountStanding</returns>
+        ApiResponse<AccountStanding> GetAccountStandingWithHttpInfo();
+        /// <summary>
         /// Login and/or Get Current User Info
         /// </summary>
         /// <remarks>
@@ -806,6 +825,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pending2FAResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<Pending2FAResult>> Enable2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Account Standing
+        /// </summary>
+        /// <remarks>
+        /// Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountStanding</returns>
+        System.Threading.Tasks.Task<AccountStanding> GetAccountStandingAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Account Standing
+        /// </summary>
+        /// <remarks>
+        /// Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountStanding)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AccountStanding>> GetAccountStandingWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Login and/or Get Current User Info
         /// </summary>
@@ -2720,6 +2760,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Pending2FAResult>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Pending2FAResult), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Account Standing Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>AccountStanding</returns>
+        public AccountStanding GetAccountStanding()
+        {
+            VRChat.API.Client.ApiResponse<AccountStanding> localVarResponse = GetAccountStandingWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAccountStanding", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Account Standing Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of AccountStanding</returns>
+        public VRChat.API.Client.ApiResponse<AccountStanding> GetAccountStandingWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<AccountStanding>("/auth/user/accountStanding", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AccountStanding>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AccountStanding), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Account Standing Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AccountStanding</returns>
+        public async System.Threading.Tasks.Task<AccountStanding> GetAccountStandingAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<AccountStanding> localVarResponse = await GetAccountStandingWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetAccountStanding", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Account Standing Returns the current user&#39;s account standing and the sanctions on their account.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AccountStanding)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<AccountStanding>> GetAccountStandingWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<AccountStanding>("/auth/user/accountStanding", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<AccountStanding>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(AccountStanding), ex.Message);
             }
         }
 

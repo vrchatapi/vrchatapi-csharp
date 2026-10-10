@@ -20,18 +20,37 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// GroupAuditLogEntryUnknown
+    /// GroupAuditLogEntryGroupCreate
     /// </summary>
-    [DataContract(Name = "GroupAuditLogEntryUnknown")]
-    public partial class GroupAuditLogEntryUnknown : IEquatable<GroupAuditLogEntryUnknown>, IValidatableObject
+    [DataContract(Name = "GroupAuditLogEntryGroupCreate")]
+    public partial class GroupAuditLogEntryGroupCreate : IEquatable<GroupAuditLogEntryGroupCreate>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAuditLogEntryUnknown" /> class.
+        /// Defines EventType
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EventTypeEnum
+        {
+            /// <summary>
+            /// Enum GroupCreate for value: group.create
+            /// </summary>
+            [EnumMember(Value = "group.create")]
+            GroupCreate = 1
+        }
+
+
+        /// <summary>
+        /// Gets or Sets EventType
+        /// </summary>
+        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
+        public EventTypeEnum EventType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntryGroupCreate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GroupAuditLogEntryUnknown() { }
+        protected GroupAuditLogEntryGroupCreate() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupAuditLogEntryUnknown" /> class.
+        /// Initializes a new instance of the <see cref="GroupAuditLogEntryGroupCreate" /> class.
         /// </summary>
         /// <param name="actorDisplayName">The display name of the user who performed the action. (required).</param>
         /// <param name="actorId">The ID of the user who performed the action. (required).</param>
@@ -40,9 +59,9 @@ namespace VRChat.API.Model
         /// <param name="groupId">The ID of the group the entry belongs to. (required).</param>
         /// <param name="id">The unique ID of this audit log entry. (required).</param>
         /// <param name="data">data (required).</param>
-        /// <param name="eventType">The type of event that occurred. (required).</param>
+        /// <param name="eventType">eventType (required).</param>
         /// <param name="targetId">targetId (required).</param>
-        public GroupAuditLogEntryUnknown(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string groupId = default, string id = default, Dictionary<string, Object> data = default, string eventType = default, string targetId = default)
+        public GroupAuditLogEntryGroupCreate(string actorDisplayName = default, string actorId = default, DateTime createdAt = default, string description = default, string groupId = default, string id = default, GroupAuditLogEntryDataGroupCreate data = default, EventTypeEnum eventType = default, string targetId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ActorDisplayName = actorDisplayName;
@@ -57,7 +76,6 @@ namespace VRChat.API.Model
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Data = data;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EventType = eventType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TargetId = targetId;
@@ -109,29 +127,13 @@ namespace VRChat.API.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public Dictionary<string, Object> Data { get; set; }
-
-        /// <summary>
-        /// The type of event that occurred.
-        /// </summary>
-        /// <value>The type of event that occurred.</value>
-        [DataMember(Name = "eventType", IsRequired = true, EmitDefaultValue = true)]
-        public string EventType { get; set; }
+        public GroupAuditLogEntryDataGroupCreate Data { get; set; }
 
         /// <summary>
         /// Gets or Sets TargetId
         /// </summary>
         [DataMember(Name = "targetId", IsRequired = true, EmitDefaultValue = true)]
         public string TargetId { get; set; }
-
-        [System.Runtime.Serialization.OnDeserialized]
-        internal void OnDeserializedEventTypeNotEnum(System.Runtime.Serialization.StreamingContext context)
-        {
-            if (this.EventType == "group.announcement" || this.EventType == "group.calendarEvent.create" || this.EventType == "group.calendarEvent.delete" || this.EventType == "group.create" || this.EventType == "group.gallery.create" || this.EventType == "group.gallery.delete" || this.EventType == "group.gallery.update" || this.EventType == "group.instance.announcement" || this.EventType == "group.instance.close" || this.EventType == "group.instance.create" || this.EventType == "group.instance.kick" || this.EventType == "group.instance.warn" || this.EventType == "group.invite.cancel" || this.EventType == "group.invite.create" || this.EventType == "group.member.join" || this.EventType == "group.member.leave" || this.EventType == "group.member.remove" || this.EventType == "group.member.role.assign" || this.EventType == "group.member.role.unassign" || this.EventType == "group.member.user.update" || this.EventType == "group.post.create" || this.EventType == "group.post.delete" || this.EventType == "group.post.update" || this.EventType == "group.request.block" || this.EventType == "group.request.create" || this.EventType == "group.request.reject" || this.EventType == "group.request.withdraw" || this.EventType == "group.role.create" || this.EventType == "group.role.delete" || this.EventType == "group.role.update" || this.EventType == "group.update" || this.EventType == "group.user.ban" || this.EventType == "group.user.unban")
-            {
-                throw new ArgumentException("Invalid value for EventType, must not be a value excluded by the 'not' schema.");
-            }
-        }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,7 +142,7 @@ namespace VRChat.API.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class GroupAuditLogEntryUnknown {\n");
+            sb.Append("class GroupAuditLogEntryGroupCreate {\n");
             sb.Append("  ActorDisplayName: ").Append(ActorDisplayName).Append("\n");
             sb.Append("  ActorId: ").Append(ActorId).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
@@ -170,15 +172,15 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GroupAuditLogEntryUnknown);
+            return this.Equals(input as GroupAuditLogEntryGroupCreate);
         }
 
         /// <summary>
-        /// Returns true if GroupAuditLogEntryUnknown instances are equal
+        /// Returns true if GroupAuditLogEntryGroupCreate instances are equal
         /// </summary>
-        /// <param name="input">Instance of GroupAuditLogEntryUnknown to be compared</param>
+        /// <param name="input">Instance of GroupAuditLogEntryGroupCreate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GroupAuditLogEntryUnknown input)
+        public bool Equals(GroupAuditLogEntryGroupCreate input)
         {
             if (input == null)
             {
@@ -216,14 +218,12 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
                     this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.EventType.Equals(input.EventType)
                 ) && 
                 (
                     this.TargetId == input.TargetId ||
@@ -266,10 +266,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Data.GetHashCode();
                 }
-                if (this.EventType != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.EventType.GetHashCode();
                 if (this.TargetId != null)
                 {
                     hashCode = (hashCode * 59) + this.TargetId.GetHashCode();
