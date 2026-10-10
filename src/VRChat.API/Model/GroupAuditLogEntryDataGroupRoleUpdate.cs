@@ -34,7 +34,8 @@ namespace VRChat.API.Model
         /// <param name="name">name.</param>
         /// <param name="order">order.</param>
         /// <param name="permissions">permissions.</param>
-        public GroupAuditLogEntryDataGroupRoleUpdate(GroupAuditLogEntryStringChange description = default, GroupAuditLogEntryBooleanChange isAddedOnJoin = default, GroupAuditLogEntryBooleanChange isSelfAssignable = default, GroupAuditLogEntryStringChange name = default, GroupAuditLogEntryIntegerChange order = default, GroupAuditLogEntryStringListChange permissions = default)
+        /// <param name="requiresTwoFactor">requiresTwoFactor.</param>
+        public GroupAuditLogEntryDataGroupRoleUpdate(GroupAuditLogEntryStringChange description = default, GroupAuditLogEntryBooleanChange isAddedOnJoin = default, GroupAuditLogEntryBooleanChange isSelfAssignable = default, GroupAuditLogEntryStringChange name = default, GroupAuditLogEntryIntegerChange order = default, GroupAuditLogEntryStringListChange permissions = default, GroupAuditLogEntryBooleanChange requiresTwoFactor = default)
         {
             this.Description = description;
             this.IsAddedOnJoin = isAddedOnJoin;
@@ -42,6 +43,7 @@ namespace VRChat.API.Model
             this.Name = name;
             this.Order = order;
             this.Permissions = permissions;
+            this.RequiresTwoFactor = requiresTwoFactor;
         }
 
         /// <summary>
@@ -81,6 +83,12 @@ namespace VRChat.API.Model
         public GroupAuditLogEntryStringListChange Permissions { get; set; }
 
         /// <summary>
+        /// Gets or Sets RequiresTwoFactor
+        /// </summary>
+        [DataMember(Name = "requiresTwoFactor", EmitDefaultValue = false)]
+        public GroupAuditLogEntryBooleanChange RequiresTwoFactor { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,6 +102,7 @@ namespace VRChat.API.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
+            sb.Append("  RequiresTwoFactor: ").Append(RequiresTwoFactor).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -158,6 +167,11 @@ namespace VRChat.API.Model
                     this.Permissions == input.Permissions ||
                     (this.Permissions != null &&
                     this.Permissions.Equals(input.Permissions))
+                ) && 
+                (
+                    this.RequiresTwoFactor == input.RequiresTwoFactor ||
+                    (this.RequiresTwoFactor != null &&
+                    this.RequiresTwoFactor.Equals(input.RequiresTwoFactor))
                 );
         }
 
@@ -193,6 +207,10 @@ namespace VRChat.API.Model
                 if (this.Permissions != null)
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();
+                }
+                if (this.RequiresTwoFactor != null)
+                {
+                    hashCode = (hashCode * 59) + this.RequiresTwoFactor.GetHashCode();
                 }
                 return hashCode;
             }
