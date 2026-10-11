@@ -34,10 +34,14 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="InfoPushDataPresentation" /> class.
         /// </summary>
         /// <param name="layout">layout (required).</param>
-        public InfoPushDataPresentation(string layout = default)
+        /// <param name="pinnedDescription">pinnedDescription.</param>
+        /// <param name="socialDisplay">socialDisplay.</param>
+        public InfoPushDataPresentation(string layout = default, string pinnedDescription = default, string socialDisplay = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Layout = layout;
+            this.PinnedDescription = pinnedDescription;
+            this.SocialDisplay = socialDisplay;
         }
 
         /// <summary>
@@ -45,6 +49,18 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "layout", IsRequired = true, EmitDefaultValue = true)]
         public string Layout { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PinnedDescription
+        /// </summary>
+        [DataMember(Name = "pinnedDescription", EmitDefaultValue = false)]
+        public string PinnedDescription { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SocialDisplay
+        /// </summary>
+        [DataMember(Name = "socialDisplay", EmitDefaultValue = false)]
+        public string SocialDisplay { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -55,6 +71,8 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class InfoPushDataPresentation {\n");
             sb.Append("  Layout: ").Append(Layout).Append("\n");
+            sb.Append("  PinnedDescription: ").Append(PinnedDescription).Append("\n");
+            sb.Append("  SocialDisplay: ").Append(SocialDisplay).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -94,6 +112,16 @@ namespace VRChat.API.Model
                     this.Layout == input.Layout ||
                     (this.Layout != null &&
                     this.Layout.Equals(input.Layout))
+                ) && 
+                (
+                    this.PinnedDescription == input.PinnedDescription ||
+                    (this.PinnedDescription != null &&
+                    this.PinnedDescription.Equals(input.PinnedDescription))
+                ) && 
+                (
+                    this.SocialDisplay == input.SocialDisplay ||
+                    (this.SocialDisplay != null &&
+                    this.SocialDisplay.Equals(input.SocialDisplay))
                 );
         }
 
@@ -109,6 +137,14 @@ namespace VRChat.API.Model
                 if (this.Layout != null)
                 {
                     hashCode = (hashCode * 59) + this.Layout.GetHashCode();
+                }
+                if (this.PinnedDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.PinnedDescription.GetHashCode();
+                }
+                if (this.SocialDisplay != null)
+                {
+                    hashCode = (hashCode * 59) + this.SocialDisplay.GetHashCode();
                 }
                 return hashCode;
             }

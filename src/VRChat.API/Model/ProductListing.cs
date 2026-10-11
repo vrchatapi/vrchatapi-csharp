@@ -59,10 +59,10 @@ namespace VRChat.API.Model
         /// <param name="groupIcon">groupIcon.</param>
         /// <param name="groupId">groupId.</param>
         /// <param name="groupName">groupName.</param>
-        /// <param name="hasAvatar">hasAvatar (required).</param>
+        /// <param name="hasAvatar">hasAvatar.</param>
         /// <param name="hasCompanion">hasCompanion.</param>
         /// <param name="hasInventory">hasInventory.</param>
-        /// <param name="hasUdon">hasUdon (required).</param>
+        /// <param name="hasUdon">hasUdon.</param>
         /// <param name="hydratedProducts">hydratedProducts.</param>
         /// <param name="id">id (required).</param>
         /// <param name="imageId">imageId.</param>
@@ -74,16 +74,16 @@ namespace VRChat.API.Model
         /// <param name="productIds">productIds (required).</param>
         /// <param name="productType">productType (required).</param>
         /// <param name="productTypes">productTypes.</param>
-        /// <param name="products">Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;. (required).</param>
+        /// <param name="products">Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;..</param>
         /// <param name="purchaseCount">purchaseCount.</param>
         /// <param name="purchaseCountQuantity">purchaseCountQuantity.</param>
         /// <param name="quantifiable">quantifiable.</param>
-        /// <param name="recurrable">recurrable (required).</param>
+        /// <param name="recurrable">recurrable.</param>
         /// <param name="refundable">refundable.</param>
         /// <param name="sellerDisplayName">sellerDisplayName (required).</param>
         /// <param name="sellerId">sellerId (required).</param>
         /// <param name="soldByVrc">soldByVrc.</param>
-        /// <param name="stackable">stackable (required).</param>
+        /// <param name="stackable">stackable.</param>
         /// <param name="storeIds">storeIds.</param>
         /// <param name="subtitle">subtitle.</param>
         /// <param name="tags">tags.</param>
@@ -98,8 +98,6 @@ namespace VRChat.API.Model
             this.Description = description;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.DisplayName = displayName;
-            this.HasAvatar = hasAvatar;
-            this.HasUdon = hasUdon;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             this.ListingType = listingType;
@@ -108,13 +106,9 @@ namespace VRChat.API.Model
             this.ProductIds = productIds;
             this.ProductType = productType;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Products = products;
-            this.Recurrable = recurrable;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerDisplayName = sellerDisplayName;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.SellerId = sellerId;
-            this.Stackable = stackable;
             this.Archived = archived;
             this.Attribution = attribution;
             this.CollabUserDisplayName = collabUserDisplayName;
@@ -125,19 +119,24 @@ namespace VRChat.API.Model
             this.GroupIcon = groupIcon;
             this.GroupId = groupId;
             this.GroupName = groupName;
+            this.HasAvatar = hasAvatar;
             this.HasCompanion = hasCompanion;
             this.HasInventory = hasInventory;
+            this.HasUdon = hasUdon;
             this.HydratedProducts = hydratedProducts;
             this.ImageId = imageId;
             this.ImageUrl = imageUrl;
             this.ListingVariants = listingVariants;
             this.Permanent = permanent;
             this.ProductTypes = productTypes;
+            this.Products = products;
             this.PurchaseCount = purchaseCount;
             this.PurchaseCountQuantity = purchaseCountQuantity;
             this.Quantifiable = quantifiable;
+            this.Recurrable = recurrable;
             this.Refundable = refundable;
             this.SoldByVrc = soldByVrc;
+            this.Stackable = stackable;
             this.StoreIds = storeIds;
             this.Subtitle = subtitle;
             this.Tags = tags;
@@ -234,7 +233,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets HasAvatar
         /// </summary>
-        [DataMember(Name = "hasAvatar", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasAvatar", EmitDefaultValue = true)]
         public bool HasAvatar { get; set; }
 
         /// <summary>
@@ -252,7 +251,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets HasUdon
         /// </summary>
-        [DataMember(Name = "hasUdon", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "hasUdon", EmitDefaultValue = true)]
         public bool HasUdon { get; set; }
 
         /// <summary>
@@ -313,7 +312,7 @@ namespace VRChat.API.Model
         /// Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;.
         /// </summary>
         /// <value>Product ids. The products themselves arrive in &#x60;hydratedProducts&#x60;.</value>
-        [DataMember(Name = "products", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "products", EmitDefaultValue = false)]
         public List<string> Products { get; set; }
 
         /// <summary>
@@ -337,7 +336,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Recurrable
         /// </summary>
-        [DataMember(Name = "recurrable", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "recurrable", EmitDefaultValue = true)]
         public bool Recurrable { get; set; }
 
         /// <summary>
@@ -367,7 +366,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Stackable
         /// </summary>
-        [DataMember(Name = "stackable", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "stackable", EmitDefaultValue = true)]
         public bool Stackable { get; set; }
 
         /// <summary>
