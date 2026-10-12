@@ -34,9 +34,9 @@ namespace VRChat.API.Model
         /// <param name="actualInstance">An instance of User.</param>
         public UserResponse(User actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace VRChat.API.Model
         /// <param name="actualInstance">An instance of CurrentUser.</param>
         public UserResponse(CurrentUser actualInstance)
         {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
 
@@ -65,19 +65,19 @@ namespace VRChat.API.Model
             }
             set
             {
-                if (value.GetType() == typeof(CurrentUser) || value is CurrentUser)
+                if (value.GetType() == typeof(CurrentUser))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
-                else if (value.GetType() == typeof(User) || value is User)
+                else if (value.GetType() == typeof(User))
                 {
-                    this._actualInstance = value;
+                    _actualInstance = value;
                 }
                 else
                 {
                     // Allow setting unknown types to handle unexpected responses gracefully
-                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
-                    this._actualInstance = value;
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in anyOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    _actualInstance = value;
                 }
             }
         }
@@ -104,7 +104,7 @@ namespace VRChat.API.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UserResponse {\n");
-            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,7 +115,7 @@ namespace VRChat.API.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonConvert.SerializeObject(this.ActualInstance, UserResponse.SerializerSettings);
+            return JsonConvert.SerializeObject(ActualInstance, UserResponse.SerializerSettings);
         }
 
         /// <summary>
@@ -131,22 +131,12 @@ namespace VRChat.API.Model
             {
                 return newUserResponse;
             }
-            int match = 0;
-            List<string> matchedTypes = new List<string>();
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(CurrentUser).GetProperty("AdditionalProperties") == null)
-                {
-                    newUserResponse = new UserResponse(JsonConvert.DeserializeObject<CurrentUser>(jsonString, UserResponse.SerializerSettings));
-                }
-                else
-                {
-                    newUserResponse = new UserResponse(JsonConvert.DeserializeObject<CurrentUser>(jsonString, UserResponse.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("CurrentUser");
-                match++;
+                newUserResponse = new UserResponse(JsonConvert.DeserializeObject<CurrentUser>(jsonString, UserResponse.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newUserResponse;
             }
             catch (Exception exception)
             {
@@ -156,17 +146,9 @@ namespace VRChat.API.Model
 
             try
             {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(User).GetProperty("AdditionalProperties") == null)
-                {
-                    newUserResponse = new UserResponse(JsonConvert.DeserializeObject<User>(jsonString, UserResponse.SerializerSettings));
-                }
-                else
-                {
-                    newUserResponse = new UserResponse(JsonConvert.DeserializeObject<User>(jsonString, UserResponse.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("User");
-                match++;
+                newUserResponse = new UserResponse(JsonConvert.DeserializeObject<User>(jsonString, UserResponse.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newUserResponse;
             }
             catch (Exception exception)
             {
@@ -174,20 +156,9 @@ namespace VRChat.API.Model
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into User: {1}", jsonString, exception.ToString()));
             }
 
-            if (match == 0)
-            {
-                // No match found, return null to handle unexpected responses gracefully
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
-                return null;
-            }
-            else if (match > 1)
-            {
-                // Multiple matches found, use the first match and log a warning
-                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
-            }
-
-            // deserialization is considered successful at this point if no exception has been thrown.
-            return newUserResponse;
+            // no match found, return null to handle unexpected responses gracefully
+            System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+            return null;
         }
 
         /// <summary>
@@ -197,7 +168,7 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UserResponse);
+            return Equals(input as UserResponse);
         }
 
         /// <summary>
@@ -210,7 +181,7 @@ namespace VRChat.API.Model
             if (input == null)
                 return false;
 
-            return this.ActualInstance.Equals(input.ActualInstance);
+            return ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -222,8 +193,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ActualInstance != null)
-                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
+                if (ActualInstance != null)
+                    hashCode = hashCode * 59 + ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
