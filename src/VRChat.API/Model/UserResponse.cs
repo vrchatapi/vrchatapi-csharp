@@ -29,10 +29,10 @@ namespace VRChat.API.Model
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserResponse" /> class
-        /// with the <see cref="User" /> class
+        /// with the <see cref="CurrentUser" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of User.</param>
-        public UserResponse(User actualInstance)
+        /// <param name="actualInstance">An instance of CurrentUser.</param>
+        public UserResponse(CurrentUser actualInstance)
         {
             IsNullable = false;
             SchemaType= "anyOf";
@@ -41,10 +41,10 @@ namespace VRChat.API.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserResponse" /> class
-        /// with the <see cref="CurrentUser" /> class
+        /// with the <see cref="User" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of CurrentUser.</param>
-        public UserResponse(CurrentUser actualInstance)
+        /// <param name="actualInstance">An instance of User.</param>
+        public UserResponse(User actualInstance)
         {
             IsNullable = false;
             SchemaType= "anyOf";
@@ -84,16 +84,16 @@ namespace VRChat.API.Model
 
         
         /// <summary>
-        /// Converts to the <c>User</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// Converts to the <c>CurrentUser</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        public static implicit operator User(UserResponse value) => (User)value?.ActualInstance;
+        public static implicit operator CurrentUser(UserResponse value) => (CurrentUser)value?.ActualInstance;
         
 
         
         /// <summary>
-        /// Converts to the <c>CurrentUser</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// Converts to the <c>User</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        public static implicit operator CurrentUser(UserResponse value) => (CurrentUser)value?.ActualInstance;
+        public static implicit operator User(UserResponse value) => (User)value?.ActualInstance;
         
 
         /// <summary>

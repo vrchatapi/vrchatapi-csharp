@@ -115,7 +115,7 @@ namespace VRChat.API.Model
         /// <param name="isEconomyCreator">isEconomyCreator (default to false).</param>
         /// <param name="isFriend">isFriend (required) (default to false).</param>
         /// <param name="isTemporary">isTemporary (default to false).</param>
-        /// <param name="lastActivity">lastActivity.</param>
+        /// <param name="lastActivity">lastActivity (required).</param>
         /// <param name="lastLogin">lastLogin (required).</param>
         /// <param name="lastMobile">lastMobile (required).</param>
         /// <param name="lastPlatform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;. (required).</param>
@@ -197,6 +197,7 @@ namespace VRChat.API.Model
             this.Id = id;
             this.IsAdult = isAdult;
             this.IsFriend = isFriend;
+            this.LastActivity = lastActivity;
             this.LastLogin = lastLogin;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.LastMobile = lastMobile;
@@ -259,7 +260,6 @@ namespace VRChat.API.Model
             this.IsBoopingEnabled = isBoopingEnabled;
             this.IsEconomyCreator = isEconomyCreator;
             this.IsTemporary = isTemporary;
-            this.LastActivity = lastActivity;
             this.Location = location;
             this.NameplateEffect = nameplateEffect;
             this.Note = note;
@@ -602,7 +602,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets LastActivity
         /// </summary>
-        [DataMember(Name = "last_activity", EmitDefaultValue = false)]
+        [DataMember(Name = "last_activity", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastActivity { get; set; }
 
         /// <summary>
