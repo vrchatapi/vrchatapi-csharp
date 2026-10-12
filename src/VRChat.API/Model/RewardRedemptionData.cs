@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// RewardRedemptionData
     /// </summary>
-    [DataContract(Name = "RewardRedemption_data")]
+    [DataContract(Name = "RewardRedemptionData")]
     public partial class RewardRedemptionData : IEquatable<RewardRedemptionData>, IValidatableObject
     {
         /// <summary>

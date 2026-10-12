@@ -41,7 +41,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets CollaborationId
         /// </summary>
-        [DataMember(Name = "collaborationId", EmitDefaultValue = false)]
+        [DataMember(Name = "collaborationId", EmitDefaultValue = true)]
         public string CollaborationId { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Publisher
         /// </summary>
-        [DataMember(Name = "publisher", EmitDefaultValue = false)]
+        [DataMember(Name = "publisher", EmitDefaultValue = true)]
         public ProductListingAttributionCreator Publisher { get; set; }
 
         /// <summary>

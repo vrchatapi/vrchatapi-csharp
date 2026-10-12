@@ -67,7 +67,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="visits">visits (default to 0).</param>
-        public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, List<Object> disabledPropAbilities = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", bool pendingUpload = default, int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
+        public LimitedWorld(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, List<string> disabledPropAbilities = default, int favorites = 0, int heat = 0, string id = default, string imageUrl = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, int occupants = 0, string organization = @"vrchat", bool pendingUpload = default, int popularity = 0, string previewYoutubeId = default, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<LimitedUnityPackage> unityPackages = default, DateTime updatedAt = default, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -145,7 +145,7 @@ namespace VRChat.API.Model
         /// Gets or Sets DisabledPropAbilities
         /// </summary>
         [DataMember(Name = "disabledPropAbilities", EmitDefaultValue = false)]
-        public List<Object> DisabledPropAbilities { get; set; }
+        public List<string> DisabledPropAbilities { get; set; }
 
         /// <summary>
         /// Gets or Sets Favorites

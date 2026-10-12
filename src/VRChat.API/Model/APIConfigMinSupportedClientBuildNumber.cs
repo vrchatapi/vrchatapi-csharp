@@ -20,9 +20,9 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Minimum supported client build number for various platforms
+    /// APIConfigMinSupportedClientBuildNumber
     /// </summary>
-    [DataContract(Name = "APIConfig_minSupportedClientBuildNumber")]
+    [DataContract(Name = "APIConfigMinSupportedClientBuildNumber")]
     public partial class APIConfigMinSupportedClientBuildNumber : IEquatable<APIConfigMinSupportedClientBuildNumber>, IValidatableObject
     {
         /// <summary>

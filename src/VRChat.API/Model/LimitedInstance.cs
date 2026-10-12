@@ -93,7 +93,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds (required).</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public LimitedInstance(bool active = true, int capacity = default, string categoryId = default, List<Object> creationLanguages = default, string description = default, List<Object> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public LimitedInstance(bool active = true, int capacity = default, string categoryId = default, List<Object> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             this.Active = active;
             this.Capacity = capacity;
@@ -189,7 +189,7 @@ namespace VRChat.API.Model
         /// Gets or Sets DisabledPropAbilities
         /// </summary>
         [DataMember(Name = "disabledPropAbilities", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> DisabledPropAbilities { get; set; }
+        public List<string> DisabledPropAbilities { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName

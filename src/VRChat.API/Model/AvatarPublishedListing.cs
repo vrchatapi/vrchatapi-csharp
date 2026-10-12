@@ -1,0 +1,208 @@
+
+
+#pragma warning disable CS0612
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
+using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+
+namespace VRChat.API.Model
+{
+    /// <summary>
+    /// AvatarPublishedListing
+    /// </summary>
+    [DataContract(Name = "AvatarPublishedListing")]
+    public partial class AvatarPublishedListing : IEquatable<AvatarPublishedListing>, IValidatableObject
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AvatarPublishedListing" /> class.
+        /// </summary>
+        /// <param name="description">description.</param>
+        /// <param name="displayName">displayName.</param>
+        /// <param name="imageId">imageId.</param>
+        /// <param name="listingId">listingId.</param>
+        /// <param name="listingType">listingType.</param>
+        /// <param name="priceTokens">priceTokens.</param>
+        public AvatarPublishedListing(string description = default, string displayName = default, string imageId = default, string listingId = default, string listingType = default, int priceTokens = default)
+        {
+            this.Description = description;
+            this.DisplayName = displayName;
+            this.ImageId = imageId;
+            this.ListingId = listingId;
+            this.ListingType = listingType;
+            this.PriceTokens = priceTokens;
+        }
+
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayName
+        /// </summary>
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        public string DisplayName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ImageId
+        /// </summary>
+        [DataMember(Name = "imageId", EmitDefaultValue = false)]
+        public string ImageId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ListingId
+        /// </summary>
+        [DataMember(Name = "listingId", EmitDefaultValue = false)]
+        public string ListingId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ListingType
+        /// </summary>
+        [DataMember(Name = "listingType", EmitDefaultValue = false)]
+        public string ListingType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PriceTokens
+        /// </summary>
+        [DataMember(Name = "priceTokens", EmitDefaultValue = false)]
+        public int PriceTokens { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class AvatarPublishedListing {\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  ImageId: ").Append(ImageId).Append("\n");
+            sb.Append("  ListingId: ").Append(ListingId).Append("\n");
+            sb.Append("  ListingType: ").Append(ListingType).Append("\n");
+            sb.Append("  PriceTokens: ").Append(PriceTokens).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as AvatarPublishedListing);
+        }
+
+        /// <summary>
+        /// Returns true if AvatarPublishedListing instances are equal
+        /// </summary>
+        /// <param name="input">Instance of AvatarPublishedListing to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(AvatarPublishedListing input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.ImageId == input.ImageId ||
+                    (this.ImageId != null &&
+                    this.ImageId.Equals(input.ImageId))
+                ) && 
+                (
+                    this.ListingId == input.ListingId ||
+                    (this.ListingId != null &&
+                    this.ListingId.Equals(input.ListingId))
+                ) && 
+                (
+                    this.ListingType == input.ListingType ||
+                    (this.ListingType != null &&
+                    this.ListingType.Equals(input.ListingType))
+                ) && 
+                (
+                    this.PriceTokens == input.PriceTokens ||
+                    this.PriceTokens.Equals(input.PriceTokens)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.ImageId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageId.GetHashCode();
+                }
+                if (this.ListingId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingId.GetHashCode();
+                }
+                if (this.ListingType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ListingType.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.PriceTokens.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+    }
+
+}

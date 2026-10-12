@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// <param name="category">Valid values are the keys of the object &#x60;$.reportOptions[type]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportCategories[type]&#x60;. (required).</param>
         /// <param name="contentId">The id of the user, group, world, avatar, inventory item, print, etc. being reported. (required).</param>
         /// <param name="description">The subjective reason for the report.</param>
-        /// <param name="details">details.</param>
+        /// <param name="details">Relevant details specific to the type of the report. &#x60;fileId&#x60; is for the image file attached to an inventory item, such as an emoji. &#x60;holderId&#x60; is for the user who owns an inventory item, such as a emoji..</param>
         /// <param name="reason">Valid values are the strings in the array &#x60;$.reportOptions[type][category]&#x60; from &#x60;GET /config&#x60;. Descriptions of these are found at &#x60;$.reportReasons[type]&#x60;. (required).</param>
         /// <param name="type">Valid values are the keys of the object &#x60;$.reportOptions&#x60; from &#x60;GET /config&#x60;. (required).</param>
         public SubmitModerationReportRequest(string category = default, string contentId = default, string description = default, SubmitModerationReportRequestDetails details = default, string reason = default, string type = default)
@@ -75,8 +75,9 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Details
+        /// Relevant details specific to the type of the report. &#x60;fileId&#x60; is for the image file attached to an inventory item, such as an emoji. &#x60;holderId&#x60; is for the user who owns an inventory item, such as a emoji.
         /// </summary>
+        /// <value>Relevant details specific to the type of the report. &#x60;fileId&#x60; is for the image file attached to an inventory item, such as an emoji. &#x60;holderId&#x60; is for the user who owns an inventory item, such as a emoji.</value>
         [DataMember(Name = "details", EmitDefaultValue = false)]
         public SubmitModerationReportRequestDetails Details { get; set; }
 

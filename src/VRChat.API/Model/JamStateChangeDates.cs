@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// JamStateChangeDates
     /// </summary>
-    [DataContract(Name = "Jam_stateChangeDates")]
+    [DataContract(Name = "JamStateChangeDates")]
     public partial class JamStateChangeDates : IEquatable<JamStateChangeDates>, IValidatableObject
     {
         /// <summary>

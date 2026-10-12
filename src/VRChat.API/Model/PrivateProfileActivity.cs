@@ -44,7 +44,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public PrivateProfileActivity(string instanceId = default, PrivateProfileActivityLastActivity lastActivity = default, PrivateProfileActivityLastActivity lastLogin = default, string location = default, string platform = default, UserState? state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
+        public PrivateProfileActivity(string instanceId = default, UserActivityTimestamp lastActivity = default, UserActivityTimestamp lastLogin = default, string location = default, string platform = default, UserState? state = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
             this.InstanceId = instanceId;
             this.LastActivity = lastActivity;
@@ -69,13 +69,13 @@ namespace VRChat.API.Model
         /// Gets or Sets LastActivity
         /// </summary>
         [DataMember(Name = "last_activity", EmitDefaultValue = false)]
-        public PrivateProfileActivityLastActivity LastActivity { get; set; }
+        public UserActivityTimestamp LastActivity { get; set; }
 
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
         [DataMember(Name = "last_login", EmitDefaultValue = false)]
-        public PrivateProfileActivityLastActivity LastLogin { get; set; }
+        public UserActivityTimestamp LastLogin { get; set; }
 
         /// <summary>
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.

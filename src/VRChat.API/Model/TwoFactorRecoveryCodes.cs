@@ -30,7 +30,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="otp">otp.</param>
         /// <param name="requiresTwoFactorAuth">requiresTwoFactorAuth.</param>
-        public TwoFactorRecoveryCodes(List<TwoFactorRecoveryCodesOtpInner> otp = default, List<string> requiresTwoFactorAuth = default)
+        public TwoFactorRecoveryCodes(List<TwoFactorRecoveryCode> otp = default, List<string> requiresTwoFactorAuth = default)
         {
             this.Otp = otp;
             this.RequiresTwoFactorAuth = requiresTwoFactorAuth;
@@ -40,7 +40,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Otp
         /// </summary>
         [DataMember(Name = "otp", EmitDefaultValue = false)]
-        public List<TwoFactorRecoveryCodesOtpInner> Otp { get; set; }
+        public List<TwoFactorRecoveryCode> Otp { get; set; }
 
         /// <summary>
         /// Gets or Sets RequiresTwoFactorAuth

@@ -73,7 +73,7 @@ namespace VRChat.API.Model
         /// <param name="videoUrl">videoUrl.</param>
         /// <param name="weight">weight.</param>
         /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, InfoPushDataCategoryName description = default, string disclaimerText = default, List<InfoPushDataDomainListInner> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, InfoPushDataCategoryName name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, DynamicContentRowShortName shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, InfoPushDataCategoryName tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
+        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, LocalizableString description = default, string disclaimerText = default, List<InfoPushDataDomain> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, LocalizableString name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, LocalizableString shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, LocalizableString tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
         {
             this.Article = article;
             this.AuthorName = authorName;
@@ -198,7 +198,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
-        public InfoPushDataCategoryName Description { get; set; }
+        public LocalizableString Description { get; set; }
 
         /// <summary>
         /// Gets or Sets DisclaimerText
@@ -210,7 +210,7 @@ namespace VRChat.API.Model
         /// Gets or Sets DomainList
         /// </summary>
         [DataMember(Name = "domainList", EmitDefaultValue = false)]
-        public List<InfoPushDataDomainListInner> DomainList { get; set; }
+        public List<InfoPushDataDomain> DomainList { get; set; }
 
         /// <summary>
         /// Gets or Sets FeaturedAvatarCategoryId
@@ -276,7 +276,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name = "name", EmitDefaultValue = false)]
-        public InfoPushDataCategoryName Name { get; set; }
+        public LocalizableString Name { get; set; }
 
         /// <summary>
         /// Gets or Sets OnPressed
@@ -326,7 +326,7 @@ namespace VRChat.API.Model
         /// Gets or Sets ShortName
         /// </summary>
         [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public DynamicContentRowShortName ShortName { get; set; }
+        public LocalizableString ShortName { get; set; }
 
         /// <summary>
         /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
@@ -363,7 +363,7 @@ namespace VRChat.API.Model
         /// Gets or Sets TooltipDescription
         /// </summary>
         [DataMember(Name = "tooltipDescription", EmitDefaultValue = false)]
-        public InfoPushDataCategoryName TooltipDescription { get; set; }
+        public LocalizableString TooltipDescription { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion

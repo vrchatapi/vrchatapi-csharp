@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// EarningsMetricsTotals
     /// </summary>
-    [DataContract(Name = "EarningsMetrics_totals")]
+    [DataContract(Name = "EarningsMetricsTotals")]
     public partial class EarningsMetricsTotals : IEquatable<EarningsMetricsTotals>, IValidatableObject
     {
         /// <summary>

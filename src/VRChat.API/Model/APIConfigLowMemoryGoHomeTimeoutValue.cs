@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// APIConfigLowMemoryGoHomeTimeoutValue
     /// </summary>
-    [DataContract(Name = "APIConfig_lowMemoryGoHomeTimeout_value")]
+    [DataContract(Name = "APIConfigLowMemoryGoHomeTimeoutValue")]
     public partial class APIConfigLowMemoryGoHomeTimeoutValue : IEquatable<APIConfigLowMemoryGoHomeTimeoutValue>, IValidatableObject
     {
         /// <summary>

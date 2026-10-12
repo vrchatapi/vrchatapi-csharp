@@ -33,7 +33,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Permission" /> class.
         /// </summary>
-        /// <param name="data">data.</param>
+        /// <param name="data">Specific values afforded the user by this permission.</param>
         /// <param name="description">description.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="id">id (required).</param>
@@ -58,8 +58,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// Specific values afforded the user by this permission
         /// </summary>
+        /// <value>Specific values afforded the user by this permission</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public PermissionData Data { get; set; }
 

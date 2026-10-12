@@ -33,10 +33,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigConstants" /> class.
         /// </summary>
-        /// <param name="gROUPS">gROUPS (required).</param>
-        /// <param name="iNSTANCE">iNSTANCE (required).</param>
-        /// <param name="lANGUAGE">lANGUAGE (required).</param>
-        public APIConfigConstants(APIConfigConstantsGROUPS gROUPS = default, APIConfigConstantsINSTANCE iNSTANCE = default, APIConfigConstantsLANGUAGE lANGUAGE = default)
+        /// <param name="gROUPS">Group-related constants (required).</param>
+        /// <param name="iNSTANCE">Instance-related constants (required).</param>
+        /// <param name="lANGUAGE">Language-related constants (required).</param>
+        public APIConfigConstants(APIConfigConstantsGroups gROUPS = default, APIConfigConstantsInstance iNSTANCE = default, APIConfigConstantsLanguage lANGUAGE = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.GROUPS = gROUPS;
@@ -47,22 +47,25 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets GROUPS
+        /// Group-related constants
         /// </summary>
+        /// <value>Group-related constants</value>
         [DataMember(Name = "GROUPS", IsRequired = true, EmitDefaultValue = true)]
-        public APIConfigConstantsGROUPS GROUPS { get; set; }
+        public APIConfigConstantsGroups GROUPS { get; set; }
 
         /// <summary>
-        /// Gets or Sets INSTANCE
+        /// Instance-related constants
         /// </summary>
+        /// <value>Instance-related constants</value>
         [DataMember(Name = "INSTANCE", IsRequired = true, EmitDefaultValue = true)]
-        public APIConfigConstantsINSTANCE INSTANCE { get; set; }
+        public APIConfigConstantsInstance INSTANCE { get; set; }
 
         /// <summary>
-        /// Gets or Sets LANGUAGE
+        /// Language-related constants
         /// </summary>
+        /// <value>Language-related constants</value>
         [DataMember(Name = "LANGUAGE", IsRequired = true, EmitDefaultValue = true)]
-        public APIConfigConstantsLANGUAGE LANGUAGE { get; set; }
+        public APIConfigConstantsLanguage LANGUAGE { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

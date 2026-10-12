@@ -557,8 +557,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <returns>PaginatedGroupAuditLogEntryList</returns>
-        PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
+        /// <returns>PaginatedGroupAuditLogList</returns>
+        PaginatedGroupAuditLogList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
 
         /// <summary>
         /// Get Group Audit Logs
@@ -575,8 +575,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <returns>ApiResponse of PaginatedGroupAuditLogEntryList</returns>
-        ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
+        /// <returns>ApiResponse of PaginatedGroupAuditLogList</returns>
+        ApiResponse<PaginatedGroupAuditLogList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default);
         /// <summary>
         /// Get Group Bans
         /// </summary>
@@ -1826,8 +1826,8 @@ namespace VRChat.API.Api
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PaginatedGroupAuditLogEntryList</returns>
-        System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of PaginatedGroupAuditLogList</returns>
+        System.Threading.Tasks.Task<PaginatedGroupAuditLogList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get Group Audit Logs
@@ -1845,8 +1845,8 @@ namespace VRChat.API.Api
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PaginatedGroupAuditLogEntryList)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (PaginatedGroupAuditLogList)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PaginatedGroupAuditLogList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Group Bans
         /// </summary>
@@ -6375,10 +6375,10 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <returns>PaginatedGroupAuditLogEntryList</returns>
-        public PaginatedGroupAuditLogEntryList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
+        /// <returns>PaginatedGroupAuditLogList</returns>
+        public PaginatedGroupAuditLogList GetGroupAuditLogs(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
+            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList> localVarResponse = GetGroupAuditLogsWithHttpInfo(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
@@ -6402,8 +6402,8 @@ namespace VRChat.API.Api
         /// <param name="actorIds">The comma-separated actor ids to search for. (optional)</param>
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
-        /// <returns>ApiResponse of PaginatedGroupAuditLogEntryList</returns>
-        public VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
+        /// <returns>ApiResponse of PaginatedGroupAuditLogList</returns>
+        public VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList> GetGroupAuditLogsWithHttpInfo(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6465,13 +6465,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<PaginatedGroupAuditLogList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogEntryList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogList), ex.Message);
             }
         }
 
@@ -6488,10 +6488,10 @@ namespace VRChat.API.Api
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of PaginatedGroupAuditLogEntryList</returns>
-        public async System.Threading.Tasks.Task<PaginatedGroupAuditLogEntryList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of PaginatedGroupAuditLogList</returns>
+        public async System.Threading.Tasks.Task<PaginatedGroupAuditLogList> GetGroupAuditLogsAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList> localVarResponse = await GetGroupAuditLogsWithHttpInfoAsync(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList> localVarResponse = await GetGroupAuditLogsWithHttpInfoAsync(groupId, n, offset, startDate, endDate, actorIds, eventTypes, targetIds, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetGroupAuditLogs", localVarResponse);
@@ -6516,8 +6516,8 @@ namespace VRChat.API.Api
         /// <param name="eventTypes">The comma-separated event types to search for. (optional)</param>
         /// <param name="targetIds">The comma-separated target ids to search for. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (PaginatedGroupAuditLogEntryList)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (PaginatedGroupAuditLogList)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList>> GetGroupAuditLogsWithHttpInfoAsync(string groupId, int? n = default, int? offset = default, DateTime? startDate = default, DateTime? endDate = default, string? actorIds = default, string? eventTypes = default, string? targetIds = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -6581,13 +6581,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedGroupAuditLogEntryList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<PaginatedGroupAuditLogList>("/groups/{groupId}/auditLogs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogEntryList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogEntryList), ex.Message);
+                return new VRChat.API.Client.ApiResponse<PaginatedGroupAuditLogList>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PaginatedGroupAuditLogList), ex.Message);
             }
         }
 

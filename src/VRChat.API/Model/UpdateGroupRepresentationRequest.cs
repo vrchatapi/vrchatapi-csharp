@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// UpdateGroupRepresentationRequest
     /// </summary>
-    [DataContract(Name = "updateGroupRepresentation_request")]
+    [DataContract(Name = "UpdateGroupRepresentationRequest")]
     public partial class UpdateGroupRepresentationRequest : IEquatable<UpdateGroupRepresentationRequest>, IValidatableObject
     {
         /// <summary>

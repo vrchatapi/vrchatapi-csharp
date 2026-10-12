@@ -20,9 +20,9 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Specific values afforded the user by this permission
+    /// PermissionData
     /// </summary>
-    [DataContract(Name = "Permission_data")]
+    [DataContract(Name = "PermissionData")]
     public partial class PermissionData : IEquatable<PermissionData>, IValidatableObject
     {
         /// <summary>

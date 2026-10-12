@@ -245,8 +245,8 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
-        /// <returns>Object</returns>
-        Object UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        Dictionary<string, Object> UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
 
         /// <summary>
         /// Update Favorite Group
@@ -259,8 +259,8 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        ApiResponse<Dictionary<string, Object>> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default);
         #endregion Synchronous Operations
     }
 
@@ -515,8 +515,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, Object>> UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update Favorite Group
@@ -530,8 +530,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, Object>>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -2171,10 +2171,10 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
-        /// <returns>Object</returns>
-        public Object UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
+        /// <returns>Dictionary&lt;string, Object&gt;</returns>
+        public Dictionary<string, Object> UpdateFavoriteGroup(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
+            VRChat.API.Client.ApiResponse<Dictionary<string, Object>> localVarResponse = UpdateFavoriteGroupWithHttpInfo(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
@@ -2194,8 +2194,8 @@ namespace VRChat.API.Api
         /// <param name="favoriteGroupName">The name of the group to fetch, must be a name of a FavoriteGroup.</param>
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public VRChat.API.Client.ApiResponse<Object> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
+        /// <returns>ApiResponse of Dictionary&lt;string, Object&gt;</returns>
+        public VRChat.API.Client.ApiResponse<Dictionary<string, Object>> UpdateFavoriteGroupWithHttpInfo(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default)
         {
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
@@ -2237,13 +2237,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Put<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Put<Dictionary<string, Object>>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Dictionary<string, Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Dictionary<string, Object>), ex.Message);
             }
         }
 
@@ -2256,10 +2256,10 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of Dictionary&lt;string, Object&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, Object>> UpdateFavoriteGroupAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<Object> localVarResponse = await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<Dictionary<string, Object>> localVarResponse = await UpdateFavoriteGroupWithHttpInfoAsync(favoriteGroupType, favoriteGroupName, userId, updateFavoriteGroupRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateFavoriteGroup", localVarResponse);
@@ -2280,8 +2280,8 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <param name="updateFavoriteGroupRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, Object&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Dictionary<string, Object>>> UpdateFavoriteGroupWithHttpInfoAsync(FavoriteType favoriteGroupType, string favoriteGroupName, string userId, UpdateFavoriteGroupRequest? updateFavoriteGroupRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'favoriteGroupName' is set
             if (favoriteGroupName == null)
@@ -2325,13 +2325,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Dictionary<string, Object>>("/favorite/group/{favoriteGroupType}/{favoriteGroupName}/{userId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+                return new VRChat.API.Client.ApiResponse<Dictionary<string, Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Dictionary<string, Object>), ex.Message);
             }
         }
 

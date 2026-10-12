@@ -104,7 +104,7 @@ namespace VRChat.API.Model
         /// <param name="travelingToLocation">travelingToLocation.</param>
         /// <param name="travelingToWorld">travelingToWorld.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user..</param>
-        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Object appleDetails = default, string bannerColor = default, BannerType? bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, PrivateProfileActivityLastActivity lastActivity = default, PrivateProfileActivityLastActivity lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
+        public User(int acceptedPrivacyVersion = default, int acceptedTOSVersion = default, string accountDeletionDate = default, List<Object> accountDeletionLog = default, AgeVerificationStatus ageVerificationStatus = default, bool ageVerified = default, bool allowAvatarCopying = true, Object appleDetails = default, string bannerColor = default, BannerType? bannerType = default, string bannerUrl = default, DateOnly dateJoined = default, DeveloperType developerType = default, string discordId = default, string displayName = default, string friendKey = default, string friendRequestStatus = default, string iconFrame = default, string iconUrl = default, string id = default, string instanceId = default, bool isEconomyCreator = default, bool isFriend = default, UserActivityTimestamp lastActivity = default, UserActivityTimestamp lastLogin = default, string lastMobile = default, string lastPlatform = default, string location = default, string nameplateEffect = default, string note = default, string platform = default, string profileEffect = default, string pronouns = default, UserState state = default, UserStatus status = default, string statusDescription = default, List<string> tags = default, string travelingToInstance = default, string travelingToLocation = default, string travelingToWorld = default, string worldId = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -290,13 +290,13 @@ namespace VRChat.API.Model
         /// Gets or Sets LastActivity
         /// </summary>
         [DataMember(Name = "last_activity", IsRequired = true, EmitDefaultValue = true)]
-        public PrivateProfileActivityLastActivity LastActivity { get; set; }
+        public UserActivityTimestamp LastActivity { get; set; }
 
         /// <summary>
         /// Gets or Sets LastLogin
         /// </summary>
         [DataMember(Name = "last_login", IsRequired = true, EmitDefaultValue = true)]
-        public PrivateProfileActivityLastActivity LastLogin { get; set; }
+        public UserActivityTimestamp LastLogin { get; set; }
 
         /// <summary>
         /// Gets or Sets LastMobile

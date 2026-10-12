@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// AvatarStyles
     /// </summary>
-    [DataContract(Name = "Avatar_styles")]
+    [DataContract(Name = "AvatarStyles")]
     public partial class AvatarStyles : IEquatable<AvatarStyles>, IValidatableObject
     {
         /// <summary>

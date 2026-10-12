@@ -1,0 +1,578 @@
+
+
+#pragma warning disable CS0612
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
+using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+
+namespace VRChat.API.Model
+{
+    /// <summary>
+    /// NotificationV2Base
+    /// </summary>
+    [DataContract(Name = "NotificationV2Base")]
+    public partial class NotificationV2Base : IEquatable<NotificationV2Base>, IValidatableObject
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationV2Base" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected NotificationV2Base() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NotificationV2Base" /> class.
+        /// </summary>
+        /// <param name="canDelete">canDelete (required).</param>
+        /// <param name="category">category (required).</param>
+        /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="details">details.</param>
+        /// <param name="displayData">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
+        /// <param name="expiresAt">expiresAt (required).</param>
+        /// <param name="expiryAfterSeen">expiryAfterSeen (required).</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="ignoreDND">ignoreDND (required).</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="isSystem">isSystem (required).</param>
+        /// <param name="link">link (required).</param>
+        /// <param name="linkText">linkText (required).</param>
+        /// <param name="linkTextKey">linkTextKey (required).</param>
+        /// <param name="message">message (required).</param>
+        /// <param name="messageKey">messageKey.</param>
+        /// <param name="receiverUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="relatedNotificationsId">relatedNotificationsId (required).</param>
+        /// <param name="requireSeen">requireSeen (required).</param>
+        /// <param name="responses">responses (required).</param>
+        /// <param name="seen">seen (required).</param>
+        /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
+        /// <param name="senderUsername">senderUsername (required).</param>
+        /// <param name="title">title (required).</param>
+        /// <param name="titleKey">titleKey (required).</param>
+        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="varVersion">varVersion (required) (default to 2).</param>
+        public NotificationV2Base(bool canDelete = default, string category = default, DateTime createdAt = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, DateTime updatedAt = default, int varVersion = 2)
+        {
+            this.CanDelete = canDelete;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Category = category;
+            this.CreatedAt = createdAt;
+            this.ExpiresAt = expiresAt;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ExpiryAfterSeen = expiryAfterSeen;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Id = id;
+            this.IgnoreDND = ignoreDND;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ImageUrl = imageUrl;
+            this.IsSystem = isSystem;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Link = link;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.LinkText = linkText;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.LinkTextKey = linkTextKey;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Message = message;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ReceiverUserId = receiverUserId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.RelatedNotificationsId = relatedNotificationsId;
+            this.RequireSeen = requireSeen;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Responses = responses;
+            this.Seen = seen;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.SenderUserId = senderUserId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.SenderUsername = senderUsername;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Title = title;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.TitleKey = titleKey;
+            this.UpdatedAt = updatedAt;
+            this.VarVersion = varVersion;
+            this.Details = details;
+            this.DisplayData = displayData;
+            this.MessageKey = messageKey;
+        }
+
+        /// <summary>
+        /// Gets or Sets CanDelete
+        /// </summary>
+        [DataMember(Name = "canDelete", IsRequired = true, EmitDefaultValue = true)]
+        public bool CanDelete { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Category
+        /// </summary>
+        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
+        public string Category { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CreatedAt
+        /// </summary>
+        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Details
+        /// </summary>
+        [DataMember(Name = "details", EmitDefaultValue = false)]
+        public NotificationV2DetailsBoop Details { get; set; }
+
+        /// <summary>
+        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
+        /// </summary>
+        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
+        [DataMember(Name = "displayData", EmitDefaultValue = true)]
+        public Object DisplayData { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExpiresAt
+        /// </summary>
+        [DataMember(Name = "expiresAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTime ExpiresAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExpiryAfterSeen
+        /// </summary>
+        [DataMember(Name = "expiryAfterSeen", IsRequired = true, EmitDefaultValue = true)]
+        public int? ExpiryAfterSeen { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IgnoreDND
+        /// </summary>
+        [DataMember(Name = "ignoreDND", IsRequired = true, EmitDefaultValue = true)]
+        public bool IgnoreDND { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ImageUrl
+        /// </summary>
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsSystem
+        /// </summary>
+        [DataMember(Name = "isSystem", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsSystem { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Link
+        /// </summary>
+        [DataMember(Name = "link", IsRequired = true, EmitDefaultValue = true)]
+        public string Link { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LinkText
+        /// </summary>
+        [DataMember(Name = "linkText", IsRequired = true, EmitDefaultValue = true)]
+        public string LinkText { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LinkTextKey
+        /// </summary>
+        [DataMember(Name = "linkTextKey", IsRequired = true, EmitDefaultValue = true)]
+        public string LinkTextKey { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MessageKey
+        /// </summary>
+        [DataMember(Name = "messageKey", EmitDefaultValue = true)]
+        public string MessageKey { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        [DataMember(Name = "receiverUserId", IsRequired = true, EmitDefaultValue = true)]
+        public string ReceiverUserId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RelatedNotificationsId
+        /// </summary>
+        [DataMember(Name = "relatedNotificationsId", IsRequired = true, EmitDefaultValue = true)]
+        public string RelatedNotificationsId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RequireSeen
+        /// </summary>
+        [DataMember(Name = "requireSeen", IsRequired = true, EmitDefaultValue = true)]
+        public bool RequireSeen { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Responses
+        /// </summary>
+        [DataMember(Name = "responses", IsRequired = true, EmitDefaultValue = true)]
+        public List<NotificationV2Response> Responses { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Seen
+        /// </summary>
+        [DataMember(Name = "seen", IsRequired = true, EmitDefaultValue = true)]
+        public bool Seen { get; set; }
+
+        /// <summary>
+        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
+        /// </summary>
+        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
+        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = true)]
+        public string SenderUserId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SenderUsername
+        /// </summary>
+        [DataMember(Name = "senderUsername", IsRequired = true, EmitDefaultValue = true)]
+        public string SenderUsername { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Title
+        /// </summary>
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TitleKey
+        /// </summary>
+        [DataMember(Name = "titleKey", IsRequired = true, EmitDefaultValue = true)]
+        public string TitleKey { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UpdatedAt
+        /// </summary>
+        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
+        public DateTime UpdatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VarVersion
+        /// </summary>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
+        public int VarVersion { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class NotificationV2Base {\n");
+            sb.Append("  CanDelete: ").Append(CanDelete).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  DisplayData: ").Append(DisplayData).Append("\n");
+            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
+            sb.Append("  ExpiryAfterSeen: ").Append(ExpiryAfterSeen).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IgnoreDND: ").Append(IgnoreDND).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  IsSystem: ").Append(IsSystem).Append("\n");
+            sb.Append("  Link: ").Append(Link).Append("\n");
+            sb.Append("  LinkText: ").Append(LinkText).Append("\n");
+            sb.Append("  LinkTextKey: ").Append(LinkTextKey).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  MessageKey: ").Append(MessageKey).Append("\n");
+            sb.Append("  ReceiverUserId: ").Append(ReceiverUserId).Append("\n");
+            sb.Append("  RelatedNotificationsId: ").Append(RelatedNotificationsId).Append("\n");
+            sb.Append("  RequireSeen: ").Append(RequireSeen).Append("\n");
+            sb.Append("  Responses: ").Append(Responses).Append("\n");
+            sb.Append("  Seen: ").Append(Seen).Append("\n");
+            sb.Append("  SenderUserId: ").Append(SenderUserId).Append("\n");
+            sb.Append("  SenderUsername: ").Append(SenderUsername).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  TitleKey: ").Append(TitleKey).Append("\n");
+            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as NotificationV2Base);
+        }
+
+        /// <summary>
+        /// Returns true if NotificationV2Base instances are equal
+        /// </summary>
+        /// <param name="input">Instance of NotificationV2Base to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(NotificationV2Base input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.CanDelete == input.CanDelete ||
+                    this.CanDelete.Equals(input.CanDelete)
+                ) && 
+                (
+                    this.Category == input.Category ||
+                    (this.Category != null &&
+                    this.Category.Equals(input.Category))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.Details == input.Details ||
+                    (this.Details != null &&
+                    this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.DisplayData == input.DisplayData ||
+                    (this.DisplayData != null &&
+                    this.DisplayData.Equals(input.DisplayData))
+                ) && 
+                (
+                    this.ExpiresAt == input.ExpiresAt ||
+                    this.ExpiresAt.Equals(input.ExpiresAt)
+                ) && 
+                (
+                    this.ExpiryAfterSeen == input.ExpiryAfterSeen ||
+                    (this.ExpiryAfterSeen != null &&
+                    this.ExpiryAfterSeen.Equals(input.ExpiryAfterSeen))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.IgnoreDND == input.IgnoreDND ||
+                    this.IgnoreDND.Equals(input.IgnoreDND)
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.IsSystem == input.IsSystem ||
+                    this.IsSystem.Equals(input.IsSystem)
+                ) && 
+                (
+                    this.Link == input.Link ||
+                    (this.Link != null &&
+                    this.Link.Equals(input.Link))
+                ) && 
+                (
+                    this.LinkText == input.LinkText ||
+                    (this.LinkText != null &&
+                    this.LinkText.Equals(input.LinkText))
+                ) && 
+                (
+                    this.LinkTextKey == input.LinkTextKey ||
+                    (this.LinkTextKey != null &&
+                    this.LinkTextKey.Equals(input.LinkTextKey))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.MessageKey == input.MessageKey ||
+                    (this.MessageKey != null &&
+                    this.MessageKey.Equals(input.MessageKey))
+                ) && 
+                (
+                    this.ReceiverUserId == input.ReceiverUserId ||
+                    (this.ReceiverUserId != null &&
+                    this.ReceiverUserId.Equals(input.ReceiverUserId))
+                ) && 
+                (
+                    this.RelatedNotificationsId == input.RelatedNotificationsId ||
+                    (this.RelatedNotificationsId != null &&
+                    this.RelatedNotificationsId.Equals(input.RelatedNotificationsId))
+                ) && 
+                (
+                    this.RequireSeen == input.RequireSeen ||
+                    this.RequireSeen.Equals(input.RequireSeen)
+                ) && 
+                (
+                    this.Responses == input.Responses ||
+                    this.Responses != null &&
+                    input.Responses != null &&
+                    this.Responses.SequenceEqual(input.Responses)
+                ) && 
+                (
+                    this.Seen == input.Seen ||
+                    this.Seen.Equals(input.Seen)
+                ) && 
+                (
+                    this.SenderUserId == input.SenderUserId ||
+                    (this.SenderUserId != null &&
+                    this.SenderUserId.Equals(input.SenderUserId))
+                ) && 
+                (
+                    this.SenderUsername == input.SenderUsername ||
+                    (this.SenderUsername != null &&
+                    this.SenderUsername.Equals(input.SenderUsername))
+                ) && 
+                (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.TitleKey == input.TitleKey ||
+                    (this.TitleKey != null &&
+                    this.TitleKey.Equals(input.TitleKey))
+                ) && 
+                (
+                    this.UpdatedAt == input.UpdatedAt ||
+                    this.UpdatedAt.Equals(input.UpdatedAt)
+                ) && 
+                (
+                    this.VarVersion == input.VarVersion ||
+                    this.VarVersion.Equals(input.VarVersion)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                hashCode = (hashCode * 59) + this.CanDelete.GetHashCode();
+                if (this.Category != null)
+                {
+                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.Details != null)
+                {
+                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.DisplayData != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayData.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
+                if (this.ExpiryAfterSeen != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExpiryAfterSeen.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IgnoreDND.GetHashCode();
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsSystem.GetHashCode();
+                if (this.Link != null)
+                {
+                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
+                }
+                if (this.LinkText != null)
+                {
+                    hashCode = (hashCode * 59) + this.LinkText.GetHashCode();
+                }
+                if (this.LinkTextKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.LinkTextKey.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.MessageKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.MessageKey.GetHashCode();
+                }
+                if (this.ReceiverUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReceiverUserId.GetHashCode();
+                }
+                if (this.RelatedNotificationsId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RelatedNotificationsId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.RequireSeen.GetHashCode();
+                if (this.Responses != null)
+                {
+                    hashCode = (hashCode * 59) + this.Responses.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Seen.GetHashCode();
+                if (this.SenderUserId != null)
+                {
+                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
+                }
+                if (this.SenderUsername != null)
+                {
+                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
+                }
+                if (this.Title != null)
+                {
+                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
+                }
+                if (this.TitleKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.TitleKey.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+    }
+
+}

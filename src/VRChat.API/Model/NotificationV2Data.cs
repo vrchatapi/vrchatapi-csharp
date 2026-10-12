@@ -24,7 +24,7 @@ namespace VRChat.API.Model
     /// NotificationV2Data
     /// </summary>
     [JsonConverter(typeof(NotificationV2DataJsonConverter))]
-    [DataContract(Name = "NotificationV2_data")]
+    [DataContract(Name = "NotificationV2Data")]
     public partial class NotificationV2Data : AbstractOpenAPISchema, IEquatable<NotificationV2Data>, IValidatableObject
     {
         /// <summary>
@@ -69,18 +69,6 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="actualInstance">An instance of NotificationV2DataEventAnnouncement.</param>
         public NotificationV2Data(NotificationV2DataEventAnnouncement actualInstance)
-        {
-            this.IsNullable = false;
-            this.SchemaType= "oneOf";
-            this.ActualInstance = actualInstance;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationV2Data" /> class
-        /// with the <see cref="NotificationV2DataGroupAnnouncement" /> class
-        /// </summary>
-        /// <param name="actualInstance">An instance of NotificationV2DataGroupAnnouncement.</param>
-        public NotificationV2Data(NotificationV2DataGroupAnnouncement actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -137,10 +125,6 @@ namespace VRChat.API.Model
                 {
                     this._actualInstance = value;
                 }
-                else if (value.GetType() == typeof(NotificationV2DataGroupAnnouncement) || value is NotificationV2DataGroupAnnouncement)
-                {
-                    this._actualInstance = value;
-                }
                 else if (value.GetType() == typeof(NotificationV2DataGroupInformative) || value is NotificationV2DataGroupInformative)
                 {
                     this._actualInstance = value;
@@ -183,13 +167,6 @@ namespace VRChat.API.Model
         /// Converts to the <c>NotificationV2DataEventAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
         public static implicit operator NotificationV2DataEventAnnouncement(NotificationV2Data value) => (NotificationV2DataEventAnnouncement)value?.ActualInstance;
-        
-
-        
-        /// <summary>
-        /// Converts to the <c>NotificationV2DataGroupAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
-        /// </summary>
-        public static implicit operator NotificationV2DataGroupAnnouncement(NotificationV2Data value) => (NotificationV2DataGroupAnnouncement)value?.ActualInstance;
         
 
         
@@ -302,26 +279,6 @@ namespace VRChat.API.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataEventAnnouncement: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
-                if (typeof(NotificationV2DataGroupAnnouncement).GetProperty("AdditionalProperties") == null)
-                {
-                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupAnnouncement>(jsonString, NotificationV2Data.SerializerSettings));
-                }
-                else
-                {
-                    newNotificationV2Data = new NotificationV2Data(JsonConvert.DeserializeObject<NotificationV2DataGroupAnnouncement>(jsonString, NotificationV2Data.AdditionalPropertiesSerializerSettings));
-                }
-                matchedTypes.Add("NotificationV2DataGroupAnnouncement");
-                match++;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2DataGroupAnnouncement: {1}", jsonString, exception.ToString()));
             }
 
             try

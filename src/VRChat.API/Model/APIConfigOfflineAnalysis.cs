@@ -20,9 +20,9 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Whether to allow offline analysis
+    /// APIConfigOfflineAnalysis
     /// </summary>
-    [DataContract(Name = "APIConfig_offlineAnalysis")]
+    [DataContract(Name = "APIConfigOfflineAnalysis")]
     public partial class APIConfigOfflineAnalysis : IEquatable<APIConfigOfflineAnalysis>, IValidatableObject
     {
         /// <summary>

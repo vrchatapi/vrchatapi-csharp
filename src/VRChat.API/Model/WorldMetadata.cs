@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="id">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
         /// <param name="metadata">metadata (required).</param>
-        public WorldMetadata(string id = default, Object metadata = default)
+        public WorldMetadata(string id = default, WorldMetadataValue metadata = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
@@ -54,7 +54,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Metadata
         /// </summary>
         [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
-        public Object Metadata { get; set; }
+        public WorldMetadataValue Metadata { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

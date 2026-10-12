@@ -42,6 +42,7 @@ namespace VRChat.API.Model
         /// <param name="description">description.</param>
         /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="imageUrl">imageUrl.</param>
+        /// <param name="metadata">metadata.</param>
         /// <param name="name">name.</param>
         /// <param name="platform">This is normally &#x60;android&#x60;, &#x60;ios&#x60;, &#x60;standalonewindows&#x60;, &#x60;web&#x60;, or the empty value &#x60;&#x60;, but also supposedly can be any random Unity version such as &#x60;2019.2.4-801-Release&#x60; or &#x60;2019.2.2-772-Release&#x60; or even &#x60;unknownplatform&#x60;..</param>
         /// <param name="previewYoutubeId">previewYoutubeId.</param>
@@ -51,7 +52,7 @@ namespace VRChat.API.Model
         /// <param name="unityPackageUrl">unityPackageUrl.</param>
         /// <param name="unityVersion">unityVersion (default to &quot;5.3.4p1&quot;).</param>
         /// <param name="urlList">urlList.</param>
-        public UpdateWorldRequest(string assetUrl = default, string assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, List<string> disabledPropAbilities = default, string imageUrl = default, string name = default, string platform = default, string previewYoutubeId = default, int recommendedCapacity = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", List<string> urlList = default)
+        public UpdateWorldRequest(string assetUrl = default, string assetVersion = default, string authorId = default, string authorName = default, int capacity = default, string description = default, List<string> disabledPropAbilities = default, string imageUrl = default, UpdateWorldRequestMetadata metadata = default, string name = default, string platform = default, string previewYoutubeId = default, int recommendedCapacity = default, ReleaseStatus? releaseStatus = default, List<string> tags = default, string unityPackageUrl = default, string unityVersion = @"5.3.4p1", List<string> urlList = default)
         {
             this.AssetUrl = assetUrl;
             this.AssetVersion = assetVersion;
@@ -61,6 +62,7 @@ namespace VRChat.API.Model
             this.Description = description;
             this.DisabledPropAbilities = disabledPropAbilities;
             this.ImageUrl = imageUrl;
+            this.Metadata = metadata;
             this.Name = name;
             this.Platform = platform;
             this.PreviewYoutubeId = previewYoutubeId;
@@ -121,6 +123,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public UpdateWorldRequestMetadata Metadata { get; set; }
 
         /// <summary>
         /// Gets or Sets Name
@@ -187,6 +195,7 @@ namespace VRChat.API.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  DisabledPropAbilities: ").Append(DisabledPropAbilities).Append("\n");
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  PreviewYoutubeId: ").Append(PreviewYoutubeId).Append("\n");
@@ -272,6 +281,11 @@ namespace VRChat.API.Model
                     this.ImageUrl.Equals(input.ImageUrl))
                 ) && 
                 (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -355,6 +369,10 @@ namespace VRChat.API.Model
                 if (this.ImageUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
                 }
                 if (this.Name != null)
                 {

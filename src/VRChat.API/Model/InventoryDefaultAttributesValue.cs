@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// InventoryDefaultAttributesValue
     /// </summary>
-    [DataContract(Name = "InventoryDefaultAttributes_value")]
+    [DataContract(Name = "InventoryDefaultAttributesValue")]
     public partial class InventoryDefaultAttributesValue : IEquatable<InventoryDefaultAttributesValue>, IValidatableObject
     {
         /// <summary>

@@ -20,9 +20,9 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Relevant details specific to the type of the report. &#x60;fileId&#x60; is for the image file attached to an inventory item, such as an emoji. &#x60;holderId&#x60; is for the user who owns an inventory item, such as a emoji.
+    /// SubmitModerationReportRequestDetails
     /// </summary>
-    [DataContract(Name = "SubmitModerationReportRequest_details")]
+    [DataContract(Name = "SubmitModerationReportRequestDetails")]
     public partial class SubmitModerationReportRequestDetails : IEquatable<SubmitModerationReportRequestDetails>, IValidatableObject
     {
         /// <summary>

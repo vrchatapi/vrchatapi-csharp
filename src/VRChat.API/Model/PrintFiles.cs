@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// PrintFiles
     /// </summary>
-    [DataContract(Name = "Print_files")]
+    [DataContract(Name = "PrintFiles")]
     public partial class PrintFiles : IEquatable<PrintFiles>, IValidatableObject
     {
         /// <summary>

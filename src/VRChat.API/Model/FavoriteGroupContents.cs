@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="favorites">favorites (required).</param>
         /// <param name="totalCount">totalCount (required).</param>
-        public FavoriteGroupContents(List<FavoriteGroupContentsEntry> favorites = default, int totalCount = default)
+        public FavoriteGroupContents(List<FavoriteGroupContentsItem> favorites = default, int totalCount = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Favorites = favorites;
@@ -46,7 +46,7 @@ namespace VRChat.API.Model
         /// Gets or Sets Favorites
         /// </summary>
         [DataMember(Name = "favorites", IsRequired = true, EmitDefaultValue = true)]
-        public List<FavoriteGroupContentsEntry> Favorites { get; set; }
+        public List<FavoriteGroupContentsItem> Favorites { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalCount

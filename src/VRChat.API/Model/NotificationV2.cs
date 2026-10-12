@@ -13,280 +13,112 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// NotificationV2
+    /// A notification. The shape of &#x60;data&#x60; depends on &#x60;type&#x60;.
     /// </summary>
+    [JsonConverter(typeof(NotificationV2JsonConverter))]
     [DataContract(Name = "NotificationV2")]
-    public partial class NotificationV2 : IEquatable<NotificationV2>, IValidatableObject
+    public partial class NotificationV2 : AbstractOpenAPISchema, IEquatable<NotificationV2>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Type
+        /// Initializes a new instance of the <see cref="NotificationV2" /> class
+        /// with the <see cref="NotificationV2GroupAnnouncement" /> class
         /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
-        public NotificationV2Type Type { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationV2" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected NotificationV2() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NotificationV2" /> class.
-        /// </summary>
-        /// <param name="canDelete">canDelete (required).</param>
-        /// <param name="category">category (required).</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="data">data (required).</param>
-        /// <param name="details">details.</param>
-        /// <param name="displayData">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
-        /// <param name="expiresAt">expiresAt (required).</param>
-        /// <param name="expiryAfterSeen">expiryAfterSeen (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="ignoreDND">ignoreDND (required).</param>
-        /// <param name="imageUrl">imageUrl (required).</param>
-        /// <param name="isSystem">isSystem (required).</param>
-        /// <param name="link">link (required).</param>
-        /// <param name="linkText">linkText (required).</param>
-        /// <param name="linkTextKey">linkTextKey (required).</param>
-        /// <param name="message">message (required).</param>
-        /// <param name="messageKey">messageKey.</param>
-        /// <param name="receiverUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="relatedNotificationsId">relatedNotificationsId (required).</param>
-        /// <param name="requireSeen">requireSeen (required).</param>
-        /// <param name="responses">responses (required).</param>
-        /// <param name="seen">seen (required).</param>
-        /// <param name="senderUserId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        /// <param name="senderUsername">senderUsername (required).</param>
-        /// <param name="title">title (required).</param>
-        /// <param name="titleKey">titleKey (required).</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        /// <param name="varVersion">varVersion (required) (default to 2).</param>
-        public NotificationV2(bool canDelete = default, string category = default, DateTime createdAt = default, NotificationV2Data data = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, NotificationV2Type type = default, DateTime updatedAt = default, int varVersion = 2)
+        /// <param name="actualInstance">An instance of NotificationV2GroupAnnouncement.</param>
+        public NotificationV2(NotificationV2GroupAnnouncement actualInstance)
         {
-            this.CanDelete = canDelete;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Category = category;
-            this.CreatedAt = createdAt;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Data = data;
-            this.ExpiresAt = expiresAt;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.ExpiryAfterSeen = expiryAfterSeen;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Id = id;
-            this.IgnoreDND = ignoreDND;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.ImageUrl = imageUrl;
-            this.IsSystem = isSystem;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Link = link;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.LinkText = linkText;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.LinkTextKey = linkTextKey;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Message = message;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.ReceiverUserId = receiverUserId;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.RelatedNotificationsId = relatedNotificationsId;
-            this.RequireSeen = requireSeen;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Responses = responses;
-            this.Seen = seen;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.SenderUserId = senderUserId;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.SenderUsername = senderUsername;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Title = title;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.TitleKey = titleKey;
-            this.Type = type;
-            this.UpdatedAt = updatedAt;
-            this.VarVersion = varVersion;
-            this.Details = details;
-            this.DisplayData = displayData;
-            this.MessageKey = messageKey;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// Gets or Sets CanDelete
+        /// Initializes a new instance of the <see cref="NotificationV2" /> class
+        /// with the <see cref="NotificationV2GroupInvite" /> class
         /// </summary>
-        [DataMember(Name = "canDelete", IsRequired = true, EmitDefaultValue = true)]
-        public bool CanDelete { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2GroupInvite.</param>
+        public NotificationV2(NotificationV2GroupInvite actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Category
+        /// Initializes a new instance of the <see cref="NotificationV2" /> class
+        /// with the <see cref="NotificationV2Unknown" /> class
         /// </summary>
-        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
-        public string Category { get; set; }
+        /// <param name="actualInstance">An instance of NotificationV2Unknown.</param>
+        public NotificationV2(NotificationV2Unknown actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets CreatedAt
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime CreatedAt { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(NotificationV2GroupAnnouncement) || value is NotificationV2GroupAnnouncement)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2GroupInvite) || value is NotificationV2GroupInvite)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(NotificationV2Unknown) || value is NotificationV2Unknown)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    // Allow setting unknown types to handle unexpected responses gracefully
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    this._actualInstance = value;
+                }
+            }
+        }
 
+        
         /// <summary>
-        /// Gets or Sets Data
+        /// Converts to the <c>NotificationV2GroupAnnouncement</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public NotificationV2Data Data { get; set; }
+        public static implicit operator NotificationV2GroupAnnouncement(NotificationV2 value) => (NotificationV2GroupAnnouncement)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets Details
+        /// Converts to the <c>NotificationV2GroupInvite</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "details", EmitDefaultValue = false)]
-        public NotificationV2DetailsBoop Details { get; set; }
+        public static implicit operator NotificationV2GroupInvite(NotificationV2 value) => (NotificationV2GroupInvite)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
+        /// Converts to the <c>NotificationV2Unknown</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
-        [DataMember(Name = "displayData", EmitDefaultValue = true)]
-        public Object DisplayData { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExpiresAt
-        /// </summary>
-        [DataMember(Name = "expiresAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime ExpiresAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ExpiryAfterSeen
-        /// </summary>
-        [DataMember(Name = "expiryAfterSeen", IsRequired = true, EmitDefaultValue = true)]
-        public int? ExpiryAfterSeen { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IgnoreDND
-        /// </summary>
-        [DataMember(Name = "ignoreDND", IsRequired = true, EmitDefaultValue = true)]
-        public bool IgnoreDND { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ImageUrl
-        /// </summary>
-        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
-        public string ImageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsSystem
-        /// </summary>
-        [DataMember(Name = "isSystem", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsSystem { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Link
-        /// </summary>
-        [DataMember(Name = "link", IsRequired = true, EmitDefaultValue = true)]
-        public string Link { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LinkText
-        /// </summary>
-        [DataMember(Name = "linkText", IsRequired = true, EmitDefaultValue = true)]
-        public string LinkText { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LinkTextKey
-        /// </summary>
-        [DataMember(Name = "linkTextKey", IsRequired = true, EmitDefaultValue = true)]
-        public string LinkTextKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MessageKey
-        /// </summary>
-        [DataMember(Name = "messageKey", EmitDefaultValue = true)]
-        public string MessageKey { get; set; }
-
-        /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
-        /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "receiverUserId", IsRequired = true, EmitDefaultValue = true)]
-        public string ReceiverUserId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RelatedNotificationsId
-        /// </summary>
-        [DataMember(Name = "relatedNotificationsId", IsRequired = true, EmitDefaultValue = true)]
-        public string RelatedNotificationsId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RequireSeen
-        /// </summary>
-        [DataMember(Name = "requireSeen", IsRequired = true, EmitDefaultValue = true)]
-        public bool RequireSeen { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Responses
-        /// </summary>
-        [DataMember(Name = "responses", IsRequired = true, EmitDefaultValue = true)]
-        public List<NotificationV2Response> Responses { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Seen
-        /// </summary>
-        [DataMember(Name = "seen", IsRequired = true, EmitDefaultValue = true)]
-        public bool Seen { get; set; }
-
-        /// <summary>
-        /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
-        /// </summary>
-        /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
-        [DataMember(Name = "senderUserId", IsRequired = true, EmitDefaultValue = true)]
-        public string SenderUserId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SenderUsername
-        /// </summary>
-        [DataMember(Name = "senderUsername", IsRequired = true, EmitDefaultValue = true)]
-        public string SenderUsername { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Title
-        /// </summary>
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TitleKey
-        /// </summary>
-        [DataMember(Name = "titleKey", IsRequired = true, EmitDefaultValue = true)]
-        public string TitleKey { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedAt
-        /// </summary>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
-
-        /// <summary>
-        /// Gets or Sets VarVersion
-        /// </summary>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public int VarVersion { get; set; }
+        public static implicit operator NotificationV2Unknown(NotificationV2 value) => (NotificationV2Unknown)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -294,37 +126,9 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class NotificationV2 {\n");
-            sb.Append("  CanDelete: ").Append(CanDelete).Append("\n");
-            sb.Append("  Category: ").Append(Category).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  Details: ").Append(Details).Append("\n");
-            sb.Append("  DisplayData: ").Append(DisplayData).Append("\n");
-            sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
-            sb.Append("  ExpiryAfterSeen: ").Append(ExpiryAfterSeen).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  IgnoreDND: ").Append(IgnoreDND).Append("\n");
-            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  IsSystem: ").Append(IsSystem).Append("\n");
-            sb.Append("  Link: ").Append(Link).Append("\n");
-            sb.Append("  LinkText: ").Append(LinkText).Append("\n");
-            sb.Append("  LinkTextKey: ").Append(LinkTextKey).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  MessageKey: ").Append(MessageKey).Append("\n");
-            sb.Append("  ReceiverUserId: ").Append(ReceiverUserId).Append("\n");
-            sb.Append("  RelatedNotificationsId: ").Append(RelatedNotificationsId).Append("\n");
-            sb.Append("  RequireSeen: ").Append(RequireSeen).Append("\n");
-            sb.Append("  Responses: ").Append(Responses).Append("\n");
-            sb.Append("  Seen: ").Append(Seen).Append("\n");
-            sb.Append("  SenderUserId: ").Append(SenderUserId).Append("\n");
-            sb.Append("  SenderUsername: ").Append(SenderUsername).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  TitleKey: ").Append(TitleKey).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -333,9 +137,101 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, NotificationV2.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of NotificationV2
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of NotificationV2</returns>
+        public static NotificationV2 FromJson(string jsonString)
+        {
+            NotificationV2 newNotificationV2 = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newNotificationV2;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2GroupAnnouncement).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2GroupAnnouncement>(jsonString, NotificationV2.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2GroupAnnouncement>(jsonString, NotificationV2.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2GroupAnnouncement");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2GroupAnnouncement: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2GroupInvite).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2GroupInvite>(jsonString, NotificationV2.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2GroupInvite>(jsonString, NotificationV2.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2GroupInvite");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2GroupInvite: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(NotificationV2Unknown).GetProperty("AdditionalProperties") == null)
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2Unknown>(jsonString, NotificationV2.SerializerSettings));
+                }
+                else
+                {
+                    newNotificationV2 = new NotificationV2(JsonConvert.DeserializeObject<NotificationV2Unknown>(jsonString, NotificationV2.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("NotificationV2Unknown");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into NotificationV2Unknown: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                // No match found, return null to handle unexpected responses gracefully
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+                return null;
+            }
+            else if (match > 1)
+            {
+                // Multiple matches found, use the first match and log a warning
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newNotificationV2;
         }
 
         /// <summary>
@@ -356,146 +252,9 @@ namespace VRChat.API.Model
         public bool Equals(NotificationV2 input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.CanDelete == input.CanDelete ||
-                    this.CanDelete.Equals(input.CanDelete)
-                ) && 
-                (
-                    this.Category == input.Category ||
-                    (this.Category != null &&
-                    this.Category.Equals(input.Category))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    this.CreatedAt.Equals(input.CreatedAt)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.Details == input.Details ||
-                    (this.Details != null &&
-                    this.Details.Equals(input.Details))
-                ) && 
-                (
-                    this.DisplayData == input.DisplayData ||
-                    (this.DisplayData != null &&
-                    this.DisplayData.Equals(input.DisplayData))
-                ) && 
-                (
-                    this.ExpiresAt == input.ExpiresAt ||
-                    this.ExpiresAt.Equals(input.ExpiresAt)
-                ) && 
-                (
-                    this.ExpiryAfterSeen == input.ExpiryAfterSeen ||
-                    (this.ExpiryAfterSeen != null &&
-                    this.ExpiryAfterSeen.Equals(input.ExpiryAfterSeen))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IgnoreDND == input.IgnoreDND ||
-                    this.IgnoreDND.Equals(input.IgnoreDND)
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.IsSystem == input.IsSystem ||
-                    this.IsSystem.Equals(input.IsSystem)
-                ) && 
-                (
-                    this.Link == input.Link ||
-                    (this.Link != null &&
-                    this.Link.Equals(input.Link))
-                ) && 
-                (
-                    this.LinkText == input.LinkText ||
-                    (this.LinkText != null &&
-                    this.LinkText.Equals(input.LinkText))
-                ) && 
-                (
-                    this.LinkTextKey == input.LinkTextKey ||
-                    (this.LinkTextKey != null &&
-                    this.LinkTextKey.Equals(input.LinkTextKey))
-                ) && 
-                (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.MessageKey == input.MessageKey ||
-                    (this.MessageKey != null &&
-                    this.MessageKey.Equals(input.MessageKey))
-                ) && 
-                (
-                    this.ReceiverUserId == input.ReceiverUserId ||
-                    (this.ReceiverUserId != null &&
-                    this.ReceiverUserId.Equals(input.ReceiverUserId))
-                ) && 
-                (
-                    this.RelatedNotificationsId == input.RelatedNotificationsId ||
-                    (this.RelatedNotificationsId != null &&
-                    this.RelatedNotificationsId.Equals(input.RelatedNotificationsId))
-                ) && 
-                (
-                    this.RequireSeen == input.RequireSeen ||
-                    this.RequireSeen.Equals(input.RequireSeen)
-                ) && 
-                (
-                    this.Responses == input.Responses ||
-                    this.Responses != null &&
-                    input.Responses != null &&
-                    this.Responses.SequenceEqual(input.Responses)
-                ) && 
-                (
-                    this.Seen == input.Seen ||
-                    this.Seen.Equals(input.Seen)
-                ) && 
-                (
-                    this.SenderUserId == input.SenderUserId ||
-                    (this.SenderUserId != null &&
-                    this.SenderUserId.Equals(input.SenderUserId))
-                ) && 
-                (
-                    this.SenderUsername == input.SenderUsername ||
-                    (this.SenderUsername != null &&
-                    this.SenderUsername.Equals(input.SenderUsername))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.TitleKey == input.TitleKey ||
-                    (this.TitleKey != null &&
-                    this.TitleKey.Equals(input.TitleKey))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
-                ) && 
-                (
-                    this.VarVersion == input.VarVersion ||
-                    this.VarVersion.Equals(input.VarVersion)
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -507,92 +266,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.CanDelete.GetHashCode();
-                if (this.Category != null)
-                {
-                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.Details != null)
-                {
-                    hashCode = (hashCode * 59) + this.Details.GetHashCode();
-                }
-                if (this.DisplayData != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisplayData.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ExpiresAt.GetHashCode();
-                if (this.ExpiryAfterSeen != null)
-                {
-                    hashCode = (hashCode * 59) + this.ExpiryAfterSeen.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IgnoreDND.GetHashCode();
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsSystem.GetHashCode();
-                if (this.Link != null)
-                {
-                    hashCode = (hashCode * 59) + this.Link.GetHashCode();
-                }
-                if (this.LinkText != null)
-                {
-                    hashCode = (hashCode * 59) + this.LinkText.GetHashCode();
-                }
-                if (this.LinkTextKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.LinkTextKey.GetHashCode();
-                }
-                if (this.Message != null)
-                {
-                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
-                }
-                if (this.MessageKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.MessageKey.GetHashCode();
-                }
-                if (this.ReceiverUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ReceiverUserId.GetHashCode();
-                }
-                if (this.RelatedNotificationsId != null)
-                {
-                    hashCode = (hashCode * 59) + this.RelatedNotificationsId.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.RequireSeen.GetHashCode();
-                if (this.Responses != null)
-                {
-                    hashCode = (hashCode * 59) + this.Responses.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Seen.GetHashCode();
-                if (this.SenderUserId != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUserId.GetHashCode();
-                }
-                if (this.SenderUsername != null)
-                {
-                    hashCode = (hashCode * 59) + this.SenderUsername.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.TitleKey != null)
-                {
-                    hashCode = (hashCode * 59) + this.TitleKey.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
-                hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
@@ -602,9 +277,57 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
+        }
+    }
+
+    /// <summary>
+    /// Custom JSON converter for NotificationV2
+    /// </summary>
+    public class NotificationV2JsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(NotificationV2).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return NotificationV2.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return NotificationV2.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

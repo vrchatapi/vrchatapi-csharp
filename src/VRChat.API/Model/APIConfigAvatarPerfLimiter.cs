@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// APIConfigAvatarPerfLimiter
     /// </summary>
-    [DataContract(Name = "APIConfig_avatarPerfLimiter")]
+    [DataContract(Name = "APIConfigAvatarPerfLimiter")]
     public partial class APIConfigAvatarPerfLimiter : IEquatable<APIConfigAvatarPerfLimiter>, IValidatableObject
     {
         /// <summary>

@@ -22,9 +22,27 @@ namespace VRChat.API.Model
     /// <summary>
     /// AvatarPerformance
     /// </summary>
-    [DataContract(Name = "Avatar_performance")]
+    [DataContract(Name = "AvatarPerformance")]
     public partial class AvatarPerformance : IEquatable<AvatarPerformance>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Android
+        /// </summary>
+        [DataMember(Name = "android", EmitDefaultValue = false)]
+        public PerformanceRatings? Android { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Ios
+        /// </summary>
+        [DataMember(Name = "ios", EmitDefaultValue = false)]
+        public PerformanceRatings? Ios { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Standalonewindows
+        /// </summary>
+        [DataMember(Name = "standalonewindows", EmitDefaultValue = false)]
+        public PerformanceRatings? Standalonewindows { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarPerformance" /> class.
         /// </summary>
@@ -34,7 +52,7 @@ namespace VRChat.API.Model
         /// <param name="iosSort">iosSort.</param>
         /// <param name="standalonewindows">standalonewindows.</param>
         /// <param name="standalonewindowsSort">standalonewindowsSort.</param>
-        public AvatarPerformance(string android = default, int androidSort = default, string ios = default, int iosSort = default, string standalonewindows = default, int standalonewindowsSort = default)
+        public AvatarPerformance(PerformanceRatings? android = default, int androidSort = default, PerformanceRatings? ios = default, int iosSort = default, PerformanceRatings? standalonewindows = default, int standalonewindowsSort = default)
         {
             this.Android = android;
             this.AndroidSort = androidSort;
@@ -45,34 +63,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Gets or Sets Android
-        /// </summary>
-        [DataMember(Name = "android", EmitDefaultValue = false)]
-        public string Android { get; set; }
-
-        /// <summary>
         /// Gets or Sets AndroidSort
         /// </summary>
         [DataMember(Name = "android-sort", EmitDefaultValue = false)]
         public int AndroidSort { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ios
-        /// </summary>
-        [DataMember(Name = "ios", EmitDefaultValue = false)]
-        public string Ios { get; set; }
-
-        /// <summary>
         /// Gets or Sets IosSort
         /// </summary>
         [DataMember(Name = "ios-sort", EmitDefaultValue = false)]
         public int IosSort { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Standalonewindows
-        /// </summary>
-        [DataMember(Name = "standalonewindows", EmitDefaultValue = false)]
-        public string Standalonewindows { get; set; }
 
         /// <summary>
         /// Gets or Sets StandalonewindowsSort
@@ -131,8 +131,7 @@ namespace VRChat.API.Model
             return 
                 (
                     this.Android == input.Android ||
-                    (this.Android != null &&
-                    this.Android.Equals(input.Android))
+                    this.Android.Equals(input.Android)
                 ) && 
                 (
                     this.AndroidSort == input.AndroidSort ||
@@ -140,8 +139,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Ios == input.Ios ||
-                    (this.Ios != null &&
-                    this.Ios.Equals(input.Ios))
+                    this.Ios.Equals(input.Ios)
                 ) && 
                 (
                     this.IosSort == input.IosSort ||
@@ -149,8 +147,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Standalonewindows == input.Standalonewindows ||
-                    (this.Standalonewindows != null &&
-                    this.Standalonewindows.Equals(input.Standalonewindows))
+                    this.Standalonewindows.Equals(input.Standalonewindows)
                 ) && 
                 (
                     this.StandalonewindowsSort == input.StandalonewindowsSort ||
@@ -167,20 +164,11 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Android != null)
-                {
-                    hashCode = (hashCode * 59) + this.Android.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Android.GetHashCode();
                 hashCode = (hashCode * 59) + this.AndroidSort.GetHashCode();
-                if (this.Ios != null)
-                {
-                    hashCode = (hashCode * 59) + this.Ios.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Ios.GetHashCode();
                 hashCode = (hashCode * 59) + this.IosSort.GetHashCode();
-                if (this.Standalonewindows != null)
-                {
-                    hashCode = (hashCode * 59) + this.Standalonewindows.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Standalonewindows.GetHashCode();
                 hashCode = (hashCode * 59) + this.StandalonewindowsSort.GetHashCode();
                 return hashCode;
             }

@@ -22,19 +22,25 @@ namespace VRChat.API.Model
     /// <summary>
     /// UserNoteTargetUser
     /// </summary>
-    [DataContract(Name = "UserNote_targetUser")]
+    [DataContract(Name = "UserNoteTargetUser")]
     public partial class UserNoteTargetUser : IEquatable<UserNoteTargetUser>, IValidatableObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UserNoteTargetUser" /> class.
         /// </summary>
-        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="displayName">displayName.</param>
-        public UserNoteTargetUser(string id = default, string displayName = default)
+        /// <param name="id">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        public UserNoteTargetUser(string displayName = default, string id = default)
         {
-            this.Id = id;
             this.DisplayName = displayName;
+            this.Id = id;
         }
+
+        /// <summary>
+        /// Gets or Sets DisplayName
+        /// </summary>
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -44,12 +50,6 @@ namespace VRChat.API.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets DisplayName
-        /// </summary>
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
-        public string DisplayName { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -57,8 +57,8 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class UserNoteTargetUser {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,14 +95,14 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.DisplayName == input.DisplayName ||
                     (this.DisplayName != null &&
                     this.DisplayName.Equals(input.DisplayName))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -115,13 +115,13 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
                 if (this.DisplayName != null)
                 {
                     hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
                 return hashCode;
             }

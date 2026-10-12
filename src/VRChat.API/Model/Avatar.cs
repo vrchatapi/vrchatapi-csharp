@@ -66,11 +66,11 @@ namespace VRChat.API.Model
         /// <param name="tags">tags (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="unityPackageUrl">unityPackageUrl (required).</param>
-        /// <param name="unityPackageUrlObject">unityPackageUrlObject (required).</param>
+        /// <param name="unityPackageUrlObject">**Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead. (required).</param>
         /// <param name="unityPackages">unityPackages (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
-        public Avatar(string acknowledgements = default, string activeAssetReviewId = default, string assetUrl = default, Object assetUrlObject = default, Object attribution = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, bool pendingUpload = false, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListingsInner> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageUrlObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
+        public Avatar(string acknowledgements = default, string activeAssetReviewId = default, string assetUrl = default, Dictionary<string, Object> assetUrlObject = default, Object attribution = default, string authorId = default, string authorName = default, DateTime createdAt = default, string description = default, bool featured = false, int highestPrice = default, string id = default, string imageUrl = default, string listingDate = default, bool varLock = default, int lowestPrice = default, string name = default, bool pendingUpload = false, AvatarPerformance performance = default, string productId = default, List<AvatarPublishedListing> publishedListings = default, ReleaseStatus releaseStatus = default, bool searchable = false, AvatarStyles styles = default, List<string> tags = default, string thumbnailImageUrl = default, string unityPackageUrl = default, AvatarUnityPackageURLObject unityPackageUrlObject = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, int varVersion = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -144,7 +144,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <value>Not present from general search &#x60;/avatars&#x60;, only on specific requests &#x60;/avatars/{avatarId}&#x60;. **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.</value>
         [DataMember(Name = "assetUrlObject", EmitDefaultValue = false)]
-        public Object AssetUrlObject { get; set; }
+        public Dictionary<string, Object> AssetUrlObject { get; set; }
 
         /// <summary>
         /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
@@ -248,7 +248,7 @@ namespace VRChat.API.Model
         /// Gets or Sets PublishedListings
         /// </summary>
         [DataMember(Name = "publishedListings", EmitDefaultValue = false)]
-        public List<AvatarPublishedListingsInner> PublishedListings { get; set; }
+        public List<AvatarPublishedListing> PublishedListings { get; set; }
 
         /// <summary>
         /// Gets or Sets Searchable
@@ -281,11 +281,12 @@ namespace VRChat.API.Model
         public string UnityPackageUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnityPackageUrlObject
+        /// **Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.
         /// </summary>
+        /// <value>**Deprecation:** &#x60;Object&#x60; has unknown usage/fields, and is always empty. Use normal &#x60;Url&#x60; field instead.</value>
         [DataMember(Name = "unityPackageUrlObject", IsRequired = true, EmitDefaultValue = true)]
         [Obsolete]
-        public AvatarUnityPackageUrlObject UnityPackageUrlObject { get; set; }
+        public AvatarUnityPackageURLObject UnityPackageUrlObject { get; set; }
 
         /// <summary>
         /// Gets or Sets UnityPackages
@@ -396,8 +397,9 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.AssetUrlObject == input.AssetUrlObject ||
-                    (this.AssetUrlObject != null &&
-                    this.AssetUrlObject.Equals(input.AssetUrlObject))
+                    this.AssetUrlObject != null &&
+                    input.AssetUrlObject != null &&
+                    this.AssetUrlObject.SequenceEqual(input.AssetUrlObject)
                 ) && 
                 (
                     this.Attribution == input.Attribution ||

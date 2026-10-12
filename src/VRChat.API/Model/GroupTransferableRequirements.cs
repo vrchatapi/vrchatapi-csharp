@@ -22,7 +22,7 @@ namespace VRChat.API.Model
     /// <summary>
     /// GroupTransferableRequirements
     /// </summary>
-    [DataContract(Name = "GroupTransferable_requirements")]
+    [DataContract(Name = "GroupTransferableRequirements")]
     public partial class GroupTransferableRequirements : IEquatable<GroupTransferableRequirements>, IValidatableObject
     {
         /// <summary>
