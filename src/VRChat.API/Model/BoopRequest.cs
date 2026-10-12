@@ -28,10 +28,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BoopRequest" /> class.
         /// </summary>
-        /// <param name="emojiId">Either a FileID or a string constant for default emojis.</param>
+        /// <param name="emojiId">emojiId.</param>
         /// <param name="emojiVersion">emojiVersion.</param>
         /// <param name="inventoryItemId">inventoryItemId.</param>
-        public BoopRequest(string emojiId = default, int emojiVersion = default, string inventoryItemId = default)
+        public BoopRequest(EmojiID emojiId = default, int emojiVersion = default, string inventoryItemId = default)
         {
             this.EmojiId = emojiId;
             this.EmojiVersion = emojiVersion;
@@ -39,11 +39,10 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Either a FileID or a string constant for default emojis
+        /// Gets or Sets EmojiId
         /// </summary>
-        /// <value>Either a FileID or a string constant for default emojis</value>
         [DataMember(Name = "emojiId", EmitDefaultValue = false)]
-        public string EmojiId { get; set; }
+        public EmojiID EmojiId { get; set; }
 
         /// <summary>
         /// Gets or Sets EmojiVersion

@@ -35,10 +35,12 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="message">message.</param>
         /// <param name="statusCode">statusCode (required).</param>
-        public Response(string message = default, int statusCode = default)
+        /// <param name="wafCode">wafCode.</param>
+        public Response(string message = default, int statusCode = default, int wafCode = default)
         {
             this.StatusCode = statusCode;
             this.Message = message;
+            this.WafCode = wafCode;
         }
 
         /// <summary>
@@ -54,6 +56,12 @@ namespace VRChat.API.Model
         public int StatusCode { get; set; }
 
         /// <summary>
+        /// Gets or Sets WafCode
+        /// </summary>
+        [DataMember(Name = "waf_code", EmitDefaultValue = false)]
+        public int WafCode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace VRChat.API.Model
             sb.Append("class Response {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
+            sb.Append("  WafCode: ").Append(WafCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +115,10 @@ namespace VRChat.API.Model
                 (
                     this.StatusCode == input.StatusCode ||
                     this.StatusCode.Equals(input.StatusCode)
+                ) && 
+                (
+                    this.WafCode == input.WafCode ||
+                    this.WafCode.Equals(input.WafCode)
                 );
         }
 
@@ -123,6 +136,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.StatusCode.GetHashCode();
+                hashCode = (hashCode * 59) + this.WafCode.GetHashCode();
                 return hashCode;
             }
         }

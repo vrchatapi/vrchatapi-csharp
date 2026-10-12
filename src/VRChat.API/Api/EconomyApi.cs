@@ -6007,7 +6007,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<Transaction>("/Steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<Transaction>("/steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
@@ -6081,7 +6081,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<Transaction>("/Steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<Transaction>("/steam/transactions/{transactionId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
@@ -6144,7 +6144,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<List<Transaction>>("/Steam/transactions", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<List<Transaction>>("/steam/transactions", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
@@ -6211,7 +6211,7 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Transaction>>("/Steam/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Transaction>>("/steam/transactions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)

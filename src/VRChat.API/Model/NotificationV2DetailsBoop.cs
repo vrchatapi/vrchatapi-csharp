@@ -33,10 +33,10 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationV2DetailsBoop" /> class.
         /// </summary>
-        /// <param name="emojiId">Either a FileID or a string constant for default emojis (required).</param>
+        /// <param name="emojiId">emojiId (required).</param>
         /// <param name="emojiVersion">emojiVersion (required).</param>
         /// <param name="inventoryItemId">inventoryItemId (required).</param>
-        public NotificationV2DetailsBoop(string emojiId = default, int? emojiVersion = default, string inventoryItemId = default)
+        public NotificationV2DetailsBoop(EmojiID emojiId = default, int? emojiVersion = default, string inventoryItemId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.EmojiId = emojiId;
@@ -47,11 +47,10 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Either a FileID or a string constant for default emojis
+        /// Gets or Sets EmojiId
         /// </summary>
-        /// <value>Either a FileID or a string constant for default emojis</value>
         [DataMember(Name = "emojiId", IsRequired = true, EmitDefaultValue = true)]
-        public string EmojiId { get; set; }
+        public EmojiID EmojiId { get; set; }
 
         /// <summary>
         /// Gets or Sets EmojiVersion
