@@ -25,43 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "UpdateProfileRequest")]
     public partial class UpdateProfileRequest : IEquatable<UpdateProfileRequest>, IValidatableObject
     {
-        /// <summary>
-        /// Defines BackgroundType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum BackgroundTypeEnum
-        {
-            /// <summary>
-            /// Enum Default for value: default
-            /// </summary>
-            [EnumMember(Value = "default")]
-            Default = 1,
-
-            /// <summary>
-            /// Enum Gradient for value: gradient
-            /// </summary>
-            [EnumMember(Value = "gradient")]
-            Gradient = 2,
-
-            /// <summary>
-            /// Enum Inventory for value: inventory
-            /// </summary>
-            [EnumMember(Value = "inventory")]
-            Inventory = 3,
-
-            /// <summary>
-            /// Enum Texture for value: texture
-            /// </summary>
-            [EnumMember(Value = "texture")]
-            Texture = 4
-        }
-
 
         /// <summary>
         /// Gets or Sets BackgroundType
         /// </summary>
         [DataMember(Name = "backgroundType", EmitDefaultValue = false)]
-        public BackgroundTypeEnum? BackgroundType { get; set; }
+        public ProfileBackgroundType? BackgroundType { get; set; }
 
         /// <summary>
         /// Gets or Sets BannerType
@@ -86,7 +55,7 @@ namespace VRChat.API.Model
         /// <param name="profileEffect">profileEffect.</param>
         /// <param name="themeId">themeId.</param>
         /// <param name="userIcon">userIcon.</param>
-        public UpdateProfileRequest(string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTextureId = default, BackgroundTypeEnum? backgroundType = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, PublicProfileThemeID themeId = default, string userIcon = default)
+        public UpdateProfileRequest(string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTextureId = default, ProfileBackgroundType? backgroundType = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bio = default, List<string> bioLinks = default, string iconFrame = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, PublicProfileThemeID themeId = default, string userIcon = default)
         {
             this.BackgroundGradientBottom = backgroundGradientBottom;
             this.BackgroundGradientTop = backgroundGradientTop;

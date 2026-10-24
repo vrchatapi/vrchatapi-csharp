@@ -142,7 +142,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <returns>File</returns>
-        File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
+        File FinishFileDataUpload(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
 
         /// <summary>
         /// Finish FileData Upload
@@ -156,7 +156,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
+        ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default);
         /// <summary>
         /// Get AdminAssetBundle
         /// </summary>
@@ -304,7 +304,7 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <returns>FileVersionUploadStatus</returns>
-        FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType);
+        FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, FileDataType fileType);
 
         /// <summary>
         /// Check FileData Upload Status
@@ -317,7 +317,7 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <returns>ApiResponse of FileVersionUploadStatus</returns>
-        ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType);
+        ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, FileDataType fileType);
         /// <summary>
         /// List Files
         /// </summary>
@@ -378,7 +378,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <returns>FileUploadURL</returns>
-        FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default);
+        FileUploadURL StartFileDataUpload(string fileId, int versionId, FileDataType fileType, int? partNumber = default);
 
         /// <summary>
         /// Start FileData Upload
@@ -392,7 +392,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <returns>ApiResponse of FileUploadURL</returns>
-        ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default);
+        ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, FileDataType fileType, int? partNumber = default);
         /// <summary>
         /// Submit Content Agreement
         /// </summary>
@@ -655,7 +655,7 @@ namespace VRChat.API.Api
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Finish FileData Upload
@@ -670,7 +670,7 @@ namespace VRChat.API.Api
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get AdminAssetBundle
         /// </summary>
@@ -831,7 +831,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileVersionUploadStatus</returns>
-        System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, FileDataType fileType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check FileData Upload Status
@@ -845,7 +845,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileVersionUploadStatus)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Files
         /// </summary>
@@ -911,7 +911,7 @@ namespace VRChat.API.Api
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadURL</returns>
-        System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, FileDataType fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start FileData Upload
@@ -926,7 +926,7 @@ namespace VRChat.API.Api
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadURL)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Submit Content Agreement
         /// </summary>
@@ -2014,7 +2014,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <returns>File</returns>
-        public File FinishFileDataUpload(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
+        public File FinishFileDataUpload(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = FinishFileDataUploadWithHttpInfo(fileId, versionId, fileType, finishFileDataUploadRequest);
             if (this.ExceptionFactory != null)
@@ -2037,15 +2037,11 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <returns>ApiResponse of File</returns>
-        public VRChat.API.Client.ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
+        public VRChat.API.Client.ApiResponse<File> FinishFileDataUploadWithHttpInfo(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->FinishFileDataUpload");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->FinishFileDataUpload");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2099,7 +2095,7 @@ namespace VRChat.API.Api
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of File</returns>
-        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<File> FinishFileDataUploadAsync(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<File> localVarResponse = await FinishFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, finishFileDataUploadRequest, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -2123,15 +2119,11 @@ namespace VRChat.API.Api
         /// <param name="finishFileDataUploadRequest">Please see documentation on ETag&#39;s: [https://teppen.io/2018/06/23/aws_s3_etags/](https://teppen.io/2018/06/23/aws_s3_etags/)  ETag&#39;s should NOT be present when uploading a &#x60;signature&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (File)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<File>> FinishFileDataUploadWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, FinishFileDataUploadRequest? finishFileDataUploadRequest = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->FinishFileDataUpload");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->FinishFileDataUpload");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3079,7 +3071,7 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <returns>FileVersionUploadStatus</returns>
-        public FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, string fileType)
+        public FileVersionUploadStatus GetFileDataUploadStatus(string fileId, int versionId, FileDataType fileType)
         {
             VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = GetFileDataUploadStatusWithHttpInfo(fileId, versionId, fileType);
             if (this.ExceptionFactory != null)
@@ -3101,15 +3093,11 @@ namespace VRChat.API.Api
         /// <param name="versionId">Version ID of the asset.</param>
         /// <param name="fileType">Type of file.</param>
         /// <returns>ApiResponse of FileVersionUploadStatus</returns>
-        public VRChat.API.Client.ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, string fileType)
+        public VRChat.API.Client.ApiResponse<FileVersionUploadStatus> GetFileDataUploadStatusWithHttpInfo(string fileId, int versionId, FileDataType fileType)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileDataUploadStatus");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->GetFileDataUploadStatus");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3160,7 +3148,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileVersionUploadStatus</returns>
-        public async System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<FileVersionUploadStatus> GetFileDataUploadStatusAsync(string fileId, int versionId, FileDataType fileType, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileVersionUploadStatus> localVarResponse = await GetFileDataUploadStatusWithHttpInfoAsync(fileId, versionId, fileType, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -3183,15 +3171,11 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileVersionUploadStatus)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, string fileType, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileVersionUploadStatus>> GetFileDataUploadStatusWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->GetFileDataUploadStatus");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->GetFileDataUploadStatus");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -3560,7 +3544,7 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <returns>FileUploadURL</returns>
-        public FileUploadURL StartFileDataUpload(string fileId, int versionId, string fileType, int? partNumber = default)
+        public FileUploadURL StartFileDataUpload(string fileId, int versionId, FileDataType fileType, int? partNumber = default)
         {
             VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = StartFileDataUploadWithHttpInfo(fileId, versionId, fileType, partNumber);
             if (this.ExceptionFactory != null)
@@ -3583,15 +3567,11 @@ namespace VRChat.API.Api
         /// <param name="fileType">Type of file.</param>
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <returns>ApiResponse of FileUploadURL</returns>
-        public VRChat.API.Client.ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, string fileType, int? partNumber = default)
+        public VRChat.API.Client.ApiResponse<FileUploadURL> StartFileDataUploadWithHttpInfo(string fileId, int versionId, FileDataType fileType, int? partNumber = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->StartFileDataUpload");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->StartFileDataUpload");
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -3647,7 +3627,7 @@ namespace VRChat.API.Api
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of FileUploadURL</returns>
-        public async System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<FileUploadURL> StartFileDataUploadAsync(string fileId, int versionId, FileDataType fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<FileUploadURL> localVarResponse = await StartFileDataUploadWithHttpInfoAsync(fileId, versionId, fileType, partNumber, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -3671,15 +3651,11 @@ namespace VRChat.API.Api
         /// <param name="partNumber">The part number to start uploading. If not provided, the first part will be started. (optional) (deprecated)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (FileUploadURL)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, string fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<FileUploadURL>> StartFileDataUploadWithHttpInfoAsync(string fileId, int versionId, FileDataType fileType, int? partNumber = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
                 throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileId' when calling FilesApi->StartFileDataUpload");
-
-            // verify the required parameter 'fileType' is set
-            if (fileType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'fileType' when calling FilesApi->StartFileDataUpload");
 
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();

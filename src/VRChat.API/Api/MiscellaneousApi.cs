@@ -87,10 +87,10 @@ namespace VRChat.API.Api
         /// Fetches the CSS code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>string</returns>
-        string GetCSS(string? variant = default, string? branch = default);
+        string GetCSS(FrontendVariant? variant = default, string? branch = default);
 
         /// <summary>
         /// Download CSS
@@ -99,10 +99,10 @@ namespace VRChat.API.Api
         /// Fetches the CSS code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetCSSWithHttpInfo(string? variant = default, string? branch = default);
+        ApiResponse<string> GetCSSWithHttpInfo(FrontendVariant? variant = default, string? branch = default);
         /// <summary>
         /// Fetch API Config
         /// </summary>
@@ -205,16 +205,41 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;InfoPush&gt;</returns>
         ApiResponse<List<InfoPush>> GetInfoPushWithHttpInfo(string? require = default, string? include = default);
         /// <summary>
+        /// Get Content Shelf Results
+        /// </summary>
+        /// <remarks>
+        /// Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <returns>InfoPushContent</returns>
+        InfoPushContent GetInfoPushContent(string entryId, int? n = default, string? nextCursor = default);
+
+        /// <summary>
+        /// Get Content Shelf Results
+        /// </summary>
+        /// <remarks>
+        /// Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <returns>ApiResponse of InfoPushContent</returns>
+        ApiResponse<InfoPushContent> GetInfoPushContentWithHttpInfo(string entryId, int? n = default, string? nextCursor = default);
+        /// <summary>
         /// Download JavaScript
         /// </summary>
         /// <remarks>
         /// Fetches the JavaScript code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>string</returns>
-        string GetJavaScript(string? variant = default, string? branch = default);
+        string GetJavaScript(FrontendVariant? variant = default, string? branch = default);
 
         /// <summary>
         /// Download JavaScript
@@ -223,10 +248,10 @@ namespace VRChat.API.Api
         /// Fetches the JavaScript code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        ApiResponse<string> GetJavaScriptWithHttpInfo(string? variant = default, string? branch = default);
+        ApiResponse<string> GetJavaScriptWithHttpInfo(FrontendVariant? variant = default, string? branch = default);
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -350,11 +375,11 @@ namespace VRChat.API.Api
         /// Fetches the CSS code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetCSSAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<string> GetCSSAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download CSS
@@ -363,11 +388,11 @@ namespace VRChat.API.Api
         /// Fetches the CSS code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetCSSWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<string>> GetCSSWithHttpInfoAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Fetch API Config
         /// </summary>
@@ -480,17 +505,44 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (List&lt;InfoPush&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<InfoPush>>> GetInfoPushWithHttpInfoAsync(string? require = default, string? include = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get Content Shelf Results
+        /// </summary>
+        /// <remarks>
+        /// Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InfoPushContent</returns>
+        System.Threading.Tasks.Task<InfoPushContent> GetInfoPushContentAsync(string entryId, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Content Shelf Results
+        /// </summary>
+        /// <remarks>
+        /// Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InfoPushContent)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InfoPushContent>> GetInfoPushContentWithHttpInfoAsync(string entryId, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Download JavaScript
         /// </summary>
         /// <remarks>
         /// Fetches the JavaScript code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        System.Threading.Tasks.Task<string> GetJavaScriptAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<string> GetJavaScriptAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Download JavaScript
@@ -499,11 +551,11 @@ namespace VRChat.API.Api
         /// Fetches the JavaScript code to the frontend React website.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        System.Threading.Tasks.Task<ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Permission
         /// </summary>
@@ -1169,10 +1221,10 @@ namespace VRChat.API.Api
         /// Download CSS Fetches the CSS code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>string</returns>
-        public string GetCSS(string? variant = default, string? branch = default)
+        public string GetCSS(FrontendVariant? variant = default, string? branch = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = GetCSSWithHttpInfo(variant, branch);
             if (this.ExceptionFactory != null)
@@ -1190,10 +1242,10 @@ namespace VRChat.API.Api
         /// Download CSS Fetches the CSS code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        public VRChat.API.Client.ApiResponse<string> GetCSSWithHttpInfo(string? variant = default, string? branch = default)
+        public VRChat.API.Client.ApiResponse<string> GetCSSWithHttpInfo(FrontendVariant? variant = default, string? branch = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1239,11 +1291,11 @@ namespace VRChat.API.Api
         /// Download CSS Fetches the CSS code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetCSSAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<string> GetCSSAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = await GetCSSWithHttpInfoAsync(variant, branch, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1261,11 +1313,11 @@ namespace VRChat.API.Api
         /// Download CSS Fetches the CSS code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetCSSWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetCSSWithHttpInfoAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1952,13 +2004,181 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get Content Shelf Results Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <returns>InfoPushContent</returns>
+        public InfoPushContent GetInfoPushContent(string entryId, int? n = default, string? nextCursor = default)
+        {
+            VRChat.API.Client.ApiResponse<InfoPushContent> localVarResponse = GetInfoPushContentWithHttpInfo(entryId, n, nextCursor);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInfoPushContent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Content Shelf Results Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <returns>ApiResponse of InfoPushContent</returns>
+        public VRChat.API.Client.ApiResponse<InfoPushContent> GetInfoPushContentWithHttpInfo(string entryId, int? n = default, string? nextCursor = default)
+        {
+            // verify the required parameter 'entryId' is set
+            if (entryId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'entryId' when calling MiscellaneousApi->GetInfoPushContent");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("entryId", VRChat.API.Client.ClientUtils.ParameterToString(entryId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (nextCursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "nextCursor", nextCursor));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<InfoPushContent>("/infoPush/{entryId}/content", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InfoPushContent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InfoPushContent), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Content Shelf Results Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InfoPushContent</returns>
+        public async System.Threading.Tasks.Task<InfoPushContent> GetInfoPushContentAsync(string entryId, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<InfoPushContent> localVarResponse = await GetInfoPushContentWithHttpInfoAsync(entryId, n, nextCursor, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInfoPushContent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Content Shelf Results Runs the &#x60;contentSource&#x60; of a &#x60;ContentShelf&#x60; entry and returns its results. It runs the source&#39;s own &#x60;params&#x60;, including filters the account may not pass to the source&#39;s endpoint directly.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="entryId">The ID of a &#x60;ContentShelf&#x60; entry.</param>
+        /// <param name="n">The number of results to return. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="nextCursor">The &#x60;nextCursor&#x60; of the previous page. Only a content source with &#x60;pagination&#x60; pages. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InfoPushContent)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InfoPushContent>> GetInfoPushContentWithHttpInfoAsync(string entryId, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'entryId' is set
+            if (entryId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'entryId' when calling MiscellaneousApi->GetInfoPushContent");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("entryId", VRChat.API.Client.ClientUtils.ParameterToString(entryId)); // path parameter
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (nextCursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "nextCursor", nextCursor));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InfoPushContent>("/infoPush/{entryId}/content", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InfoPushContent>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InfoPushContent), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Download JavaScript Fetches the JavaScript code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>string</returns>
-        public string GetJavaScript(string? variant = default, string? branch = default)
+        public string GetJavaScript(FrontendVariant? variant = default, string? branch = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = GetJavaScriptWithHttpInfo(variant, branch);
             if (this.ExceptionFactory != null)
@@ -1976,10 +2196,10 @@ namespace VRChat.API.Api
         /// Download JavaScript Fetches the JavaScript code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <returns>ApiResponse of string</returns>
-        public VRChat.API.Client.ApiResponse<string> GetJavaScriptWithHttpInfo(string? variant = default, string? branch = default)
+        public VRChat.API.Client.ApiResponse<string> GetJavaScriptWithHttpInfo(FrontendVariant? variant = default, string? branch = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2025,11 +2245,11 @@ namespace VRChat.API.Api
         /// Download JavaScript Fetches the JavaScript code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of string</returns>
-        public async System.Threading.Tasks.Task<string> GetJavaScriptAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<string> GetJavaScriptAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<string> localVarResponse = await GetJavaScriptWithHttpInfoAsync(variant, branch, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -2047,11 +2267,11 @@ namespace VRChat.API.Api
         /// Download JavaScript Fetches the JavaScript code to the frontend React website.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional, default to public)</param>
+        /// <param name="variant">Specifies which &#x60;variant&#x60; of the site. Public is the end-user site, while &#x60;internal&#x60; is the staff-only site with special pages for moderation and management. (optional)</param>
         /// <param name="branch">Specifies which git branch the site should load frontend source code from. (optional, default to &quot;main&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (string)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(string? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> GetJavaScriptWithHttpInfoAsync(FrontendVariant? variant = default, string? branch = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();

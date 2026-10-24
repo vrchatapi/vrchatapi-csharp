@@ -13,64 +13,135 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// InfoPushDataCategory
+    /// A category of content. The fields depend on &#x60;type&#x60;.
     /// </summary>
+    [JsonConverter(typeof(InfoPushDataCategoryJsonConverter))]
     [DataContract(Name = "InfoPushDataCategory")]
-    public partial class InfoPushDataCategory : IEquatable<InfoPushDataCategory>, IValidatableObject
+    public partial class InfoPushDataCategory : AbstractOpenAPISchema, IEquatable<InfoPushDataCategory>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPushDataCategory" /> class.
+        /// Initializes a new instance of the <see cref="InfoPushDataCategory" /> class
+        /// with the <see cref="InfoPushDataCategoryArticles" /> class
         /// </summary>
-        /// <param name="ids">ids.</param>
-        /// <param name="ipsQuery">ipsQuery.</param>
-        /// <param name="maxCells">maxCells.</param>
-        /// <param name="name">name.</param>
-        /// <param name="type">type.</param>
-        public InfoPushDataCategory(List<string> ids = default, InfoPushIpsQuery ipsQuery = default, int maxCells = default, LocalizableString name = default, string type = default)
+        /// <param name="actualInstance">An instance of InfoPushDataCategoryArticles.</param>
+        public InfoPushDataCategory(InfoPushDataCategoryArticles actualInstance)
         {
-            this.Ids = ids;
-            this.IpsQuery = ipsQuery;
-            this.MaxCells = maxCells;
-            this.Name = name;
-            this.Type = type;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// Gets or Sets Ids
+        /// Initializes a new instance of the <see cref="InfoPushDataCategory" /> class
+        /// with the <see cref="InfoPushDataCategoryGroups" /> class
         /// </summary>
-        [DataMember(Name = "ids", EmitDefaultValue = false)]
-        public List<string> Ids { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushDataCategoryGroups.</param>
+        public InfoPushDataCategory(InfoPushDataCategoryGroups actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets IpsQuery
+        /// Initializes a new instance of the <see cref="InfoPushDataCategory" /> class
+        /// with the <see cref="InfoPushDataCategoryWorlds" /> class
         /// </summary>
-        [DataMember(Name = "ipsQuery", EmitDefaultValue = false)]
-        public InfoPushIpsQuery IpsQuery { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushDataCategoryWorlds.</param>
+        public InfoPushDataCategory(InfoPushDataCategoryWorlds actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets MaxCells
+        /// Initializes a new instance of the <see cref="InfoPushDataCategory" /> class
+        /// with the <see cref="InfoPushDataCategoryUnknown" /> class
         /// </summary>
-        [DataMember(Name = "maxCells", EmitDefaultValue = false)]
-        public int MaxCells { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushDataCategoryUnknown.</param>
+        public InfoPushDataCategory(InfoPushDataCategoryUnknown actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public LocalizableString Name { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(InfoPushDataCategoryArticles) || value is InfoPushDataCategoryArticles)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushDataCategoryGroups) || value is InfoPushDataCategoryGroups)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushDataCategoryUnknown) || value is InfoPushDataCategoryUnknown)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushDataCategoryWorlds) || value is InfoPushDataCategoryWorlds)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    // Allow setting unknown types to handle unexpected responses gracefully
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    this._actualInstance = value;
+                }
+            }
+        }
 
+        
         /// <summary>
-        /// Gets or Sets Type
+        /// Converts to the <c>InfoPushDataCategoryArticles</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
+        public static implicit operator InfoPushDataCategoryArticles(InfoPushDataCategory value) => (InfoPushDataCategoryArticles)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>InfoPushDataCategoryGroups</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator InfoPushDataCategoryGroups(InfoPushDataCategory value) => (InfoPushDataCategoryGroups)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>InfoPushDataCategoryWorlds</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator InfoPushDataCategoryWorlds(InfoPushDataCategory value) => (InfoPushDataCategoryWorlds)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>InfoPushDataCategoryUnknown</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator InfoPushDataCategoryUnknown(InfoPushDataCategory value) => (InfoPushDataCategoryUnknown)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -78,13 +149,9 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InfoPushDataCategory {\n");
-            sb.Append("  Ids: ").Append(Ids).Append("\n");
-            sb.Append("  IpsQuery: ").Append(IpsQuery).Append("\n");
-            sb.Append("  MaxCells: ").Append(MaxCells).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,9 +160,121 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, InfoPushDataCategory.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of InfoPushDataCategory
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of InfoPushDataCategory</returns>
+        public static InfoPushDataCategory FromJson(string jsonString)
+        {
+            InfoPushDataCategory newInfoPushDataCategory = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newInfoPushDataCategory;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushDataCategoryArticles).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryArticles>(jsonString, InfoPushDataCategory.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryArticles>(jsonString, InfoPushDataCategory.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushDataCategoryArticles");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushDataCategoryArticles: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushDataCategoryGroups).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryGroups>(jsonString, InfoPushDataCategory.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryGroups>(jsonString, InfoPushDataCategory.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushDataCategoryGroups");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushDataCategoryGroups: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushDataCategoryUnknown).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryUnknown>(jsonString, InfoPushDataCategory.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryUnknown>(jsonString, InfoPushDataCategory.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushDataCategoryUnknown");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushDataCategoryUnknown: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushDataCategoryWorlds).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryWorlds>(jsonString, InfoPushDataCategory.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPushDataCategory = new InfoPushDataCategory(JsonConvert.DeserializeObject<InfoPushDataCategoryWorlds>(jsonString, InfoPushDataCategory.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushDataCategoryWorlds");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushDataCategoryWorlds: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                // No match found, return null to handle unexpected responses gracefully
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+                return null;
+            }
+            else if (match > 1)
+            {
+                // Multiple matches found, use the first match and log a warning
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newInfoPushDataCategory;
         }
 
         /// <summary>
@@ -116,35 +295,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPushDataCategory input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.Ids == input.Ids ||
-                    this.Ids != null &&
-                    input.Ids != null &&
-                    this.Ids.SequenceEqual(input.Ids)
-                ) && 
-                (
-                    this.IpsQuery == input.IpsQuery ||
-                    (this.IpsQuery != null &&
-                    this.IpsQuery.Equals(input.IpsQuery))
-                ) && 
-                (
-                    this.MaxCells == input.MaxCells ||
-                    this.MaxCells.Equals(input.MaxCells)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -156,23 +309,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Ids != null)
-                {
-                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
-                }
-                if (this.IpsQuery != null)
-                {
-                    hashCode = (hashCode * 59) + this.IpsQuery.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.MaxCells.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
@@ -182,9 +320,57 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
+        }
+    }
+
+    /// <summary>
+    /// Custom JSON converter for InfoPushDataCategory
+    /// </summary>
+    public class InfoPushDataCategoryJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(InfoPushDataCategory).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return InfoPushDataCategory.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return InfoPushDataCategory.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

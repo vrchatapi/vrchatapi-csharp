@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "FileAnalysis")]
     public partial class FileAnalysis : IEquatable<FileAnalysis>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets PerformanceRating
+        /// </summary>
+        [DataMember(Name = "performanceRating", EmitDefaultValue = false)]
+        public PerformanceRatings? PerformanceRating { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FileAnalysis" /> class.
         /// </summary>
@@ -40,7 +46,7 @@ namespace VRChat.API.Model
         /// <param name="performanceRating">performanceRating.</param>
         /// <param name="success">success (required).</param>
         /// <param name="uncompressedSize">uncompressedSize (required).</param>
-        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default, DateTime createdAt = default, string encryptionKey = default, int fileSize = default, string performanceRating = default, bool success = default, int uncompressedSize = default)
+        public FileAnalysis(FileAnalysisAvatarStats avatarStats = default, DateTime createdAt = default, string encryptionKey = default, int fileSize = default, PerformanceRatings? performanceRating = default, bool success = default, int uncompressedSize = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AvatarStats = avatarStats;
@@ -75,12 +81,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "fileSize", IsRequired = true, EmitDefaultValue = true)]
         public int FileSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PerformanceRating
-        /// </summary>
-        [DataMember(Name = "performanceRating", EmitDefaultValue = false)]
-        public string PerformanceRating { get; set; }
 
         /// <summary>
         /// Gets or Sets Success
@@ -164,8 +164,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.PerformanceRating == input.PerformanceRating ||
-                    (this.PerformanceRating != null &&
-                    this.PerformanceRating.Equals(input.PerformanceRating))
+                    this.PerformanceRating.Equals(input.PerformanceRating)
                 ) && 
                 (
                     this.Success == input.Success ||
@@ -196,10 +195,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.EncryptionKey.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.FileSize.GetHashCode();
-                if (this.PerformanceRating != null)
-                {
-                    hashCode = (hashCode * 59) + this.PerformanceRating.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.PerformanceRating.GetHashCode();
                 hashCode = (hashCode * 59) + this.Success.GetHashCode();
                 hashCode = (hashCode * 59) + this.UncompressedSize.GetHashCode();
                 return hashCode;

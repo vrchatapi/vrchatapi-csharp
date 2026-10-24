@@ -16,384 +16,361 @@ using Newtonsoft.Json.Linq;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// InfoPushData
+    /// The data of an item without &#x60;type&#x60;. Its fields depend on the item&#39;s tags.
     /// </summary>
+    [JsonConverter(typeof(InfoPushDataJsonConverter))]
     [DataContract(Name = "InfoPushData")]
-    public partial class InfoPushData : IEquatable<InfoPushData>, IValidatableObject
+    public partial class InfoPushData : AbstractOpenAPISchema, IEquatable<InfoPushData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPushData" /> class.
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushOnboardingAvatarData" /> class
         /// </summary>
-        /// <param name="article">article.</param>
-        /// <param name="authorName">authorName.</param>
-        /// <param name="avatarId">avatarId.</param>
-        /// <param name="bannerImageUrl">bannerImageUrl.</param>
-        /// <param name="body">body.</param>
-        /// <param name="categories">categories.</param>
-        /// <param name="category">category.</param>
-        /// <param name="contentList">contentList.</param>
-        /// <param name="contentSource">contentSource.</param>
-        /// <param name="controls">controls.</param>
-        /// <param name="cta">cta.</param>
-        /// <param name="deliveryBehavior">deliveryBehavior.</param>
-        /// <param name="description">description.</param>
-        /// <param name="disclaimerText">disclaimerText.</param>
-        /// <param name="domainList">domainList.</param>
-        /// <param name="featuredAvatarCategoryId">featuredAvatarCategoryId.</param>
-        /// <param name="finalName">finalName.</param>
-        /// <param name="hoverToJoin">hoverToJoin.</param>
-        /// <param name="iconImageUrl">iconImageUrl.</param>
-        /// <param name="imageFileId">imageFileId.</param>
-        /// <param name="imageUrl">imageUrl.</param>
-        /// <param name="ipsQuery">ipsQuery.</param>
-        /// <param name="isNew">isNew.</param>
-        /// <param name="listingIds">listingIds.</param>
-        /// <param name="mediaType">mediaType.</param>
-        /// <param name="name">name.</param>
-        /// <param name="onPressed">onPressed.</param>
-        /// <param name="overrideName">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
-        /// <param name="presentation">presentation.</param>
-        /// <param name="promotion">promotion.</param>
-        /// <param name="rows">Number of rows to render..</param>
-        /// <param name="schemaVersion">schemaVersion.</param>
-        /// <param name="search">search.</param>
-        /// <param name="shortName">shortName.</param>
-        /// <param name="showInWorldIds">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
-        /// <param name="subtitle">subtitle.</param>
-        /// <param name="template">template.</param>
-        /// <param name="thumbnailImageUrl">thumbnailImageUrl.</param>
-        /// <param name="title">title.</param>
-        /// <param name="tooltipDescription">tooltipDescription.</param>
-        /// <param name="varVersion">varVersion.</param>
-        /// <param name="videoFileId">videoFileId.</param>
-        /// <param name="videoUrl">videoUrl.</param>
-        /// <param name="weight">weight.</param>
-        /// <param name="worldTag">worldTag.</param>
-        public InfoPushData(InfoPushDataArticle article = default, string authorName = default, string avatarId = default, string bannerImageUrl = default, string body = default, List<InfoPushDataCategory> categories = default, string category = default, DynamicContentRow contentList = default, InfoPushDataContentSource contentSource = default, List<InfoPushDataControl> controls = default, InfoPushDataCallToAction cta = default, InfoPushDataDeliveryBehavior deliveryBehavior = default, LocalizableString description = default, string disclaimerText = default, List<InfoPushDataDomain> domainList = default, string featuredAvatarCategoryId = default, string finalName = default, bool hoverToJoin = default, string iconImageUrl = default, string imageFileId = default, string imageUrl = default, InfoPushIpsQuery ipsQuery = default, bool isNew = default, List<string> listingIds = default, string mediaType = default, LocalizableString name = default, InfoPushDataClickable onPressed = default, Object overrideName = default, InfoPushDataPresentation presentation = default, InfoPushDataPromotion promotion = default, int? rows = default, int schemaVersion = default, InfoPushDataSearch search = default, LocalizableString shortName = default, Object showInWorldIds = default, string subtitle = default, string template = default, string thumbnailImageUrl = default, string title = default, LocalizableString tooltipDescription = default, string varVersion = default, string videoFileId = default, string videoUrl = default, int weight = default, string worldTag = default)
+        /// <param name="actualInstance">An instance of InfoPushOnboardingAvatarData.</param>
+        public InfoPushData(InfoPushOnboardingAvatarData actualInstance)
         {
-            this.Article = article;
-            this.AuthorName = authorName;
-            this.AvatarId = avatarId;
-            this.BannerImageUrl = bannerImageUrl;
-            this.Body = body;
-            this.Categories = categories;
-            this.Category = category;
-            this.ContentList = contentList;
-            this.ContentSource = contentSource;
-            this.Controls = controls;
-            this.Cta = cta;
-            this.DeliveryBehavior = deliveryBehavior;
-            this.Description = description;
-            this.DisclaimerText = disclaimerText;
-            this.DomainList = domainList;
-            this.FeaturedAvatarCategoryId = featuredAvatarCategoryId;
-            this.FinalName = finalName;
-            this.HoverToJoin = hoverToJoin;
-            this.IconImageUrl = iconImageUrl;
-            this.ImageFileId = imageFileId;
-            this.ImageUrl = imageUrl;
-            this.IpsQuery = ipsQuery;
-            this.IsNew = isNew;
-            this.ListingIds = listingIds;
-            this.MediaType = mediaType;
-            this.Name = name;
-            this.OnPressed = onPressed;
-            this.OverrideName = overrideName;
-            this.Presentation = presentation;
-            this.Promotion = promotion;
-            this.Rows = rows;
-            this.SchemaVersion = schemaVersion;
-            this.Search = search;
-            this.ShortName = shortName;
-            this.ShowInWorldIds = showInWorldIds;
-            this.Subtitle = subtitle;
-            this.Template = template;
-            this.ThumbnailImageUrl = thumbnailImageUrl;
-            this.Title = title;
-            this.TooltipDescription = tooltipDescription;
-            this.VarVersion = varVersion;
-            this.VideoFileId = videoFileId;
-            this.VideoUrl = videoUrl;
-            this.Weight = weight;
-            this.WorldTag = worldTag;
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// Gets or Sets Article
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushHelpTopicData" /> class
         /// </summary>
-        [DataMember(Name = "article", EmitDefaultValue = false)]
-        public InfoPushDataArticle Article { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushHelpTopicData.</param>
+        public InfoPushData(InfoPushHelpTopicData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets AuthorName
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushDiscoveryCategoryData" /> class
         /// </summary>
-        [DataMember(Name = "authorName", EmitDefaultValue = false)]
-        public string AuthorName { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushDiscoveryCategoryData.</param>
+        public InfoPushData(InfoPushDiscoveryCategoryData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets AvatarId
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushHelpArticleData" /> class
         /// </summary>
-        [DataMember(Name = "avatarId", EmitDefaultValue = false)]
-        public string AvatarId { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushHelpArticleData.</param>
+        public InfoPushData(InfoPushHelpArticleData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets BannerImageUrl
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushLoadingScreenBannerData" /> class
         /// </summary>
-        [DataMember(Name = "bannerImageUrl", EmitDefaultValue = false)]
-        public string BannerImageUrl { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushLoadingScreenBannerData.</param>
+        public InfoPushData(InfoPushLoadingScreenBannerData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Body
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushMarketplacePageData" /> class
         /// </summary>
-        [DataMember(Name = "body", EmitDefaultValue = false)]
-        public string Body { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushMarketplacePageData.</param>
+        public InfoPushData(InfoPushMarketplacePageData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Categories
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushWorldCategoryData" /> class
         /// </summary>
-        [DataMember(Name = "categories", EmitDefaultValue = false)]
-        public List<InfoPushDataCategory> Categories { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushWorldCategoryData.</param>
+        public InfoPushData(InfoPushWorldCategoryData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Category
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushUrlConsentScreenData" /> class
         /// </summary>
-        [DataMember(Name = "category", EmitDefaultValue = false)]
-        public string Category { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushUrlConsentScreenData.</param>
+        public InfoPushData(InfoPushUrlConsentScreenData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets ContentList
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushAvatarCategoryData" /> class
         /// </summary>
-        [DataMember(Name = "contentList", EmitDefaultValue = false)]
-        public DynamicContentRow ContentList { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushAvatarCategoryData.</param>
+        public InfoPushData(InfoPushAvatarCategoryData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets ContentSource
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushSearchData" /> class
         /// </summary>
-        [DataMember(Name = "contentSource", EmitDefaultValue = false)]
-        public InfoPushDataContentSource ContentSource { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushSearchData.</param>
+        public InfoPushData(InfoPushSearchData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Controls
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushAccessoriesCategoryData" /> class
         /// </summary>
-        [DataMember(Name = "controls", EmitDefaultValue = false)]
-        public List<InfoPushDataControl> Controls { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushAccessoriesCategoryData.</param>
+        public InfoPushData(InfoPushAccessoriesCategoryData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Cta
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushBannerData" /> class
         /// </summary>
-        [DataMember(Name = "cta", EmitDefaultValue = false)]
-        public InfoPushDataCallToAction Cta { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushBannerData.</param>
+        public InfoPushData(InfoPushBannerData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets DeliveryBehavior
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushVersionData" /> class
         /// </summary>
-        [DataMember(Name = "deliveryBehavior", EmitDefaultValue = false)]
-        public InfoPushDataDeliveryBehavior DeliveryBehavior { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushVersionData.</param>
+        public InfoPushData(InfoPushVersionData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Initializes a new instance of the <see cref="InfoPushData" /> class
+        /// with the <see cref="InfoPushOtherData" /> class
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public LocalizableString Description { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushOtherData.</param>
+        public InfoPushData(InfoPushOtherData actualInstance)
+        {
+            IsNullable = false;
+            SchemaType= "anyOf";
+            ActualInstance = actualInstance;
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets DisclaimerText
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "disclaimerText", EmitDefaultValue = false)]
-        public string DisclaimerText { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(InfoPushAccessoriesCategoryData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushAvatarCategoryData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushBannerData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushDiscoveryCategoryData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushHelpArticleData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushHelpTopicData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushLoadingScreenBannerData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushMarketplacePageData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushOnboardingAvatarData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushOtherData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushSearchData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushUrlConsentScreenData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushVersionData))
+                {
+                    _actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushWorldCategoryData))
+                {
+                    _actualInstance = value;
+                }
+                else
+                {
+                    // Allow setting unknown types to handle unexpected responses gracefully
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in anyOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    _actualInstance = value;
+                }
+            }
+        }
 
+        
         /// <summary>
-        /// Gets or Sets DomainList
+        /// Converts to the <c>InfoPushOnboardingAvatarData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "domainList", EmitDefaultValue = false)]
-        public List<InfoPushDataDomain> DomainList { get; set; }
+        public static implicit operator InfoPushOnboardingAvatarData(InfoPushData value) => (InfoPushOnboardingAvatarData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets FeaturedAvatarCategoryId
+        /// Converts to the <c>InfoPushHelpTopicData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "featuredAvatarCategoryId", EmitDefaultValue = false)]
-        public string FeaturedAvatarCategoryId { get; set; }
+        public static implicit operator InfoPushHelpTopicData(InfoPushData value) => (InfoPushHelpTopicData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets FinalName
+        /// Converts to the <c>InfoPushDiscoveryCategoryData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "finalName", EmitDefaultValue = false)]
-        public string FinalName { get; set; }
+        public static implicit operator InfoPushDiscoveryCategoryData(InfoPushData value) => (InfoPushDiscoveryCategoryData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets HoverToJoin
+        /// Converts to the <c>InfoPushHelpArticleData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "hoverToJoin", EmitDefaultValue = true)]
-        public bool HoverToJoin { get; set; }
+        public static implicit operator InfoPushHelpArticleData(InfoPushData value) => (InfoPushHelpArticleData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets IconImageUrl
+        /// Converts to the <c>InfoPushLoadingScreenBannerData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "iconImageUrl", EmitDefaultValue = false)]
-        public string IconImageUrl { get; set; }
+        public static implicit operator InfoPushLoadingScreenBannerData(InfoPushData value) => (InfoPushLoadingScreenBannerData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets ImageFileId
+        /// Converts to the <c>InfoPushMarketplacePageData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "imageFileId", EmitDefaultValue = false)]
-        public string ImageFileId { get; set; }
+        public static implicit operator InfoPushMarketplacePageData(InfoPushData value) => (InfoPushMarketplacePageData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets ImageUrl
+        /// Converts to the <c>InfoPushWorldCategoryData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
-        public string ImageUrl { get; set; }
+        public static implicit operator InfoPushWorldCategoryData(InfoPushData value) => (InfoPushWorldCategoryData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets IpsQuery
+        /// Converts to the <c>InfoPushUrlConsentScreenData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "ipsQuery", EmitDefaultValue = false)]
-        public InfoPushIpsQuery IpsQuery { get; set; }
+        public static implicit operator InfoPushUrlConsentScreenData(InfoPushData value) => (InfoPushUrlConsentScreenData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets IsNew
+        /// Converts to the <c>InfoPushAvatarCategoryData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "isNew", EmitDefaultValue = true)]
-        public bool IsNew { get; set; }
+        public static implicit operator InfoPushAvatarCategoryData(InfoPushData value) => (InfoPushAvatarCategoryData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets ListingIds
+        /// Converts to the <c>InfoPushSearchData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "listingIds", EmitDefaultValue = false)]
-        public List<string> ListingIds { get; set; }
+        public static implicit operator InfoPushSearchData(InfoPushData value) => (InfoPushSearchData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets MediaType
+        /// Converts to the <c>InfoPushAccessoriesCategoryData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "mediaType", EmitDefaultValue = false)]
-        public string MediaType { get; set; }
+        public static implicit operator InfoPushAccessoriesCategoryData(InfoPushData value) => (InfoPushAccessoriesCategoryData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets Name
+        /// Converts to the <c>InfoPushBannerData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public LocalizableString Name { get; set; }
+        public static implicit operator InfoPushBannerData(InfoPushData value) => (InfoPushBannerData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets OnPressed
+        /// Converts to the <c>InfoPushVersionData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "onPressed", EmitDefaultValue = true)]
-        public InfoPushDataClickable OnPressed { get; set; }
+        public static implicit operator InfoPushVersionData(InfoPushData value) => (InfoPushVersionData)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
+        /// Converts to the <c>InfoPushOtherData</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
-        [DataMember(Name = "overrideName", EmitDefaultValue = true)]
-        public Object OverrideName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Presentation
-        /// </summary>
-        [DataMember(Name = "presentation", EmitDefaultValue = false)]
-        public InfoPushDataPresentation Presentation { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Promotion
-        /// </summary>
-        [DataMember(Name = "promotion", EmitDefaultValue = false)]
-        public InfoPushDataPromotion Promotion { get; set; }
-
-        /// <summary>
-        /// Number of rows to render.
-        /// </summary>
-        /// <value>Number of rows to render.</value>
-        [DataMember(Name = "rows", EmitDefaultValue = true)]
-        public int? Rows { get; set; }
-
-        /// <summary>
-        /// Gets or Sets SchemaVersion
-        /// </summary>
-        [DataMember(Name = "schemaVersion", EmitDefaultValue = false)]
-        public int SchemaVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Search
-        /// </summary>
-        [DataMember(Name = "search", EmitDefaultValue = false)]
-        public InfoPushDataSearch Search { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ShortName
-        /// </summary>
-        [DataMember(Name = "shortName", EmitDefaultValue = true)]
-        public LocalizableString ShortName { get; set; }
-
-        /// <summary>
-        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
-        /// </summary>
-        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
-        [DataMember(Name = "showInWorldIds", EmitDefaultValue = true)]
-        public Object ShowInWorldIds { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Subtitle
-        /// </summary>
-        [DataMember(Name = "subtitle", EmitDefaultValue = false)]
-        public string Subtitle { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Template
-        /// </summary>
-        [DataMember(Name = "template", EmitDefaultValue = false)]
-        public string Template { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ThumbnailImageUrl
-        /// </summary>
-        [DataMember(Name = "thumbnailImageUrl", EmitDefaultValue = true)]
-        public string ThumbnailImageUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Title
-        /// </summary>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// Gets or Sets TooltipDescription
-        /// </summary>
-        [DataMember(Name = "tooltipDescription", EmitDefaultValue = false)]
-        public LocalizableString TooltipDescription { get; set; }
-
-        /// <summary>
-        /// Gets or Sets VarVersion
-        /// </summary>
-        [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string VarVersion { get; set; }
-
-        /// <summary>
-        /// Gets or Sets VideoFileId
-        /// </summary>
-        [DataMember(Name = "videoFileId", EmitDefaultValue = false)]
-        public string VideoFileId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets VideoUrl
-        /// </summary>
-        [DataMember(Name = "videoUrl", EmitDefaultValue = false)]
-        public string VideoUrl { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Weight
-        /// </summary>
-        [DataMember(Name = "weight", EmitDefaultValue = false)]
-        public int Weight { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WorldTag
-        /// </summary>
-        [DataMember(Name = "worldTag", EmitDefaultValue = false)]
-        public string WorldTag { get; set; }
+        public static implicit operator InfoPushOtherData(InfoPushData value) => (InfoPushOtherData)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -401,53 +378,9 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InfoPushData {\n");
-            sb.Append("  Article: ").Append(Article).Append("\n");
-            sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
-            sb.Append("  AvatarId: ").Append(AvatarId).Append("\n");
-            sb.Append("  BannerImageUrl: ").Append(BannerImageUrl).Append("\n");
-            sb.Append("  Body: ").Append(Body).Append("\n");
-            sb.Append("  Categories: ").Append(Categories).Append("\n");
-            sb.Append("  Category: ").Append(Category).Append("\n");
-            sb.Append("  ContentList: ").Append(ContentList).Append("\n");
-            sb.Append("  ContentSource: ").Append(ContentSource).Append("\n");
-            sb.Append("  Controls: ").Append(Controls).Append("\n");
-            sb.Append("  Cta: ").Append(Cta).Append("\n");
-            sb.Append("  DeliveryBehavior: ").Append(DeliveryBehavior).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DisclaimerText: ").Append(DisclaimerText).Append("\n");
-            sb.Append("  DomainList: ").Append(DomainList).Append("\n");
-            sb.Append("  FeaturedAvatarCategoryId: ").Append(FeaturedAvatarCategoryId).Append("\n");
-            sb.Append("  FinalName: ").Append(FinalName).Append("\n");
-            sb.Append("  HoverToJoin: ").Append(HoverToJoin).Append("\n");
-            sb.Append("  IconImageUrl: ").Append(IconImageUrl).Append("\n");
-            sb.Append("  ImageFileId: ").Append(ImageFileId).Append("\n");
-            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
-            sb.Append("  IpsQuery: ").Append(IpsQuery).Append("\n");
-            sb.Append("  IsNew: ").Append(IsNew).Append("\n");
-            sb.Append("  ListingIds: ").Append(ListingIds).Append("\n");
-            sb.Append("  MediaType: ").Append(MediaType).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  OnPressed: ").Append(OnPressed).Append("\n");
-            sb.Append("  OverrideName: ").Append(OverrideName).Append("\n");
-            sb.Append("  Presentation: ").Append(Presentation).Append("\n");
-            sb.Append("  Promotion: ").Append(Promotion).Append("\n");
-            sb.Append("  Rows: ").Append(Rows).Append("\n");
-            sb.Append("  SchemaVersion: ").Append(SchemaVersion).Append("\n");
-            sb.Append("  Search: ").Append(Search).Append("\n");
-            sb.Append("  ShortName: ").Append(ShortName).Append("\n");
-            sb.Append("  ShowInWorldIds: ").Append(ShowInWorldIds).Append("\n");
-            sb.Append("  Subtitle: ").Append(Subtitle).Append("\n");
-            sb.Append("  Template: ").Append(Template).Append("\n");
-            sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  TooltipDescription: ").Append(TooltipDescription).Append("\n");
-            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
-            sb.Append("  VideoFileId: ").Append(VideoFileId).Append("\n");
-            sb.Append("  VideoUrl: ").Append(VideoUrl).Append("\n");
-            sb.Append("  Weight: ").Append(Weight).Append("\n");
-            sb.Append("  WorldTag: ").Append(WorldTag).Append("\n");
+            sb.Append("  ActualInstance: ").Append(ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -456,9 +389,196 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(ActualInstance, InfoPushData.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of InfoPushData
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of InfoPushData</returns>
+        public static InfoPushData FromJson(string jsonString)
+        {
+            InfoPushData newInfoPushData = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newInfoPushData;
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushAccessoriesCategoryData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushAccessoriesCategoryData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushAvatarCategoryData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushAvatarCategoryData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushBannerData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushBannerData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushDiscoveryCategoryData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushDiscoveryCategoryData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushHelpArticleData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushHelpArticleData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushHelpTopicData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushHelpTopicData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushLoadingScreenBannerData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushLoadingScreenBannerData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushMarketplacePageData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushMarketplacePageData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushOnboardingAvatarData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushOnboardingAvatarData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushOtherData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushOtherData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushSearchData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushSearchData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushUrlConsentScreenData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushUrlConsentScreenData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushVersionData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushVersionData: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                newInfoPushData = new InfoPushData(JsonConvert.DeserializeObject<InfoPushWorldCategoryData>(jsonString, InfoPushData.SerializerSettings));
+                // deserialization is considered successful at this point if no exception has been thrown.
+                return newInfoPushData;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushWorldCategoryData: {1}", jsonString, exception.ToString()));
+            }
+
+            // no match found, return null to handle unexpected responses gracefully
+            System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+            return null;
         }
 
         /// <summary>
@@ -468,7 +588,7 @@ namespace VRChat.API.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InfoPushData);
+            return Equals(input as InfoPushData);
         }
 
         /// <summary>
@@ -479,235 +599,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPushData input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.Article == input.Article ||
-                    (this.Article != null &&
-                    this.Article.Equals(input.Article))
-                ) && 
-                (
-                    this.AuthorName == input.AuthorName ||
-                    (this.AuthorName != null &&
-                    this.AuthorName.Equals(input.AuthorName))
-                ) && 
-                (
-                    this.AvatarId == input.AvatarId ||
-                    (this.AvatarId != null &&
-                    this.AvatarId.Equals(input.AvatarId))
-                ) && 
-                (
-                    this.BannerImageUrl == input.BannerImageUrl ||
-                    (this.BannerImageUrl != null &&
-                    this.BannerImageUrl.Equals(input.BannerImageUrl))
-                ) && 
-                (
-                    this.Body == input.Body ||
-                    (this.Body != null &&
-                    this.Body.Equals(input.Body))
-                ) && 
-                (
-                    this.Categories == input.Categories ||
-                    this.Categories != null &&
-                    input.Categories != null &&
-                    this.Categories.SequenceEqual(input.Categories)
-                ) && 
-                (
-                    this.Category == input.Category ||
-                    (this.Category != null &&
-                    this.Category.Equals(input.Category))
-                ) && 
-                (
-                    this.ContentList == input.ContentList ||
-                    (this.ContentList != null &&
-                    this.ContentList.Equals(input.ContentList))
-                ) && 
-                (
-                    this.ContentSource == input.ContentSource ||
-                    (this.ContentSource != null &&
-                    this.ContentSource.Equals(input.ContentSource))
-                ) && 
-                (
-                    this.Controls == input.Controls ||
-                    this.Controls != null &&
-                    input.Controls != null &&
-                    this.Controls.SequenceEqual(input.Controls)
-                ) && 
-                (
-                    this.Cta == input.Cta ||
-                    (this.Cta != null &&
-                    this.Cta.Equals(input.Cta))
-                ) && 
-                (
-                    this.DeliveryBehavior == input.DeliveryBehavior ||
-                    (this.DeliveryBehavior != null &&
-                    this.DeliveryBehavior.Equals(input.DeliveryBehavior))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.DisclaimerText == input.DisclaimerText ||
-                    (this.DisclaimerText != null &&
-                    this.DisclaimerText.Equals(input.DisclaimerText))
-                ) && 
-                (
-                    this.DomainList == input.DomainList ||
-                    this.DomainList != null &&
-                    input.DomainList != null &&
-                    this.DomainList.SequenceEqual(input.DomainList)
-                ) && 
-                (
-                    this.FeaturedAvatarCategoryId == input.FeaturedAvatarCategoryId ||
-                    (this.FeaturedAvatarCategoryId != null &&
-                    this.FeaturedAvatarCategoryId.Equals(input.FeaturedAvatarCategoryId))
-                ) && 
-                (
-                    this.FinalName == input.FinalName ||
-                    (this.FinalName != null &&
-                    this.FinalName.Equals(input.FinalName))
-                ) && 
-                (
-                    this.HoverToJoin == input.HoverToJoin ||
-                    this.HoverToJoin.Equals(input.HoverToJoin)
-                ) && 
-                (
-                    this.IconImageUrl == input.IconImageUrl ||
-                    (this.IconImageUrl != null &&
-                    this.IconImageUrl.Equals(input.IconImageUrl))
-                ) && 
-                (
-                    this.ImageFileId == input.ImageFileId ||
-                    (this.ImageFileId != null &&
-                    this.ImageFileId.Equals(input.ImageFileId))
-                ) && 
-                (
-                    this.ImageUrl == input.ImageUrl ||
-                    (this.ImageUrl != null &&
-                    this.ImageUrl.Equals(input.ImageUrl))
-                ) && 
-                (
-                    this.IpsQuery == input.IpsQuery ||
-                    (this.IpsQuery != null &&
-                    this.IpsQuery.Equals(input.IpsQuery))
-                ) && 
-                (
-                    this.IsNew == input.IsNew ||
-                    this.IsNew.Equals(input.IsNew)
-                ) && 
-                (
-                    this.ListingIds == input.ListingIds ||
-                    this.ListingIds != null &&
-                    input.ListingIds != null &&
-                    this.ListingIds.SequenceEqual(input.ListingIds)
-                ) && 
-                (
-                    this.MediaType == input.MediaType ||
-                    (this.MediaType != null &&
-                    this.MediaType.Equals(input.MediaType))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.OnPressed == input.OnPressed ||
-                    (this.OnPressed != null &&
-                    this.OnPressed.Equals(input.OnPressed))
-                ) && 
-                (
-                    this.OverrideName == input.OverrideName ||
-                    (this.OverrideName != null &&
-                    this.OverrideName.Equals(input.OverrideName))
-                ) && 
-                (
-                    this.Presentation == input.Presentation ||
-                    (this.Presentation != null &&
-                    this.Presentation.Equals(input.Presentation))
-                ) && 
-                (
-                    this.Promotion == input.Promotion ||
-                    (this.Promotion != null &&
-                    this.Promotion.Equals(input.Promotion))
-                ) && 
-                (
-                    this.Rows == input.Rows ||
-                    (this.Rows != null &&
-                    this.Rows.Equals(input.Rows))
-                ) && 
-                (
-                    this.SchemaVersion == input.SchemaVersion ||
-                    this.SchemaVersion.Equals(input.SchemaVersion)
-                ) && 
-                (
-                    this.Search == input.Search ||
-                    (this.Search != null &&
-                    this.Search.Equals(input.Search))
-                ) && 
-                (
-                    this.ShortName == input.ShortName ||
-                    (this.ShortName != null &&
-                    this.ShortName.Equals(input.ShortName))
-                ) && 
-                (
-                    this.ShowInWorldIds == input.ShowInWorldIds ||
-                    (this.ShowInWorldIds != null &&
-                    this.ShowInWorldIds.Equals(input.ShowInWorldIds))
-                ) && 
-                (
-                    this.Subtitle == input.Subtitle ||
-                    (this.Subtitle != null &&
-                    this.Subtitle.Equals(input.Subtitle))
-                ) && 
-                (
-                    this.Template == input.Template ||
-                    (this.Template != null &&
-                    this.Template.Equals(input.Template))
-                ) && 
-                (
-                    this.ThumbnailImageUrl == input.ThumbnailImageUrl ||
-                    (this.ThumbnailImageUrl != null &&
-                    this.ThumbnailImageUrl.Equals(input.ThumbnailImageUrl))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.TooltipDescription == input.TooltipDescription ||
-                    (this.TooltipDescription != null &&
-                    this.TooltipDescription.Equals(input.TooltipDescription))
-                ) && 
-                (
-                    this.VarVersion == input.VarVersion ||
-                    (this.VarVersion != null &&
-                    this.VarVersion.Equals(input.VarVersion))
-                ) && 
-                (
-                    this.VideoFileId == input.VideoFileId ||
-                    (this.VideoFileId != null &&
-                    this.VideoFileId.Equals(input.VideoFileId))
-                ) && 
-                (
-                    this.VideoUrl == input.VideoUrl ||
-                    (this.VideoUrl != null &&
-                    this.VideoUrl.Equals(input.VideoUrl))
-                ) && 
-                (
-                    this.Weight == input.Weight ||
-                    this.Weight.Equals(input.Weight)
-                ) && 
-                (
-                    this.WorldTag == input.WorldTag ||
-                    (this.WorldTag != null &&
-                    this.WorldTag.Equals(input.WorldTag))
-                );
+
+            return ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -719,174 +613,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Article != null)
-                {
-                    hashCode = (hashCode * 59) + this.Article.GetHashCode();
-                }
-                if (this.AuthorName != null)
-                {
-                    hashCode = (hashCode * 59) + this.AuthorName.GetHashCode();
-                }
-                if (this.AvatarId != null)
-                {
-                    hashCode = (hashCode * 59) + this.AvatarId.GetHashCode();
-                }
-                if (this.BannerImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.BannerImageUrl.GetHashCode();
-                }
-                if (this.Body != null)
-                {
-                    hashCode = (hashCode * 59) + this.Body.GetHashCode();
-                }
-                if (this.Categories != null)
-                {
-                    hashCode = (hashCode * 59) + this.Categories.GetHashCode();
-                }
-                if (this.Category != null)
-                {
-                    hashCode = (hashCode * 59) + this.Category.GetHashCode();
-                }
-                if (this.ContentList != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentList.GetHashCode();
-                }
-                if (this.ContentSource != null)
-                {
-                    hashCode = (hashCode * 59) + this.ContentSource.GetHashCode();
-                }
-                if (this.Controls != null)
-                {
-                    hashCode = (hashCode * 59) + this.Controls.GetHashCode();
-                }
-                if (this.Cta != null)
-                {
-                    hashCode = (hashCode * 59) + this.Cta.GetHashCode();
-                }
-                if (this.DeliveryBehavior != null)
-                {
-                    hashCode = (hashCode * 59) + this.DeliveryBehavior.GetHashCode();
-                }
-                if (this.Description != null)
-                {
-                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
-                }
-                if (this.DisclaimerText != null)
-                {
-                    hashCode = (hashCode * 59) + this.DisclaimerText.GetHashCode();
-                }
-                if (this.DomainList != null)
-                {
-                    hashCode = (hashCode * 59) + this.DomainList.GetHashCode();
-                }
-                if (this.FeaturedAvatarCategoryId != null)
-                {
-                    hashCode = (hashCode * 59) + this.FeaturedAvatarCategoryId.GetHashCode();
-                }
-                if (this.FinalName != null)
-                {
-                    hashCode = (hashCode * 59) + this.FinalName.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.HoverToJoin.GetHashCode();
-                if (this.IconImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.IconImageUrl.GetHashCode();
-                }
-                if (this.ImageFileId != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageFileId.GetHashCode();
-                }
-                if (this.ImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
-                }
-                if (this.IpsQuery != null)
-                {
-                    hashCode = (hashCode * 59) + this.IpsQuery.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsNew.GetHashCode();
-                if (this.ListingIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingIds.GetHashCode();
-                }
-                if (this.MediaType != null)
-                {
-                    hashCode = (hashCode * 59) + this.MediaType.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.OnPressed != null)
-                {
-                    hashCode = (hashCode * 59) + this.OnPressed.GetHashCode();
-                }
-                if (this.OverrideName != null)
-                {
-                    hashCode = (hashCode * 59) + this.OverrideName.GetHashCode();
-                }
-                if (this.Presentation != null)
-                {
-                    hashCode = (hashCode * 59) + this.Presentation.GetHashCode();
-                }
-                if (this.Promotion != null)
-                {
-                    hashCode = (hashCode * 59) + this.Promotion.GetHashCode();
-                }
-                if (this.Rows != null)
-                {
-                    hashCode = (hashCode * 59) + this.Rows.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.SchemaVersion.GetHashCode();
-                if (this.Search != null)
-                {
-                    hashCode = (hashCode * 59) + this.Search.GetHashCode();
-                }
-                if (this.ShortName != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShortName.GetHashCode();
-                }
-                if (this.ShowInWorldIds != null)
-                {
-                    hashCode = (hashCode * 59) + this.ShowInWorldIds.GetHashCode();
-                }
-                if (this.Subtitle != null)
-                {
-                    hashCode = (hashCode * 59) + this.Subtitle.GetHashCode();
-                }
-                if (this.Template != null)
-                {
-                    hashCode = (hashCode * 59) + this.Template.GetHashCode();
-                }
-                if (this.ThumbnailImageUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.ThumbnailImageUrl.GetHashCode();
-                }
-                if (this.Title != null)
-                {
-                    hashCode = (hashCode * 59) + this.Title.GetHashCode();
-                }
-                if (this.TooltipDescription != null)
-                {
-                    hashCode = (hashCode * 59) + this.TooltipDescription.GetHashCode();
-                }
-                if (this.VarVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
-                }
-                if (this.VideoFileId != null)
-                {
-                    hashCode = (hashCode * 59) + this.VideoFileId.GetHashCode();
-                }
-                if (this.VideoUrl != null)
-                {
-                    hashCode = (hashCode * 59) + this.VideoUrl.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.Weight.GetHashCode();
-                if (this.WorldTag != null)
-                {
-                    hashCode = (hashCode * 59) + this.WorldTag.GetHashCode();
-                }
+                if (ActualInstance != null)
+                    hashCode = hashCode * 59 + ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
@@ -896,15 +624,57 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // VarVersion (string) minLength
-            if (this.VarVersion != null && this.VarVersion.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for VarVersion, length must be greater than 1.", new [] { "VarVersion" });
-            }
-
             yield break;
+        }
+    }
+
+    /// <summary>
+    /// Custom JSON converter for InfoPushData
+    /// </summary>
+    public class InfoPushDataJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(InfoPushData).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return InfoPushData.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return InfoPushData.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

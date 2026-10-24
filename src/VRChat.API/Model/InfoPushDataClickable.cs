@@ -25,91 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "InfoPushDataClickable")]
     public partial class InfoPushDataClickable : IEquatable<InfoPushDataClickable>, IValidatableObject
     {
-        /// <summary>
-        /// Defines Command
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CommandEnum
-        {
-            /// <summary>
-            /// Enum CannedWorldSearch for value: CannedWorldSearch
-            /// </summary>
-            [EnumMember(Value = "CannedWorldSearch")]
-            CannedWorldSearch = 1,
-
-            /// <summary>
-            /// Enum OpenAccountUpgrade for value: OpenAccountUpgrade
-            /// </summary>
-            [EnumMember(Value = "OpenAccountUpgrade")]
-            OpenAccountUpgrade = 2,
-
-            /// <summary>
-            /// Enum OpenAvatarsMenu for value: OpenAvatarsMenu
-            /// </summary>
-            [EnumMember(Value = "OpenAvatarsMenu")]
-            OpenAvatarsMenu = 3,
-
-            /// <summary>
-            /// Enum OpenHelpArticle for value: OpenHelpArticle
-            /// </summary>
-            [EnumMember(Value = "OpenHelpArticle")]
-            OpenHelpArticle = 4,
-
-            /// <summary>
-            /// Enum OpenListingDetails for value: OpenListingDetails
-            /// </summary>
-            [EnumMember(Value = "OpenListingDetails")]
-            OpenListingDetails = 5,
-
-            /// <summary>
-            /// Enum OpenSafetyMenu for value: OpenSafetyMenu
-            /// </summary>
-            [EnumMember(Value = "OpenSafetyMenu")]
-            OpenSafetyMenu = 6,
-
-            /// <summary>
-            /// Enum OpenURL for value: OpenURL
-            /// </summary>
-            [EnumMember(Value = "OpenURL")]
-            OpenURL = 7,
-
-            /// <summary>
-            /// Enum OpenVRCPlusMenu for value: OpenVRCPlusMenu
-            /// </summary>
-            [EnumMember(Value = "OpenVRCPlusMenu")]
-            OpenVRCPlusMenu = 8,
-
-            /// <summary>
-            /// Enum OpenVRChatStore for value: OpenVRChatStore
-            /// </summary>
-            [EnumMember(Value = "OpenVRChatStore")]
-            OpenVRChatStore = 9,
-
-            /// <summary>
-            /// Enum OpenWorldDetails for value: OpenWorldDetails
-            /// </summary>
-            [EnumMember(Value = "OpenWorldDetails")]
-            OpenWorldDetails = 10,
-
-            /// <summary>
-            /// Enum OpenWorldsMenu for value: OpenWorldsMenu
-            /// </summary>
-            [EnumMember(Value = "OpenWorldsMenu")]
-            OpenWorldsMenu = 11,
-
-            /// <summary>
-            /// Enum ScrollToShelf for value: scrollToShelf
-            /// </summary>
-            [EnumMember(Value = "scrollToShelf")]
-            ScrollToShelf = 12
-        }
-
 
         /// <summary>
         /// Gets or Sets Command
         /// </summary>
         [DataMember(Name = "command", IsRequired = true, EmitDefaultValue = true)]
-        public CommandEnum Command { get; set; }
+        public InfoPushCommand Command { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataClickable" /> class.
         /// </summary>
@@ -120,7 +41,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="parameters">In case of OpenURL, this would contain the link..</param>
         /// <param name="command">command (required).</param>
-        public InfoPushDataClickable(List<string> parameters = default, CommandEnum command = default)
+        public InfoPushDataClickable(List<string> parameters = default, InfoPushCommand command = default)
         {
             this.Command = command;
             this.Parameters = parameters;

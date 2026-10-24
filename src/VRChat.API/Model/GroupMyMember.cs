@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "GroupMyMember")]
     public partial class GroupMyMember : IEquatable<GroupMyMember>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets MembershipStatus
+        /// </summary>
+        [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
+        public GroupMemberStatus? MembershipStatus { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupMyMember" /> class.
         /// </summary>
@@ -48,7 +54,7 @@ namespace VRChat.API.Model
         /// <param name="roleIds">roleIds.</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="visibility">visibility.</param>
-        public GroupMyMember(string acceptedByDisplayName = default, string acceptedById = default, string bannedAt = default, DateTime createdAt = default, string groupId = default, bool has2FA = false, bool hasJoinedFromPurchase = false, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = true, bool isSubscribedToEventAnnouncements = default, DateTime joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, string membershipStatus = default, List<GroupPermissions> permissions = default, List<string> roleIds = default, string userId = default, string visibility = default)
+        public GroupMyMember(string acceptedByDisplayName = default, string acceptedById = default, string bannedAt = default, DateTime createdAt = default, string groupId = default, bool has2FA = false, bool hasJoinedFromPurchase = false, string id = default, bool isRepresenting = false, bool isSubscribedToAnnouncements = true, bool isSubscribedToEventAnnouncements = default, DateTime joinedAt = default, DateTime? lastPostReadAt = default, List<string> mRoleIds = default, string managerNotes = default, GroupMemberStatus? membershipStatus = default, List<GroupPermissions> permissions = default, List<string> roleIds = default, string userId = default, string visibility = default)
         {
             this.AcceptedByDisplayName = acceptedByDisplayName;
             this.AcceptedById = acceptedById;
@@ -161,12 +167,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "managerNotes", EmitDefaultValue = false)]
         public string ManagerNotes { get; set; }
-
-        /// <summary>
-        /// Gets or Sets MembershipStatus
-        /// </summary>
-        [DataMember(Name = "membershipStatus", EmitDefaultValue = false)]
-        public string MembershipStatus { get; set; }
 
         /// <summary>
         /// Gets or Sets Permissions
@@ -327,8 +327,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.MembershipStatus == input.MembershipStatus ||
-                    (this.MembershipStatus != null &&
-                    this.MembershipStatus.Equals(input.MembershipStatus))
+                    this.MembershipStatus.Equals(input.MembershipStatus)
                 ) && 
                 (
                     this.Permissions == input.Permissions ||
@@ -402,10 +401,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ManagerNotes.GetHashCode();
                 }
-                if (this.MembershipStatus != null)
-                {
-                    hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.MembershipStatus.GetHashCode();
                 if (this.Permissions != null)
                 {
                     hashCode = (hashCode * 59) + this.Permissions.GetHashCode();

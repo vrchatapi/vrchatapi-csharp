@@ -25,6 +25,18 @@ namespace VRChat.API.Model
     [DataContract(Name = "LimitedUserGroups")]
     public partial class LimitedUserGroups : IEquatable<LimitedUserGroups>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets MemberVisibility
+        /// </summary>
+        [DataMember(Name = "memberVisibility", EmitDefaultValue = false)]
+        public GroupUserVisibility? MemberVisibility { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Privacy
+        /// </summary>
+        [DataMember(Name = "privacy", EmitDefaultValue = false)]
+        public GroupPrivacy? Privacy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUserGroups" /> class.
         /// </summary>
@@ -49,7 +61,7 @@ namespace VRChat.API.Model
         /// <param name="privacy">privacy.</param>
         /// <param name="shortCode">shortCode.</param>
         /// <param name="storeId">storeId.</param>
-        public LimitedUserGroups(string bannerId = default, string bannerUrl = default, string description = default, string discriminator = default, string groupId = default, string iconId = default, string iconUrl = default, string id = default, bool isRepresenting = default, DateTime? lastPostCreatedAt = default, DateTime? lastPostReadAt = default, int memberCount = default, string memberVisibility = default, bool mutualGroup = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, string privacy = default, string shortCode = default, string storeId = default)
+        public LimitedUserGroups(string bannerId = default, string bannerUrl = default, string description = default, string discriminator = default, string groupId = default, string iconId = default, string iconUrl = default, string id = default, bool isRepresenting = default, DateTime? lastPostCreatedAt = default, DateTime? lastPostReadAt = default, int memberCount = default, GroupUserVisibility? memberVisibility = default, bool mutualGroup = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, string ownerId = default, GroupPrivacy? privacy = default, string shortCode = default, string storeId = default)
         {
             this.BannerId = bannerId;
             this.BannerUrl = bannerUrl;
@@ -147,12 +159,6 @@ namespace VRChat.API.Model
         public int MemberCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets MemberVisibility
-        /// </summary>
-        [DataMember(Name = "memberVisibility", EmitDefaultValue = false)]
-        public string MemberVisibility { get; set; }
-
-        /// <summary>
         /// Gets or Sets MutualGroup
         /// </summary>
         [DataMember(Name = "mutualGroup", EmitDefaultValue = true)]
@@ -184,12 +190,6 @@ namespace VRChat.API.Model
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Privacy
-        /// </summary>
-        [DataMember(Name = "privacy", EmitDefaultValue = false)]
-        public string Privacy { get; set; }
 
         /// <summary>
         /// Gets or Sets ShortCode
@@ -327,8 +327,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.MemberVisibility == input.MemberVisibility ||
-                    (this.MemberVisibility != null &&
-                    this.MemberVisibility.Equals(input.MemberVisibility))
+                    this.MemberVisibility.Equals(input.MemberVisibility)
                 ) && 
                 (
                     this.MutualGroup == input.MutualGroup ||
@@ -356,8 +355,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Privacy == input.Privacy ||
-                    (this.Privacy != null &&
-                    this.Privacy.Equals(input.Privacy))
+                    this.Privacy.Equals(input.Privacy)
                 ) && 
                 (
                     this.ShortCode == input.ShortCode ||
@@ -422,10 +420,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.LastPostReadAt.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MemberCount.GetHashCode();
-                if (this.MemberVisibility != null)
-                {
-                    hashCode = (hashCode * 59) + this.MemberVisibility.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.MemberVisibility.GetHashCode();
                 hashCode = (hashCode * 59) + this.MutualGroup.GetHashCode();
                 if (this.Name != null)
                 {
@@ -443,10 +438,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
                 }
-                if (this.Privacy != null)
-                {
-                    hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Privacy.GetHashCode();
                 if (this.ShortCode != null)
                 {
                     hashCode = (hashCode * 59) + this.ShortCode.GetHashCode();

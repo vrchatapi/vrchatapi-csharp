@@ -57,6 +57,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Instance" /> class.
         /// </summary>
+        /// <param name="accessType">&#x60;type&#x60;, &#x60;groupAccessType&#x60; and &#x60;canRequestInvite&#x60; folded into one value.  | &#x60;type&#x60; | &#x60;groupAccessType&#x60; | &#x60;canRequestInvite&#x60; | &#x60;accessType&#x60; | | - -- | - -- | - -- | - -- | | &#x60;public&#x60; | | | &#x60;public&#x60; | | &#x60;friends&#x60; | | | &#x60;friends&#x60; | | &#x60;hidden&#x60; | | | &#x60;friendsPlus&#x60; | | &#x60;private&#x60; | | &#x60;false&#x60; | &#x60;invite&#x60; | | &#x60;private&#x60; | | &#x60;true&#x60; | &#x60;invitePlus&#x60; | | &#x60;group&#x60; | &#x60;public&#x60; | | &#x60;groupPublic&#x60; | | &#x60;group&#x60; | &#x60;plus&#x60; | | &#x60;groupPlus&#x60; | | &#x60;group&#x60; | &#x60;members&#x60; | | &#x60;group&#x60; | (required).</param>
         /// <param name="active">active (default to true).</param>
         /// <param name="ageGate">ageGate.</param>
         /// <param name="calendarEntryId">calendarEntryId.</param>
@@ -113,8 +114,10 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public Instance(bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<Object> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public Instance(string accessType = default, bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<Object> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.AccessType = accessType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ClientNumber = clientNumber;
             this.Full = full;
@@ -182,6 +185,13 @@ namespace VRChat.API.Model
             this.Users = users;
             this.VibeIds = vibeIds;
         }
+
+        /// <summary>
+        /// &#x60;type&#x60;, &#x60;groupAccessType&#x60; and &#x60;canRequestInvite&#x60; folded into one value.  | &#x60;type&#x60; | &#x60;groupAccessType&#x60; | &#x60;canRequestInvite&#x60; | &#x60;accessType&#x60; | | - -- | - -- | - -- | - -- | | &#x60;public&#x60; | | | &#x60;public&#x60; | | &#x60;friends&#x60; | | | &#x60;friends&#x60; | | &#x60;hidden&#x60; | | | &#x60;friendsPlus&#x60; | | &#x60;private&#x60; | | &#x60;false&#x60; | &#x60;invite&#x60; | | &#x60;private&#x60; | | &#x60;true&#x60; | &#x60;invitePlus&#x60; | | &#x60;group&#x60; | &#x60;public&#x60; | | &#x60;groupPublic&#x60; | | &#x60;group&#x60; | &#x60;plus&#x60; | | &#x60;groupPlus&#x60; | | &#x60;group&#x60; | &#x60;members&#x60; | | &#x60;group&#x60; |
+        /// </summary>
+        /// <value>&#x60;type&#x60;, &#x60;groupAccessType&#x60; and &#x60;canRequestInvite&#x60; folded into one value.  | &#x60;type&#x60; | &#x60;groupAccessType&#x60; | &#x60;canRequestInvite&#x60; | &#x60;accessType&#x60; | | - -- | - -- | - -- | - -- | | &#x60;public&#x60; | | | &#x60;public&#x60; | | &#x60;friends&#x60; | | | &#x60;friends&#x60; | | &#x60;hidden&#x60; | | | &#x60;friendsPlus&#x60; | | &#x60;private&#x60; | | &#x60;false&#x60; | &#x60;invite&#x60; | | &#x60;private&#x60; | | &#x60;true&#x60; | &#x60;invitePlus&#x60; | | &#x60;group&#x60; | &#x60;public&#x60; | | &#x60;groupPublic&#x60; | | &#x60;group&#x60; | &#x60;plus&#x60; | | &#x60;groupPlus&#x60; | | &#x60;group&#x60; | &#x60;members&#x60; | | &#x60;group&#x60; |</value>
+        [DataMember(Name = "accessType", IsRequired = true, EmitDefaultValue = true)]
+        public string AccessType { get; set; }
 
         /// <summary>
         /// Gets or Sets Active
@@ -517,6 +527,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Instance {\n");
+            sb.Append("  AccessType: ").Append(AccessType).Append("\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
             sb.Append("  AgeGate: ").Append(AgeGate).Append("\n");
             sb.Append("  CalendarEntryId: ").Append(CalendarEntryId).Append("\n");
@@ -608,6 +619,11 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
+                (
+                    this.AccessType == input.AccessType ||
+                    (this.AccessType != null &&
+                    this.AccessType.Equals(input.AccessType))
+                ) && 
                 (
                     this.Active == input.Active ||
                     this.Active.Equals(input.Active)
@@ -891,6 +907,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AccessType != null)
+                {
+                    hashCode = (hashCode * 59) + this.AccessType.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Active.GetHashCode();
                 if (this.AgeGate != null)
                 {

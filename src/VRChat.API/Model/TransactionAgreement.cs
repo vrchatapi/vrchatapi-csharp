@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "TransactionAgreement")]
     public partial class TransactionAgreement : IEquatable<TransactionAgreement>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Period
+        /// </summary>
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        public SubscriptionPeriod Period { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="TransactionAgreement" /> class.
         /// </summary>
@@ -51,7 +57,7 @@ namespace VRChat.API.Model
         /// <param name="startDate">startDate (required).</param>
         /// <param name="status">This is NOT TransactionStatus, but whatever Steam return. (required).</param>
         /// <param name="timeCreated">timeCreated (required).</param>
-        public TransactionAgreement(string agreement = default, string agreementId = default, string billingType = default, string currency = default, string endDate = default, int failedAttempts = default, int frequency = default, int itemId = default, decimal lastAmount = default, decimal lastAmountVat = default, string lastPayment = default, string nextPayment = default, int outstanding = default, string period = default, decimal recurringAmt = default, string startDate = default, string status = default, string timeCreated = default)
+        public TransactionAgreement(string agreement = default, string agreementId = default, string billingType = default, string currency = default, string endDate = default, int failedAttempts = default, int frequency = default, int itemId = default, decimal lastAmount = default, decimal lastAmountVat = default, string lastPayment = default, string nextPayment = default, int outstanding = default, SubscriptionPeriod period = default, decimal recurringAmt = default, string startDate = default, string status = default, string timeCreated = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Agreement = agreement;
@@ -73,7 +79,6 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.NextPayment = nextPayment;
             this.Outstanding = outstanding;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Period = period;
             this.RecurringAmt = recurringAmt;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -161,12 +166,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "outstanding", IsRequired = true, EmitDefaultValue = true)]
         public int Outstanding { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Period
-        /// </summary>
-        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
-        public string Period { get; set; }
 
         /// <summary>
         /// Gets or Sets RecurringAmt
@@ -315,8 +314,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Period == input.Period ||
-                    (this.Period != null &&
-                    this.Period.Equals(input.Period))
+                    this.Period.Equals(input.Period)
                 ) && 
                 (
                     this.RecurringAmt == input.RecurringAmt ||
@@ -382,10 +380,7 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.NextPayment.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Outstanding.GetHashCode();
-                if (this.Period != null)
-                {
-                    hashCode = (hashCode * 59) + this.Period.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Period.GetHashCode();
                 hashCode = (hashCode * 59) + this.RecurringAmt.GetHashCode();
                 if (this.StartDate != null)
                 {
@@ -444,12 +439,6 @@ namespace VRChat.API.Model
             if (this.NextPayment != null && this.NextPayment.Length < 1)
             {
                 yield return new ValidationResult("Invalid value for NextPayment, length must be greater than 1.", new [] { "NextPayment" });
-            }
-
-            // Period (string) minLength
-            if (this.Period != null && this.Period.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Period, length must be greater than 1.", new [] { "Period" });
             }
 
             // StartDate (string) minLength

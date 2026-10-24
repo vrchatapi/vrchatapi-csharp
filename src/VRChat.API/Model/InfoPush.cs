@@ -13,163 +13,89 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using FileParameter = VRChat.API.Client.FileParameter;
 using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// InfoPush
+    /// An item VRChat pushes to the client. The shape of &#x60;data&#x60; depends on &#x60;type&#x60;.
     /// </summary>
+    [JsonConverter(typeof(InfoPushJsonConverter))]
     [DataContract(Name = "InfoPush")]
-    public partial class InfoPush : IEquatable<InfoPush>, IValidatableObject
+    public partial class InfoPush : AbstractOpenAPISchema, IEquatable<InfoPush>, IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets ReleaseStatus
+        /// Initializes a new instance of the <see cref="InfoPush" /> class
+        /// with the <see cref="InfoPushContentShelf" /> class
         /// </summary>
-        [DataMember(Name = "releaseStatus", IsRequired = true, EmitDefaultValue = true)]
-        public ReleaseStatus ReleaseStatus { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPush" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected InfoPush() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPush" /> class.
-        /// </summary>
-        /// <param name="clientMinVersion">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
-        /// <param name="createdAt">createdAt (required).</param>
-        /// <param name="data">data (required).</param>
-        /// <param name="endDate">endDate.</param>
-        /// <param name="experiment">experiment.</param>
-        /// <param name="hash">Unknown usage, MD5 (required).</param>
-        /// <param name="id">id (required).</param>
-        /// <param name="isEnabled">isEnabled (required) (default to true).</param>
-        /// <param name="priority">priority (required).</param>
-        /// <param name="regions">regions.</param>
-        /// <param name="releaseStatus">releaseStatus (required).</param>
-        /// <param name="requireClientTags">requireClientTags.</param>
-        /// <param name="startDate">startDate.</param>
-        /// <param name="tags">tags (required).</param>
-        /// <param name="type">type.</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
-        public InfoPush(Object clientMinVersion = default, DateTime createdAt = default, InfoPushData data = default, DateTime? endDate = default, InfoPushExperiment experiment = default, string hash = default, string id = default, bool isEnabled = true, int priority = default, List<string> regions = default, ReleaseStatus releaseStatus = default, List<string> requireClientTags = default, DateTime? startDate = default, List<string> tags = default, string type = default, DateTime updatedAt = default)
+        /// <param name="actualInstance">An instance of InfoPushContentShelf.</param>
+        public InfoPush(InfoPushContentShelf actualInstance)
         {
-            this.CreatedAt = createdAt;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Data = data;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Hash = hash;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Id = id;
-            this.IsEnabled = isEnabled;
-            this.Priority = priority;
-            this.ReleaseStatus = releaseStatus;
-            // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Tags = tags;
-            this.UpdatedAt = updatedAt;
-            this.ClientMinVersion = clientMinVersion;
-            this.EndDate = endDate;
-            this.Experiment = experiment;
-            this.Regions = regions;
-            this.RequireClientTags = requireClientTags;
-            this.StartDate = startDate;
-            this.Type = type;
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
         }
 
         /// <summary>
-        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
+        /// Initializes a new instance of the <see cref="InfoPush" /> class
+        /// with the <see cref="InfoPushUntyped" /> class
         /// </summary>
-        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
-        [DataMember(Name = "clientMinVersion", EmitDefaultValue = true)]
-        public Object ClientMinVersion { get; set; }
+        /// <param name="actualInstance">An instance of InfoPushUntyped.</param>
+        public InfoPush(InfoPushUntyped actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+
+        private Object _actualInstance;
 
         /// <summary>
-        /// Gets or Sets CreatedAt
+        /// Gets or Sets ActualInstance
         /// </summary>
-        [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime CreatedAt { get; set; }
+        public override Object ActualInstance
+        {
+            get
+            {
+                return _actualInstance;
+            }
+            set
+            {
+                if (value.GetType() == typeof(InfoPushContentShelf) || value is InfoPushContentShelf)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(InfoPushUntyped) || value is InfoPushUntyped)
+                {
+                    this._actualInstance = value;
+                }
+                else
+                {
+                    // Allow setting unknown types to handle unexpected responses gracefully
+                    System.Diagnostics.Debug.WriteLine(string.Format("Warning: Setting ActualInstance to a type not in oneOf schema: {0}", value?.GetType()?.Name ?? "null"));
+                    this._actualInstance = value;
+                }
+            }
+        }
 
+        
         /// <summary>
-        /// Gets or Sets Data
+        /// Converts to the <c>InfoPushContentShelf</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
-        public InfoPushData Data { get; set; }
+        public static implicit operator InfoPushContentShelf(InfoPush value) => (InfoPushContentShelf)value?.ActualInstance;
+        
 
+        
         /// <summary>
-        /// Gets or Sets EndDate
+        /// Converts to the <c>InfoPushUntyped</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
-        [DataMember(Name = "endDate", EmitDefaultValue = true)]
-        public DateTime? EndDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Experiment
-        /// </summary>
-        [DataMember(Name = "experiment", EmitDefaultValue = false)]
-        public InfoPushExperiment Experiment { get; set; }
-
-        /// <summary>
-        /// Unknown usage, MD5
-        /// </summary>
-        /// <value>Unknown usage, MD5</value>
-        [DataMember(Name = "hash", IsRequired = true, EmitDefaultValue = true)]
-        public string Hash { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or Sets IsEnabled
-        /// </summary>
-        [DataMember(Name = "isEnabled", IsRequired = true, EmitDefaultValue = true)]
-        public bool IsEnabled { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Priority
-        /// </summary>
-        [DataMember(Name = "priority", IsRequired = true, EmitDefaultValue = true)]
-        public int Priority { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Regions
-        /// </summary>
-        [DataMember(Name = "regions", EmitDefaultValue = false)]
-        public List<string> Regions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets RequireClientTags
-        /// </summary>
-        [DataMember(Name = "requireClientTags", EmitDefaultValue = false)]
-        public List<string> RequireClientTags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets StartDate
-        /// </summary>
-        [DataMember(Name = "startDate", EmitDefaultValue = true)]
-        public DateTime? StartDate { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Tags
-        /// </summary>
-        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> Tags { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UpdatedAt
-        /// </summary>
-        [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
-        public DateTime UpdatedAt { get; set; }
+        public static implicit operator InfoPushUntyped(InfoPush value) => (InfoPushUntyped)value?.ActualInstance;
+        
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -177,24 +103,9 @@ namespace VRChat.API.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             sb.Append("class InfoPush {\n");
-            sb.Append("  ClientMinVersion: ").Append(ClientMinVersion).Append("\n");
-            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
-            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
-            sb.Append("  Experiment: ").Append(Experiment).Append("\n");
-            sb.Append("  Hash: ").Append(Hash).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  IsEnabled: ").Append(IsEnabled).Append("\n");
-            sb.Append("  Priority: ").Append(Priority).Append("\n");
-            sb.Append("  Regions: ").Append(Regions).Append("\n");
-            sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
-            sb.Append("  RequireClientTags: ").Append(RequireClientTags).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  Tags: ").Append(Tags).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  UpdatedAt: ").Append(UpdatedAt).Append("\n");
+            sb.Append("  ActualInstance: ").Append(this.ActualInstance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,9 +114,81 @@ namespace VRChat.API.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+            return JsonConvert.SerializeObject(this.ActualInstance, InfoPush.SerializerSettings);
+        }
+
+        /// <summary>
+        /// Converts the JSON string into an instance of InfoPush
+        /// </summary>
+        /// <param name="jsonString">JSON string</param>
+        /// <returns>An instance of InfoPush</returns>
+        public static InfoPush FromJson(string jsonString)
+        {
+            InfoPush newInfoPush = null;
+
+            if (string.IsNullOrEmpty(jsonString))
+            {
+                return newInfoPush;
+            }
+            int match = 0;
+            List<string> matchedTypes = new List<string>();
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushContentShelf).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPush = new InfoPush(JsonConvert.DeserializeObject<InfoPushContentShelf>(jsonString, InfoPush.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPush = new InfoPush(JsonConvert.DeserializeObject<InfoPushContentShelf>(jsonString, InfoPush.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushContentShelf");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushContentShelf: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(InfoPushUntyped).GetProperty("AdditionalProperties") == null)
+                {
+                    newInfoPush = new InfoPush(JsonConvert.DeserializeObject<InfoPushUntyped>(jsonString, InfoPush.SerializerSettings));
+                }
+                else
+                {
+                    newInfoPush = new InfoPush(JsonConvert.DeserializeObject<InfoPushUntyped>(jsonString, InfoPush.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("InfoPushUntyped");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into InfoPushUntyped: {1}", jsonString, exception.ToString()));
+            }
+
+            if (match == 0)
+            {
+                // No match found, return null to handle unexpected responses gracefully
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` cannot be deserialized into any schema defined.", jsonString));
+                return null;
+            }
+            else if (match > 1)
+            {
+                // Multiple matches found, use the first match and log a warning
+                System.Diagnostics.Debug.WriteLine(string.Format("The JSON string `{0}` matches more than one schema: {1}. Using the first match.", jsonString, String.Join(",", matchedTypes)));
+            }
+
+            // deserialization is considered successful at this point if no exception has been thrown.
+            return newInfoPush;
         }
 
         /// <summary>
@@ -226,88 +209,9 @@ namespace VRChat.API.Model
         public bool Equals(InfoPush input)
         {
             if (input == null)
-            {
                 return false;
-            }
-            return 
-                (
-                    this.ClientMinVersion == input.ClientMinVersion ||
-                    (this.ClientMinVersion != null &&
-                    this.ClientMinVersion.Equals(input.ClientMinVersion))
-                ) && 
-                (
-                    this.CreatedAt == input.CreatedAt ||
-                    this.CreatedAt.Equals(input.CreatedAt)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
-                ) && 
-                (
-                    this.EndDate == input.EndDate ||
-                    (this.EndDate != null &&
-                    this.EndDate.Equals(input.EndDate))
-                ) && 
-                (
-                    this.Experiment == input.Experiment ||
-                    (this.Experiment != null &&
-                    this.Experiment.Equals(input.Experiment))
-                ) && 
-                (
-                    this.Hash == input.Hash ||
-                    (this.Hash != null &&
-                    this.Hash.Equals(input.Hash))
-                ) && 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.IsEnabled == input.IsEnabled ||
-                    this.IsEnabled.Equals(input.IsEnabled)
-                ) && 
-                (
-                    this.Priority == input.Priority ||
-                    this.Priority.Equals(input.Priority)
-                ) && 
-                (
-                    this.Regions == input.Regions ||
-                    this.Regions != null &&
-                    input.Regions != null &&
-                    this.Regions.SequenceEqual(input.Regions)
-                ) && 
-                (
-                    this.ReleaseStatus == input.ReleaseStatus ||
-                    this.ReleaseStatus.Equals(input.ReleaseStatus)
-                ) && 
-                (
-                    this.RequireClientTags == input.RequireClientTags ||
-                    this.RequireClientTags != null &&
-                    input.RequireClientTags != null &&
-                    this.RequireClientTags.SequenceEqual(input.RequireClientTags)
-                ) && 
-                (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && 
-                (
-                    this.Tags == input.Tags ||
-                    this.Tags != null &&
-                    input.Tags != null &&
-                    this.Tags.SequenceEqual(input.Tags)
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.UpdatedAt == input.UpdatedAt ||
-                    this.UpdatedAt.Equals(input.UpdatedAt)
-                );
+
+            return this.ActualInstance.Equals(input.ActualInstance);
         }
 
         /// <summary>
@@ -319,55 +223,8 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ClientMinVersion != null)
-                {
-                    hashCode = (hashCode * 59) + this.ClientMinVersion.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
-                if (this.Data != null)
-                {
-                    hashCode = (hashCode * 59) + this.Data.GetHashCode();
-                }
-                if (this.EndDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.EndDate.GetHashCode();
-                }
-                if (this.Experiment != null)
-                {
-                    hashCode = (hashCode * 59) + this.Experiment.GetHashCode();
-                }
-                if (this.Hash != null)
-                {
-                    hashCode = (hashCode * 59) + this.Hash.GetHashCode();
-                }
-                if (this.Id != null)
-                {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.IsEnabled.GetHashCode();
-                hashCode = (hashCode * 59) + this.Priority.GetHashCode();
-                if (this.Regions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Regions.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.ReleaseStatus.GetHashCode();
-                if (this.RequireClientTags != null)
-                {
-                    hashCode = (hashCode * 59) + this.RequireClientTags.GetHashCode();
-                }
-                if (this.StartDate != null)
-                {
-                    hashCode = (hashCode * 59) + this.StartDate.GetHashCode();
-                }
-                if (this.Tags != null)
-                {
-                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
-                }
-                if (this.Type != null)
-                {
-                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
-                }
-                hashCode = (hashCode * 59) + this.UpdatedAt.GetHashCode();
+                if (this.ActualInstance != null)
+                    hashCode = hashCode * 59 + this.ActualInstance.GetHashCode();
                 return hashCode;
             }
         }
@@ -377,21 +234,57 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Hash (string) minLength
-            if (this.Hash != null && this.Hash.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Hash, length must be greater than 1.", new [] { "Hash" });
-            }
-
-            // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 1)
-            {
-                yield return new ValidationResult("Invalid value for Id, length must be greater than 1.", new [] { "Id" });
-            }
-
             yield break;
+        }
+    }
+
+    /// <summary>
+    /// Custom JSON converter for InfoPush
+    /// </summary>
+    public class InfoPushJsonConverter : JsonConverter
+    {
+        /// <summary>
+        /// To write the JSON string
+        /// </summary>
+        /// <param name="writer">JSON writer</param>
+        /// <param name="value">Object to be converted into a JSON string</param>
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            writer.WriteRawValue((string)(typeof(InfoPush).GetMethod("ToJson").Invoke(value, null)));
+        }
+
+        /// <summary>
+        /// To convert a JSON string into an object
+        /// </summary>
+        /// <param name="reader">JSON reader</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
+        /// <returns>The object converted from the JSON string</returns>
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            switch(reader.TokenType) 
+            {
+                case JsonToken.StartObject:
+                    return InfoPush.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return InfoPush.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

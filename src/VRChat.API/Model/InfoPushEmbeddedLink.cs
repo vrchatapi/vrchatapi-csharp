@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "InfoPushEmbeddedLink")]
     public partial class InfoPushEmbeddedLink : IEquatable<InfoPushEmbeddedLink>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Command
+        /// </summary>
+        [DataMember(Name = "command", EmitDefaultValue = false)]
+        public InfoPushCommand? Command { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushEmbeddedLink" /> class.
         /// </summary>
@@ -32,7 +38,7 @@ namespace VRChat.API.Model
         /// <param name="command">command.</param>
         /// <param name="id">id.</param>
         /// <param name="name">name.</param>
-        public InfoPushEmbeddedLink(List<string> parameters = default, string command = default, string id = default, string name = default)
+        public InfoPushEmbeddedLink(List<string> parameters = default, InfoPushCommand? command = default, string id = default, string name = default)
         {
             this.Parameters = parameters;
             this.Command = command;
@@ -45,12 +51,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "parameters", EmitDefaultValue = false)]
         public List<string> Parameters { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Command
-        /// </summary>
-        [DataMember(Name = "command", EmitDefaultValue = false)]
-        public string Command { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -119,8 +119,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.Command == input.Command ||
-                    (this.Command != null &&
-                    this.Command.Equals(input.Command))
+                    this.Command.Equals(input.Command)
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -147,10 +146,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Parameters.GetHashCode();
                 }
-                if (this.Command != null)
-                {
-                    hashCode = (hashCode * 59) + this.Command.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.Command.GetHashCode();
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

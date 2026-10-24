@@ -33,6 +33,12 @@ namespace VRChat.API.Model
         public AgeVerificationStatus? AgeVerificationStatus { get; set; }
 
         /// <summary>
+        /// Gets or Sets BackgroundType
+        /// </summary>
+        [DataMember(Name = "backgroundType", EmitDefaultValue = false)]
+        public ProfileBackgroundType? BackgroundType { get; set; }
+
+        /// <summary>
         /// Gets or Sets BannerType
         /// </summary>
         [DataMember(Name = "bannerType", EmitDefaultValue = false)]
@@ -91,7 +97,7 @@ namespace VRChat.API.Model
         /// <param name="trustTags">trustTags.</param>
         /// <param name="userIcon">userIcon.</param>
         /// <param name="worldFavoriteLists">The owner&#39;s public world favorite groups..</param>
-        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, string backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, PublicProfileThemeID themeId = default, string themeSubtextColor = default, List<ProfileTheme> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
+        public PublicProfile(AgeVerificationStatus? ageVerificationStatus = default, bool ageVerified = default, string backgroundGradientBottom = default, string backgroundGradientTop = default, string backgroundTemplateId = default, string backgroundTextureId = default, ProfileBackgroundType? backgroundType = default, List<Badge> badges = default, string bannerColor = default, string bannerCustomUrl = default, BannerType? bannerType = default, string bannerUrl = default, string bio = default, List<string> bioLinks = default, string currentAvatar = default, string currentAvatarAuthorName = default, string currentAvatarImageUrl = default, string currentAvatarName = default, List<string> currentAvatarTags = default, string currentAvatarThumbnailImageUrl = default, string displayName = default, ProfileGroups groups = default, bool hasVrcPlus = default, string iconFrame = default, string iconType = default, string iconUrl = default, string id = default, bool isEconomyCreator = default, List<string> languages = default, string nameplateEffect = default, string profileEffect = default, string pronouns = default, List<LimitedWorld> publicWorlds = default, ProfileRepresentedGroup representedGroup = default, UserStatus? status = default, string statusDescription = default, string themeButtonColor = default, string themeIconColor = default, PublicProfileThemeID themeId = default, string themeSubtextColor = default, List<ProfileTheme> themes = default, int totalPublicWorldsCount = default, List<string> trustTags = default, string userIcon = default, List<WorldFavoriteList> worldFavoriteLists = default)
         {
             this.AgeVerificationStatus = ageVerificationStatus;
             this.AgeVerified = ageVerified;
@@ -172,12 +178,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "backgroundTextureId", EmitDefaultValue = false)]
         public string BackgroundTextureId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets BackgroundType
-        /// </summary>
-        [DataMember(Name = "backgroundType", EmitDefaultValue = false)]
-        public string BackgroundType { get; set; }
 
         /// <summary>
         /// Gets or Sets Badges
@@ -521,8 +521,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.BackgroundType == input.BackgroundType ||
-                    (this.BackgroundType != null &&
-                    this.BackgroundType.Equals(input.BackgroundType))
+                    this.BackgroundType.Equals(input.BackgroundType)
                 ) && 
                 (
                     this.Badges == input.Badges ||
@@ -746,10 +745,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.BackgroundTextureId.GetHashCode();
                 }
-                if (this.BackgroundType != null)
-                {
-                    hashCode = (hashCode * 59) + this.BackgroundType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.BackgroundType.GetHashCode();
                 if (this.Badges != null)
                 {
                     hashCode = (hashCode * 59) + this.Badges.GetHashCode();

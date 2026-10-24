@@ -93,7 +93,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <returns>List&lt;InventoryTemplate&gt;</returns>
-        List<InventoryTemplate> GetCosmetics(string itemType);
+        List<InventoryTemplate> GetCosmetics(CosmeticItemType itemType);
 
         /// <summary>
         /// List Cosmetics
@@ -104,7 +104,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <returns>ApiResponse of List&lt;InventoryTemplate&gt;</returns>
-        ApiResponse<List<InventoryTemplate>> GetCosmeticsWithHttpInfo(string itemType);
+        ApiResponse<List<InventoryTemplate>> GetCosmeticsWithHttpInfo(CosmeticItemType itemType);
         /// <summary>
         /// Get Inventory
         /// </summary>
@@ -500,7 +500,7 @@ namespace VRChat.API.Api
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InventoryTemplate&gt;</returns>
-        System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticsAsync(string itemType, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticsAsync(CosmeticItemType itemType, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// List Cosmetics
@@ -512,7 +512,7 @@ namespace VRChat.API.Api
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InventoryTemplate&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InventoryTemplate>>> GetCosmeticsWithHttpInfoAsync(string itemType, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<InventoryTemplate>>> GetCosmeticsWithHttpInfoAsync(CosmeticItemType itemType, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Inventory
         /// </summary>
@@ -1503,7 +1503,7 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <returns>List&lt;InventoryTemplate&gt;</returns>
-        public List<InventoryTemplate> GetCosmetics(string itemType)
+        public List<InventoryTemplate> GetCosmetics(CosmeticItemType itemType)
         {
             VRChat.API.Client.ApiResponse<List<InventoryTemplate>> localVarResponse = GetCosmeticsWithHttpInfo(itemType);
             if (this.ExceptionFactory != null)
@@ -1523,12 +1523,8 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <returns>ApiResponse of List&lt;InventoryTemplate&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<InventoryTemplate>> GetCosmeticsWithHttpInfo(string itemType)
+        public VRChat.API.Client.ApiResponse<List<InventoryTemplate>> GetCosmeticsWithHttpInfo(CosmeticItemType itemType)
         {
-            // verify the required parameter 'itemType' is set
-            if (itemType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'itemType' when calling InventoryApi->GetCosmetics");
-
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -1574,7 +1570,7 @@ namespace VRChat.API.Api
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;InventoryTemplate&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticsAsync(string itemType, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<InventoryTemplate>> GetCosmeticsAsync(CosmeticItemType itemType, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<InventoryTemplate>> localVarResponse = await GetCosmeticsWithHttpInfoAsync(itemType, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -1595,12 +1591,8 @@ namespace VRChat.API.Api
         /// <param name="itemType">The kind of cosmetic to list.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InventoryTemplate&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InventoryTemplate>>> GetCosmeticsWithHttpInfoAsync(string itemType, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<InventoryTemplate>>> GetCosmeticsWithHttpInfoAsync(CosmeticItemType itemType, System.Threading.CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'itemType' is set
-            if (itemType == null)
-                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'itemType' when calling InventoryApi->GetCosmetics");
-
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 

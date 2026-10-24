@@ -83,8 +83,10 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <returns>CalendarEventDiscovery</returns>
-        CalendarEventDiscovery DiscoverCalendarEvents(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default);
+        CalendarEventDiscovery DiscoverCalendarEvents(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default);
 
         /// <summary>
         /// Discover calendar events
@@ -104,8 +106,10 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <returns>ApiResponse of CalendarEventDiscovery</returns>
-        ApiResponse<CalendarEventDiscovery> DiscoverCalendarEventsWithHttpInfo(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default);
+        ApiResponse<CalendarEventDiscovery> DiscoverCalendarEventsWithHttpInfo(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default);
         /// <summary>
         /// Follow a calendar event
         /// </summary>
@@ -437,9 +441,11 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEventDiscovery</returns>
-        System.Threading.Tasks.Task<CalendarEventDiscovery> DiscoverCalendarEventsAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<CalendarEventDiscovery> DiscoverCalendarEventsAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Discover calendar events
@@ -459,9 +465,11 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEventDiscovery)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CalendarEventDiscovery>> DiscoverCalendarEventsWithHttpInfoAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<CalendarEventDiscovery>> DiscoverCalendarEventsWithHttpInfoAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Follow a calendar event
         /// </summary>
@@ -1282,10 +1290,12 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <returns>CalendarEventDiscovery</returns>
-        public CalendarEventDiscovery DiscoverCalendarEvents(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default)
+        public CalendarEventDiscovery DiscoverCalendarEvents(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = DiscoverCalendarEventsWithHttpInfo(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor);
+            VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = DiscoverCalendarEventsWithHttpInfo(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor, requireLinkedInstance, upcomingSort);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
@@ -1312,8 +1322,10 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <returns>ApiResponse of CalendarEventDiscovery</returns>
-        public VRChat.API.Client.ApiResponse<CalendarEventDiscovery> DiscoverCalendarEventsWithHttpInfo(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default)
+        public VRChat.API.Client.ApiResponse<CalendarEventDiscovery> DiscoverCalendarEventsWithHttpInfo(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1374,6 +1386,14 @@ namespace VRChat.API.Api
             if (nextCursor != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "nextCursor", nextCursor));
+            }
+            if (requireLinkedInstance != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "requireLinkedInstance", requireLinkedInstance));
+            }
+            if (upcomingSort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "upcomingSort", upcomingSort));
             }
 
             // authentication (authCookie) required
@@ -1411,11 +1431,13 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of CalendarEventDiscovery</returns>
-        public async System.Threading.Tasks.Task<CalendarEventDiscovery> DiscoverCalendarEventsAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<CalendarEventDiscovery> DiscoverCalendarEventsAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = await DiscoverCalendarEventsWithHttpInfoAsync(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<CalendarEventDiscovery> localVarResponse = await DiscoverCalendarEventsWithHttpInfoAsync(scope, categories, tags, featuredResults, nonFeaturedResults, personalizedResults, minimumInterestCount, minimumRemainingMinutes, upcomingOffsetMinutes, n, nextCursor, requireLinkedInstance, upcomingSort, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DiscoverCalendarEvents", localVarResponse);
@@ -1442,9 +1464,11 @@ namespace VRChat.API.Api
         /// <param name="upcomingOffsetMinutes">Filter for calendar event discovery. (optional)</param>
         /// <param name="n">The number of objects to return. (optional, default to 60)</param>
         /// <param name="nextCursor">Cursor returned from previous calendar discovery queries (see nextCursor property of the schema CalendarEventDiscovery). (optional)</param>
+        /// <param name="requireLinkedInstance"> (optional)</param>
+        /// <param name="upcomingSort"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CalendarEventDiscovery)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEventDiscovery>> DiscoverCalendarEventsWithHttpInfoAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CalendarEventDiscovery>> DiscoverCalendarEventsWithHttpInfoAsync(CalendarEventDiscoveryScope? scope = default, string? categories = default, string? tags = default, CalendarEventDiscoveryInclusion? featuredResults = default, CalendarEventDiscoveryInclusion? nonFeaturedResults = default, CalendarEventDiscoveryInclusion? personalizedResults = default, int? minimumInterestCount = default, int? minimumRemainingMinutes = default, int? upcomingOffsetMinutes = default, int? n = default, string? nextCursor = default, bool? requireLinkedInstance = default, CalendarEventDiscoverySort? upcomingSort = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1507,6 +1531,14 @@ namespace VRChat.API.Api
             if (nextCursor != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "nextCursor", nextCursor));
+            }
+            if (requireLinkedInstance != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "requireLinkedInstance", requireLinkedInstance));
+            }
+            if (upcomingSort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "upcomingSort", upcomingSort));
             }
 
             // authentication (authCookie) required

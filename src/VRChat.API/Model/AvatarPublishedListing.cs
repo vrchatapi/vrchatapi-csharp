@@ -25,6 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "AvatarPublishedListing")]
     public partial class AvatarPublishedListing : IEquatable<AvatarPublishedListing>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ListingType
+        /// </summary>
+        [DataMember(Name = "listingType", EmitDefaultValue = false)]
+        public ProductListingType? ListingType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AvatarPublishedListing" /> class.
         /// </summary>
@@ -34,7 +40,7 @@ namespace VRChat.API.Model
         /// <param name="listingId">listingId.</param>
         /// <param name="listingType">listingType.</param>
         /// <param name="priceTokens">priceTokens.</param>
-        public AvatarPublishedListing(string description = default, string displayName = default, string imageId = default, string listingId = default, string listingType = default, int priceTokens = default)
+        public AvatarPublishedListing(string description = default, string displayName = default, string imageId = default, string listingId = default, ProductListingType? listingType = default, int priceTokens = default)
         {
             this.Description = description;
             this.DisplayName = displayName;
@@ -67,12 +73,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "listingId", EmitDefaultValue = false)]
         public string ListingId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ListingType
-        /// </summary>
-        [DataMember(Name = "listingType", EmitDefaultValue = false)]
-        public string ListingType { get; set; }
 
         /// <summary>
         /// Gets or Sets PriceTokens
@@ -151,8 +151,7 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.ListingType == input.ListingType ||
-                    (this.ListingType != null &&
-                    this.ListingType.Equals(input.ListingType))
+                    this.ListingType.Equals(input.ListingType)
                 ) && 
                 (
                     this.PriceTokens == input.PriceTokens ||
@@ -185,10 +184,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ListingId.GetHashCode();
                 }
-                if (this.ListingType != null)
-                {
-                    hashCode = (hashCode * 59) + this.ListingType.GetHashCode();
-                }
+                hashCode = (hashCode * 59) + this.ListingType.GetHashCode();
                 hashCode = (hashCode * 59) + this.PriceTokens.GetHashCode();
                 return hashCode;
             }

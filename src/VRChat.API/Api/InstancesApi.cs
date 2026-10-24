@@ -81,8 +81,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <returns>InstanceDiscovery</returns>
-        InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default);
+        InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default);
 
         /// <summary>
         /// Discover Instances
@@ -98,8 +107,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <returns>ApiResponse of InstanceDiscovery</returns>
-        ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default);
+        ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default);
         /// <summary>
         /// List Active Instances
         /// </summary>
@@ -351,9 +369,18 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceDiscovery</returns>
-        System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Discover Instances
@@ -369,9 +396,18 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceDiscovery)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Active Instances
         /// </summary>
@@ -1116,10 +1152,19 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <returns>InstanceDiscovery</returns>
-        public InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default)
+        public InstanceDiscovery DiscoverInstances(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default)
         {
-            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = DiscoverInstancesWithHttpInfo(n, region, platform, worldId, groupId, vibe, category);
+            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = DiscoverInstancesWithHttpInfo(n, region, platform, worldId, groupId, vibe, category, anyWorldTag, boost, groupHosted, maxOccupants, minOccupants, minSpotsLeft, mode, notWorldTag, worldPool);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DiscoverInstances", localVarResponse);
@@ -1142,8 +1187,17 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <returns>ApiResponse of InstanceDiscovery</returns>
-        public VRChat.API.Client.ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default)
+        public VRChat.API.Client.ApiResponse<InstanceDiscovery> DiscoverInstancesWithHttpInfo(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -1188,6 +1242,42 @@ namespace VRChat.API.Api
             if (category != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (anyWorldTag != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "anyWorldTag", anyWorldTag));
+            }
+            if (boost != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "boost", boost));
+            }
+            if (groupHosted != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupHosted", groupHosted));
+            }
+            if (maxOccupants != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxOccupants", maxOccupants));
+            }
+            if (minOccupants != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minOccupants", minOccupants));
+            }
+            if (minSpotsLeft != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minSpotsLeft", minSpotsLeft));
+            }
+            if (mode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "mode", mode));
+            }
+            if (notWorldTag != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "notWorldTag", notWorldTag));
+            }
+            if (worldPool != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "worldPool", worldPool));
             }
 
             // authentication (authCookie) required
@@ -1221,11 +1311,20 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of InstanceDiscovery</returns>
-        public async System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<InstanceDiscovery> DiscoverInstancesAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = await DiscoverInstancesWithHttpInfoAsync(n, region, platform, worldId, groupId, vibe, category, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<InstanceDiscovery> localVarResponse = await DiscoverInstancesWithHttpInfoAsync(n, region, platform, worldId, groupId, vibe, category, anyWorldTag, boost, groupHosted, maxOccupants, minOccupants, minSpotsLeft, mode, notWorldTag, worldPool, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DiscoverInstances", localVarResponse);
@@ -1248,9 +1347,18 @@ namespace VRChat.API.Api
         /// <param name="groupId">Return only instances of these groups. (optional)</param>
         /// <param name="vibe"> (optional)</param>
         /// <param name="category"> (optional)</param>
+        /// <param name="anyWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="boost">Only &#x60;GET /infoPush/{entryId}/content&#x60; accepts it; this route answers 400 to any value. (optional)</param>
+        /// <param name="groupHosted"> (optional)</param>
+        /// <param name="maxOccupants"> (optional)</param>
+        /// <param name="minOccupants"> (optional)</param>
+        /// <param name="minSpotsLeft">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="mode"> (optional)</param>
+        /// <param name="notWorldTag">Not every account may use it; the others are answered 403. (optional)</param>
+        /// <param name="worldPool"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceDiscovery)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceDiscovery>> DiscoverInstancesWithHttpInfoAsync(int? n = default, CreateInstanceRequestRegion? region = default, InstanceDiscoveryPlatform? platform = default, List<string>? worldId = default, List<string>? groupId = default, List<string>? vibe = default, string? category = default, List<string>? anyWorldTag = default, List<InstanceDiscoveryBoost>? boost = default, bool? groupHosted = default, int? maxOccupants = default, int? minOccupants = default, int? minSpotsLeft = default, InstanceDiscoveryMode? mode = default, List<string>? notWorldTag = default, InstanceDiscoveryWorldPool? worldPool = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -1297,6 +1405,42 @@ namespace VRChat.API.Api
             if (category != null)
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "category", category));
+            }
+            if (anyWorldTag != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "anyWorldTag", anyWorldTag));
+            }
+            if (boost != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "boost", boost));
+            }
+            if (groupHosted != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "groupHosted", groupHosted));
+            }
+            if (maxOccupants != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxOccupants", maxOccupants));
+            }
+            if (minOccupants != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minOccupants", minOccupants));
+            }
+            if (minSpotsLeft != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minSpotsLeft", minSpotsLeft));
+            }
+            if (mode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "mode", mode));
+            }
+            if (notWorldTag != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("multi", "notWorldTag", notWorldTag));
+            }
+            if (worldPool != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "worldPool", worldPool));
             }
 
             // authentication (authCookie) required

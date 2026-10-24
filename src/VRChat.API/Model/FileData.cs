@@ -25,37 +25,12 @@ namespace VRChat.API.Model
     [DataContract(Name = "FileData")]
     public partial class FileData : IEquatable<FileData>, IValidatableObject
     {
-        /// <summary>
-        /// Defines Category
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CategoryEnum
-        {
-            /// <summary>
-            /// Enum Multipart for value: multipart
-            /// </summary>
-            [EnumMember(Value = "multipart")]
-            Multipart = 1,
-
-            /// <summary>
-            /// Enum Queued for value: queued
-            /// </summary>
-            [EnumMember(Value = "queued")]
-            Queued = 2,
-
-            /// <summary>
-            /// Enum Simple for value: simple
-            /// </summary>
-            [EnumMember(Value = "simple")]
-            Simple = 3
-        }
-
 
         /// <summary>
         /// Gets or Sets Category
         /// </summary>
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
-        public CategoryEnum Category { get; set; }
+        public FileDataCategory Category { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -70,14 +45,14 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileData" /> class.
         /// </summary>
-        /// <param name="category">category (required) (default to CategoryEnum.Queued).</param>
+        /// <param name="category">category (required).</param>
         /// <param name="fileName">fileName (required).</param>
         /// <param name="md5">md5.</param>
         /// <param name="sizeInBytes">sizeInBytes (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="uploadId">uploadId (required) (default to &quot;&quot;).</param>
         /// <param name="url">url (required).</param>
-        public FileData(CategoryEnum category = CategoryEnum.Queued, string fileName = default, string md5 = default, int sizeInBytes = default, FileStatus status = default, string uploadId = @"", string url = default)
+        public FileData(FileDataCategory category = default, string fileName = default, string md5 = default, int sizeInBytes = default, FileStatus status = default, string uploadId = @"", string url = default)
         {
             this.Category = category;
             // Allow null values for required properties to handle unexpected API responses gracefully

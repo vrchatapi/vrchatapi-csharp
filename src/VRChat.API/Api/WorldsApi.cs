@@ -464,7 +464,7 @@ namespace VRChat.API.Api
         /// <param name="fuzzy"> (optional)</param>
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
+        List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
 
         /// <summary>
         /// Search All Worlds
@@ -491,7 +491,7 @@ namespace VRChat.API.Api
         /// <param name="fuzzy"> (optional)</param>
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
+        ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -1023,7 +1023,7 @@ namespace VRChat.API.Api
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search All Worlds
@@ -1051,7 +1051,7 @@ namespace VRChat.API.Api
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -4113,7 +4113,7 @@ namespace VRChat.API.Api
         /// <param name="fuzzy"> (optional)</param>
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>List&lt;LimitedWorld&gt;</returns>
-        public List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
+        public List<LimitedWorld> SearchWorlds(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = SearchWorldsWithHttpInfo(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific);
             if (this.ExceptionFactory != null)
@@ -4149,7 +4149,7 @@ namespace VRChat.API.Api
         /// <param name="fuzzy"> (optional)</param>
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
+        public VRChat.API.Client.ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -4279,7 +4279,7 @@ namespace VRChat.API.Api
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LimitedWorld&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<List<LimitedWorld>> SearchWorldsAsync(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
             VRChat.API.Client.ApiResponse<List<LimitedWorld>> localVarResponse = await SearchWorldsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, search, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, noplatform, fuzzy, avatarSpecific, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
@@ -4316,7 +4316,7 @@ namespace VRChat.API.Api
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
