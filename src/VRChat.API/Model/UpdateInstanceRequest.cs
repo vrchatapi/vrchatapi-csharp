@@ -28,24 +28,26 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateInstanceRequest" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdateInstanceRequest() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateInstanceRequest" /> class.
-        /// </summary>
-        /// <param name="calendarEntryId">Calendar event to link to the instance. Send null to remove the current link. (required).</param>
-        public UpdateInstanceRequest(string calendarEntryId = default)
+        /// <param name="calendarEntryId">Calendar event to link to the instance. Send null to remove the current link..</param>
+        /// <param name="displayName">displayName.</param>
+        public UpdateInstanceRequest(string calendarEntryId = default, string displayName = default)
         {
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.CalendarEntryId = calendarEntryId;
+            this.DisplayName = displayName;
         }
 
         /// <summary>
         /// Calendar event to link to the instance. Send null to remove the current link.
         /// </summary>
         /// <value>Calendar event to link to the instance. Send null to remove the current link.</value>
-        [DataMember(Name = "calendarEntryId", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "calendarEntryId", EmitDefaultValue = true)]
         public string CalendarEntryId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayName
+        /// </summary>
+        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -56,6 +58,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class UpdateInstanceRequest {\n");
             sb.Append("  CalendarEntryId: ").Append(CalendarEntryId).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,6 +98,11 @@ namespace VRChat.API.Model
                     this.CalendarEntryId == input.CalendarEntryId ||
                     (this.CalendarEntryId != null &&
                     this.CalendarEntryId.Equals(input.CalendarEntryId))
+                ) && 
+                (
+                    this.DisplayName == input.DisplayName ||
+                    (this.DisplayName != null &&
+                    this.DisplayName.Equals(input.DisplayName))
                 );
         }
 
@@ -110,6 +118,10 @@ namespace VRChat.API.Model
                 if (this.CalendarEntryId != null)
                 {
                     hashCode = (hashCode * 59) + this.CalendarEntryId.GetHashCode();
+                }
+                if (this.DisplayName != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayName.GetHashCode();
                 }
                 return hashCode;
             }

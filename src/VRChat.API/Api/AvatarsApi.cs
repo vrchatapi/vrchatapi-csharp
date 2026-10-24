@@ -255,7 +255,7 @@ namespace VRChat.API.Api
         /// Search Avatars
         /// </summary>
         /// <remarks>
-        /// Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -272,14 +272,22 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
-        /// <returns>List&lt;Avatar&gt;</returns>
-        List<Avatar> SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
+        /// <returns>SearchAvatarsResult</returns>
+        SearchAvatarsResult SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default);
 
         /// <summary>
         /// Search Avatars
         /// </summary>
         /// <remarks>
-        /// Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -296,8 +304,16 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
-        /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default);
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
+        /// <returns>ApiResponse of SearchAvatarsResult</returns>
+        ApiResponse<SearchAvatarsResult> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default);
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -628,7 +644,7 @@ namespace VRChat.API.Api
         /// Search Avatars
         /// </summary>
         /// <remarks>
-        /// Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -645,15 +661,23 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Avatar&gt;</returns>
-        System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of SearchAvatarsResult</returns>
+        System.Threading.Tasks.Task<SearchAvatarsResult> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default, System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search Avatars
         /// </summary>
         /// <remarks>
-        /// Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -670,9 +694,17 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (SearchAvatarsResult)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SearchAvatarsResult>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Select Avatar
         /// </summary>
@@ -2514,7 +2546,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Search Avatars Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search Avatars Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -2531,10 +2563,18 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
-        /// <returns>List&lt;Avatar&gt;</returns>
-        public List<Avatar> SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
+        /// <returns>SearchAvatarsResult</returns>
+        public SearchAvatarsResult SearchAvatars(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default)
         {
-            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = SearchAvatarsWithHttpInfo(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant);
+            VRChat.API.Client.ApiResponse<SearchAvatarsResult> localVarResponse = SearchAvatarsWithHttpInfo(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant, marketplace, search, metadata, minPrice, maxPrice, performanceAtLeast, minAssetVersion, maxAssetVersion);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchAvatars", localVarResponse);
@@ -2547,7 +2587,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Search Avatars Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search Avatars Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -2564,8 +2604,16 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
-        /// <returns>ApiResponse of List&lt;Avatar&gt;</returns>
-        public VRChat.API.Client.ApiResponse<List<Avatar>> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default)
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
+        /// <returns>ApiResponse of SearchAvatarsResult</returns>
+        public VRChat.API.Client.ApiResponse<SearchAvatarsResult> SearchAvatarsWithHttpInfo(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default)
         {
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
 
@@ -2639,6 +2687,38 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "isInternalVariant", isInternalVariant));
             }
+            if (marketplace != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "marketplace", marketplace));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (metadata != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metadata", metadata));
+            }
+            if (minPrice != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minPrice", minPrice));
+            }
+            if (maxPrice != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxPrice", maxPrice));
+            }
+            if (performanceAtLeast != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "performanceAtLeast", performanceAtLeast));
+            }
+            if (minAssetVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minAssetVersion", minAssetVersion));
+            }
+            if (maxAssetVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxAssetVersion", maxAssetVersion));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2650,18 +2730,18 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = this.Client.Get<List<Avatar>>("/avatars", localVarRequestOptions, this.Configuration);
+                var localVarResponse = this.Client.Get<SearchAvatarsResult>("/avatars", localVarRequestOptions, this.Configuration);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Avatar>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Avatar>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<SearchAvatarsResult>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SearchAvatarsResult), ex.Message);
             }
         }
 
         /// <summary>
-        /// Search Avatars Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search Avatars Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -2678,11 +2758,19 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;Avatar&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Avatar>> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of SearchAvatarsResult</returns>
+        public async System.Threading.Tasks.Task<SearchAvatarsResult> SearchAvatarsAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
-            VRChat.API.Client.ApiResponse<List<Avatar>> localVarResponse = await SearchAvatarsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant, cancellationToken).ConfigureAwait(false);
+            VRChat.API.Client.ApiResponse<SearchAvatarsResult> localVarResponse = await SearchAvatarsWithHttpInfoAsync(featured, sort, user, userId, n, order, offset, tag, notag, releaseStatus, maxUnityVersion, minUnityVersion, platform, isInternalVariant, marketplace, search, metadata, minPrice, maxPrice, performanceAtLeast, minAssetVersion, maxAssetVersion, cancellationToken).ConfigureAwait(false);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("SearchAvatars", localVarResponse);
@@ -2695,7 +2783,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Search Avatars Search and list avatars by query filters. You can only search your own or featured avatars. It is not possible as a normal user to search other peoples avatars.
+        /// Search Avatars Search and list avatars by query filters. Without &#x60;marketplace&#x60;, you can only search your own or featured avatars.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featured">Filters on featured results. (optional)</param>
@@ -2712,9 +2800,17 @@ namespace VRChat.API.Api
         /// <param name="minUnityVersion">The minimum Unity version supported by the asset. (optional)</param>
         /// <param name="platform">The platform the asset supports. (optional)</param>
         /// <param name="isInternalVariant">Not quite sure what this actually does (exists on the website but doesn&#39;t seem to be used) (optional)</param>
+        /// <param name="marketplace">Search avatars listed in the marketplace. (optional)</param>
+        /// <param name="search">Text to search for. Requires &#x60;marketplace&#x60;. (optional)</param>
+        /// <param name="metadata">Wrap the results in an AvatarList. (optional)</param>
+        /// <param name="minPrice"> (optional)</param>
+        /// <param name="maxPrice"> (optional)</param>
+        /// <param name="performanceAtLeast"> (optional)</param>
+        /// <param name="minAssetVersion"> (optional)</param>
+        /// <param name="maxAssetVersion"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;Avatar&gt;)</returns>
-        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Avatar>>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, System.Threading.CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (SearchAvatarsResult)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<SearchAvatarsResult>> SearchAvatarsWithHttpInfoAsync(bool? featured = default, SortOptionAvatar? sort = default, string? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, bool? isInternalVariant = default, SearchAvatarsMarketplace? marketplace = default, string? search = default, bool? metadata = default, int? minPrice = default, int? maxPrice = default, int? performanceAtLeast = default, int? minAssetVersion = default, int? maxAssetVersion = default, System.Threading.CancellationToken cancellationToken = default)
         {
 
             VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
@@ -2790,6 +2886,38 @@ namespace VRChat.API.Api
             {
                 localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "isInternalVariant", isInternalVariant));
             }
+            if (marketplace != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "marketplace", marketplace));
+            }
+            if (search != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "search", search));
+            }
+            if (metadata != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "metadata", metadata));
+            }
+            if (minPrice != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minPrice", minPrice));
+            }
+            if (maxPrice != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxPrice", maxPrice));
+            }
+            if (performanceAtLeast != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "performanceAtLeast", performanceAtLeast));
+            }
+            if (minAssetVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "minAssetVersion", minAssetVersion));
+            }
+            if (maxAssetVersion != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "maxAssetVersion", maxAssetVersion));
+            }
 
             // authentication (authCookie) required
             // cookie parameter support
@@ -2801,13 +2929,13 @@ namespace VRChat.API.Api
             // make the HTTP request
             try
             {
-                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Avatar>>("/avatars", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                var localVarResponse = await this.AsynchronousClient.GetAsync<SearchAvatarsResult>("/avatars", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)
             {
                 // Return response with error information instead of throwing
-                return new VRChat.API.Client.ApiResponse<List<Avatar>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Avatar>), ex.Message);
+                return new VRChat.API.Client.ApiResponse<SearchAvatarsResult>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(SearchAvatarsResult), ex.Message);
             }
         }
 

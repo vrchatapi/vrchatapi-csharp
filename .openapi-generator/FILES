@@ -70,6 +70,7 @@ src/VRChat.API/Model/AgreementCode.cs
 src/VRChat.API/Model/AgreementRequest.cs
 src/VRChat.API/Model/AgreementStatus.cs
 src/VRChat.API/Model/Avatar.cs
+src/VRChat.API/Model/AvatarList.cs
 src/VRChat.API/Model/AvatarModeration.cs
 src/VRChat.API/Model/AvatarModerationCreated.cs
 src/VRChat.API/Model/AvatarModerationType.cs
@@ -347,6 +348,7 @@ src/VRChat.API/Model/InfoPushWorldCategoryData.cs
 src/VRChat.API/Model/Instance.cs
 src/VRChat.API/Model/InstanceCategory.cs
 src/VRChat.API/Model/InstanceContentSettings.cs
+src/VRChat.API/Model/InstanceCount.cs
 src/VRChat.API/Model/InstanceDiscovery.cs
 src/VRChat.API/Model/InstanceDiscoveryBoost.cs
 src/VRChat.API/Model/InstanceDiscoveryMode.cs
@@ -498,6 +500,8 @@ src/VRChat.API/Model/RewardRedemptionData.cs
 src/VRChat.API/Model/RewardRedemptionRequest.cs
 src/VRChat.API/Model/RewardRedemptionResult.cs
 src/VRChat.API/Model/RouteNotImplemented.cs
+src/VRChat.API/Model/SearchAvatarsMarketplace.cs
+src/VRChat.API/Model/SearchAvatarsResult.cs
 src/VRChat.API/Model/SearchWorldsUser.cs
 src/VRChat.API/Model/SellerEligibility.cs
 src/VRChat.API/Model/SentNotification.cs

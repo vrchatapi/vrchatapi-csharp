@@ -205,6 +205,25 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;InstanceCategory&gt;</returns>
         ApiResponse<List<InstanceCategory>> GetInstanceCategoriesWithHttpInfo();
         /// <summary>
+        /// Get Instance Count
+        /// </summary>
+        /// <remarks>
+        /// Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InstanceCount</returns>
+        InstanceCount GetInstanceCount();
+
+        /// <summary>
+        /// Get Instance Count
+        /// </summary>
+        /// <remarks>
+        /// Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InstanceCount</returns>
+        ApiResponse<InstanceCount> GetInstanceCountWithHttpInfo();
+        /// <summary>
         /// List Instance Vibes
         /// </summary>
         /// <remarks>
@@ -502,6 +521,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InstanceCategory&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<InstanceCategory>>> GetInstanceCategoriesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Instance Count
+        /// </summary>
+        /// <remarks>
+        /// Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceCount</returns>
+        System.Threading.Tasks.Task<InstanceCount> GetInstanceCountAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Instance Count
+        /// </summary>
+        /// <remarks>
+        /// Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceCount)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstanceCount>> GetInstanceCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Instance Vibes
         /// </summary>
@@ -2046,6 +2086,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<InstanceCategory>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<InstanceCategory>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Instance Count Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InstanceCount</returns>
+        public InstanceCount GetInstanceCount()
+        {
+            VRChat.API.Client.ApiResponse<InstanceCount> localVarResponse = GetInstanceCountWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceCount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Instance Count Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InstanceCount</returns>
+        public VRChat.API.Client.ApiResponse<InstanceCount> GetInstanceCountWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<InstanceCount>("/instances/count", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceCount>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceCount), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Instance Count Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceCount</returns>
+        public async System.Threading.Tasks.Task<InstanceCount> GetInstanceCountAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<InstanceCount> localVarResponse = await GetInstanceCountWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceCount", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Instance Count Returns instance and event counts as of &#x60;asOf&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceCount)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceCount>> GetInstanceCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InstanceCount>("/instances/count", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceCount>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceCount), ex.Message);
             }
         }
 

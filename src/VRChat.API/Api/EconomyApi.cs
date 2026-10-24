@@ -339,6 +339,31 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of EconomyStatus</returns>
         ApiResponse<EconomyStatus> GetEconomyStatusWithHttpInfo();
         /// <summary>
+        /// List Economy Subscriptions
+        /// </summary>
+        /// <remarks>
+        /// List a subscriber&#39;s economy subscriptions.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        List<Object> GetEconomySubscriptions(string subscriberId, int? n = default, int? offset = default);
+
+        /// <summary>
+        /// List Economy Subscriptions
+        /// </summary>
+        /// <remarks>
+        /// List a subscriber&#39;s economy subscriptions.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        ApiResponse<List<Object>> GetEconomySubscriptionsWithHttpInfo(string subscriberId, int? n = default, int? offset = default);
+        /// <summary>
         /// Get License Group
         /// </summary>
         /// <remarks>
@@ -1251,6 +1276,33 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (EconomyStatus)</returns>
         System.Threading.Tasks.Task<ApiResponse<EconomyStatus>> GetEconomyStatusWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List Economy Subscriptions
+        /// </summary>
+        /// <remarks>
+        /// List a subscriber&#39;s economy subscriptions.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        System.Threading.Tasks.Task<List<Object>> GetEconomySubscriptionsAsync(string subscriberId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// List Economy Subscriptions
+        /// </summary>
+        /// <remarks>
+        /// List a subscriber&#39;s economy subscriptions.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<Object>>> GetEconomySubscriptionsWithHttpInfoAsync(string subscriberId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get License Group
         /// </summary>
@@ -4240,6 +4292,174 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<EconomyStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(EconomyStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Economy Subscriptions List a subscriber&#39;s economy subscriptions.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;Object&gt;</returns>
+        public List<Object> GetEconomySubscriptions(string subscriberId, int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = GetEconomySubscriptionsWithHttpInfo(subscriberId, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomySubscriptions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Economy Subscriptions List a subscriber&#39;s economy subscriptions.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;Object&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<Object>> GetEconomySubscriptionsWithHttpInfo(string subscriberId, int? n = default, int? offset = default)
+        {
+            // verify the required parameter 'subscriberId' is set
+            if (subscriberId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriberId' when calling EconomyApi->GetEconomySubscriptions");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriberId", subscriberId));
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<Object>>("/economy/subscriptions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// List Economy Subscriptions List a subscriber&#39;s economy subscriptions.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;Object&gt;</returns>
+        public async System.Threading.Tasks.Task<List<Object>> GetEconomySubscriptionsAsync(string subscriberId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<Object>> localVarResponse = await GetEconomySubscriptionsWithHttpInfoAsync(subscriberId, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetEconomySubscriptions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Economy Subscriptions List a subscriber&#39;s economy subscriptions.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriberId"></param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;Object&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<Object>>> GetEconomySubscriptionsWithHttpInfoAsync(string subscriberId, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'subscriberId' is set
+            if (subscriberId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'subscriberId' when calling EconomyApi->GetEconomySubscriptions");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "subscriberId", subscriberId));
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<Object>>("/economy/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<Object>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<Object>), ex.Message);
             }
         }
 
