@@ -63,7 +63,7 @@ namespace VRChat.API.Api
         /// Check Device Code
         /// </summary>
         /// <remarks>
-        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -74,7 +74,7 @@ namespace VRChat.API.Api
         /// Check Device Code
         /// </summary>
         /// <remarks>
-        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -134,7 +134,7 @@ namespace VRChat.API.Api
         /// Create Device Code
         /// </summary>
         /// <remarks>
-        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DeviceCode</returns>
@@ -144,7 +144,7 @@ namespace VRChat.API.Api
         /// Create Device Code
         /// </summary>
         /// <remarks>
-        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DeviceCode</returns>
@@ -765,7 +765,7 @@ namespace VRChat.API.Api
         /// Check Device Code
         /// </summary>
         /// <remarks>
-        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -777,7 +777,7 @@ namespace VRChat.API.Api
         /// Check Device Code
         /// </summary>
         /// <remarks>
-        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -842,7 +842,7 @@ namespace VRChat.API.Api
         /// Create Device Code
         /// </summary>
         /// <remarks>
-        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -853,7 +853,7 @@ namespace VRChat.API.Api
         /// Create Device Code
         /// </summary>
         /// <remarks>
-        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </remarks>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1962,7 +1962,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -1982,7 +1982,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -2027,7 +2027,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -2048,7 +2048,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved. Once it is, the response logs this device in as the user who approved it.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDeviceCodeRequest"></param>
@@ -2418,7 +2418,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Create Device Code Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>DeviceCode</returns>
@@ -2437,7 +2437,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Create Device Code Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of DeviceCode</returns>
@@ -2481,7 +2481,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Create Device Code Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2501,7 +2501,7 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
-        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// Create Device Code Creates a code that logs this device in once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;. &#x60;checkDeviceCode&#x60; returns the user and sets the &#x60;auth&#x60; cookie once it is approved.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

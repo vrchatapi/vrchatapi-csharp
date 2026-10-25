@@ -20,7 +20,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// Where a device code was created, shown to the person about to approve it.
+    /// Where and when a device code was created.
     /// </summary>
     [DataContract(Name = "DeviceAuthInfo")]
     public partial class DeviceAuthInfo : IEquatable<DeviceAuthInfo>, IValidatableObject
@@ -33,7 +33,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeviceAuthInfo" /> class.
         /// </summary>
-        /// <param name="createdAt">When the device code was created, in milliseconds since the Unix epoch. (required).</param>
+        /// <param name="createdAt">createdAt (required).</param>
         /// <param name="geolocation">geolocation (required).</param>
         public DeviceAuthInfo(int createdAt = default, DeviceAuthInfoGeolocation geolocation = default)
         {
@@ -43,9 +43,8 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// When the device code was created, in milliseconds since the Unix epoch.
+        /// Gets or Sets CreatedAt
         /// </summary>
-        /// <value>When the device code was created, in milliseconds since the Unix epoch.</value>
         [DataMember(Name = "createdAt", IsRequired = true, EmitDefaultValue = true)]
         public int CreatedAt { get; set; }
 

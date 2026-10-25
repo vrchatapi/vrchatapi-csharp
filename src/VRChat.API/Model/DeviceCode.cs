@@ -20,7 +20,7 @@ using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
 namespace VRChat.API.Model
 {
     /// <summary>
-    /// A code that logs this device in once someone approves it at &#x60;verificationUrl&#x60;.
+    /// A code that logs the device that created it in, once a logged-in user approves it with &#x60;approveDeviceAuth&#x60;.
     /// </summary>
     [DataContract(Name = "DeviceCode")]
     public partial class DeviceCode : IEquatable<DeviceCode>, IValidatableObject
@@ -34,9 +34,9 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="DeviceCode" /> class.
         /// </summary>
         /// <param name="varDeviceCode">Identifies this login attempt to &#x60;checkDeviceCode&#x60;. (required).</param>
-        /// <param name="expiresIn">Seconds until the code expires. (required).</param>
-        /// <param name="interval">Seconds to wait between calls to &#x60;checkDeviceCode&#x60;. (required).</param>
-        /// <param name="userCode">The code a person enters at &#x60;verificationUrl&#x60; to approve the login. (required).</param>
+        /// <param name="expiresIn">expiresIn (required).</param>
+        /// <param name="interval">interval (required).</param>
+        /// <param name="userCode">Identifies this login attempt to &#x60;getDeviceAuthInfo&#x60; and &#x60;approveDeviceAuth&#x60;. (required).</param>
         /// <param name="verificationUrl">verificationUrl (required).</param>
         /// <param name="verificationUrlComplete">&#x60;verificationUrl&#x60; with the code already filled in. (required).</param>
         public DeviceCode(string varDeviceCode = default, int expiresIn = default, int interval = default, string userCode = default, string verificationUrl = default, string verificationUrlComplete = default)
@@ -61,23 +61,21 @@ namespace VRChat.API.Model
         public string VarDeviceCode { get; set; }
 
         /// <summary>
-        /// Seconds until the code expires.
+        /// Gets or Sets ExpiresIn
         /// </summary>
-        /// <value>Seconds until the code expires.</value>
         [DataMember(Name = "expiresIn", IsRequired = true, EmitDefaultValue = true)]
         public int ExpiresIn { get; set; }
 
         /// <summary>
-        /// Seconds to wait between calls to &#x60;checkDeviceCode&#x60;.
+        /// Gets or Sets Interval
         /// </summary>
-        /// <value>Seconds to wait between calls to &#x60;checkDeviceCode&#x60;.</value>
         [DataMember(Name = "interval", IsRequired = true, EmitDefaultValue = true)]
         public int Interval { get; set; }
 
         /// <summary>
-        /// The code a person enters at &#x60;verificationUrl&#x60; to approve the login.
+        /// Identifies this login attempt to &#x60;getDeviceAuthInfo&#x60; and &#x60;approveDeviceAuth&#x60;.
         /// </summary>
-        /// <value>The code a person enters at &#x60;verificationUrl&#x60; to approve the login.</value>
+        /// <value>Identifies this login attempt to &#x60;getDeviceAuthInfo&#x60; and &#x60;approveDeviceAuth&#x60;.</value>
         [DataMember(Name = "userCode", IsRequired = true, EmitDefaultValue = true)]
         public string UserCode { get; set; }
 

@@ -140,6 +140,8 @@ src/VRChat.API/Model/DeviceAuthApproveResponse.cs
 src/VRChat.API/Model/DeviceAuthInfo.cs
 src/VRChat.API/Model/DeviceAuthInfoGeolocation.cs
 src/VRChat.API/Model/DeviceCode.cs
+src/VRChat.API/Model/DeviceCodeApproved.cs
+src/VRChat.API/Model/DeviceCodePending.cs
 src/VRChat.API/Model/DeviceCodeStatus.cs
 src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DiscordDetails.cs

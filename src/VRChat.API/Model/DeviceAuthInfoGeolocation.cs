@@ -34,7 +34,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="DeviceAuthInfoGeolocation" /> class.
         /// </summary>
         /// <param name="city">city (required).</param>
-        /// <param name="country">ISO 3166-1 alpha-2 country code. (required).</param>
+        /// <param name="country">country (required).</param>
         /// <param name="region">region (required).</param>
         /// <param name="regionCode">regionCode (required).</param>
         public DeviceAuthInfoGeolocation(string city = default, string country = default, string region = default, string regionCode = default)
@@ -56,9 +56,8 @@ namespace VRChat.API.Model
         public string City { get; set; }
 
         /// <summary>
-        /// ISO 3166-1 alpha-2 country code.
+        /// Gets or Sets Country
         /// </summary>
-        /// <value>ISO 3166-1 alpha-2 country code.</value>
         [DataMember(Name = "country", IsRequired = true, EmitDefaultValue = true)]
         public string Country { get; set; }
 
