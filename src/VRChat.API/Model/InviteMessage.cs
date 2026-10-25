@@ -45,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="messageType">messageType (required).</param>
         /// <param name="remainingCooldownMinutes">Changes to 60 when updated, although probably server-side configurable. (required) (default to 0).</param>
         /// <param name="slot">slot (required).</param>
-        /// <param name="updatedAt">updatedAt (required).</param>
+        /// <param name="updatedAt">A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;. (required).</param>
         public InviteMessage(bool canBeUpdated = true, string id = default, string message = default, InviteMessageType messageType = default, int remainingCooldownMinutes = 0, int slot = default, DateTime updatedAt = default)
         {
             this.CanBeUpdated = canBeUpdated;
@@ -91,8 +91,9 @@ namespace VRChat.API.Model
         public int Slot { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdatedAt
+        /// A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.
         /// </summary>
+        /// <value>A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.</value>
         [DataMember(Name = "updatedAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTime UpdatedAt { get; set; }
 

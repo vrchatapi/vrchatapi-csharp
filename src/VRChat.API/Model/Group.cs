@@ -57,6 +57,7 @@ namespace VRChat.API.Model
         /// <param name="description">description.</param>
         /// <param name="discriminator">discriminator.</param>
         /// <param name="galleries">galleries.</param>
+        /// <param name="groupId">groupId.</param>
         /// <param name="iconId">iconId.</param>
         /// <param name="iconUrl">iconUrl.</param>
         /// <param name="id">id.</param>
@@ -82,7 +83,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags.</param>
         /// <param name="transferTargetId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="updatedAt">updatedAt.</param>
-        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, string storeId = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
+        public Group(string ageVerificationBetaCode = default, decimal ageVerificationBetaSlots = default, bool ageVerificationSlotsAvailable = default, bool allowGroupJoinPrompt = default, List<string> badges = default, string bannerId = default, string bannerUrl = default, DateTime createdAt = default, string description = default, string discriminator = default, List<GroupGallery> galleries = default, string groupId = default, string iconId = default, string iconUrl = default, string id = default, bool isVerified = false, GroupJoinState? joinState = default, List<string> languages = default, DateTime? lastPostCreatedAt = default, List<string> links = default, int memberCount = default, DateTime memberCountSyncedAt = default, GroupMemberStatus? membershipStatus = default, GroupMyMember myMember = default, string name = default, Object nameplateId = default, Object nameplateUrl = default, int onlineMemberCount = default, string ownerId = default, GroupPrivacy? privacy = default, List<GroupRole> roles = default, string rules = default, string shortCode = default, string storeId = default, List<string> tags = default, string transferTargetId = default, DateTime updatedAt = default)
         {
             this.AgeVerificationBetaCode = ageVerificationBetaCode;
             this.AgeVerificationBetaSlots = ageVerificationBetaSlots;
@@ -95,6 +96,7 @@ namespace VRChat.API.Model
             this.Description = description;
             this.Discriminator = discriminator;
             this.Galleries = galleries;
+            this.GroupId = groupId;
             this.IconId = iconId;
             this.IconUrl = iconUrl;
             this.Id = id;
@@ -187,6 +189,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "galleries", EmitDefaultValue = false)]
         public List<GroupGallery> Galleries { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GroupId
+        /// </summary>
+        [DataMember(Name = "groupId", EmitDefaultValue = false)]
+        public string GroupId { get; set; }
 
         /// <summary>
         /// Gets or Sets IconId
@@ -344,6 +352,7 @@ namespace VRChat.API.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Discriminator: ").Append(Discriminator).Append("\n");
             sb.Append("  Galleries: ").Append(Galleries).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
             sb.Append("  IconId: ").Append(IconId).Append("\n");
             sb.Append("  IconUrl: ").Append(IconUrl).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -456,6 +465,11 @@ namespace VRChat.API.Model
                     this.Galleries != null &&
                     input.Galleries != null &&
                     this.Galleries.SequenceEqual(input.Galleries)
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    (this.GroupId != null &&
+                    this.GroupId.Equals(input.GroupId))
                 ) && 
                 (
                     this.IconId == input.IconId ||
@@ -620,6 +634,10 @@ namespace VRChat.API.Model
                 if (this.Galleries != null)
                 {
                     hashCode = (hashCode * 59) + this.Galleries.GetHashCode();
+                }
+                if (this.GroupId != null)
+                {
+                    hashCode = (hashCode * 59) + this.GroupId.GetHashCode();
                 }
                 if (this.IconId != null)
                 {

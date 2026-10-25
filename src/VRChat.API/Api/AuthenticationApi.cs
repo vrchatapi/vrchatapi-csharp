@@ -20,6 +20,27 @@ namespace VRChat.API.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Approve Device Code
+        /// </summary>
+        /// <remarks>
+        /// Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <returns>DeviceAuthApproveResponse</returns>
+        DeviceAuthApproveResponse ApproveDeviceAuth(DeviceAuthApproveRequest deviceAuthApproveRequest);
+
+        /// <summary>
+        /// Approve Device Code
+        /// </summary>
+        /// <remarks>
+        /// Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <returns>ApiResponse of DeviceAuthApproveResponse</returns>
+        ApiResponse<DeviceAuthApproveResponse> ApproveDeviceAuthWithHttpInfo(DeviceAuthApproveRequest deviceAuthApproveRequest);
+        /// <summary>
         /// Cancel pending enabling of time-based 2FA codes
         /// </summary>
         /// <remarks>
@@ -38,6 +59,27 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Disable2FAResult</returns>
         ApiResponse<Disable2FAResult> CancelPending2FAWithHttpInfo();
+        /// <summary>
+        /// Check Device Code
+        /// </summary>
+        /// <remarks>
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <returns>DeviceCodeStatus</returns>
+        DeviceCodeStatus CheckDeviceCode(CheckDeviceCodeRequest checkDeviceCodeRequest);
+
+        /// <summary>
+        /// Check Device Code
+        /// </summary>
+        /// <remarks>
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <returns>ApiResponse of DeviceCodeStatus</returns>
+        ApiResponse<DeviceCodeStatus> CheckDeviceCodeWithHttpInfo(CheckDeviceCodeRequest checkDeviceCodeRequest);
         /// <summary>
         /// Check User Exists
         /// </summary>
@@ -88,6 +130,25 @@ namespace VRChat.API.Api
         /// <param name="verifyEmail">Token to verify email.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ConfirmEmailWithHttpInfo(string id, string verifyEmail);
+        /// <summary>
+        /// Create Device Code
+        /// </summary>
+        /// <remarks>
+        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DeviceCode</returns>
+        DeviceCode CreateDeviceCode();
+
+        /// <summary>
+        /// Create Device Code
+        /// </summary>
+        /// <remarks>
+        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DeviceCode</returns>
+        ApiResponse<DeviceCode> CreateDeviceCodeWithHttpInfo();
         /// <summary>
         /// Create Global Avatar Moderation
         /// </summary>
@@ -250,6 +311,27 @@ namespace VRChat.API.Api
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrentUserLoginResponse</returns>
         ApiResponse<CurrentUserLoginResponse> GetCurrentUserWithHttpInfo();
+        /// <summary>
+        /// Get Device Code Info
+        /// </summary>
+        /// <remarks>
+        /// Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <returns>DeviceAuthInfo</returns>
+        DeviceAuthInfo GetDeviceAuthInfo(string userCode);
+
+        /// <summary>
+        /// Get Device Code Info
+        /// </summary>
+        /// <remarks>
+        /// Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <returns>ApiResponse of DeviceAuthInfo</returns>
+        ApiResponse<DeviceAuthInfo> GetDeviceAuthInfoWithHttpInfo(string userCode);
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -438,6 +520,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Success</returns>
         ApiResponse<Success> ResendEmailConfirmationWithHttpInfo();
         /// <summary>
+        /// Reset Password
+        /// </summary>
+        /// <remarks>
+        /// Sends a password recovery email.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>Success</returns>
+        Success ResetPassword(ResetPasswordRequest resetPasswordRequest);
+
+        /// <summary>
+        /// Reset Password
+        /// </summary>
+        /// <remarks>
+        /// Sends a password recovery email.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>ApiResponse of Success</returns>
+        ApiResponse<Success> ResetPasswordWithHttpInfo(ResetPasswordRequest resetPasswordRequest);
+        /// <summary>
         /// Submit Moderation Report
         /// </summary>
         /// <remarks>
@@ -615,6 +718,29 @@ namespace VRChat.API.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Approve Device Code
+        /// </summary>
+        /// <remarks>
+        /// Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceAuthApproveResponse</returns>
+        System.Threading.Tasks.Task<DeviceAuthApproveResponse> ApproveDeviceAuthAsync(DeviceAuthApproveRequest deviceAuthApproveRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Approve Device Code
+        /// </summary>
+        /// <remarks>
+        /// Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceAuthApproveResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeviceAuthApproveResponse>> ApproveDeviceAuthWithHttpInfoAsync(DeviceAuthApproveRequest deviceAuthApproveRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Cancel pending enabling of time-based 2FA codes
         /// </summary>
         /// <remarks>
@@ -635,6 +761,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Disable2FAResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<Disable2FAResult>> CancelPending2FAWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Check Device Code
+        /// </summary>
+        /// <remarks>
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceCodeStatus</returns>
+        System.Threading.Tasks.Task<DeviceCodeStatus> CheckDeviceCodeAsync(CheckDeviceCodeRequest checkDeviceCodeRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Check Device Code
+        /// </summary>
+        /// <remarks>
+        /// Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceCodeStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeviceCodeStatus>> CheckDeviceCodeWithHttpInfoAsync(CheckDeviceCodeRequest checkDeviceCodeRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Check User Exists
         /// </summary>
@@ -689,6 +838,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ConfirmEmailWithHttpInfoAsync(string id, string verifyEmail, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Device Code
+        /// </summary>
+        /// <remarks>
+        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceCode</returns>
+        System.Threading.Tasks.Task<DeviceCode> CreateDeviceCodeAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Device Code
+        /// </summary>
+        /// <remarks>
+        /// Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceCode)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeviceCode>> CreateDeviceCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create Global Avatar Moderation
         /// </summary>
@@ -867,6 +1037,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (CurrentUserLoginResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<CurrentUserLoginResponse>> GetCurrentUserWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Device Code Info
+        /// </summary>
+        /// <remarks>
+        /// Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceAuthInfo</returns>
+        System.Threading.Tasks.Task<DeviceAuthInfo> GetDeviceAuthInfoAsync(string userCode, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Device Code Info
+        /// </summary>
+        /// <remarks>
+        /// Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceAuthInfo)</returns>
+        System.Threading.Tasks.Task<ApiResponse<DeviceAuthInfo>> GetDeviceAuthInfoWithHttpInfoAsync(string userCode, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get Global Avatar Moderations
         /// </summary>
@@ -1072,6 +1265,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
         System.Threading.Tasks.Task<ApiResponse<Success>> ResendEmailConfirmationWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Reset Password
+        /// </summary>
+        /// <remarks>
+        /// Sends a password recovery email.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        System.Threading.Tasks.Task<Success> ResetPasswordAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Reset Password
+        /// </summary>
+        /// <remarks>
+        /// Sends a password recovery email.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Success>> ResetPasswordWithHttpInfoAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Submit Moderation Report
         /// </summary>
@@ -1470,6 +1686,152 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Approve Device Code Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <returns>DeviceAuthApproveResponse</returns>
+        public DeviceAuthApproveResponse ApproveDeviceAuth(DeviceAuthApproveRequest deviceAuthApproveRequest)
+        {
+            VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse> localVarResponse = ApproveDeviceAuthWithHttpInfo(deviceAuthApproveRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ApproveDeviceAuth", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Approve Device Code Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <returns>ApiResponse of DeviceAuthApproveResponse</returns>
+        public VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse> ApproveDeviceAuthWithHttpInfo(DeviceAuthApproveRequest deviceAuthApproveRequest)
+        {
+            // verify the required parameter 'deviceAuthApproveRequest' is set
+            if (deviceAuthApproveRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'deviceAuthApproveRequest' when calling AuthenticationApi->ApproveDeviceAuth");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = deviceAuthApproveRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<DeviceAuthApproveResponse>("/auth/device/approve", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceAuthApproveResponse), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Approve Device Code Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceAuthApproveResponse</returns>
+        public async System.Threading.Tasks.Task<DeviceAuthApproveResponse> ApproveDeviceAuthAsync(DeviceAuthApproveRequest deviceAuthApproveRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse> localVarResponse = await ApproveDeviceAuthWithHttpInfoAsync(deviceAuthApproveRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ApproveDeviceAuth", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Approve Device Code Approves a device code from &#x60;createDeviceCode&#x60;, logging the device that created it in as the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="deviceAuthApproveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceAuthApproveResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse>> ApproveDeviceAuthWithHttpInfoAsync(DeviceAuthApproveRequest deviceAuthApproveRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'deviceAuthApproveRequest' is set
+            if (deviceAuthApproveRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'deviceAuthApproveRequest' when calling AuthenticationApi->ApproveDeviceAuth");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = deviceAuthApproveRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<DeviceAuthApproveResponse>("/auth/device/approve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceAuthApproveResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceAuthApproveResponse), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Cancel pending enabling of time-based 2FA codes Cancels the sequence for enabling time-based 2FA.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1596,6 +1958,140 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Disable2FAResult>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Disable2FAResult), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <returns>DeviceCodeStatus</returns>
+        public DeviceCodeStatus CheckDeviceCode(CheckDeviceCodeRequest checkDeviceCodeRequest)
+        {
+            VRChat.API.Client.ApiResponse<DeviceCodeStatus> localVarResponse = CheckDeviceCodeWithHttpInfo(checkDeviceCodeRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckDeviceCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <returns>ApiResponse of DeviceCodeStatus</returns>
+        public VRChat.API.Client.ApiResponse<DeviceCodeStatus> CheckDeviceCodeWithHttpInfo(CheckDeviceCodeRequest checkDeviceCodeRequest)
+        {
+            // verify the required parameter 'checkDeviceCodeRequest' is set
+            if (checkDeviceCodeRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'checkDeviceCodeRequest' when calling AuthenticationApi->CheckDeviceCode");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = checkDeviceCodeRequest;
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<DeviceCodeStatus>("/auth/device/status", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceCodeStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceCodeStatus), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceCodeStatus</returns>
+        public async System.Threading.Tasks.Task<DeviceCodeStatus> CheckDeviceCodeAsync(CheckDeviceCodeRequest checkDeviceCodeRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<DeviceCodeStatus> localVarResponse = await CheckDeviceCodeWithHttpInfoAsync(checkDeviceCodeRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CheckDeviceCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check Device Code Returns whether a device code from &#x60;createDeviceCode&#x60; has been approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="checkDeviceCodeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceCodeStatus)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DeviceCodeStatus>> CheckDeviceCodeWithHttpInfoAsync(CheckDeviceCodeRequest checkDeviceCodeRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'checkDeviceCodeRequest' is set
+            if (checkDeviceCodeRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'checkDeviceCodeRequest' when calling AuthenticationApi->CheckDeviceCode");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = checkDeviceCodeRequest;
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<DeviceCodeStatus>("/auth/device/status", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceCodeStatus>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceCodeStatus), ex.Message);
             }
         }
 
@@ -1918,6 +2414,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>DeviceCode</returns>
+        public DeviceCode CreateDeviceCode()
+        {
+            VRChat.API.Client.ApiResponse<DeviceCode> localVarResponse = CreateDeviceCodeWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateDeviceCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of DeviceCode</returns>
+        public VRChat.API.Client.ApiResponse<DeviceCode> CreateDeviceCodeWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<DeviceCode>("/auth/device/code", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceCode>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceCode), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceCode</returns>
+        public async System.Threading.Tasks.Task<DeviceCode> CreateDeviceCodeAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<DeviceCode> localVarResponse = await CreateDeviceCodeWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateDeviceCode", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Device Code Creates a code to log this device in from another one, where a logged-in person approves it. Poll &#x60;checkDeviceCode&#x60; until it is approved.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceCode)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DeviceCode>> CreateDeviceCodeWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<DeviceCode>("/auth/device/code", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceCode>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceCode), ex.Message);
             }
         }
 
@@ -3046,6 +3672,150 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<CurrentUserLoginResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CurrentUserLoginResponse), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Device Code Info Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <returns>DeviceAuthInfo</returns>
+        public DeviceAuthInfo GetDeviceAuthInfo(string userCode)
+        {
+            VRChat.API.Client.ApiResponse<DeviceAuthInfo> localVarResponse = GetDeviceAuthInfoWithHttpInfo(userCode);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDeviceAuthInfo", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Device Code Info Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <returns>ApiResponse of DeviceAuthInfo</returns>
+        public VRChat.API.Client.ApiResponse<DeviceAuthInfo> GetDeviceAuthInfoWithHttpInfo(string userCode)
+        {
+            // verify the required parameter 'userCode' is set
+            if (userCode == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userCode' when calling AuthenticationApi->GetDeviceAuthInfo");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userCode", userCode));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<DeviceAuthInfo>("/auth/device/info", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceAuthInfo>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceAuthInfo), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Device Code Info Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of DeviceAuthInfo</returns>
+        public async System.Threading.Tasks.Task<DeviceAuthInfo> GetDeviceAuthInfoAsync(string userCode, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<DeviceAuthInfo> localVarResponse = await GetDeviceAuthInfoWithHttpInfoAsync(userCode, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetDeviceAuthInfo", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Device Code Info Returns where a device code was created, for the person about to approve it with &#x60;approveDeviceAuth&#x60;.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userCode">The &#x60;userCode&#x60; of a device code.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (DeviceAuthInfo)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<DeviceAuthInfo>> GetDeviceAuthInfoWithHttpInfoAsync(string userCode, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userCode' is set
+            if (userCode == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userCode' when calling AuthenticationApi->GetDeviceAuthInfo");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "userCode", userCode));
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<DeviceAuthInfo>("/auth/device/info", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<DeviceAuthInfo>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(DeviceAuthInfo), ex.Message);
             }
         }
 
@@ -4284,6 +5054,140 @@ namespace VRChat.API.Api
             try
             {
                 var localVarResponse = await this.AsynchronousClient.PostAsync<Success>("/auth/user/resendEmail", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Reset Password Sends a password recovery email.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>Success</returns>
+        public Success ResetPassword(ResetPasswordRequest resetPasswordRequest)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = ResetPasswordWithHttpInfo(resetPasswordRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetPassword", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Reset Password Sends a password recovery email.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <returns>ApiResponse of Success</returns>
+        public VRChat.API.Client.ApiResponse<Success> ResetPasswordWithHttpInfo(ResetPasswordRequest resetPasswordRequest)
+        {
+            // verify the required parameter 'resetPasswordRequest' is set
+            if (resetPasswordRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'resetPasswordRequest' when calling AuthenticationApi->ResetPassword");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = resetPasswordRequest;
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<Success>("/auth/password", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Reset Password Sends a password recovery email.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Success</returns>
+        public async System.Threading.Tasks.Task<Success> ResetPasswordAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Success> localVarResponse = await ResetPasswordWithHttpInfoAsync(resetPasswordRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ResetPassword", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Reset Password Sends a password recovery email.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="resetPasswordRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Success)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Success>> ResetPasswordWithHttpInfoAsync(ResetPasswordRequest resetPasswordRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'resetPasswordRequest' is set
+            if (resetPasswordRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'resetPasswordRequest' when calling AuthenticationApi->ResetPassword");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = resetPasswordRequest;
+
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<Success>("/auth/password", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)

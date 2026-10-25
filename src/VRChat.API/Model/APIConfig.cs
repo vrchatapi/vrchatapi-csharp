@@ -110,8 +110,8 @@ namespace VRChat.API.Model
         /// <param name="economyLedgerBackfill">Unknown.</param>
         /// <param name="economyLedgerMigrationStop">Unknown.</param>
         /// <param name="economyLedgerMode">Unknown (required).</param>
-        /// <param name="economyPauseEnd">Unknown (required).</param>
-        /// <param name="economyPauseStart">Unknown (required).</param>
+        /// <param name="economyPauseEnd">A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;. (required).</param>
+        /// <param name="economyPauseStart">A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;. (required).</param>
         /// <param name="economyPurchaseRepairEnabled">Unknown (required).</param>
         /// <param name="economyState">Unknown (required) (default to 1).</param>
         /// <param name="enableVRCPlusWorldLists">enableVRCPlusWorldLists.</param>
@@ -894,16 +894,16 @@ namespace VRChat.API.Model
         public string EconomyLedgerMode { get; set; }
 
         /// <summary>
-        /// Unknown
+        /// A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.
         /// </summary>
-        /// <value>Unknown</value>
+        /// <value>A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.</value>
         [DataMember(Name = "economyPauseEnd", IsRequired = true, EmitDefaultValue = true)]
         public DateTime EconomyPauseEnd { get; set; }
 
         /// <summary>
-        /// Unknown
+        /// A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.
         /// </summary>
-        /// <value>Unknown</value>
+        /// <value>A date and time in the form of an RFC 3339 &#x60;date-time&#x60;, except that the UTC offset can be written without its colon, as in &#x60;+0000&#x60;.</value>
         [DataMember(Name = "economyPauseStart", IsRequired = true, EmitDefaultValue = true)]
         public DateTime EconomyPauseStart { get; set; }
 

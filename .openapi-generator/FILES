@@ -105,6 +105,7 @@ src/VRChat.API/Model/CalendarEventRecurrenceEndType.cs
 src/VRChat.API/Model/CalendarEventUserInterest.cs
 src/VRChat.API/Model/ChangeUserTagsRequest.cs
 src/VRChat.API/Model/ChangeWorldTagsRequest.cs
+src/VRChat.API/Model/CheckDeviceCodeRequest.cs
 src/VRChat.API/Model/ContentFilter.cs
 src/VRChat.API/Model/CosmeticItemType.cs
 src/VRChat.API/Model/CreateAvatarModerationRequest.cs
@@ -134,6 +135,12 @@ src/VRChat.API/Model/CurrentUserLoginResponse.cs
 src/VRChat.API/Model/CurrentUserPresence.cs
 src/VRChat.API/Model/DeclineGroupInviteRequest.cs
 src/VRChat.API/Model/DeveloperType.cs
+src/VRChat.API/Model/DeviceAuthApproveRequest.cs
+src/VRChat.API/Model/DeviceAuthApproveResponse.cs
+src/VRChat.API/Model/DeviceAuthInfo.cs
+src/VRChat.API/Model/DeviceAuthInfoGeolocation.cs
+src/VRChat.API/Model/DeviceCode.cs
+src/VRChat.API/Model/DeviceCodeStatus.cs
 src/VRChat.API/Model/Disable2FAResult.cs
 src/VRChat.API/Model/DiscordDetails.cs
 src/VRChat.API/Model/DynamicContentRow.cs
@@ -491,6 +498,7 @@ src/VRChat.API/Model/ReportReason.cs
 src/VRChat.API/Model/RepresentedGroup.cs
 src/VRChat.API/Model/RequestInviteRequest.cs
 src/VRChat.API/Model/RequiresTwoFactorAuth.cs
+src/VRChat.API/Model/ResetPasswordRequest.cs
 src/VRChat.API/Model/RespondGroupJoinRequest.cs
 src/VRChat.API/Model/RespondNotificationV2Request.cs
 src/VRChat.API/Model/Response.cs

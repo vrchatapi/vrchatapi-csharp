@@ -92,10 +92,16 @@ namespace VRChat.API.Model
         OpenWorldsMenu = 11,
 
         /// <summary>
+        /// Enum Event for value: event
+        /// </summary>
+        [EnumMember(Value = "event")]
+        Event = 12,
+
+        /// <summary>
         /// Enum ScrollToShelf for value: scrollToShelf
         /// </summary>
         [EnumMember(Value = "scrollToShelf")]
-        ScrollToShelf = 12
+        ScrollToShelf = 13
     }
 
 }
