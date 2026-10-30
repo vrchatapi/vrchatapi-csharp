@@ -25,12 +25,6 @@ namespace VRChat.API.Model
     [DataContract(Name = "UserCosmetic")]
     public partial class UserCosmetic : IEquatable<UserCosmetic>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets ItemType
-        /// </summary>
-        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
-        public InventoryItemType ItemType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UserCosmetic" /> class.
         /// </summary>
@@ -42,16 +36,17 @@ namespace VRChat.API.Model
         /// <param name="acquiredOn">acquiredOn (required).</param>
         /// <param name="acquisition">acquisition (required).</param>
         /// <param name="id">id (required).</param>
-        /// <param name="itemType">itemType (required).</param>
+        /// <param name="itemType">itemType (required) (default to &quot;bundle&quot;).</param>
         /// <param name="templateId">templateId (required).</param>
         /// <param name="userAttributes">userAttributes (required).</param>
-        public UserCosmetic(DateTime acquiredOn = default, string acquisition = default, string id = default, InventoryItemType itemType = default, string templateId = default, InventoryUserAttributes userAttributes = default)
+        public UserCosmetic(DateTime acquiredOn = default, string acquisition = default, string id = default, string itemType = @"bundle", string templateId = default, InventoryUserAttributes userAttributes = default)
         {
             this.AcquiredOn = acquiredOn;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Acquisition = acquisition;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemType = itemType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.TemplateId = templateId;
@@ -76,6 +71,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemType
+        /// </summary>
+        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemType { get; set; }
 
         /// <summary>
         /// Gets or Sets TemplateId
@@ -154,7 +155,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
+                    (this.ItemType != null &&
+                    this.ItemType.Equals(input.ItemType))
                 ) && 
                 (
                     this.TemplateId == input.TemplateId ||
@@ -186,7 +188,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                if (this.ItemType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                }
                 if (this.TemplateId != null)
                 {
                     hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();

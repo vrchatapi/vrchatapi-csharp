@@ -25,12 +25,6 @@ namespace VRChat.API.Model
     [DataContract(Name = "InventoryTemplate")]
     public partial class InventoryTemplate : IEquatable<InventoryTemplate>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets ItemType
-        /// </summary>
-        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
-        public InventoryItemType ItemType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryTemplate" /> class.
         /// </summary>
@@ -51,7 +45,7 @@ namespace VRChat.API.Model
         /// <param name="id">id (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="initialToggleState">initialToggleState.</param>
-        /// <param name="itemType">itemType (required).</param>
+        /// <param name="itemType">itemType (required) (default to &quot;bundle&quot;).</param>
         /// <param name="itemTypeLabel">itemTypeLabel (required).</param>
         /// <param name="metadata">metadata.</param>
         /// <param name="name">name (required).</param>
@@ -62,7 +56,7 @@ namespace VRChat.API.Model
         /// <param name="tags">tags (required).</param>
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
-        public InventoryTemplate(ProductListingAttribution attribution = default, string authorId = default, List<string> collections = default, DateTime createdAt = default, Dictionary<string, Object> defaultAttributes = default, string description = default, string dropStatus = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, bool initialToggleState = default, InventoryItemType itemType = default, string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string productId = default, List<string> publishedListings = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
+        public InventoryTemplate(ProductListingAttribution attribution = default, string authorId = default, List<string> collections = default, DateTime createdAt = default, Dictionary<string, Object> defaultAttributes = default, string description = default, string dropStatus = default, List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, bool initialToggleState = default, string itemType = @"bundle", string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, InventoryNotificationDetails notificationDetails = default, string productId = default, List<string> publishedListings = default, string status = default, List<string> tags = default, DateTime updatedAt = default, bool validateUserAttributes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -81,6 +75,7 @@ namespace VRChat.API.Model
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemType = itemType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemTypeLabel = itemTypeLabel;
@@ -172,6 +167,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "initialToggleState", EmitDefaultValue = true)]
         public bool InitialToggleState { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemType
+        /// </summary>
+        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemType { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemTypeLabel
@@ -363,7 +364,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
+                    (this.ItemType != null &&
+                    this.ItemType.Equals(input.ItemType))
                 ) && 
                 (
                     this.ItemTypeLabel == input.ItemTypeLabel ||
@@ -468,7 +470,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InitialToggleState.GetHashCode();
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                if (this.ItemType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                }
                 if (this.ItemTypeLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();

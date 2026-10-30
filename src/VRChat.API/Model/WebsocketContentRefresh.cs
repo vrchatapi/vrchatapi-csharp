@@ -31,12 +31,6 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "actionType", IsRequired = true, EmitDefaultValue = true)]
         public WebsocketContentRefreshActionType ActionType { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ItemType
-        /// </summary>
-        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
-        public InventoryItemType ItemType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsocketContentRefresh" /> class.
         /// </summary>
@@ -49,8 +43,8 @@ namespace VRChat.API.Model
         /// <param name="contentType">contentType (required).</param>
         /// <param name="fileId">fileId (required).</param>
         /// <param name="itemId">itemId (required).</param>
-        /// <param name="itemType">itemType (required).</param>
-        public WebsocketContentRefresh(WebsocketContentRefreshActionType actionType = default, string contentType = default, string fileId = default, string itemId = default, InventoryItemType itemType = default)
+        /// <param name="itemType">itemType (required) (default to &quot;bundle&quot;).</param>
+        public WebsocketContentRefresh(WebsocketContentRefreshActionType actionType = default, string contentType = default, string fileId = default, string itemId = default, string itemType = @"bundle")
         {
             this.ActionType = actionType;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -59,6 +53,7 @@ namespace VRChat.API.Model
             this.FileId = fileId;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemId = itemId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemType = itemType;
         }
 
@@ -79,6 +74,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "itemId", IsRequired = true, EmitDefaultValue = true)]
         public string ItemId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemType
+        /// </summary>
+        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -149,7 +150,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
+                    (this.ItemType != null &&
+                    this.ItemType.Equals(input.ItemType))
                 );
         }
 
@@ -175,7 +177,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.ItemId.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                if (this.ItemType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                }
                 return hashCode;
             }
         }

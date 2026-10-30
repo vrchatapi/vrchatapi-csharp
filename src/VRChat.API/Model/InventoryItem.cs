@@ -25,18 +25,6 @@ namespace VRChat.API.Model
     [DataContract(Name = "InventoryItem")]
     public partial class InventoryItem : IEquatable<InventoryItem>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets EquipSlot
-        /// </summary>
-        [DataMember(Name = "equipSlot", EmitDefaultValue = false)]
-        public InventoryEquipSlot? EquipSlot { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ItemType
-        /// </summary>
-        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
-        public InventoryItemType ItemType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="InventoryItem" /> class.
         /// </summary>
@@ -51,7 +39,7 @@ namespace VRChat.API.Model
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="defaultAttributes">defaultAttributes (required).</param>
         /// <param name="description">description (required).</param>
-        /// <param name="equipSlot">equipSlot.</param>
+        /// <param name="equipSlot">equipSlot (default to &quot;&quot;).</param>
         /// <param name="equipSlots">equipSlots.</param>
         /// <param name="expiryDate">expiryDate.</param>
         /// <param name="flags">flags (required).</param>
@@ -60,7 +48,7 @@ namespace VRChat.API.Model
         /// <param name="imageUrl">imageUrl (required).</param>
         /// <param name="isArchived">isArchived (required).</param>
         /// <param name="isSeen">isSeen (required).</param>
-        /// <param name="itemType">itemType (required).</param>
+        /// <param name="itemType">itemType (required) (default to &quot;bundle&quot;).</param>
         /// <param name="itemTypeLabel">itemTypeLabel (required).</param>
         /// <param name="lastEquipped">lastEquipped.</param>
         /// <param name="metadata">metadata (required).</param>
@@ -73,7 +61,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt (required).</param>
         /// <param name="userAttributes">userAttributes (required).</param>
         /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
-        public InventoryItem(string acquisition = default, Object attribution = default, List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, InventoryEquipSlot? equipSlot = default, List<InventoryEquipSlot> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, InventoryItemType itemType = default, string itemTypeLabel = default, Dictionary<string, Object> lastEquipped = default, InventoryMetadata metadata = default, string name = default, bool quantifiable = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
+        public InventoryItem(string acquisition = default, Object attribution = default, List<string> collections = default, DateTime createdAt = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, string equipSlot = @"", List<string> equipSlots = default, DateTime? expiryDate = default, List<string> flags = default, string holderId = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, string itemType = @"bundle", string itemTypeLabel = default, Dictionary<string, Object> lastEquipped = default, InventoryMetadata metadata = default, string name = default, bool quantifiable = default, List<string> tags = default, string templateId = default, DateTime templateCreatedAt = default, DateTime templateUpdatedAt = default, DateTime updatedAt = default, InventoryUserAttributes userAttributes = default, bool validateUserAttributes = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Collections = collections;
@@ -92,6 +80,7 @@ namespace VRChat.API.Model
             this.ImageUrl = imageUrl;
             this.IsArchived = isArchived;
             this.IsSeen = isSeen;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemType = itemType;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ItemTypeLabel = itemTypeLabel;
@@ -112,7 +101,8 @@ namespace VRChat.API.Model
             this.ValidateUserAttributes = validateUserAttributes;
             this.Acquisition = acquisition;
             this.Attribution = attribution;
-            this.EquipSlot = equipSlot;
+            // use default value if no "equipSlot" provided
+            this.EquipSlot = equipSlot ?? @"";
             this.EquipSlots = equipSlots;
             this.ExpiryDate = expiryDate;
             this.LastEquipped = lastEquipped;
@@ -156,10 +146,16 @@ namespace VRChat.API.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Gets or Sets EquipSlot
+        /// </summary>
+        [DataMember(Name = "equipSlot", EmitDefaultValue = false)]
+        public string EquipSlot { get; set; }
+
+        /// <summary>
         /// Gets or Sets EquipSlots
         /// </summary>
         [DataMember(Name = "equipSlots", EmitDefaultValue = false)]
-        public List<InventoryEquipSlot> EquipSlots { get; set; }
+        public List<string> EquipSlots { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiryDate
@@ -203,6 +199,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "isSeen", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSeen { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemType
+        /// </summary>
+        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemType { get; set; }
 
         /// <summary>
         /// Gets or Sets ItemTypeLabel
@@ -380,7 +382,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.EquipSlot == input.EquipSlot ||
-                    this.EquipSlot.Equals(input.EquipSlot)
+                    (this.EquipSlot != null &&
+                    this.EquipSlot.Equals(input.EquipSlot))
                 ) && 
                 (
                     this.EquipSlots == input.EquipSlots ||
@@ -424,7 +427,8 @@ namespace VRChat.API.Model
                 ) && 
                 (
                     this.ItemType == input.ItemType ||
-                    this.ItemType.Equals(input.ItemType)
+                    (this.ItemType != null &&
+                    this.ItemType.Equals(input.ItemType))
                 ) && 
                 (
                     this.ItemTypeLabel == input.ItemTypeLabel ||
@@ -515,7 +519,10 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                if (this.EquipSlot != null)
+                {
+                    hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                }
                 if (this.EquipSlots != null)
                 {
                     hashCode = (hashCode * 59) + this.EquipSlots.GetHashCode();
@@ -542,7 +549,10 @@ namespace VRChat.API.Model
                 }
                 hashCode = (hashCode * 59) + this.IsArchived.GetHashCode();
                 hashCode = (hashCode * 59) + this.IsSeen.GetHashCode();
-                hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                if (this.ItemType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                }
                 if (this.ItemTypeLabel != null)
                 {
                     hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();

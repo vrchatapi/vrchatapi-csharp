@@ -25,12 +25,6 @@ namespace VRChat.API.Model
     [DataContract(Name = "EquipInventoryItemRequest")]
     public partial class EquipInventoryItemRequest : IEquatable<EquipInventoryItemRequest>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets EquipSlot
-        /// </summary>
-        [DataMember(Name = "equipSlot", IsRequired = true, EmitDefaultValue = true)]
-        public InventoryEquipSlot EquipSlot { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="EquipInventoryItemRequest" /> class.
         /// </summary>
@@ -39,11 +33,18 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EquipInventoryItemRequest" /> class.
         /// </summary>
-        /// <param name="equipSlot">equipSlot (required).</param>
-        public EquipInventoryItemRequest(InventoryEquipSlot equipSlot = default)
+        /// <param name="equipSlot">equipSlot (required) (default to &quot;&quot;).</param>
+        public EquipInventoryItemRequest(string equipSlot = @"")
         {
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.EquipSlot = equipSlot;
         }
+
+        /// <summary>
+        /// Gets or Sets EquipSlot
+        /// </summary>
+        [DataMember(Name = "equipSlot", IsRequired = true, EmitDefaultValue = true)]
+        public string EquipSlot { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,7 +92,8 @@ namespace VRChat.API.Model
             return 
                 (
                     this.EquipSlot == input.EquipSlot ||
-                    this.EquipSlot.Equals(input.EquipSlot)
+                    (this.EquipSlot != null &&
+                    this.EquipSlot.Equals(input.EquipSlot))
                 );
         }
 
@@ -104,7 +106,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                if (this.EquipSlot != null)
+                {
+                    hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                }
                 return hashCode;
             }
         }

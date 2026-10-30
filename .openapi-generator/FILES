@@ -197,6 +197,9 @@ src/VRChat.API/Model/FinishFileDataUploadRequest.cs
 src/VRChat.API/Model/FollowCalendarEventRequest.cs
 src/VRChat.API/Model/FriendStatus.cs
 src/VRChat.API/Model/FrontendVariant.cs
+src/VRChat.API/Model/GlobalInventoryItem.cs
+src/VRChat.API/Model/GlobalInventoryItemAttribution.cs
+src/VRChat.API/Model/GlobalInventoryItemAttributionCreator.cs
 src/VRChat.API/Model/Group.cs
 src/VRChat.API/Model/GroupAccessType.cs
 src/VRChat.API/Model/GroupAnnouncement.cs
@@ -375,10 +378,8 @@ src/VRChat.API/Model/InventoryConsumptionResults.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValue.cs
 src/VRChat.API/Model/InventoryDefaultAttributesValueValidator.cs
 src/VRChat.API/Model/InventoryDrop.cs
-src/VRChat.API/Model/InventoryEquipSlot.cs
 src/VRChat.API/Model/InventoryFlag.cs
 src/VRChat.API/Model/InventoryItem.cs
-src/VRChat.API/Model/InventoryItemType.cs
 src/VRChat.API/Model/InventoryMetadata.cs
 src/VRChat.API/Model/InventoryNotificationDetails.cs
 src/VRChat.API/Model/InventorySortOrder.cs

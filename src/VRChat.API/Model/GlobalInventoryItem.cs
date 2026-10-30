@@ -1,0 +1,500 @@
+
+
+#pragma warning disable CS0612
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = VRChat.API.Client.FileParameter;
+using OpenAPIDateConverter = VRChat.API.Client.OpenAPIDateConverter;
+
+namespace VRChat.API.Model
+{
+    /// <summary>
+    /// An inventory item flagged &#x60;global&#x60;. It belongs to no account, so it carries no holder, quantity or timestamps.
+    /// </summary>
+    [DataContract(Name = "GlobalInventoryItem")]
+    public partial class GlobalInventoryItem : IEquatable<GlobalInventoryItem>, IValidatableObject
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GlobalInventoryItem" /> class.
+        /// </summary>
+        [JsonConstructorAttribute]
+        protected GlobalInventoryItem() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GlobalInventoryItem" /> class.
+        /// </summary>
+        /// <param name="acquisition">acquisition (required).</param>
+        /// <param name="attribution">attribution (required).</param>
+        /// <param name="collections">collections (required).</param>
+        /// <param name="defaultAttributes">defaultAttributes (required).</param>
+        /// <param name="description">description (required).</param>
+        /// <param name="equipSlot">equipSlot (required) (default to &quot;&quot;).</param>
+        /// <param name="equipSlots">equipSlots (required).</param>
+        /// <param name="flags">flags (required).</param>
+        /// <param name="id">id (required).</param>
+        /// <param name="imageUrl">imageUrl (required).</param>
+        /// <param name="isArchived">isArchived (required).</param>
+        /// <param name="isSeen">isSeen (required).</param>
+        /// <param name="itemType">itemType (required) (default to &quot;bundle&quot;).</param>
+        /// <param name="itemTypeLabel">itemTypeLabel (required).</param>
+        /// <param name="metadata">metadata (required).</param>
+        /// <param name="name">name (required).</param>
+        /// <param name="productId">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance. (required).</param>
+        /// <param name="tags">tags (required).</param>
+        /// <param name="templateId">templateId (required).</param>
+        /// <param name="userAttributes">userAttributes (required).</param>
+        /// <param name="validateUserAttributes">validateUserAttributes (required).</param>
+        public GlobalInventoryItem(string acquisition = default, GlobalInventoryItemAttribution attribution = default, List<string> collections = default, Dictionary<string, InventoryDefaultAttributesValue> defaultAttributes = default, string description = default, string equipSlot = @"", List<string> equipSlots = default, List<string> flags = default, string id = default, string imageUrl = default, bool isArchived = default, bool isSeen = default, string itemType = @"bundle", string itemTypeLabel = default, InventoryMetadata metadata = default, string name = default, Object productId = default, List<string> tags = default, string templateId = default, Dictionary<string, InventoryDefaultAttributesValue> userAttributes = default, bool validateUserAttributes = default)
+        {
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Acquisition = acquisition;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Attribution = attribution;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Collections = collections;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.DefaultAttributes = defaultAttributes;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Description = description;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.EquipSlot = equipSlot;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.EquipSlots = equipSlots;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Flags = flags;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Id = id;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ImageUrl = imageUrl;
+            this.IsArchived = isArchived;
+            this.IsSeen = isSeen;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ItemType = itemType;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ItemTypeLabel = itemTypeLabel;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Metadata = metadata;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Name = name;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.ProductId = productId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.Tags = tags;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.TemplateId = templateId;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.UserAttributes = userAttributes;
+            this.ValidateUserAttributes = validateUserAttributes;
+        }
+
+        /// <summary>
+        /// Gets or Sets Acquisition
+        /// </summary>
+        [DataMember(Name = "acquisition", IsRequired = true, EmitDefaultValue = true)]
+        public string Acquisition { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Attribution
+        /// </summary>
+        [DataMember(Name = "attribution", IsRequired = true, EmitDefaultValue = true)]
+        public GlobalInventoryItemAttribution Attribution { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Collections
+        /// </summary>
+        [DataMember(Name = "collections", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Collections { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DefaultAttributes
+        /// </summary>
+        [DataMember(Name = "defaultAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, InventoryDefaultAttributesValue> DefaultAttributes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EquipSlot
+        /// </summary>
+        [DataMember(Name = "equipSlot", IsRequired = true, EmitDefaultValue = true)]
+        public string EquipSlot { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EquipSlots
+        /// </summary>
+        [DataMember(Name = "equipSlots", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> EquipSlots { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Flags
+        /// </summary>
+        [DataMember(Name = "flags", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Flags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ImageUrl
+        /// </summary>
+        [DataMember(Name = "imageUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsArchived
+        /// </summary>
+        [DataMember(Name = "isArchived", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsArchived { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IsSeen
+        /// </summary>
+        [DataMember(Name = "isSeen", IsRequired = true, EmitDefaultValue = true)]
+        public bool IsSeen { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemType
+        /// </summary>
+        [DataMember(Name = "itemType", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ItemTypeLabel
+        /// </summary>
+        [DataMember(Name = "itemTypeLabel", IsRequired = true, EmitDefaultValue = true)]
+        public string ItemTypeLabel { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Metadata
+        /// </summary>
+        [DataMember(Name = "metadata", IsRequired = true, EmitDefaultValue = true)]
+        public InventoryMetadata Metadata { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
+        /// </summary>
+        /// <value>An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.</value>
+        [DataMember(Name = "productId", IsRequired = true, EmitDefaultValue = true)]
+        public Object ProductId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Tags
+        /// </summary>
+        [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TemplateId
+        /// </summary>
+        [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
+        public string TemplateId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserAttributes
+        /// </summary>
+        [DataMember(Name = "userAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, InventoryDefaultAttributesValue> UserAttributes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ValidateUserAttributes
+        /// </summary>
+        [DataMember(Name = "validateUserAttributes", IsRequired = true, EmitDefaultValue = true)]
+        public bool ValidateUserAttributes { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("class GlobalInventoryItem {\n");
+            sb.Append("  Acquisition: ").Append(Acquisition).Append("\n");
+            sb.Append("  Attribution: ").Append(Attribution).Append("\n");
+            sb.Append("  Collections: ").Append(Collections).Append("\n");
+            sb.Append("  DefaultAttributes: ").Append(DefaultAttributes).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  EquipSlot: ").Append(EquipSlot).Append("\n");
+            sb.Append("  EquipSlots: ").Append(EquipSlots).Append("\n");
+            sb.Append("  Flags: ").Append(Flags).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
+            sb.Append("  IsArchived: ").Append(IsArchived).Append("\n");
+            sb.Append("  IsSeen: ").Append(IsSeen).Append("\n");
+            sb.Append("  ItemType: ").Append(ItemType).Append("\n");
+            sb.Append("  ItemTypeLabel: ").Append(ItemTypeLabel).Append("\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            sb.Append("  UserAttributes: ").Append(UserAttributes).Append("\n");
+            sb.Append("  ValidateUserAttributes: ").Append(ValidateUserAttributes).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
+        }
+
+        /// <summary>
+        /// Returns true if objects are equal
+        /// </summary>
+        /// <param name="input">Object to be compared</param>
+        /// <returns>Boolean</returns>
+        public override bool Equals(object input)
+        {
+            return this.Equals(input as GlobalInventoryItem);
+        }
+
+        /// <summary>
+        /// Returns true if GlobalInventoryItem instances are equal
+        /// </summary>
+        /// <param name="input">Instance of GlobalInventoryItem to be compared</param>
+        /// <returns>Boolean</returns>
+        public bool Equals(GlobalInventoryItem input)
+        {
+            if (input == null)
+            {
+                return false;
+            }
+            return 
+                (
+                    this.Acquisition == input.Acquisition ||
+                    (this.Acquisition != null &&
+                    this.Acquisition.Equals(input.Acquisition))
+                ) && 
+                (
+                    this.Attribution == input.Attribution ||
+                    (this.Attribution != null &&
+                    this.Attribution.Equals(input.Attribution))
+                ) && 
+                (
+                    this.Collections == input.Collections ||
+                    this.Collections != null &&
+                    input.Collections != null &&
+                    this.Collections.SequenceEqual(input.Collections)
+                ) && 
+                (
+                    this.DefaultAttributes == input.DefaultAttributes ||
+                    this.DefaultAttributes != null &&
+                    input.DefaultAttributes != null &&
+                    this.DefaultAttributes.SequenceEqual(input.DefaultAttributes)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.EquipSlot == input.EquipSlot ||
+                    (this.EquipSlot != null &&
+                    this.EquipSlot.Equals(input.EquipSlot))
+                ) && 
+                (
+                    this.EquipSlots == input.EquipSlots ||
+                    this.EquipSlots != null &&
+                    input.EquipSlots != null &&
+                    this.EquipSlots.SequenceEqual(input.EquipSlots)
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    this.Flags != null &&
+                    input.Flags != null &&
+                    this.Flags.SequenceEqual(input.Flags)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.ImageUrl == input.ImageUrl ||
+                    (this.ImageUrl != null &&
+                    this.ImageUrl.Equals(input.ImageUrl))
+                ) && 
+                (
+                    this.IsArchived == input.IsArchived ||
+                    this.IsArchived.Equals(input.IsArchived)
+                ) && 
+                (
+                    this.IsSeen == input.IsSeen ||
+                    this.IsSeen.Equals(input.IsSeen)
+                ) && 
+                (
+                    this.ItemType == input.ItemType ||
+                    (this.ItemType != null &&
+                    this.ItemType.Equals(input.ItemType))
+                ) && 
+                (
+                    this.ItemTypeLabel == input.ItemTypeLabel ||
+                    (this.ItemTypeLabel != null &&
+                    this.ItemTypeLabel.Equals(input.ItemTypeLabel))
+                ) && 
+                (
+                    this.Metadata == input.Metadata ||
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ProductId == input.ProductId ||
+                    (this.ProductId != null &&
+                    this.ProductId.Equals(input.ProductId))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.TemplateId == input.TemplateId ||
+                    (this.TemplateId != null &&
+                    this.TemplateId.Equals(input.TemplateId))
+                ) && 
+                (
+                    this.UserAttributes == input.UserAttributes ||
+                    this.UserAttributes != null &&
+                    input.UserAttributes != null &&
+                    this.UserAttributes.SequenceEqual(input.UserAttributes)
+                ) && 
+                (
+                    this.ValidateUserAttributes == input.ValidateUserAttributes ||
+                    this.ValidateUserAttributes.Equals(input.ValidateUserAttributes)
+                );
+        }
+
+        /// <summary>
+        /// Gets the hash code
+        /// </summary>
+        /// <returns>Hash code</returns>
+        public override int GetHashCode()
+        {
+            unchecked // Overflow is fine, just wrap
+            {
+                int hashCode = 41;
+                if (this.Acquisition != null)
+                {
+                    hashCode = (hashCode * 59) + this.Acquisition.GetHashCode();
+                }
+                if (this.Attribution != null)
+                {
+                    hashCode = (hashCode * 59) + this.Attribution.GetHashCode();
+                }
+                if (this.Collections != null)
+                {
+                    hashCode = (hashCode * 59) + this.Collections.GetHashCode();
+                }
+                if (this.DefaultAttributes != null)
+                {
+                    hashCode = (hashCode * 59) + this.DefaultAttributes.GetHashCode();
+                }
+                if (this.Description != null)
+                {
+                    hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.EquipSlot != null)
+                {
+                    hashCode = (hashCode * 59) + this.EquipSlot.GetHashCode();
+                }
+                if (this.EquipSlots != null)
+                {
+                    hashCode = (hashCode * 59) + this.EquipSlots.GetHashCode();
+                }
+                if (this.Flags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Flags.GetHashCode();
+                }
+                if (this.Id != null)
+                {
+                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                }
+                if (this.ImageUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.ImageUrl.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.IsArchived.GetHashCode();
+                hashCode = (hashCode * 59) + this.IsSeen.GetHashCode();
+                if (this.ItemType != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemType.GetHashCode();
+                }
+                if (this.ItemTypeLabel != null)
+                {
+                    hashCode = (hashCode * 59) + this.ItemTypeLabel.GetHashCode();
+                }
+                if (this.Metadata != null)
+                {
+                    hashCode = (hashCode * 59) + this.Metadata.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                }
+                if (this.ProductId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductId.GetHashCode();
+                }
+                if (this.Tags != null)
+                {
+                    hashCode = (hashCode * 59) + this.Tags.GetHashCode();
+                }
+                if (this.TemplateId != null)
+                {
+                    hashCode = (hashCode * 59) + this.TemplateId.GetHashCode();
+                }
+                if (this.UserAttributes != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserAttributes.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.ValidateUserAttributes.GetHashCode();
+                return hashCode;
+            }
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+    }
+
+}
