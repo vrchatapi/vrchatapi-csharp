@@ -72,7 +72,9 @@ namespace VRChat.API.Model
         /// <param name="linkedInstanceCount">linkedInstanceCount.</param>
         /// <param name="occurrenceKind">occurrenceKind.</param>
         /// <param name="occurrenceModified">occurrenceModified.</param>
+        /// <param name="ownerIconUrl">The icon of the group &#x60;ownerId&#x60; names..</param>
         /// <param name="ownerId">ownerId.</param>
+        /// <param name="ownerName">The &#x60;name&#x60; of the group &#x60;ownerId&#x60; names..</param>
         /// <param name="platforms">platforms.</param>
         /// <param name="recurrence">recurrence.</param>
         /// <param name="roleIds">Group roles that may join this event.</param>
@@ -84,7 +86,7 @@ namespace VRChat.API.Model
         /// <param name="updatedAt">updatedAt.</param>
         /// <param name="userInterest">userInterest.</param>
         /// <param name="usesInstanceOverflow">usesInstanceOverflow.</param>
-        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedFriendCount = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, int linkedInstanceCount = default, CalendarEventOccurrenceKind? occurrenceKind = default, bool occurrenceModified = default, string ownerId = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
+        public CalendarEvent(CalendarEventAccess accessType = default, CalendarEventCategory category = default, int closeInstanceAfterEndMinutes = default, DateTime createdAt = default, DateTime? deletedAt = default, string description = default, long durationInMs = default, DateTime endsAt = default, bool featured = default, int guestEarlyJoinMinutes = default, int hostEarlyJoinMinutes = default, string id = default, string imageId = default, string imageUrl = default, int interestedFriendCount = default, int interestedUserCount = default, bool isDraft = default, List<string> languages = default, int linkedInstanceCount = default, CalendarEventOccurrenceKind? occurrenceKind = default, bool occurrenceModified = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, List<CalendarEventPlatform> platforms = default, CalendarEventRecurrence recurrence = default, List<string> roleIds = default, string seriesId = default, DateTime startsAt = default, List<string> tags = default, string title = default, string type = default, DateTime updatedAt = default, CalendarEventUserInterest userInterest = default, bool usesInstanceOverflow = default)
         {
             this.AccessType = accessType;
             this.Category = category;
@@ -112,7 +114,9 @@ namespace VRChat.API.Model
             this.LinkedInstanceCount = linkedInstanceCount;
             this.OccurrenceKind = occurrenceKind;
             this.OccurrenceModified = occurrenceModified;
+            this.OwnerIconUrl = ownerIconUrl;
             this.OwnerId = ownerId;
+            this.OwnerName = ownerName;
             this.Platforms = platforms;
             this.Recurrence = recurrence;
             this.RoleIds = roleIds;
@@ -234,10 +238,24 @@ namespace VRChat.API.Model
         public bool OccurrenceModified { get; set; }
 
         /// <summary>
+        /// The icon of the group &#x60;ownerId&#x60; names.
+        /// </summary>
+        /// <value>The icon of the group &#x60;ownerId&#x60; names.</value>
+        [DataMember(Name = "ownerIconUrl", EmitDefaultValue = false)]
+        public string OwnerIconUrl { get; set; }
+
+        /// <summary>
         /// Gets or Sets OwnerId
         /// </summary>
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public string OwnerId { get; set; }
+
+        /// <summary>
+        /// The &#x60;name&#x60; of the group &#x60;ownerId&#x60; names.
+        /// </summary>
+        /// <value>The &#x60;name&#x60; of the group &#x60;ownerId&#x60; names.</value>
+        [DataMember(Name = "ownerName", EmitDefaultValue = false)]
+        public string OwnerName { get; set; }
 
         /// <summary>
         /// Gets or Sets Platforms
@@ -336,7 +354,9 @@ namespace VRChat.API.Model
             sb.Append("  LinkedInstanceCount: ").Append(LinkedInstanceCount).Append("\n");
             sb.Append("  OccurrenceKind: ").Append(OccurrenceKind).Append("\n");
             sb.Append("  OccurrenceModified: ").Append(OccurrenceModified).Append("\n");
+            sb.Append("  OwnerIconUrl: ").Append(OwnerIconUrl).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
+            sb.Append("  OwnerName: ").Append(OwnerName).Append("\n");
             sb.Append("  Platforms: ").Append(Platforms).Append("\n");
             sb.Append("  Recurrence: ").Append(Recurrence).Append("\n");
             sb.Append("  RoleIds: ").Append(RoleIds).Append("\n");
@@ -475,9 +495,19 @@ namespace VRChat.API.Model
                     this.OccurrenceModified.Equals(input.OccurrenceModified)
                 ) && 
                 (
+                    this.OwnerIconUrl == input.OwnerIconUrl ||
+                    (this.OwnerIconUrl != null &&
+                    this.OwnerIconUrl.Equals(input.OwnerIconUrl))
+                ) && 
+                (
                     this.OwnerId == input.OwnerId ||
                     (this.OwnerId != null &&
                     this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.OwnerName == input.OwnerName ||
+                    (this.OwnerName != null &&
+                    this.OwnerName.Equals(input.OwnerName))
                 ) && 
                 (
                     this.Platforms == input.Platforms ||
@@ -584,9 +614,17 @@ namespace VRChat.API.Model
                 hashCode = (hashCode * 59) + this.LinkedInstanceCount.GetHashCode();
                 hashCode = (hashCode * 59) + this.OccurrenceKind.GetHashCode();
                 hashCode = (hashCode * 59) + this.OccurrenceModified.GetHashCode();
+                if (this.OwnerIconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerIconUrl.GetHashCode();
+                }
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();
+                }
+                if (this.OwnerName != null)
+                {
+                    hashCode = (hashCode * 59) + this.OwnerName.GetHashCode();
                 }
                 if (this.Platforms != null)
                 {

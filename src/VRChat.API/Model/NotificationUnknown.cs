@@ -34,6 +34,7 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="NotificationUnknown" /> class.
         /// </summary>
         /// <param name="createdAt">createdAt (required).</param>
+        /// <param name="displayCategory">displayCategory (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="message">message (required).</param>
         /// <param name="receiverUserId">Not included in notification objects received from the REST API.</param>
@@ -42,9 +43,11 @@ namespace VRChat.API.Model
         /// <param name="senderUsername">The name of the user who sent the notification..</param>
         /// <param name="details">A JSON-encoded string. (required).</param>
         /// <param name="type">type (required).</param>
-        public NotificationUnknown(DateTime createdAt = default, string id = default, string message = default, string receiverUserId = default, bool seen = false, string senderUserId = default, string senderUsername = default, string details = default, string type = default)
+        public NotificationUnknown(DateTime createdAt = default, string displayCategory = default, string id = default, string message = default, string receiverUserId = default, bool seen = false, string senderUserId = default, string senderUsername = default, string details = default, string type = default)
         {
             this.CreatedAt = createdAt;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.DisplayCategory = displayCategory;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -65,6 +68,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "created_at", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayCategory
+        /// </summary>
+        [DataMember(Name = "displayCategory", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayCategory { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -137,6 +146,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class NotificationUnknown {\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  DisplayCategory: ").Append(DisplayCategory).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  ReceiverUserId: ").Append(ReceiverUserId).Append("\n");
@@ -183,6 +193,11 @@ namespace VRChat.API.Model
                 (
                     this.CreatedAt == input.CreatedAt ||
                     this.CreatedAt.Equals(input.CreatedAt)
+                ) && 
+                (
+                    this.DisplayCategory == input.DisplayCategory ||
+                    (this.DisplayCategory != null &&
+                    this.DisplayCategory.Equals(input.DisplayCategory))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -235,6 +250,10 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.CreatedAt.GetHashCode();
+                if (this.DisplayCategory != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayCategory.GetHashCode();
+                }
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();

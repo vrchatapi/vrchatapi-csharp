@@ -27,6 +27,12 @@ namespace VRChat.API.Model
     {
 
         /// <summary>
+        /// Gets or Sets CapacityLimit
+        /// </summary>
+        [DataMember(Name = "capacityLimit", EmitDefaultValue = false)]
+        public InstanceDiscoveryCapacityLimit? CapacityLimit { get; set; }
+
+        /// <summary>
         /// Gets or Sets Mode
         /// </summary>
         [DataMember(Name = "mode", EmitDefaultValue = false)]
@@ -47,6 +53,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="anyWorldTag">anyWorldTag.</param>
         /// <param name="boost">boost.</param>
+        /// <param name="capacityLimit">capacityLimit.</param>
         /// <param name="groupHosted">groupHosted.</param>
         /// <param name="maxOccupants">maxOccupants.</param>
         /// <param name="minOccupants">minOccupants.</param>
@@ -57,11 +64,12 @@ namespace VRChat.API.Model
         /// <param name="notWorldTag">notWorldTag.</param>
         /// <param name="worldId">worldId.</param>
         /// <param name="worldPool">worldPool.</param>
-        public InfoPushDataContentSourceInstanceDiscoverParams(List<string> anyWorldTag = default, List<InstanceDiscoveryBoost> boost = default, bool groupHosted = default, int maxOccupants = default, int minOccupants = default, int minSpotsLeft = default, Object minSpread = default, InstanceDiscoveryMode? mode = default, int n = default, List<string> notWorldTag = default, List<string> worldId = default, InstanceDiscoveryWorldPool? worldPool = default)
+        public InfoPushDataContentSourceInstanceDiscoverParams(List<string> anyWorldTag = default, List<InstanceDiscoveryBoost> boost = default, InstanceDiscoveryCapacityLimit? capacityLimit = default, bool groupHosted = default, int maxOccupants = default, int minOccupants = default, int minSpotsLeft = default, Object minSpread = default, InstanceDiscoveryMode? mode = default, int n = default, List<string> notWorldTag = default, List<string> worldId = default, InstanceDiscoveryWorldPool? worldPool = default)
         {
             this.N = n;
             this.AnyWorldTag = anyWorldTag;
             this.Boost = boost;
+            this.CapacityLimit = capacityLimit;
             this.GroupHosted = groupHosted;
             this.MaxOccupants = maxOccupants;
             this.MinOccupants = minOccupants;
@@ -144,6 +152,7 @@ namespace VRChat.API.Model
             sb.Append("class InfoPushDataContentSourceInstanceDiscoverParams {\n");
             sb.Append("  AnyWorldTag: ").Append(AnyWorldTag).Append("\n");
             sb.Append("  Boost: ").Append(Boost).Append("\n");
+            sb.Append("  CapacityLimit: ").Append(CapacityLimit).Append("\n");
             sb.Append("  GroupHosted: ").Append(GroupHosted).Append("\n");
             sb.Append("  MaxOccupants: ").Append(MaxOccupants).Append("\n");
             sb.Append("  MinOccupants: ").Append(MinOccupants).Append("\n");
@@ -200,6 +209,10 @@ namespace VRChat.API.Model
                     this.Boost != null &&
                     input.Boost != null &&
                     this.Boost.SequenceEqual(input.Boost)
+                ) && 
+                (
+                    this.CapacityLimit == input.CapacityLimit ||
+                    this.CapacityLimit.Equals(input.CapacityLimit)
                 ) && 
                 (
                     this.GroupHosted == input.GroupHosted ||
@@ -265,6 +278,7 @@ namespace VRChat.API.Model
                 {
                     hashCode = (hashCode * 59) + this.Boost.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.CapacityLimit.GetHashCode();
                 hashCode = (hashCode * 59) + this.GroupHosted.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxOccupants.GetHashCode();
                 hashCode = (hashCode * 59) + this.MinOccupants.GetHashCode();

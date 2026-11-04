@@ -363,6 +363,7 @@ src/VRChat.API/Model/InstanceContentSettings.cs
 src/VRChat.API/Model/InstanceCount.cs
 src/VRChat.API/Model/InstanceDiscovery.cs
 src/VRChat.API/Model/InstanceDiscoveryBoost.cs
+src/VRChat.API/Model/InstanceDiscoveryCapacityLimit.cs
 src/VRChat.API/Model/InstanceDiscoveryMode.cs
 src/VRChat.API/Model/InstanceDiscoveryPlatform.cs
 src/VRChat.API/Model/InstanceDiscoveryWorldPool.cs

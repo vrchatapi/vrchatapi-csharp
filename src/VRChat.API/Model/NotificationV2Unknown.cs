@@ -43,6 +43,7 @@ namespace VRChat.API.Model
         /// <param name="category">category (required).</param>
         /// <param name="createdAt">createdAt (required).</param>
         /// <param name="details">details.</param>
+        /// <param name="displayCategory">displayCategory (required).</param>
         /// <param name="displayData">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
         /// <param name="expiresAt">expiresAt (required).</param>
         /// <param name="expiryAfterSeen">expiryAfterSeen (required).</param>
@@ -68,12 +69,14 @@ namespace VRChat.API.Model
         /// <param name="varVersion">varVersion (required) (default to 2).</param>
         /// <param name="data">data (required).</param>
         /// <param name="type">type (required).</param>
-        public NotificationV2Unknown(bool canDelete = default, string category = default, DateTime createdAt = default, NotificationV2DetailsBoop details = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, DateTime updatedAt = default, int varVersion = 2, NotificationV2Data data = default, NotificationV2Type type = default)
+        public NotificationV2Unknown(bool canDelete = default, string category = default, DateTime createdAt = default, NotificationV2DetailsBoop details = default, string displayCategory = default, Object displayData = default, DateTime expiresAt = default, int? expiryAfterSeen = default, string id = default, bool ignoreDND = default, string imageUrl = default, bool isSystem = default, string link = default, string linkText = default, string linkTextKey = default, string message = default, string messageKey = default, string receiverUserId = default, string relatedNotificationsId = default, bool requireSeen = default, List<NotificationV2Response> responses = default, bool seen = default, string senderUserId = default, string senderUsername = default, string title = default, string titleKey = default, DateTime updatedAt = default, int varVersion = 2, NotificationV2Data data = default, NotificationV2Type type = default)
         {
             this.CanDelete = canDelete;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Category = category;
             this.CreatedAt = createdAt;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.DisplayCategory = displayCategory;
             this.ExpiresAt = expiresAt;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ExpiryAfterSeen = expiryAfterSeen;
@@ -140,6 +143,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "details", EmitDefaultValue = false)]
         public NotificationV2DetailsBoop Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DisplayCategory
+        /// </summary>
+        [DataMember(Name = "displayCategory", IsRequired = true, EmitDefaultValue = true)]
+        public string DisplayCategory { get; set; }
 
         /// <summary>
         /// An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance.
@@ -300,6 +309,7 @@ namespace VRChat.API.Model
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  DisplayCategory: ").Append(DisplayCategory).Append("\n");
             sb.Append("  DisplayData: ").Append(DisplayData).Append("\n");
             sb.Append("  ExpiresAt: ").Append(ExpiresAt).Append("\n");
             sb.Append("  ExpiryAfterSeen: ").Append(ExpiryAfterSeen).Append("\n");
@@ -377,6 +387,11 @@ namespace VRChat.API.Model
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.DisplayCategory == input.DisplayCategory ||
+                    (this.DisplayCategory != null &&
+                    this.DisplayCategory.Equals(input.DisplayCategory))
                 ) && 
                 (
                     this.DisplayData == input.DisplayData ||
@@ -516,6 +531,10 @@ namespace VRChat.API.Model
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.DisplayCategory != null)
+                {
+                    hashCode = (hashCode * 59) + this.DisplayCategory.GetHashCode();
                 }
                 if (this.DisplayData != null)
                 {
