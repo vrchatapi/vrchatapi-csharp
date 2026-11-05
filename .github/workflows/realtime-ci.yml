@@ -5,27 +5,27 @@ on:
     branches:
       - main
     paths:
-      - 'wrapper/VRChat.API.Realtime/**'
-      - '.github/workflows/realtime-ci.yml'
+      - "wrapper/VRChat.API.Realtime/**"
+      - ".github/workflows/realtime-ci.yml"
   workflow_dispatch:
 
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     name: Build and Publish VRChat Realtime SDK
+    permissions:
+      contents: read
+      id-token: write # OIDC token exchanged for a short-lived NuGet API key
     steps:
       - name: Checkout current commit
         uses: actions/checkout@v7
         with:
-          fetch-depth: 0  # Fetch all history to compare versions
+          fetch-depth: 0 # Fetch all history to compare versions
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: '8.0.x'
-
-      - name: Setup NuGet
-        uses: NuGet/setup-nuget@v4.0
+          dotnet-version: "8.0.x"
 
       - name: Get current version from csproj
         id: current_version
@@ -50,10 +50,10 @@ jobs:
         run: |
           CURRENT="${{ steps.current_version.outputs.version }}"
           NUGET="${{ steps.nuget_version.outputs.version }}"
-          
+
           echo "Current version: $CURRENT"
           echo "NuGet version: $NUGET"
-          
+
           if [ "$CURRENT" != "$NUGET" ]; then
             echo "Version changed from $NUGET to $CURRENT"
             echo "changed=true" >> $GITHUB_OUTPUT
@@ -65,11 +65,31 @@ jobs:
       - name: Build project
         run: dotnet build wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj --configuration Release
 
+      - name: Pack package
+        if: steps.version_check.outputs.changed == 'true'
+        run: |
+          dotnet pack wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj \
+            --configuration Release \
+            --output artifacts \
+            -p:IncludeSymbols=true \
+            -p:SymbolPackageFormat=snupkg
+
+      # Trusted Publishing: the API key is valid for one hour, so log in right before pushing.
+      - name: NuGet login (OIDC -> temporary API key)
+        if: steps.version_check.outputs.changed == 'true'
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
       - name: Publish to NuGet
         if: steps.version_check.outputs.changed == 'true'
-        uses: pairbit/publish-nuget@v2.6.2
-        with:
-          PROJECT_FILE_PATH: wrapper/VRChat.API.Realtime/VRChat.API.Realtime.csproj
-          PACKAGE_NAME: VRChat.API.Realtime
-          NUGET_KEY: ${{ secrets.NUGET_KEY }}
-          INCLUDE_SYMBOLS: true
+        run: |
+          dotnet nuget push "artifacts/*.nupkg" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+          dotnet nuget push "artifacts/*.snupkg" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
