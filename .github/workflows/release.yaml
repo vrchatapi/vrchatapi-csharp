@@ -16,8 +16,6 @@ on:
 
 name: Release
 
-# Publishing needs write access and an OIDC token, so it lives in its own file.
-# ci.yaml stays read-only and can be called from other repositories as-is.
 permissions:
   contents: read
 

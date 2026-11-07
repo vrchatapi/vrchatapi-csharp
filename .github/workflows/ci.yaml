@@ -27,7 +27,6 @@ on:
 
 name: CI
 
-# Reusable workflow: callers only ever need to read, so never hand out more.
 permissions:
   contents: read
 
