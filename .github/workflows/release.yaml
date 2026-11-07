@@ -29,6 +29,7 @@ jobs:
   build:
     uses: ./.github/workflows/ci.yaml
     with:
+      ref: ${{ github.sha }}
       tag: ${{ inputs.tag }}
       version_postfix: ${{ inputs.version_postfix }}
 
