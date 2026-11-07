@@ -1,0 +1,97 @@
+on:
+  repository_dispatch:
+    types: [release]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release to build, such as v1.22.1 or nightly. Defaults to the latest release.
+        required: false
+        type: string
+        default: ""
+      version_postfix:
+        description: Additional string to concatenate onto the existing version before release
+        required: false
+        type: string
+        default: ""
+
+name: Release
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release
+  queue: max
+
+jobs:
+  build:
+    uses: ./.github/workflows/ci.yaml
+    with:
+      ref: ${{ github.sha }}
+      tag: ${{ inputs.tag }}
+      version_postfix: ${{ inputs.version_postfix }}
+
+  publish:
+    needs: build
+    if: github.repository == 'vrchatapi/vrchatapi-csharp'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Push the generated SDK back to main
+      id-token: write # OIDC token exchanged for a short-lived NuGet API key
+    steps:
+      - uses: actions/checkout@v7
+
+      # The artifact is overlaid onto the checkout rather than replacing it, so anything the
+      # generator stops emitting would otherwise survive in src/ forever.
+      - run: rm -rf src
+
+      - uses: actions/download-artifact@v8
+        with:
+          name: csharp-generated
+
+      - run: rm -f openapi-3.1.json
+
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "8.0.x"
+
+      - uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          branch: main
+          folder: .
+          commit-message: Upgrade .NET SDK to spec ${{ needs.build.outputs.version }}
+
+      - if: github.event_name == 'repository_dispatch'
+        name: Pack packages
+        run: |
+          dotnet pack src/VRChat.API/VRChat.API.csproj \
+            --configuration Release \
+            --output artifacts \
+            -p:IncludeSymbols=true \
+            -p:SymbolPackageFormat=snupkg
+          dotnet pack wrapper/VRChat.API.Extensions.Hosting/VRChat.API.Extensions.Hosting.csproj \
+            --configuration Release \
+            --output artifacts \
+            -p:IncludeSymbols=true \
+            -p:SymbolPackageFormat=snupkg
+
+      # Trusted Publishing: exchange the GitHub OIDC token for an API key that is
+      # valid for one hour, so this must stay right before the push.
+      - if: github.event_name == 'repository_dispatch'
+        name: NuGet login (OIDC -> temporary API key)
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - if: github.event_name == 'repository_dispatch'
+        name: Push packages to NuGet
+        run: |
+          dotnet nuget push "artifacts/*.nupkg" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
+          dotnet nuget push "artifacts/*.snupkg" \
+            --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" \
+            --source https://api.nuget.org/v3/index.json \
+            --skip-duplicate
