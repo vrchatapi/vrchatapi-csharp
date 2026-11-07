@@ -21,6 +21,9 @@ name: Release
 permissions:
   contents: read
 
+concurrency:
+  group: release
+
 jobs:
   build:
     uses: ./.github/workflows/ci.yaml
@@ -36,8 +39,6 @@ jobs:
       id-token: write # OIDC token exchanged for a short-lived NuGet API key
     steps:
       - uses: actions/checkout@v7
-        with:
-          repository: vrchatapi/vrchatapi-csharp
 
       # The artifact is overlaid onto the checkout rather than replacing it, so anything the
       # generator stops emitting would otherwise survive in src/ forever.
