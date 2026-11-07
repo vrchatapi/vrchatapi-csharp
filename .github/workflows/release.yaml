@@ -23,6 +23,7 @@ permissions:
 
 concurrency:
   group: release
+  queue: max
 
 jobs:
   build:
