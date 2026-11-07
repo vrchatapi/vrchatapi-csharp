@@ -35,6 +35,7 @@ jobs:
 
   publish:
     needs: build
+    if: github.repository == 'vrchatapi/vrchatapi-csharp'
     runs-on: ubuntu-latest
     permissions:
       contents: write # Push the generated SDK back to main
