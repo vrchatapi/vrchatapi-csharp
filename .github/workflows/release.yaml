@@ -1,8 +1,4 @@
 on:
-  push:
-    branches:
-      - "**"
-  pull_request:
   repository_dispatch:
     types: [release]
   workflow_dispatch:
@@ -17,82 +13,23 @@ on:
         required: false
         type: string
         default: ""
-  workflow_call:
-    inputs:
-      ref:
-        description: Ref of this repository to build.
-        required: false
-        type: string
-        default: main
 
-name: CI
+name: Release
 
-env:
-  VERSION_POSTPEND: ${{ github.event_name == 'workflow_dispatch' && inputs.version_postfix || '' }}
+# Publishing needs write access and an OIDC token, so it lives in its own file.
+# ci.yaml stays read-only and can be called from other repositories as-is.
+permissions:
+  contents: read
 
 jobs:
-  generate:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.version.outputs.version }}
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          repository: vrchatapi/vrchatapi-csharp
-          ref: ${{ inputs.ref || github.ref }}
-
-      - uses: vrchatapi/specification/.github/actions/setup-generator@main
-
-      - uses: vrchatapi/specification/.github/actions/download@main
-        with:
-          bundle: openapi-3.1.json
-          tag: ${{ inputs.tag }}
-
-      # The SDK is a major and a minor version ahead of the specification.
-      - id: version
-        run: |
-          version="$(yq -r '.info.version' openapi-3.1.json)"
-          major="${version%%.*}"
-          rest="${version#*.}"
-          version="$(( major + 1 )).$(( ${rest%%.*} + 1 )).${rest#*.}${VERSION_POSTPEND}"
-
-          echo "version=${version}" >> $GITHUB_OUTPUT
-
-      - if: env.VERSION_POSTPEND != ''
-        run: yq '--inplace' ".info.version |= \"${{ steps.version.outputs.version }}\"" openapi-3.1.json
-
-      - run: bash ./generate.sh openapi-3.1.json "${{ steps.version.outputs.version }}"
-
-      - run: cp README.md src/
-
-      - uses: actions/upload-artifact@v7
-        with:
-          name: csharp-generated
-          path: |
-            .
-            !.git/**
-          include-hidden-files: true
-
   build:
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v8
-        with:
-          name: csharp-generated
-
-      - uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: "8.0.x"
-
-      - run: dotnet build VRChat.API.sln --configuration Release
+    uses: ./.github/workflows/ci.yaml
+    with:
+      tag: ${{ inputs.tag }}
+      version_postfix: ${{ inputs.version_postfix }}
 
   publish:
-    needs:
-      - generate
-      - build
-    if: github.repository == 'vrchatapi/vrchatapi-csharp'
-      && (github.event_name == 'repository_dispatch' || github.event_name == 'workflow_dispatch')
+    needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: write # Push the generated SDK back to main
@@ -120,7 +57,7 @@ jobs:
         with:
           branch: main
           folder: .
-          commit-message: Upgrade .NET SDK to spec ${{ needs.generate.outputs.version }}
+          commit-message: Upgrade .NET SDK to spec ${{ needs.build.outputs.version }}
 
       - if: github.event_name == 'repository_dispatch'
         name: Pack packages
