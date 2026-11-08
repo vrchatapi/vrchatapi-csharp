@@ -54,6 +54,18 @@ namespace VRChat.API.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsocketMessage" /> class
+        /// with the <see cref="WebsocketEconomyUpdateEncoded" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of WebsocketEconomyUpdateEncoded.</param>
+        public WebsocketMessage(WebsocketEconomyUpdateEncoded actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebsocketMessage" /> class
         /// with the <see cref="WebsocketFriendActiveEncoded" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of WebsocketFriendActiveEncoded.</param>
@@ -198,6 +210,18 @@ namespace VRChat.API.Model
 
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsocketMessage" /> class
+        /// with the <see cref="WebsocketInstanceClosedEncoded" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of WebsocketInstanceClosedEncoded.</param>
+        public WebsocketMessage(WebsocketInstanceClosedEncoded actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebsocketMessage" /> class
         /// with the <see cref="WebsocketInstanceQueueJoinedEncoded" /> class
         /// </summary>
         /// <param name="actualInstance">An instance of WebsocketInstanceQueueJoinedEncoded.</param>
@@ -214,6 +238,18 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="actualInstance">An instance of WebsocketInstanceQueueReadyEncoded.</param>
         public WebsocketMessage(WebsocketInstanceQueueReadyEncoded actualInstance)
+        {
+            this.IsNullable = false;
+            this.SchemaType= "oneOf";
+            this.ActualInstance = actualInstance;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebsocketMessage" /> class
+        /// with the <see cref="WebsocketModifiedImageUpdateEncoded" /> class
+        /// </summary>
+        /// <param name="actualInstance">An instance of WebsocketModifiedImageUpdateEncoded.</param>
+        public WebsocketMessage(WebsocketModifiedImageUpdateEncoded actualInstance)
         {
             this.IsNullable = false;
             this.SchemaType= "oneOf";
@@ -374,6 +410,10 @@ namespace VRChat.API.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(WebsocketEconomyUpdateEncoded) || value is WebsocketEconomyUpdateEncoded)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(WebsocketFriendActiveEncoded) || value is WebsocketFriendActiveEncoded)
                 {
                     this._actualInstance = value;
@@ -422,6 +462,10 @@ namespace VRChat.API.Model
                 {
                     this._actualInstance = value;
                 }
+                else if (value.GetType() == typeof(WebsocketInstanceClosedEncoded) || value is WebsocketInstanceClosedEncoded)
+                {
+                    this._actualInstance = value;
+                }
                 else if (value.GetType() == typeof(WebsocketInstanceQueueJoinedEncoded) || value is WebsocketInstanceQueueJoinedEncoded)
                 {
                     this._actualInstance = value;
@@ -431,6 +475,10 @@ namespace VRChat.API.Model
                     this._actualInstance = value;
                 }
                 else if (value.GetType() == typeof(WebsocketMessageUnknown) || value is WebsocketMessageUnknown)
+                {
+                    this._actualInstance = value;
+                }
+                else if (value.GetType() == typeof(WebsocketModifiedImageUpdateEncoded) || value is WebsocketModifiedImageUpdateEncoded)
                 {
                     this._actualInstance = value;
                 }
@@ -495,6 +543,13 @@ namespace VRChat.API.Model
         /// Converts to the <c>WebsocketContentRefreshEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
         public static implicit operator WebsocketContentRefreshEncoded(WebsocketMessage value) => (WebsocketContentRefreshEncoded)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>WebsocketEconomyUpdateEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator WebsocketEconomyUpdateEncoded(WebsocketMessage value) => (WebsocketEconomyUpdateEncoded)value?.ActualInstance;
         
 
         
@@ -583,6 +638,13 @@ namespace VRChat.API.Model
 
         
         /// <summary>
+        /// Converts to the <c>WebsocketInstanceClosedEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator WebsocketInstanceClosedEncoded(WebsocketMessage value) => (WebsocketInstanceClosedEncoded)value?.ActualInstance;
+        
+
+        
+        /// <summary>
         /// Converts to the <c>WebsocketInstanceQueueJoinedEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
         public static implicit operator WebsocketInstanceQueueJoinedEncoded(WebsocketMessage value) => (WebsocketInstanceQueueJoinedEncoded)value?.ActualInstance;
@@ -593,6 +655,13 @@ namespace VRChat.API.Model
         /// Converts to the <c>WebsocketInstanceQueueReadyEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
         /// </summary>
         public static implicit operator WebsocketInstanceQueueReadyEncoded(WebsocketMessage value) => (WebsocketInstanceQueueReadyEncoded)value?.ActualInstance;
+        
+
+        
+        /// <summary>
+        /// Converts to the <c>WebsocketModifiedImageUpdateEncoded</c> this instance holds, throwing <see cref="InvalidCastException"/> when it holds another type.
+        /// </summary>
+        public static implicit operator WebsocketModifiedImageUpdateEncoded(WebsocketMessage value) => (WebsocketModifiedImageUpdateEncoded)value?.ActualInstance;
         
 
         
@@ -748,6 +817,26 @@ namespace VRChat.API.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into WebsocketContentRefreshEncoded: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(WebsocketEconomyUpdateEncoded).GetProperty("AdditionalProperties") == null)
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketEconomyUpdateEncoded>(jsonString, WebsocketMessage.SerializerSettings));
+                }
+                else
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketEconomyUpdateEncoded>(jsonString, WebsocketMessage.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("WebsocketEconomyUpdateEncoded");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into WebsocketEconomyUpdateEncoded: {1}", jsonString, exception.ToString()));
             }
 
             try
@@ -993,6 +1082,26 @@ namespace VRChat.API.Model
             try
             {
                 // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(WebsocketInstanceClosedEncoded).GetProperty("AdditionalProperties") == null)
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketInstanceClosedEncoded>(jsonString, WebsocketMessage.SerializerSettings));
+                }
+                else
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketInstanceClosedEncoded>(jsonString, WebsocketMessage.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("WebsocketInstanceClosedEncoded");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into WebsocketInstanceClosedEncoded: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
                 if (typeof(WebsocketInstanceQueueJoinedEncoded).GetProperty("AdditionalProperties") == null)
                 {
                     newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketInstanceQueueJoinedEncoded>(jsonString, WebsocketMessage.SerializerSettings));
@@ -1048,6 +1157,26 @@ namespace VRChat.API.Model
             {
                 // deserialization failed, try the next one
                 System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into WebsocketMessageUnknown: {1}", jsonString, exception.ToString()));
+            }
+
+            try
+            {
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(WebsocketModifiedImageUpdateEncoded).GetProperty("AdditionalProperties") == null)
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketModifiedImageUpdateEncoded>(jsonString, WebsocketMessage.SerializerSettings));
+                }
+                else
+                {
+                    newWebsocketMessage = new WebsocketMessage(JsonConvert.DeserializeObject<WebsocketModifiedImageUpdateEncoded>(jsonString, WebsocketMessage.AdditionalPropertiesSerializerSettings));
+                }
+                matchedTypes.Add("WebsocketModifiedImageUpdateEncoded");
+                match++;
+            }
+            catch (Exception exception)
+            {
+                // deserialization failed, try the next one
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into WebsocketModifiedImageUpdateEncoded: {1}", jsonString, exception.ToString()));
             }
 
             try

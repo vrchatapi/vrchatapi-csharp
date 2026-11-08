@@ -33,20 +33,20 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsocketNotificationV2Delete" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
+        /// <param name="ids">ids (required).</param>
         /// <param name="varVersion">varVersion (required).</param>
-        public WebsocketNotificationV2Delete(string id = default, int varVersion = default)
+        public WebsocketNotificationV2Delete(List<string> ids = default, int varVersion = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Id = id;
+            this.Ids = ids;
             this.VarVersion = varVersion;
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Gets or Sets Ids
         /// </summary>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public string Id { get; set; }
+        [DataMember(Name = "ids", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Ids { get; set; }
 
         /// <summary>
         /// Gets or Sets VarVersion
@@ -62,7 +62,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class WebsocketNotificationV2Delete {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Ids: ").Append(Ids).Append("\n");
             sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -100,9 +100,10 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Ids == input.Ids ||
+                    this.Ids != null &&
+                    input.Ids != null &&
+                    this.Ids.SequenceEqual(input.Ids)
                 ) && 
                 (
                     this.VarVersion == input.VarVersion ||
@@ -119,9 +120,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
+                if (this.Ids != null)
                 {
-                    hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Ids.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 return hashCode;

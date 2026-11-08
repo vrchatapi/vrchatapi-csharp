@@ -39,6 +39,29 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Success</returns>
         ApiResponse<Success> ClearAllPlayerModerationsWithHttpInfo();
         /// <summary>
+        /// Create User Moderation
+        /// </summary>
+        /// <remarks>
+        /// With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <returns>CreateUserModerationResponse</returns>
+        CreateUserModerationResponse CreateUserModeration(string userId, CreateUserModerationRequest createUserModerationRequest);
+
+        /// <summary>
+        /// Create User Moderation
+        /// </summary>
+        /// <remarks>
+        /// With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <returns>ApiResponse of CreateUserModerationResponse</returns>
+        ApiResponse<CreateUserModerationResponse> CreateUserModerationWithHttpInfo(string userId, CreateUserModerationRequest createUserModerationRequest);
+        /// <summary>
         /// Search Player Moderations
         /// </summary>
         /// <remarks>
@@ -133,6 +156,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Success)</returns>
         System.Threading.Tasks.Task<ApiResponse<Success>> ClearAllPlayerModerationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create User Moderation
+        /// </summary>
+        /// <remarks>
+        /// With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateUserModerationResponse</returns>
+        System.Threading.Tasks.Task<CreateUserModerationResponse> CreateUserModerationAsync(string userId, CreateUserModerationRequest createUserModerationRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create User Moderation
+        /// </summary>
+        /// <remarks>
+        /// With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateUserModerationResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CreateUserModerationResponse>> CreateUserModerationWithHttpInfoAsync(string userId, CreateUserModerationRequest createUserModerationRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search Player Moderations
         /// </summary>
@@ -544,6 +592,166 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Success>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Success), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create User Moderation With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <returns>CreateUserModerationResponse</returns>
+        public CreateUserModerationResponse CreateUserModeration(string userId, CreateUserModerationRequest createUserModerationRequest)
+        {
+            VRChat.API.Client.ApiResponse<CreateUserModerationResponse> localVarResponse = CreateUserModerationWithHttpInfo(userId, createUserModerationRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateUserModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create User Moderation With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <returns>ApiResponse of CreateUserModerationResponse</returns>
+        public VRChat.API.Client.ApiResponse<CreateUserModerationResponse> CreateUserModerationWithHttpInfo(string userId, CreateUserModerationRequest createUserModerationRequest)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling PlayermoderationApi->CreateUserModeration");
+
+            // verify the required parameter 'createUserModerationRequest' is set
+            if (createUserModerationRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createUserModerationRequest' when calling PlayermoderationApi->CreateUserModeration");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = createUserModerationRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<CreateUserModerationResponse>("/user/{userId}/moderations", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CreateUserModerationResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CreateUserModerationResponse), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create User Moderation With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of CreateUserModerationResponse</returns>
+        public async System.Threading.Tasks.Task<CreateUserModerationResponse> CreateUserModerationAsync(string userId, CreateUserModerationRequest createUserModerationRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<CreateUserModerationResponse> localVarResponse = await CreateUserModerationWithHttpInfoAsync(userId, createUserModerationRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateUserModeration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create User Moderation With &#x60;type&#x60; &#x60;kick&#x60;, bans the user in the path from the instance given by &#x60;worldId&#x60; and &#x60;instanceId&#x60;. The user is not removed from the instance, but cannot join it again, even by invite.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">Must be a valid user ID.</param>
+        /// <param name="createUserModerationRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (CreateUserModerationResponse)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<CreateUserModerationResponse>> CreateUserModerationWithHttpInfoAsync(string userId, CreateUserModerationRequest createUserModerationRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'userId' when calling PlayermoderationApi->CreateUserModeration");
+
+            // verify the required parameter 'createUserModerationRequest' is set
+            if (createUserModerationRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createUserModerationRequest' when calling PlayermoderationApi->CreateUserModeration");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", VRChat.API.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = createUserModerationRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<CreateUserModerationResponse>("/user/{userId}/moderations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<CreateUserModerationResponse>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(CreateUserModerationResponse), ex.Message);
             }
         }
 

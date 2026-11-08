@@ -33,12 +33,12 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebsocketInstanceQueueJoined" /> class.
         /// </summary>
-        /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
+        /// <param name="instanceLocation">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
         /// <param name="position">position (required).</param>
-        public WebsocketInstanceQueueJoined(string location = default, int position = default)
+        public WebsocketInstanceQueueJoined(string instanceLocation = default, int position = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Location = location;
+            this.InstanceLocation = instanceLocation;
             this.Position = position;
         }
 
@@ -46,8 +46,8 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
-        public string Location { get; set; }
+        [DataMember(Name = "instanceLocation", IsRequired = true, EmitDefaultValue = true)]
+        public string InstanceLocation { get; set; }
 
         /// <summary>
         /// Gets or Sets Position
@@ -63,7 +63,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class WebsocketInstanceQueueJoined {\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  InstanceLocation: ").Append(InstanceLocation).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -101,9 +101,9 @@ namespace VRChat.API.Model
             }
             return 
                 (
-                    this.Location == input.Location ||
-                    (this.Location != null &&
-                    this.Location.Equals(input.Location))
+                    this.InstanceLocation == input.InstanceLocation ||
+                    (this.InstanceLocation != null &&
+                    this.InstanceLocation.Equals(input.InstanceLocation))
                 ) && 
                 (
                     this.Position == input.Position ||
@@ -120,9 +120,9 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Location != null)
+                if (this.InstanceLocation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstanceLocation.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Position.GetHashCode();
                 return hashCode;

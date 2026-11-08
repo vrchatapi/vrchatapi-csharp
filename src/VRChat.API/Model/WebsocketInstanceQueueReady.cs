@@ -34,12 +34,12 @@ namespace VRChat.API.Model
         /// Initializes a new instance of the <see cref="WebsocketInstanceQueueReady" /> class.
         /// </summary>
         /// <param name="expiry">expiry (required).</param>
-        /// <param name="location">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
-        public WebsocketInstanceQueueReady(DateTime expiry = default, string location = default)
+        /// <param name="instanceLocation">Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list. (required).</param>
+        public WebsocketInstanceQueueReady(DateTime expiry = default, string instanceLocation = default)
         {
             this.Expiry = expiry;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Location = location;
+            this.InstanceLocation = instanceLocation;
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace VRChat.API.Model
         /// Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.
         /// </summary>
         /// <value>Represents a unique location, consisting of a world identifier and an instance identifier, or \&quot;offline\&quot; if the user is not on your friends list.</value>
-        [DataMember(Name = "location", IsRequired = true, EmitDefaultValue = true)]
-        public string Location { get; set; }
+        [DataMember(Name = "instanceLocation", IsRequired = true, EmitDefaultValue = true)]
+        public string InstanceLocation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -64,7 +64,7 @@ namespace VRChat.API.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class WebsocketInstanceQueueReady {\n");
             sb.Append("  Expiry: ").Append(Expiry).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  InstanceLocation: ").Append(InstanceLocation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,9 +105,9 @@ namespace VRChat.API.Model
                     this.Expiry.Equals(input.Expiry)
                 ) && 
                 (
-                    this.Location == input.Location ||
-                    (this.Location != null &&
-                    this.Location.Equals(input.Location))
+                    this.InstanceLocation == input.InstanceLocation ||
+                    (this.InstanceLocation != null &&
+                    this.InstanceLocation.Equals(input.InstanceLocation))
                 );
         }
 
@@ -121,9 +121,9 @@ namespace VRChat.API.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.Expiry.GetHashCode();
-                if (this.Location != null)
+                if (this.InstanceLocation != null)
                 {
-                    hashCode = (hashCode * 59) + this.Location.GetHashCode();
+                    hashCode = (hashCode * 59) + this.InstanceLocation.GetHashCode();
                 }
                 return hashCode;
             }

@@ -35,7 +35,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="user">user (required).</param>
         /// <param name="userId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
-        public WebsocketUserUpdate(User user = default, string userId = default)
+        public WebsocketUserUpdate(WebsocketUserUpdateUser user = default, string userId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.User = user;
@@ -47,7 +47,7 @@ namespace VRChat.API.Model
         /// Gets or Sets User
         /// </summary>
         [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
-        public User User { get; set; }
+        public WebsocketUserUpdateUser User { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.

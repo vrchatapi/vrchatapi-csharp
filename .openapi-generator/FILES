@@ -128,6 +128,9 @@ src/VRChat.API/Model/CreateListingRequest.cs
 src/VRChat.API/Model/CreateProductRequest.cs
 src/VRChat.API/Model/CreateProductRequestType.cs
 src/VRChat.API/Model/CreatePropRequest.cs
+src/VRChat.API/Model/CreateUserModerationRequest.cs
+src/VRChat.API/Model/CreateUserModerationRequestType.cs
+src/VRChat.API/Model/CreateUserModerationResponse.cs
 src/VRChat.API/Model/CreateWorldRequest.cs
 src/VRChat.API/Model/CreateWorldRequestReleaseStatus.cs
 src/VRChat.API/Model/CurrentUser.cs
@@ -612,6 +615,8 @@ src/VRChat.API/Model/WebsocketClearNotification.cs
 src/VRChat.API/Model/WebsocketContentRefresh.cs
 src/VRChat.API/Model/WebsocketContentRefreshActionType.cs
 src/VRChat.API/Model/WebsocketContentRefreshEncoded.cs
+src/VRChat.API/Model/WebsocketEconomyUpdate.cs
+src/VRChat.API/Model/WebsocketEconomyUpdateEncoded.cs
 src/VRChat.API/Model/WebsocketFriendActive.cs
 src/VRChat.API/Model/WebsocketFriendActiveEncoded.cs
 src/VRChat.API/Model/WebsocketFriendAdd.cs
@@ -635,12 +640,18 @@ src/VRChat.API/Model/WebsocketGroupMemberUpdatedEncoded.cs
 src/VRChat.API/Model/WebsocketGroupRoleUpdated.cs
 src/VRChat.API/Model/WebsocketGroupRoleUpdatedEncoded.cs
 src/VRChat.API/Model/WebsocketHideNotification.cs
+src/VRChat.API/Model/WebsocketInstanceClosed.cs
+src/VRChat.API/Model/WebsocketInstanceClosedEncoded.cs
 src/VRChat.API/Model/WebsocketInstanceQueueJoined.cs
 src/VRChat.API/Model/WebsocketInstanceQueueJoinedEncoded.cs
 src/VRChat.API/Model/WebsocketInstanceQueueReady.cs
 src/VRChat.API/Model/WebsocketInstanceQueueReadyEncoded.cs
 src/VRChat.API/Model/WebsocketMessage.cs
+src/VRChat.API/Model/WebsocketMessageError.cs
 src/VRChat.API/Model/WebsocketMessageUnknown.cs
+src/VRChat.API/Model/WebsocketMessageUntyped.cs
+src/VRChat.API/Model/WebsocketModifiedImageUpdate.cs
+src/VRChat.API/Model/WebsocketModifiedImageUpdateEncoded.cs
 src/VRChat.API/Model/WebsocketNotification.cs
 src/VRChat.API/Model/WebsocketNotificationDetailBoop.cs
 src/VRChat.API/Model/WebsocketNotificationDetailInvite.cs
@@ -666,6 +677,7 @@ src/VRChat.API/Model/WebsocketUserLocation.cs
 src/VRChat.API/Model/WebsocketUserLocationEncoded.cs
 src/VRChat.API/Model/WebsocketUserUpdate.cs
 src/VRChat.API/Model/WebsocketUserUpdateEncoded.cs
+src/VRChat.API/Model/WebsocketUserUpdateUser.cs
 src/VRChat.API/Model/World.cs
 src/VRChat.API/Model/WorldFavoriteList.cs
 src/VRChat.API/Model/WorldMetadata.cs
