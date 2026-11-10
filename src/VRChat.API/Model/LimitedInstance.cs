@@ -59,6 +59,7 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="accessType">&#x60;type&#x60;, &#x60;groupAccessType&#x60; and &#x60;canRequestInvite&#x60; folded into one value.  | &#x60;type&#x60; | &#x60;groupAccessType&#x60; | &#x60;canRequestInvite&#x60; | &#x60;accessType&#x60; | | - -- | - -- | - -- | - -- | | &#x60;public&#x60; | | | &#x60;public&#x60; | | &#x60;friends&#x60; | | | &#x60;friends&#x60; | | &#x60;hidden&#x60; | | | &#x60;friendsPlus&#x60; | | &#x60;private&#x60; | | &#x60;false&#x60; | &#x60;invite&#x60; | | &#x60;private&#x60; | | &#x60;true&#x60; | &#x60;invitePlus&#x60; | | &#x60;group&#x60; | &#x60;public&#x60; | | &#x60;groupPublic&#x60; | | &#x60;group&#x60; | &#x60;plus&#x60; | | &#x60;groupPlus&#x60; | | &#x60;group&#x60; | &#x60;members&#x60; | | &#x60;group&#x60; | (required).</param>
         /// <param name="active">active (required) (default to true).</param>
+        /// <param name="calendarEntryId">calendarEntryId (required).</param>
         /// <param name="capacity">capacity (required).</param>
         /// <param name="categoryId">categoryId (required).</param>
         /// <param name="creationLanguages">creationLanguages (required).</param>
@@ -97,11 +98,13 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds (required).</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public LimitedInstance(string accessType = default, bool active = true, int capacity = default, string categoryId = default, List<Object> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public LimitedInstance(string accessType = default, bool active = true, string calendarEntryId = default, int capacity = default, string categoryId = default, List<Object> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessType = accessType;
             this.Active = active;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.CalendarEntryId = calendarEntryId;
             this.Capacity = capacity;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.CategoryId = categoryId;
@@ -178,6 +181,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "active", IsRequired = true, EmitDefaultValue = true)]
         public bool Active { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CalendarEntryId
+        /// </summary>
+        [DataMember(Name = "calendarEntryId", IsRequired = true, EmitDefaultValue = true)]
+        public string CalendarEntryId { get; set; }
 
         /// <summary>
         /// Gets or Sets Capacity
@@ -402,6 +411,7 @@ namespace VRChat.API.Model
             sb.Append("class LimitedInstance {\n");
             sb.Append("  AccessType: ").Append(AccessType).Append("\n");
             sb.Append("  Active: ").Append(Active).Append("\n");
+            sb.Append("  CalendarEntryId: ").Append(CalendarEntryId).Append("\n");
             sb.Append("  Capacity: ").Append(Capacity).Append("\n");
             sb.Append("  CategoryId: ").Append(CategoryId).Append("\n");
             sb.Append("  CreationLanguages: ").Append(CreationLanguages).Append("\n");
@@ -483,6 +493,11 @@ namespace VRChat.API.Model
                 (
                     this.Active == input.Active ||
                     this.Active.Equals(input.Active)
+                ) && 
+                (
+                    this.CalendarEntryId == input.CalendarEntryId ||
+                    (this.CalendarEntryId != null &&
+                    this.CalendarEntryId.Equals(input.CalendarEntryId))
                 ) && 
                 (
                     this.Capacity == input.Capacity ||
@@ -686,6 +701,10 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.AccessType.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Active.GetHashCode();
+                if (this.CalendarEntryId != null)
+                {
+                    hashCode = (hashCode * 59) + this.CalendarEntryId.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Capacity.GetHashCode();
                 if (this.CategoryId != null)
                 {

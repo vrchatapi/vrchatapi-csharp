@@ -35,13 +35,16 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="asOf">asOf (required).</param>
         /// <param name="events">events (required).</param>
+        /// <param name="friendIcons">friendIcons (required).</param>
         /// <param name="friends">friends (required).</param>
         /// <param name="friendsEntryId">The ID of a &#x60;ContentShelf&#x60; entry, whose results &#x60;getInfoPushContent&#x60; returns. (required).</param>
         /// <param name="instances">instances (required).</param>
-        public InstanceCount(DateTime asOf = default, int events = default, int friends = default, string friendsEntryId = default, int instances = default)
+        public InstanceCount(DateTime asOf = default, int events = default, List<Object> friendIcons = default, int friends = default, string friendsEntryId = default, int instances = default)
         {
             this.AsOf = asOf;
             this.Events = events;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.FriendIcons = friendIcons;
             this.Friends = friends;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendsEntryId = friendsEntryId;
@@ -59,6 +62,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "events", IsRequired = true, EmitDefaultValue = true)]
         public int Events { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FriendIcons
+        /// </summary>
+        [DataMember(Name = "friendIcons", IsRequired = true, EmitDefaultValue = true)]
+        public List<Object> FriendIcons { get; set; }
 
         /// <summary>
         /// Gets or Sets Friends
@@ -89,6 +98,7 @@ namespace VRChat.API.Model
             sb.Append("class InstanceCount {\n");
             sb.Append("  AsOf: ").Append(AsOf).Append("\n");
             sb.Append("  Events: ").Append(Events).Append("\n");
+            sb.Append("  FriendIcons: ").Append(FriendIcons).Append("\n");
             sb.Append("  Friends: ").Append(Friends).Append("\n");
             sb.Append("  FriendsEntryId: ").Append(FriendsEntryId).Append("\n");
             sb.Append("  Instances: ").Append(Instances).Append("\n");
@@ -136,6 +146,12 @@ namespace VRChat.API.Model
                     this.Events.Equals(input.Events)
                 ) && 
                 (
+                    this.FriendIcons == input.FriendIcons ||
+                    this.FriendIcons != null &&
+                    input.FriendIcons != null &&
+                    this.FriendIcons.SequenceEqual(input.FriendIcons)
+                ) && 
+                (
                     this.Friends == input.Friends ||
                     this.Friends.Equals(input.Friends)
                 ) && 
@@ -161,6 +177,10 @@ namespace VRChat.API.Model
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.AsOf.GetHashCode();
                 hashCode = (hashCode * 59) + this.Events.GetHashCode();
+                if (this.FriendIcons != null)
+                {
+                    hashCode = (hashCode * 59) + this.FriendIcons.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.Friends.GetHashCode();
                 if (this.FriendsEntryId != null)
                 {

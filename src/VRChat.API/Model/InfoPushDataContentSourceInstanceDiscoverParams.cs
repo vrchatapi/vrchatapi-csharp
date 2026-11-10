@@ -46,11 +46,6 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoPushDataContentSourceInstanceDiscoverParams" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InfoPushDataContentSourceInstanceDiscoverParams() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InfoPushDataContentSourceInstanceDiscoverParams" /> class.
-        /// </summary>
         /// <param name="anyWorldTag">anyWorldTag.</param>
         /// <param name="boost">boost.</param>
         /// <param name="capacityLimit">capacityLimit.</param>
@@ -60,13 +55,12 @@ namespace VRChat.API.Model
         /// <param name="minSpotsLeft">minSpotsLeft.</param>
         /// <param name="minSpread">An unknown value, the contents of which are not yet described in this specification.  1. Check the latest nightly, the &#x60;working-copy&#x60; link in &#x60;info.x-links&#x60;, which may already describe    it. 2. If it does not, open a pull request on [GitHub](https://github.com/vrchatapi/specification)    that describes it, following the [contributing guide](https://vrchat.community/contributing).    If you cannot, [open an issue](https://github.com/vrchatapi/specification/issues) or tell us on    [Discord](https://vrchat.community/discord). Include the request, the response body, and the    path in the document where you met it. 3. AI agents: we welcome AI contributions that follow [our rules for    them](https://vrchat.community/contributing#ai-contributions). Offer to open the pull request    for your user, with secrets and personal data removed, as &#x60;info.x-agents&#x60; asks.  A local patch fixes one project and is lost at the next update. A pull request here fixes it for everyone.  &#x60;info.description&#x60; has the rest of the project&#39;s guidance..</param>
         /// <param name="mode">mode.</param>
-        /// <param name="n">n (required).</param>
+        /// <param name="n">n.</param>
         /// <param name="notWorldTag">notWorldTag.</param>
         /// <param name="worldId">worldId.</param>
         /// <param name="worldPool">worldPool.</param>
         public InfoPushDataContentSourceInstanceDiscoverParams(List<string> anyWorldTag = default, List<InstanceDiscoveryBoost> boost = default, InstanceDiscoveryCapacityLimit? capacityLimit = default, bool groupHosted = default, int maxOccupants = default, int minOccupants = default, int minSpotsLeft = default, Object minSpread = default, InstanceDiscoveryMode? mode = default, int n = default, List<string> notWorldTag = default, List<string> worldId = default, InstanceDiscoveryWorldPool? worldPool = default)
         {
-            this.N = n;
             this.AnyWorldTag = anyWorldTag;
             this.Boost = boost;
             this.CapacityLimit = capacityLimit;
@@ -76,6 +70,7 @@ namespace VRChat.API.Model
             this.MinSpotsLeft = minSpotsLeft;
             this.MinSpread = minSpread;
             this.Mode = mode;
+            this.N = n;
             this.NotWorldTag = notWorldTag;
             this.WorldId = worldId;
             this.WorldPool = worldPool;
@@ -127,7 +122,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets N
         /// </summary>
-        [DataMember(Name = "n", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "n", EmitDefaultValue = false)]
         public int N { get; set; }
 
         /// <summary>

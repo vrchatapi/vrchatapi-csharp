@@ -39,6 +39,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="World" /> class.
         /// </summary>
+        /// <param name="authorIconUrl">authorIconUrl.</param>
         /// <param name="authorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed. (required).</param>
         /// <param name="authorName">authorName (required).</param>
         /// <param name="capacity">capacity (required).</param>
@@ -67,6 +68,7 @@ namespace VRChat.API.Model
         /// <param name="releaseStatus">releaseStatus (required).</param>
         /// <param name="slimInstances">slimInstances.</param>
         /// <param name="storeId">storeId.</param>
+        /// <param name="supportedPlatforms">supportedPlatforms (required).</param>
         /// <param name="tags">tags (required).</param>
         /// <param name="thumbnailImageUrl">thumbnailImageUrl (required).</param>
         /// <param name="udonProducts">udonProducts.</param>
@@ -75,7 +77,7 @@ namespace VRChat.API.Model
         /// <param name="urlList">urlList.</param>
         /// <param name="varVersion">varVersion (required) (default to 0).</param>
         /// <param name="visits">visits (required) (default to 0).</param>
-        public World(string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<string> disabledPropAbilities = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<WorldSlimInstance> slimInstances = default, string storeId = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
+        public World(string authorIconUrl = default, string authorId = default, string authorName = default, int capacity = default, DateTime createdAt = default, InstanceContentSettings defaultContentSettings = default, string description = default, List<string> disabledPropAbilities = default, int favorites = 0, bool featured = false, int heat = 0, string id = default, string imageUrl = default, List<List<Object>> instances = default, bool isHypeTrainEligible = default, string labsPublicationDate = default, string name = default, string varNamespace = default, int occupants = 0, string organization = @"vrchat", int popularity = 0, string previewYoutubeId = default, int privateOccupants = 0, int publicOccupants = 0, string publicationDate = default, int recommendedCapacity = default, ReleaseStatus releaseStatus = default, List<WorldSlimInstance> slimInstances = default, string storeId = default, List<string> supportedPlatforms = default, List<string> tags = default, string thumbnailImageUrl = default, List<string> udonProducts = default, List<UnityPackage> unityPackages = default, DateTime updatedAt = default, List<string> urlList = default, int varVersion = 0, int visits = 0)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AuthorId = authorId;
@@ -103,12 +105,15 @@ namespace VRChat.API.Model
             this.RecommendedCapacity = recommendedCapacity;
             this.ReleaseStatus = releaseStatus;
             // Allow null values for required properties to handle unexpected API responses gracefully
+            this.SupportedPlatforms = supportedPlatforms;
+            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Tags = tags;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ThumbnailImageUrl = thumbnailImageUrl;
             this.UpdatedAt = updatedAt;
             this.VarVersion = varVersion;
             this.Visits = visits;
+            this.AuthorIconUrl = authorIconUrl;
             this.DefaultContentSettings = defaultContentSettings;
             this.DisabledPropAbilities = disabledPropAbilities;
             this.Favorites = favorites;
@@ -125,6 +130,12 @@ namespace VRChat.API.Model
             this.UnityPackages = unityPackages;
             this.UrlList = urlList;
         }
+
+        /// <summary>
+        /// Gets or Sets AuthorIconUrl
+        /// </summary>
+        [DataMember(Name = "authorIconUrl", EmitDefaultValue = false)]
+        public string AuthorIconUrl { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -295,6 +306,12 @@ namespace VRChat.API.Model
         public string StoreId { get; set; }
 
         /// <summary>
+        /// Gets or Sets SupportedPlatforms
+        /// </summary>
+        [DataMember(Name = "supportedPlatforms", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> SupportedPlatforms { get; set; }
+
+        /// <summary>
         /// Gets or Sets Tags
         /// </summary>
         [DataMember(Name = "tags", IsRequired = true, EmitDefaultValue = true)]
@@ -351,6 +368,7 @@ namespace VRChat.API.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class World {\n");
+            sb.Append("  AuthorIconUrl: ").Append(AuthorIconUrl).Append("\n");
             sb.Append("  AuthorId: ").Append(AuthorId).Append("\n");
             sb.Append("  AuthorName: ").Append(AuthorName).Append("\n");
             sb.Append("  Capacity: ").Append(Capacity).Append("\n");
@@ -379,6 +397,7 @@ namespace VRChat.API.Model
             sb.Append("  ReleaseStatus: ").Append(ReleaseStatus).Append("\n");
             sb.Append("  SlimInstances: ").Append(SlimInstances).Append("\n");
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  SupportedPlatforms: ").Append(SupportedPlatforms).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  ThumbnailImageUrl: ").Append(ThumbnailImageUrl).Append("\n");
             sb.Append("  UdonProducts: ").Append(UdonProducts).Append("\n");
@@ -422,6 +441,11 @@ namespace VRChat.API.Model
                 return false;
             }
             return 
+                (
+                    this.AuthorIconUrl == input.AuthorIconUrl ||
+                    (this.AuthorIconUrl != null &&
+                    this.AuthorIconUrl.Equals(input.AuthorIconUrl))
+                ) && 
                 (
                     this.AuthorId == input.AuthorId ||
                     (this.AuthorId != null &&
@@ -554,6 +578,12 @@ namespace VRChat.API.Model
                     this.StoreId.Equals(input.StoreId))
                 ) && 
                 (
+                    this.SupportedPlatforms == input.SupportedPlatforms ||
+                    this.SupportedPlatforms != null &&
+                    input.SupportedPlatforms != null &&
+                    this.SupportedPlatforms.SequenceEqual(input.SupportedPlatforms)
+                ) && 
+                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -605,6 +635,10 @@ namespace VRChat.API.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AuthorIconUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.AuthorIconUrl.GetHashCode();
+                }
                 if (this.AuthorId != null)
                 {
                     hashCode = (hashCode * 59) + this.AuthorId.GetHashCode();
@@ -680,6 +714,10 @@ namespace VRChat.API.Model
                 if (this.StoreId != null)
                 {
                     hashCode = (hashCode * 59) + this.StoreId.GetHashCode();
+                }
+                if (this.SupportedPlatforms != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupportedPlatforms.GetHashCode();
                 }
                 if (this.Tags != null)
                 {
