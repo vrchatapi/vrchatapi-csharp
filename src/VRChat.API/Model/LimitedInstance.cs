@@ -62,12 +62,12 @@ namespace VRChat.API.Model
         /// <param name="calendarEntryId">calendarEntryId (required).</param>
         /// <param name="capacity">capacity (required).</param>
         /// <param name="categoryId">categoryId (required).</param>
-        /// <param name="creationLanguages">creationLanguages (required).</param>
+        /// <param name="creationLanguages">The &#x60;languages&#x60; the instance was created with. (required).</param>
         /// <param name="description">description (required).</param>
         /// <param name="disabledPropAbilities">disabledPropAbilities (required).</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="displayVibeId">displayVibeId (required).</param>
-        /// <param name="dominantLanguage">dominantLanguage (required).</param>
+        /// <param name="dominantLanguage">Empty while the instance has no users. (required).</param>
         /// <param name="friendIcons">friendIcons (required).</param>
         /// <param name="full">full (required) (default to false).</param>
         /// <param name="groupAccessType">groupAccessType.</param>
@@ -98,7 +98,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds (required).</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public LimitedInstance(string accessType = default, bool active = true, string calendarEntryId = default, int capacity = default, string categoryId = default, List<Object> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public LimitedInstance(string accessType = default, bool active = true, string calendarEntryId = default, int capacity = default, string categoryId = default, List<string> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessType = accessType;
@@ -201,10 +201,11 @@ namespace VRChat.API.Model
         public string CategoryId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreationLanguages
+        /// The &#x60;languages&#x60; the instance was created with.
         /// </summary>
+        /// <value>The &#x60;languages&#x60; the instance was created with.</value>
         [DataMember(Name = "creationLanguages", IsRequired = true, EmitDefaultValue = true)]
-        public List<Object> CreationLanguages { get; set; }
+        public List<string> CreationLanguages { get; set; }
 
         /// <summary>
         /// Gets or Sets Description
@@ -231,8 +232,9 @@ namespace VRChat.API.Model
         public string DisplayVibeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets DominantLanguage
+        /// Empty while the instance has no users.
         /// </summary>
+        /// <value>Empty while the instance has no users.</value>
         [DataMember(Name = "dominantLanguage", IsRequired = true, EmitDefaultValue = true)]
         public string DominantLanguage { get; set; }
 

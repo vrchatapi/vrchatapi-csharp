@@ -122,6 +122,7 @@ src/VRChat.API/Model/CreateGroupPostRequest.cs
 src/VRChat.API/Model/CreateGroupRequest.cs
 src/VRChat.API/Model/CreateGroupRoleRequest.cs
 src/VRChat.API/Model/CreateInstanceRequest.cs
+src/VRChat.API/Model/CreateInstanceRequestMinimumAvatarPerformance.cs
 src/VRChat.API/Model/CreateInstanceRequestRegion.cs
 src/VRChat.API/Model/CreateJamSubmissionRequest.cs
 src/VRChat.API/Model/CreateListingRequest.cs
@@ -532,6 +533,7 @@ src/VRChat.API/Model/SentNotificationUnknown.cs
 src/VRChat.API/Model/SentNotificationVoteToKick.cs
 src/VRChat.API/Model/ServiceQueueStats.cs
 src/VRChat.API/Model/ServiceStatus.cs
+src/VRChat.API/Model/SetWorldRatingRequest.cs
 src/VRChat.API/Model/ShareInventoryItemDirectRequest.cs
 src/VRChat.API/Model/SortOption.cs
 src/VRChat.API/Model/SortOptionAvatar.cs
@@ -683,5 +685,7 @@ src/VRChat.API/Model/WorldFavoriteList.cs
 src/VRChat.API/Model/WorldMetadata.cs
 src/VRChat.API/Model/WorldMetadataValue.cs
 src/VRChat.API/Model/WorldPublishStatus.cs
+src/VRChat.API/Model/WorldRating.cs
+src/VRChat.API/Model/WorldRatingValue.cs
 src/VRChat.API/Model/WorldSlimInstance.cs
 src/VRChat.API/VRChat.API.csproj

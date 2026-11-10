@@ -33,6 +33,12 @@ namespace VRChat.API.Model
         public GroupAccessType? GroupAccessType { get; set; }
 
         /// <summary>
+        /// Gets or Sets MinimumAvatarPerformance
+        /// </summary>
+        [DataMember(Name = "minimumAvatarPerformance", EmitDefaultValue = false)]
+        public CreateInstanceRequestMinimumAvatarPerformance? MinimumAvatarPerformance { get; set; }
+
+        /// <summary>
         /// Gets or Sets Region
         /// </summary>
         [DataMember(Name = "region", IsRequired = true, EmitDefaultValue = true)]
@@ -63,6 +69,8 @@ namespace VRChat.API.Model
         /// <param name="hardClose">Currently unused, but will eventually be a flag to set if the closing of the instance should kick people. (default to false).</param>
         /// <param name="instancePersistenceEnabled">instancePersistenceEnabled.</param>
         /// <param name="inviteOnly">inviteOnly (default to false).</param>
+        /// <param name="languages">Returned as the instance&#39;s &#x60;creationLanguages&#x60;..</param>
+        /// <param name="minimumAvatarPerformance">minimumAvatarPerformance.</param>
         /// <param name="ownerId">A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise.</param>
         /// <param name="playerPersistenceEnabled">playerPersistenceEnabled.</param>
         /// <param name="queueEnabled">queueEnabled (default to false).</param>
@@ -71,7 +79,7 @@ namespace VRChat.API.Model
         /// <param name="type">type (required).</param>
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, string categoryId = default, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string description = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, CreateInstanceRequestRegion region = default, List<string> roleIds = default, InstanceType type = default, List<string> vibeIds = default, string worldId = default)
+        public CreateInstanceRequest(bool ageGate = false, string calendarEntryId = default, bool canRequestInvite = false, string categoryId = default, DateTime closedAt = default, InstanceContentSettings contentSettings = default, string description = default, string displayName = default, GroupAccessType? groupAccessType = default, bool hardClose = false, bool? instancePersistenceEnabled = default, bool inviteOnly = false, List<string> languages = default, CreateInstanceRequestMinimumAvatarPerformance? minimumAvatarPerformance = default, string ownerId = default, bool? playerPersistenceEnabled = default, bool queueEnabled = false, CreateInstanceRequestRegion region = default, List<string> roleIds = default, InstanceType type = default, List<string> vibeIds = default, string worldId = default)
         {
             this.Region = region;
             this.Type = type;
@@ -89,6 +97,8 @@ namespace VRChat.API.Model
             this.HardClose = hardClose;
             this.InstancePersistenceEnabled = instancePersistenceEnabled;
             this.InviteOnly = inviteOnly;
+            this.Languages = languages;
+            this.MinimumAvatarPerformance = minimumAvatarPerformance;
             this.OwnerId = ownerId;
             this.PlayerPersistenceEnabled = playerPersistenceEnabled;
             this.QueueEnabled = queueEnabled;
@@ -166,6 +176,13 @@ namespace VRChat.API.Model
         public bool InviteOnly { get; set; }
 
         /// <summary>
+        /// Returned as the instance&#39;s &#x60;creationLanguages&#x60;.
+        /// </summary>
+        /// <value>Returned as the instance&#39;s &#x60;creationLanguages&#x60;.</value>
+        [DataMember(Name = "languages", EmitDefaultValue = false)]
+        public List<string> Languages { get; set; }
+
+        /// <summary>
         /// A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise
         /// </summary>
         /// <value>A groupId if the instance type is \&quot;group\&quot;, null if instance type is public, or a userId otherwise</value>
@@ -224,6 +241,8 @@ namespace VRChat.API.Model
             sb.Append("  HardClose: ").Append(HardClose).Append("\n");
             sb.Append("  InstancePersistenceEnabled: ").Append(InstancePersistenceEnabled).Append("\n");
             sb.Append("  InviteOnly: ").Append(InviteOnly).Append("\n");
+            sb.Append("  Languages: ").Append(Languages).Append("\n");
+            sb.Append("  MinimumAvatarPerformance: ").Append(MinimumAvatarPerformance).Append("\n");
             sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("  PlayerPersistenceEnabled: ").Append(PlayerPersistenceEnabled).Append("\n");
             sb.Append("  QueueEnabled: ").Append(QueueEnabled).Append("\n");
@@ -322,6 +341,16 @@ namespace VRChat.API.Model
                     this.InviteOnly.Equals(input.InviteOnly)
                 ) && 
                 (
+                    this.Languages == input.Languages ||
+                    this.Languages != null &&
+                    input.Languages != null &&
+                    this.Languages.SequenceEqual(input.Languages)
+                ) && 
+                (
+                    this.MinimumAvatarPerformance == input.MinimumAvatarPerformance ||
+                    this.MinimumAvatarPerformance.Equals(input.MinimumAvatarPerformance)
+                ) && 
+                (
                     this.OwnerId == input.OwnerId ||
                     (this.OwnerId != null &&
                     this.OwnerId.Equals(input.OwnerId))
@@ -401,6 +430,11 @@ namespace VRChat.API.Model
                     hashCode = (hashCode * 59) + this.InstancePersistenceEnabled.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.InviteOnly.GetHashCode();
+                if (this.Languages != null)
+                {
+                    hashCode = (hashCode * 59) + this.Languages.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.MinimumAvatarPerformance.GetHashCode();
                 if (this.OwnerId != null)
                 {
                     hashCode = (hashCode * 59) + this.OwnerId.GetHashCode();

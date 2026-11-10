@@ -175,6 +175,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteWorldPlatformWithHttpInfo(string worldId, string publishedPlatform);
         /// <summary>
+        /// Delete World Rating
+        /// </summary>
+        /// <remarks>
+        /// Removes the rating the current user has given a world.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>WorldRating</returns>
+        WorldRating DeleteWorldRating(string worldId);
+
+        /// <summary>
+        /// Delete World Rating
+        /// </summary>
+        /// <remarks>
+        /// Removes the rating the current user has given a world.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        ApiResponse<WorldRating> DeleteWorldRatingWithHttpInfo(string worldId);
+        /// <summary>
         /// List Active Worlds
         /// </summary>
         /// <remarks>
@@ -396,6 +417,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of WorldPublishStatus</returns>
         ApiResponse<WorldPublishStatus> GetWorldPublishStatusWithHttpInfo(string worldId);
         /// <summary>
+        /// Get World Rating
+        /// </summary>
+        /// <remarks>
+        /// Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>WorldRating</returns>
+        WorldRating GetWorldRating(string worldId);
+
+        /// <summary>
+        /// Get World Rating
+        /// </summary>
+        /// <remarks>
+        /// Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        ApiResponse<WorldRating> GetWorldRatingWithHttpInfo(string worldId);
+        /// <summary>
         /// Publish World
         /// </summary>
         /// <remarks>
@@ -492,6 +534,29 @@ namespace VRChat.API.Api
         /// <param name="avatarSpecific">Only search for avatar worlds. (optional)</param>
         /// <returns>ApiResponse of List&lt;LimitedWorld&gt;</returns>
         ApiResponse<List<LimitedWorld>> SearchWorldsWithHttpInfo(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default);
+        /// <summary>
+        /// Set World Rating
+        /// </summary>
+        /// <remarks>
+        /// Rates a world as the current user, replacing any rating they gave it before.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <returns>WorldRating</returns>
+        WorldRating SetWorldRating(string worldId, SetWorldRatingRequest setWorldRatingRequest);
+
+        /// <summary>
+        /// Set World Rating
+        /// </summary>
+        /// <remarks>
+        /// Rates a world as the current user, replacing any rating they gave it before.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        ApiResponse<WorldRating> SetWorldRatingWithHttpInfo(string worldId, SetWorldRatingRequest setWorldRatingRequest);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -714,6 +779,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteWorldPlatformWithHttpInfoAsync(string worldId, string publishedPlatform, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete World Rating
+        /// </summary>
+        /// <remarks>
+        /// Removes the rating the current user has given a world.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        System.Threading.Tasks.Task<WorldRating> DeleteWorldRatingAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete World Rating
+        /// </summary>
+        /// <remarks>
+        /// Removes the rating the current user has given a world.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorldRating>> DeleteWorldRatingWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Active Worlds
         /// </summary>
@@ -950,6 +1038,29 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (WorldPublishStatus)</returns>
         System.Threading.Tasks.Task<ApiResponse<WorldPublishStatus>> GetWorldPublishStatusWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get World Rating
+        /// </summary>
+        /// <remarks>
+        /// Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        System.Threading.Tasks.Task<WorldRating> GetWorldRatingAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get World Rating
+        /// </summary>
+        /// <remarks>
+        /// Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorldRating>> GetWorldRatingWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Publish World
         /// </summary>
         /// <remarks>
@@ -1052,6 +1163,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedWorld&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<LimitedWorld>>> SearchWorldsWithHttpInfoAsync(bool? featured = default, SortOption? sort = default, SearchWorldsUser? user = default, string? userId = default, int? n = default, OrderOption? order = default, int? offset = default, string? search = default, string? tag = default, string? notag = default, ReleaseStatus? releaseStatus = default, string? maxUnityVersion = default, string? minUnityVersion = default, string? platform = default, string? noplatform = default, bool? fuzzy = default, bool? avatarSpecific = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set World Rating
+        /// </summary>
+        /// <remarks>
+        /// Rates a world as the current user, replacing any rating they gave it before.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        System.Threading.Tasks.Task<WorldRating> SetWorldRatingAsync(string worldId, SetWorldRatingRequest setWorldRatingRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set World Rating
+        /// </summary>
+        /// <remarks>
+        /// Rates a world as the current user, replacing any rating they gave it before.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WorldRating>> SetWorldRatingWithHttpInfoAsync(string worldId, SetWorldRatingRequest setWorldRatingRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unpublish World
         /// </summary>
@@ -2362,6 +2498,150 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete World Rating Removes the rating the current user has given a world.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>WorldRating</returns>
+        public WorldRating DeleteWorldRating(string worldId)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = DeleteWorldRatingWithHttpInfo(worldId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete World Rating Removes the rating the current user has given a world.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        public VRChat.API.Client.ApiResponse<WorldRating> DeleteWorldRatingWithHttpInfo(string worldId)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorldRating");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete World Rating Removes the rating the current user has given a world.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        public async System.Threading.Tasks.Task<WorldRating> DeleteWorldRatingAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = await DeleteWorldRatingWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete World Rating Removes the rating the current user has given a world.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldRating>> DeleteWorldRatingWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->DeleteWorldRating");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
             }
         }
 
@@ -3790,6 +4070,150 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Get World Rating Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>WorldRating</returns>
+        public WorldRating GetWorldRating(string worldId)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = GetWorldRatingWithHttpInfo(worldId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get World Rating Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        public VRChat.API.Client.ApiResponse<WorldRating> GetWorldRatingWithHttpInfo(string worldId)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldRating");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get World Rating Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        public async System.Threading.Tasks.Task<WorldRating> GetWorldRatingAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = await GetWorldRatingWithHttpInfoAsync(worldId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get World Rating Returns the rating the current user has given a world. &#x60;value&#x60; is &#x60;null&#x60; for a world they have not rated, and for a world ID no world carries.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldRating>> GetWorldRatingWithHttpInfoAsync(string worldId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->GetWorldRating");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Publish World Publish a world. You can only publish one world per week.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4422,6 +4846,166 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<List<LimitedWorld>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<LimitedWorld>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Set World Rating Rates a world as the current user, replacing any rating they gave it before.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <returns>WorldRating</returns>
+        public WorldRating SetWorldRating(string worldId, SetWorldRatingRequest setWorldRatingRequest)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = SetWorldRatingWithHttpInfo(worldId, setWorldRatingRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set World Rating Rates a world as the current user, replacing any rating they gave it before.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <returns>ApiResponse of WorldRating</returns>
+        public VRChat.API.Client.ApiResponse<WorldRating> SetWorldRatingWithHttpInfo(string worldId, SetWorldRatingRequest setWorldRatingRequest)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->SetWorldRating");
+
+            // verify the required parameter 'setWorldRatingRequest' is set
+            if (setWorldRatingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'setWorldRatingRequest' when calling WorldsApi->SetWorldRating");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = setWorldRatingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Set World Rating Rates a world as the current user, replacing any rating they gave it before.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WorldRating</returns>
+        public async System.Threading.Tasks.Task<WorldRating> SetWorldRatingAsync(string worldId, SetWorldRatingRequest setWorldRatingRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<WorldRating> localVarResponse = await SetWorldRatingWithHttpInfoAsync(worldId, setWorldRatingRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetWorldRating", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set World Rating Rates a world as the current user, replacing any rating they gave it before.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="setWorldRatingRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WorldRating)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<WorldRating>> SetWorldRatingWithHttpInfoAsync(string worldId, SetWorldRatingRequest setWorldRatingRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling WorldsApi->SetWorldRating");
+
+            // verify the required parameter 'setWorldRatingRequest' is set
+            if (setWorldRatingRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'setWorldRatingRequest' when calling WorldsApi->SetWorldRating");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.Data = setWorldRatingRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<WorldRating>("/worlds/{worldId}/rating", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<WorldRating>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(WorldRating), ex.Message);
             }
         }
 

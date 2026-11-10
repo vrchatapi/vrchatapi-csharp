@@ -67,13 +67,13 @@ namespace VRChat.API.Model
         /// <param name="clientNumber">Always returns \&quot;unknown\&quot;. (required).</param>
         /// <param name="closedAt">closedAt.</param>
         /// <param name="contentSettings">contentSettings.</param>
-        /// <param name="creationLanguages">creationLanguages.</param>
+        /// <param name="creationLanguages">The &#x60;languages&#x60; the instance was created with..</param>
         /// <param name="creatorId">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="description">description.</param>
         /// <param name="disabledPropAbilities">disabledPropAbilities.</param>
         /// <param name="displayName">displayName.</param>
         /// <param name="displayVibeId">displayVibeId.</param>
-        /// <param name="dominantLanguage">dominantLanguage.</param>
+        /// <param name="dominantLanguage">Empty while the instance has no users..</param>
         /// <param name="friends">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
         /// <param name="full">full (required) (default to false).</param>
         /// <param name="gameServerVersion">gameServerVersion.</param>
@@ -114,7 +114,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public Instance(string accessType = default, bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<Object> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public Instance(string accessType = default, bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<string> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessType = accessType;
@@ -250,10 +250,11 @@ namespace VRChat.API.Model
         public InstanceContentSettings ContentSettings { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreationLanguages
+        /// The &#x60;languages&#x60; the instance was created with.
         /// </summary>
+        /// <value>The &#x60;languages&#x60; the instance was created with.</value>
         [DataMember(Name = "creationLanguages", EmitDefaultValue = false)]
-        public List<Object> CreationLanguages { get; set; }
+        public List<string> CreationLanguages { get; set; }
 
         /// <summary>
         /// A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.
@@ -287,8 +288,9 @@ namespace VRChat.API.Model
         public string DisplayVibeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets DominantLanguage
+        /// Empty while the instance has no users.
         /// </summary>
+        /// <value>Empty while the instance has no users.</value>
         [DataMember(Name = "dominantLanguage", EmitDefaultValue = false)]
         public string DominantLanguage { get; set; }
 
