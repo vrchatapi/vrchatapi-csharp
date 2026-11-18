@@ -69,6 +69,7 @@ namespace VRChat.API.Model
         /// <param name="displayVibeId">displayVibeId (required).</param>
         /// <param name="dominantLanguage">Empty while the instance has no users. (required).</param>
         /// <param name="friendIcons">friendIcons (required).</param>
+        /// <param name="friendOccupants">friendOccupants (required).</param>
         /// <param name="full">full (required) (default to false).</param>
         /// <param name="groupAccessType">groupAccessType.</param>
         /// <param name="id">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
@@ -98,7 +99,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds (required).</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public LimitedInstance(string accessType = default, bool active = true, string calendarEntryId = default, int capacity = default, string categoryId = default, List<string> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public LimitedInstance(string accessType = default, bool active = true, string calendarEntryId = default, int capacity = default, string categoryId = default, List<string> creationLanguages = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, List<Object> friendIcons = default, List<Object> friendOccupants = default, bool full = false, GroupAccessType? groupAccessType = default, string id = default, string instanceId = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string ownerIconUrl = default, string ownerId = default, string ownerName = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string shortName = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessType = accessType;
@@ -120,6 +121,8 @@ namespace VRChat.API.Model
             this.DominantLanguage = dominantLanguage;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.FriendIcons = friendIcons;
+            // Allow null values for required properties to handle unexpected API responses gracefully
+            this.FriendOccupants = friendOccupants;
             this.Full = full;
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.Id = id;
@@ -243,6 +246,12 @@ namespace VRChat.API.Model
         /// </summary>
         [DataMember(Name = "friendIcons", IsRequired = true, EmitDefaultValue = true)]
         public List<Object> FriendIcons { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FriendOccupants
+        /// </summary>
+        [DataMember(Name = "friendOccupants", IsRequired = true, EmitDefaultValue = true)]
+        public List<Object> FriendOccupants { get; set; }
 
         /// <summary>
         /// Gets or Sets Full
@@ -423,6 +432,7 @@ namespace VRChat.API.Model
             sb.Append("  DisplayVibeId: ").Append(DisplayVibeId).Append("\n");
             sb.Append("  DominantLanguage: ").Append(DominantLanguage).Append("\n");
             sb.Append("  FriendIcons: ").Append(FriendIcons).Append("\n");
+            sb.Append("  FriendOccupants: ").Append(FriendOccupants).Append("\n");
             sb.Append("  Full: ").Append(Full).Append("\n");
             sb.Append("  GroupAccessType: ").Append(GroupAccessType).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -547,6 +557,12 @@ namespace VRChat.API.Model
                     this.FriendIcons != null &&
                     input.FriendIcons != null &&
                     this.FriendIcons.SequenceEqual(input.FriendIcons)
+                ) && 
+                (
+                    this.FriendOccupants == input.FriendOccupants ||
+                    this.FriendOccupants != null &&
+                    input.FriendOccupants != null &&
+                    this.FriendOccupants.SequenceEqual(input.FriendOccupants)
                 ) && 
                 (
                     this.Full == input.Full ||
@@ -739,6 +755,10 @@ namespace VRChat.API.Model
                 if (this.FriendIcons != null)
                 {
                     hashCode = (hashCode * 59) + this.FriendIcons.GetHashCode();
+                }
+                if (this.FriendOccupants != null)
+                {
+                    hashCode = (hashCode * 59) + this.FriendOccupants.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Full.GetHashCode();
                 hashCode = (hashCode * 59) + this.GroupAccessType.GetHashCode();
