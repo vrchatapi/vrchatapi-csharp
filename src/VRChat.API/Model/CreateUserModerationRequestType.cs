@@ -128,28 +128,34 @@ namespace VRChat.API.Model
         Sticker = 17,
 
         /// <summary>
+        /// Enum Userimage for value: userimage
+        /// </summary>
+        [EnumMember(Value = "userimage")]
+        Userimage = 18,
+
+        /// <summary>
         /// Enum Voice for value: voice
         /// </summary>
         [EnumMember(Value = "voice")]
-        Voice = 18,
+        Voice = 19,
 
         /// <summary>
         /// Enum Warn for value: warn
         /// </summary>
         [EnumMember(Value = "warn")]
-        Warn = 19,
+        Warn = 20,
 
         /// <summary>
         /// Enum Warning for value: warning
         /// </summary>
         [EnumMember(Value = "warning")]
-        Warning = 20,
+        Warning = 21,
 
         /// <summary>
         /// Enum World for value: world
         /// </summary>
         [EnumMember(Value = "world")]
-        World = 21
+        World = 22
     }
 
 }
