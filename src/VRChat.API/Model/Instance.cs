@@ -291,7 +291,7 @@ namespace VRChat.API.Model
         /// Empty while the instance has no users.
         /// </summary>
         /// <value>Empty while the instance has no users.</value>
-        [DataMember(Name = "dominantLanguage", EmitDefaultValue = false)]
+        [DataMember(Name = "dominantLanguage", EmitDefaultValue = true)]
         public string DominantLanguage { get; set; }
 
         /// <summary>
