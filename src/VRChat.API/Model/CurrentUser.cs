@@ -76,7 +76,7 @@ namespace VRChat.API.Model
         /// <param name="appleDetails">Details of an account on another service linked to this one..</param>
         /// <param name="appleId">appleId.</param>
         /// <param name="authToken">The auth token for NEWLY REGISTERED ACCOUNTS ONLY (/auth/register).</param>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">A &#x60;Color&#x60;, or an empty string..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="completedTutorials">completedTutorials.</param>
@@ -365,9 +365,9 @@ namespace VRChat.API.Model
         public string AuthToken { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// A &#x60;Color&#x60;, or an empty string.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>A &#x60;Color&#x60;, or an empty string.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -1823,6 +1823,15 @@ namespace VRChat.API.Model
             if (this.AcceptedTOSVersion < (int)0)
             {
                 yield return new ValidationResult("Invalid value for AcceptedTOSVersion, must be a value greater than or equal to 0.", new [] { "AcceptedTOSVersion" });
+            }
+
+            if (this.BannerColor != null) {
+                // BannerColor (string) pattern
+                Regex regexBannerColor = new Regex(@"^([0-9A-Fa-f]{6})?$", RegexOptions.CultureInvariant);
+                if (!regexBannerColor.Match(this.BannerColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BannerColor, must match a pattern of " + regexBannerColor, new [] { "BannerColor" });
+                }
             }
 
             yield break;

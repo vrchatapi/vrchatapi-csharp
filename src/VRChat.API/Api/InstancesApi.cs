@@ -68,6 +68,31 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of Instance</returns>
         ApiResponse<Instance> CreateInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest);
         /// <summary>
+        /// Create Instance Announcement
+        /// </summary>
+        /// <remarks>
+        /// Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <returns>Object</returns>
+        Object CreateInstanceAnnouncement(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest);
+
+        /// <summary>
+        /// Create Instance Announcement
+        /// </summary>
+        /// <remarks>
+        /// Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> CreateInstanceAnnouncementWithHttpInfo(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest);
+        /// <summary>
         /// Discover Instances
         /// </summary>
         /// <remarks>
@@ -226,6 +251,25 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of InstanceCount</returns>
         ApiResponse<InstanceCount> GetInstanceCountWithHttpInfo();
         /// <summary>
+        /// Get Instance Options
+        /// </summary>
+        /// <remarks>
+        /// Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InstanceOptions</returns>
+        InstanceOptions GetInstanceOptions();
+
+        /// <summary>
+        /// Get Instance Options
+        /// </summary>
+        /// <remarks>
+        /// Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InstanceOptions</returns>
+        ApiResponse<InstanceOptions> GetInstanceOptionsWithHttpInfo();
+        /// <summary>
         /// List Instance Vibes
         /// </summary>
         /// <remarks>
@@ -376,6 +420,33 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Instance)</returns>
         System.Threading.Tasks.Task<ApiResponse<Instance>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest createInstanceRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create Instance Announcement
+        /// </summary>
+        /// <remarks>
+        /// Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> CreateInstanceAnnouncementAsync(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Instance Announcement
+        /// </summary>
+        /// <remarks>
+        /// Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> CreateInstanceAnnouncementWithHttpInfoAsync(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Discover Instances
         /// </summary>
@@ -546,6 +617,27 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (InstanceCount)</returns>
         System.Threading.Tasks.Task<ApiResponse<InstanceCount>> GetInstanceCountWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get Instance Options
+        /// </summary>
+        /// <remarks>
+        /// Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceOptions</returns>
+        System.Threading.Tasks.Task<InstanceOptions> GetInstanceOptionsAsync(System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get Instance Options
+        /// </summary>
+        /// <remarks>
+        /// Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceOptions)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InstanceOptions>> GetInstanceOptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List Instance Vibes
         /// </summary>
@@ -1182,6 +1274,180 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Instance>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Instance), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Instance Announcement Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <returns>Object</returns>
+        public Object CreateInstanceAnnouncement(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = CreateInstanceAnnouncementWithHttpInfo(worldId, instanceId, createInstanceAnnouncementRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateInstanceAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Instance Announcement Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        public VRChat.API.Client.ApiResponse<Object> CreateInstanceAnnouncementWithHttpInfo(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->CreateInstanceAnnouncement");
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->CreateInstanceAnnouncement");
+
+            // verify the required parameter 'createInstanceAnnouncementRequest' is set
+            if (createInstanceAnnouncementRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createInstanceAnnouncementRequest' when calling InstancesApi->CreateInstanceAnnouncement");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = createInstanceAnnouncementRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<Object>("/instances/{worldId}:{instanceId}/announce", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Instance Announcement Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> CreateInstanceAnnouncementAsync(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<Object> localVarResponse = await CreateInstanceAnnouncementWithHttpInfoAsync(worldId, instanceId, createInstanceAnnouncementRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateInstanceAnnouncement", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Instance Announcement Sends an announcement to a group instance. The caller must be present in the instance.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="worldId">Must be a valid world ID.</param>
+        /// <param name="instanceId">Must be a valid instance ID.</param>
+        /// <param name="createInstanceAnnouncementRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<Object>> CreateInstanceAnnouncementWithHttpInfoAsync(string worldId, string instanceId, CreateInstanceAnnouncementRequest createInstanceAnnouncementRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'worldId' is set
+            if (worldId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'worldId' when calling InstancesApi->CreateInstanceAnnouncement");
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'instanceId' when calling InstancesApi->CreateInstanceAnnouncement");
+
+            // verify the required parameter 'createInstanceAnnouncementRequest' is set
+            if (createInstanceAnnouncementRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createInstanceAnnouncementRequest' when calling InstancesApi->CreateInstanceAnnouncement");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("worldId", VRChat.API.Client.ClientUtils.ParameterToString(worldId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", VRChat.API.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = createInstanceAnnouncementRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/instances/{worldId}:{instanceId}/announce", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
             }
         }
 
@@ -2232,6 +2498,136 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<InstanceCount>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceCount), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Instance Options Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InstanceOptions</returns>
+        public InstanceOptions GetInstanceOptions()
+        {
+            VRChat.API.Client.ApiResponse<InstanceOptions> localVarResponse = GetInstanceOptionsWithHttpInfo();
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceOptions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Instance Options Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InstanceOptions</returns>
+        public VRChat.API.Client.ApiResponse<InstanceOptions> GetInstanceOptionsWithHttpInfo()
+        {
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<InstanceOptions>("/instanceOptions", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceOptions>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceOptions), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Get Instance Options Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of InstanceOptions</returns>
+        public async System.Threading.Tasks.Task<InstanceOptions> GetInstanceOptionsAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<InstanceOptions> localVarResponse = await GetInstanceOptionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceOptions", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Instance Options Returns the categories an instance can be listed under and the vibes it can be tagged with, in one response.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (InstanceOptions)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<InstanceOptions>> GetInstanceOptionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default)
+        {
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<InstanceOptions>("/instanceOptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<InstanceOptions>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(InstanceOptions), ex.Message);
             }
         }
 

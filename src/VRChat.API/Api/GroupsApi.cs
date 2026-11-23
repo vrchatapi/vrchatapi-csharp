@@ -1064,6 +1064,31 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of List&lt;LimitedGroup&gt;</returns>
         ApiResponse<List<LimitedGroup>> SearchGroupsWithHttpInfo(string? query = default, int? offset = default, int? n = default);
         /// <summary>
+        /// Search Groups Strictly
+        /// </summary>
+        /// <remarks>
+        /// Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;LimitedGroup&gt;</returns>
+        List<LimitedGroup> SearchGroupsStrict(string query, int? n = default, int? offset = default);
+
+        /// <summary>
+        /// Search Groups Strictly
+        /// </summary>
+        /// <remarks>
+        /// Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;LimitedGroup&gt;</returns>
+        ApiResponse<List<LimitedGroup>> SearchGroupsStrictWithHttpInfo(string query, int? n = default, int? offset = default);
+        /// <summary>
         /// Unban Group Member
         /// </summary>
         /// <remarks>
@@ -2373,6 +2398,33 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LimitedGroup&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<LimitedGroup>>> SearchGroupsWithHttpInfoAsync(string? query = default, int? offset = default, int? n = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Search Groups Strictly
+        /// </summary>
+        /// <remarks>
+        /// Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;LimitedGroup&gt;</returns>
+        System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsStrictAsync(string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Search Groups Strictly
+        /// </summary>
+        /// <remarks>
+        /// Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;LimitedGroup&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<LimitedGroup>>> SearchGroupsStrictWithHttpInfoAsync(string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Unban Group Member
         /// </summary>
@@ -9860,6 +9912,174 @@ namespace VRChat.API.Api
             try
             {
                 var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedGroup>>("/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<LimitedGroup>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<LimitedGroup>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Search Groups Strictly Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>List&lt;LimitedGroup&gt;</returns>
+        public List<LimitedGroup> SearchGroupsStrict(string query, int? n = default, int? offset = default)
+        {
+            VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = SearchGroupsStrictWithHttpInfo(query, n, offset);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroupsStrict", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search Groups Strictly Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <returns>ApiResponse of List&lt;LimitedGroup&gt;</returns>
+        public VRChat.API.Client.ApiResponse<List<LimitedGroup>> SearchGroupsStrictWithHttpInfo(string query, int? n = default, int? offset = default)
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'query' when calling GroupsApi->SearchGroupsStrict");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Get<List<LimitedGroup>>("/groups/strictsearch", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<List<LimitedGroup>>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(List<LimitedGroup>), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Search Groups Strictly Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;LimitedGroup&gt;</returns>
+        public async System.Threading.Tasks.Task<List<LimitedGroup>> SearchGroupsStrictAsync(string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<List<LimitedGroup>> localVarResponse = await SearchGroupsStrictWithHttpInfoAsync(query, n, offset, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SearchGroupsStrict", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search Groups Strictly Returns the groups whose short code matches the query. A query of the form &#x60;shortCode.discriminator&#x60; matches the one group carrying both.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">A group short code, optionally followed by a full stop and a discriminator.</param>
+        /// <param name="n">The number of objects to return. (optional, default to 60)</param>
+        /// <param name="offset">A zero-based offset from the default object sorting from where search results start. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;LimitedGroup&gt;)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<List<LimitedGroup>>> SearchGroupsStrictWithHttpInfoAsync(string query, int? n = default, int? offset = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'query' when calling GroupsApi->SearchGroupsStrict");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (n != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "n", n));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(VRChat.API.Client.ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.GetAsync<List<LimitedGroup>>("/groups/strictsearch", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
                 return localVarResponse;
             }
             catch (VRChat.API.Client.ApiException ex)

@@ -33,11 +33,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProfileTheme" /> class.
         /// </summary>
-        /// <param name="buttonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. (required).</param>
-        /// <param name="iconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. (required).</param>
+        /// <param name="buttonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. (required).</param>
+        /// <param name="iconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="name">name (required).</param>
-        /// <param name="subtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty. (required).</param>
+        /// <param name="subtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. (required).</param>
         public ProfileTheme(string buttonColor = default, string iconColor = default, string id = default, string name = default, string subtextColor = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
@@ -53,16 +53,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "buttonColor", IsRequired = true, EmitDefaultValue = true)]
         public string ButtonColor { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "iconColor", IsRequired = true, EmitDefaultValue = true)]
         public string IconColor { get; set; }
 
@@ -79,9 +79,9 @@ namespace VRChat.API.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "subtextColor", IsRequired = true, EmitDefaultValue = true)]
         public string SubtextColor { get; set; }
 
@@ -200,6 +200,33 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.ButtonColor != null) {
+                // ButtonColor (string) pattern
+                Regex regexButtonColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexButtonColor.Match(this.ButtonColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ButtonColor, must match a pattern of " + regexButtonColor, new [] { "ButtonColor" });
+                }
+            }
+
+            if (this.IconColor != null) {
+                // IconColor (string) pattern
+                Regex regexIconColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexIconColor.Match(this.IconColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IconColor, must match a pattern of " + regexIconColor, new [] { "IconColor" });
+                }
+            }
+
+            if (this.SubtextColor != null) {
+                // SubtextColor (string) pattern
+                Regex regexSubtextColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexSubtextColor.Match(this.SubtextColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SubtextColor, must match a pattern of " + regexSubtextColor, new [] { "SubtextColor" });
+                }
+            }
+
             yield break;
         }
     }

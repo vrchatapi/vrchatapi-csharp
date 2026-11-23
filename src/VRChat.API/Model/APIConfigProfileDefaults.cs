@@ -28,11 +28,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="APIConfigProfileDefaults" /> class.
         /// </summary>
-        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         public APIConfigProfileDefaults(string backgroundGradientBottom = default, string backgroundGradientTop = default, string themeButtonColor = default, string themeIconColor = default, string themeSubtextColor = default)
         {
             this.BackgroundGradientBottom = backgroundGradientBottom;
@@ -43,37 +43,37 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }
 
@@ -192,6 +192,51 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.BackgroundGradientBottom != null) {
+                // BackgroundGradientBottom (string) pattern
+                Regex regexBackgroundGradientBottom = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientBottom.Match(this.BackgroundGradientBottom).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientBottom, must match a pattern of " + regexBackgroundGradientBottom, new [] { "BackgroundGradientBottom" });
+                }
+            }
+
+            if (this.BackgroundGradientTop != null) {
+                // BackgroundGradientTop (string) pattern
+                Regex regexBackgroundGradientTop = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientTop.Match(this.BackgroundGradientTop).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientTop, must match a pattern of " + regexBackgroundGradientTop, new [] { "BackgroundGradientTop" });
+                }
+            }
+
+            if (this.ThemeButtonColor != null) {
+                // ThemeButtonColor (string) pattern
+                Regex regexThemeButtonColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeButtonColor.Match(this.ThemeButtonColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeButtonColor, must match a pattern of " + regexThemeButtonColor, new [] { "ThemeButtonColor" });
+                }
+            }
+
+            if (this.ThemeIconColor != null) {
+                // ThemeIconColor (string) pattern
+                Regex regexThemeIconColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeIconColor.Match(this.ThemeIconColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeIconColor, must match a pattern of " + regexThemeIconColor, new [] { "ThemeIconColor" });
+                }
+            }
+
+            if (this.ThemeSubtextColor != null) {
+                // ThemeSubtextColor (string) pattern
+                Regex regexThemeSubtextColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeSubtextColor.Match(this.ThemeSubtextColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeSubtextColor, must match a pattern of " + regexThemeSubtextColor, new [] { "ThemeSubtextColor" });
+                }
+            }
+
             yield break;
         }
     }

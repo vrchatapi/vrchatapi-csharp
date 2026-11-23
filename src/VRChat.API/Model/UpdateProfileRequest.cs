@@ -40,11 +40,11 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProfileRequest" /> class.
         /// </summary>
-        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         /// <param name="backgroundTextureId">backgroundTextureId.</param>
         /// <param name="backgroundType">backgroundType.</param>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         /// <param name="bannerCustomUrl">bannerCustomUrl.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bio">bio.</param>
@@ -75,16 +75,16 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
@@ -95,9 +95,9 @@ namespace VRChat.API.Model
         public string BackgroundTextureId { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -364,6 +364,33 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.BackgroundGradientBottom != null) {
+                // BackgroundGradientBottom (string) pattern
+                Regex regexBackgroundGradientBottom = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientBottom.Match(this.BackgroundGradientBottom).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientBottom, must match a pattern of " + regexBackgroundGradientBottom, new [] { "BackgroundGradientBottom" });
+                }
+            }
+
+            if (this.BackgroundGradientTop != null) {
+                // BackgroundGradientTop (string) pattern
+                Regex regexBackgroundGradientTop = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientTop.Match(this.BackgroundGradientTop).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientTop, must match a pattern of " + regexBackgroundGradientTop, new [] { "BackgroundGradientTop" });
+                }
+            }
+
+            if (this.BannerColor != null) {
+                // BannerColor (string) pattern
+                Regex regexBannerColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexBannerColor.Match(this.BannerColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BannerColor, must match a pattern of " + regexBannerColor, new [] { "BannerColor" });
+                }
+            }
+
             yield break;
         }
     }

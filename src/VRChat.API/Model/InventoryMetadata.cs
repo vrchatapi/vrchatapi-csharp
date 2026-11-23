@@ -33,8 +33,8 @@ namespace VRChat.API.Model
         /// <param name="assetBundleId">assetBundleId.</param>
         /// <param name="assets">assets.</param>
         /// <param name="fileId">fileId.</param>
-        /// <param name="gradientEnd">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="gradientStart">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="gradientEnd">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="gradientStart">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         /// <param name="imageUrl">imageUrl.</param>
         /// <param name="inventoryItemsToInstantiate">Only in bundles.</param>
         /// <param name="maskTag">maskTag.</param>
@@ -89,16 +89,16 @@ namespace VRChat.API.Model
         public string FileId { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "gradientEnd", EmitDefaultValue = false)]
         public string GradientEnd { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "gradientStart", EmitDefaultValue = false)]
         public string GradientStart { get; set; }
 
@@ -328,6 +328,24 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.GradientEnd != null) {
+                // GradientEnd (string) pattern
+                Regex regexGradientEnd = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexGradientEnd.Match(this.GradientEnd).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GradientEnd, must match a pattern of " + regexGradientEnd, new [] { "GradientEnd" });
+                }
+            }
+
+            if (this.GradientStart != null) {
+                // GradientStart (string) pattern
+                Regex regexGradientStart = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexGradientStart.Match(this.GradientStart).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GradientStart, must match a pattern of " + regexGradientStart, new [] { "GradientStart" });
+                }
+            }
+
             yield break;
         }
     }

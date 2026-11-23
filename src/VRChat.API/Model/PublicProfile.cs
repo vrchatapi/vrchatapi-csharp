@@ -54,13 +54,13 @@ namespace VRChat.API.Model
         /// </summary>
         /// <param name="ageVerificationStatus">ageVerificationStatus.</param>
         /// <param name="ageVerified">&#x60;true&#x60; if, user is age verified (not 18+)..</param>
-        /// <param name="backgroundGradientBottom">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="backgroundGradientTop">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="backgroundGradientBottom">A &#x60;Color&#x60;, or an empty string..</param>
+        /// <param name="backgroundGradientTop">A &#x60;Color&#x60;, or an empty string..</param>
         /// <param name="backgroundTemplateId">backgroundTemplateId.</param>
         /// <param name="backgroundTextureId">backgroundTextureId.</param>
         /// <param name="backgroundType">backgroundType.</param>
         /// <param name="badges">badges.</param>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">A &#x60;Color&#x60;, or an empty string..</param>
         /// <param name="bannerCustomUrl">bannerCustomUrl.</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
@@ -88,10 +88,10 @@ namespace VRChat.API.Model
         /// <param name="representedGroup">representedGroup.</param>
         /// <param name="status">status.</param>
         /// <param name="statusDescription">statusDescription.</param>
-        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
-        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeButtonColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
+        /// <param name="themeIconColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         /// <param name="themeId">themeId.</param>
-        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="themeSubtextColor">Six hexadecimal digits, without a leading &#x60;#&#x60;..</param>
         /// <param name="themes">themes.</param>
         /// <param name="totalPublicWorldsCount">totalPublicWorldsCount.</param>
         /// <param name="trustTags">trustTags.</param>
@@ -154,16 +154,16 @@ namespace VRChat.API.Model
         public bool AgeVerified { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// A &#x60;Color&#x60;, or an empty string.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>A &#x60;Color&#x60;, or an empty string.</value>
         [DataMember(Name = "backgroundGradientBottom", EmitDefaultValue = false)]
         public string BackgroundGradientBottom { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// A &#x60;Color&#x60;, or an empty string.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>A &#x60;Color&#x60;, or an empty string.</value>
         [DataMember(Name = "backgroundGradientTop", EmitDefaultValue = false)]
         public string BackgroundGradientTop { get; set; }
 
@@ -186,9 +186,9 @@ namespace VRChat.API.Model
         public List<Badge> Badges { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// A &#x60;Color&#x60;, or an empty string.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>A &#x60;Color&#x60;, or an empty string.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -346,16 +346,16 @@ namespace VRChat.API.Model
         public string StatusDescription { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeButtonColor", EmitDefaultValue = false)]
         public string ThemeButtonColor { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeIconColor", EmitDefaultValue = false)]
         public string ThemeIconColor { get; set; }
 
@@ -366,9 +366,9 @@ namespace VRChat.API.Model
         public PublicProfileThemeID ThemeId { get; set; }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// Six hexadecimal digits, without a leading &#x60;#&#x60;.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;.</value>
         [DataMember(Name = "themeSubtextColor", EmitDefaultValue = false)]
         public string ThemeSubtextColor { get; set; }
 
@@ -894,6 +894,60 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.BackgroundGradientBottom != null) {
+                // BackgroundGradientBottom (string) pattern
+                Regex regexBackgroundGradientBottom = new Regex(@"^([0-9A-Fa-f]{6})?$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientBottom.Match(this.BackgroundGradientBottom).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientBottom, must match a pattern of " + regexBackgroundGradientBottom, new [] { "BackgroundGradientBottom" });
+                }
+            }
+
+            if (this.BackgroundGradientTop != null) {
+                // BackgroundGradientTop (string) pattern
+                Regex regexBackgroundGradientTop = new Regex(@"^([0-9A-Fa-f]{6})?$", RegexOptions.CultureInvariant);
+                if (!regexBackgroundGradientTop.Match(this.BackgroundGradientTop).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackgroundGradientTop, must match a pattern of " + regexBackgroundGradientTop, new [] { "BackgroundGradientTop" });
+                }
+            }
+
+            if (this.BannerColor != null) {
+                // BannerColor (string) pattern
+                Regex regexBannerColor = new Regex(@"^([0-9A-Fa-f]{6})?$", RegexOptions.CultureInvariant);
+                if (!regexBannerColor.Match(this.BannerColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BannerColor, must match a pattern of " + regexBannerColor, new [] { "BannerColor" });
+                }
+            }
+
+            if (this.ThemeButtonColor != null) {
+                // ThemeButtonColor (string) pattern
+                Regex regexThemeButtonColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeButtonColor.Match(this.ThemeButtonColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeButtonColor, must match a pattern of " + regexThemeButtonColor, new [] { "ThemeButtonColor" });
+                }
+            }
+
+            if (this.ThemeIconColor != null) {
+                // ThemeIconColor (string) pattern
+                Regex regexThemeIconColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeIconColor.Match(this.ThemeIconColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeIconColor, must match a pattern of " + regexThemeIconColor, new [] { "ThemeIconColor" });
+                }
+            }
+
+            if (this.ThemeSubtextColor != null) {
+                // ThemeSubtextColor (string) pattern
+                Regex regexThemeSubtextColor = new Regex(@"^[0-9A-Fa-f]{6}$", RegexOptions.CultureInvariant);
+                if (!regexThemeSubtextColor.Match(this.ThemeSubtextColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ThemeSubtextColor, must match a pattern of " + regexThemeSubtextColor, new [] { "ThemeSubtextColor" });
+                }
+            }
+
             yield break;
         }
     }

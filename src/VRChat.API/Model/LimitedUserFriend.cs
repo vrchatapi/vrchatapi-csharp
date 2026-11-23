@@ -51,7 +51,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitedUserFriend" /> class.
         /// </summary>
-        /// <param name="bannerColor">Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty..</param>
+        /// <param name="bannerColor">A &#x60;Color&#x60;, or an empty string..</param>
         /// <param name="bannerType">bannerType.</param>
         /// <param name="bannerUrl">bannerUrl.</param>
         /// <param name="currentAvatarImageUrl">When profilePicOverride is not empty, use it instead..</param>
@@ -113,9 +113,9 @@ namespace VRChat.API.Model
         }
 
         /// <summary>
-        /// Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.
+        /// A &#x60;Color&#x60;, or an empty string.
         /// </summary>
-        /// <value>Six hexadecimal digits, without a leading &#x60;#&#x60;. May be empty.</value>
+        /// <value>A &#x60;Color&#x60;, or an empty string.</value>
         [DataMember(Name = "bannerColor", EmitDefaultValue = false)]
         public string BannerColor { get; set; }
 
@@ -518,6 +518,15 @@ namespace VRChat.API.Model
         /// <returns>Validation Result</returns>
         IEnumerable<ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.BannerColor != null) {
+                // BannerColor (string) pattern
+                Regex regexBannerColor = new Regex(@"^([0-9A-Fa-f]{6})?$", RegexOptions.CultureInvariant);
+                if (!regexBannerColor.Match(this.BannerColor).Success)
+                {
+                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BannerColor, must match a pattern of " + regexBannerColor, new [] { "BannerColor" });
+                }
+            }
+
             yield break;
         }
     }

@@ -116,6 +116,27 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of CurrentUser</returns>
         ApiResponse<CurrentUser> CompleteUserTutorialWithHttpInfo(string userId, string? xPlatform = default, string? xStore = default);
         /// <summary>
+        /// Create Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <returns>ProfileTheme</returns>
+        ProfileTheme CreateProfileTheme(CreateProfileThemeRequest createProfileThemeRequest);
+
+        /// <summary>
+        /// Create Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <returns>ApiResponse of ProfileTheme</returns>
+        ApiResponse<ProfileTheme> CreateProfileThemeWithHttpInfo(CreateProfileThemeRequest createProfileThemeRequest);
+        /// <summary>
         /// Delete All User Persistence Data
         /// </summary>
         /// <remarks>
@@ -136,6 +157,27 @@ namespace VRChat.API.Api
         /// <param name="userId">Must be a valid user ID.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAllUserPersistenceDataWithHttpInfo(string userId);
+        /// <summary>
+        /// Delete Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Deletes a profile theme owned by the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <returns>string</returns>
+        string DeleteProfileTheme(string themeId);
+
+        /// <summary>
+        /// Delete Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Deletes a profile theme owned by the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> DeleteProfileThemeWithHttpInfo(string themeId);
         /// <summary>
         /// Delete User Persistence
         /// </summary>
@@ -735,6 +777,29 @@ namespace VRChat.API.Api
         /// <returns>ApiResponse of PublicProfile</returns>
         ApiResponse<PublicProfile> UpdateProfileWithHttpInfo(string userId, UpdateProfileRequest? updateProfileRequest = default);
         /// <summary>
+        /// Update Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <returns>string</returns>
+        string UpdateProfileTheme(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default);
+
+        /// <summary>
+        /// Update Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> UpdateProfileThemeWithHttpInfo(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default);
+        /// <summary>
         /// Update User Info
         /// </summary>
         /// <remarks>
@@ -915,6 +980,29 @@ namespace VRChat.API.Api
         /// <returns>Task of ApiResponse (CurrentUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<CurrentUser>> CompleteUserTutorialWithHttpInfoAsync(string userId, string? xPlatform = default, string? xStore = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
+        /// Create Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProfileTheme</returns>
+        System.Threading.Tasks.Task<ProfileTheme> CreateProfileThemeAsync(CreateProfileThemeRequest createProfileThemeRequest, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProfileTheme)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ProfileTheme>> CreateProfileThemeWithHttpInfoAsync(CreateProfileThemeRequest createProfileThemeRequest, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
         /// Delete All User Persistence Data
         /// </summary>
         /// <remarks>
@@ -937,6 +1025,29 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllUserPersistenceDataWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Deletes a profile theme owned by the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> DeleteProfileThemeAsync(string themeId, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Deletes a profile theme owned by the current user.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> DeleteProfileThemeWithHttpInfoAsync(string themeId, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete User Persistence
         /// </summary>
@@ -1587,6 +1698,31 @@ namespace VRChat.API.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PublicProfile)</returns>
         System.Threading.Tasks.Task<ApiResponse<PublicProfile>> UpdateProfileWithHttpInfoAsync(string userId, UpdateProfileRequest? updateProfileRequest = default, System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> UpdateProfileThemeAsync(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default, System.Threading.CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update Profile Theme
+        /// </summary>
+        /// <remarks>
+        /// Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </remarks>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> UpdateProfileThemeWithHttpInfoAsync(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update User Info
         /// </summary>
@@ -2526,6 +2662,152 @@ namespace VRChat.API.Api
         }
 
         /// <summary>
+        /// Create Profile Theme Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <returns>ProfileTheme</returns>
+        public ProfileTheme CreateProfileTheme(CreateProfileThemeRequest createProfileThemeRequest)
+        {
+            VRChat.API.Client.ApiResponse<ProfileTheme> localVarResponse = CreateProfileThemeWithHttpInfo(createProfileThemeRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Profile Theme Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <returns>ApiResponse of ProfileTheme</returns>
+        public VRChat.API.Client.ApiResponse<ProfileTheme> CreateProfileThemeWithHttpInfo(CreateProfileThemeRequest createProfileThemeRequest)
+        {
+            // verify the required parameter 'createProfileThemeRequest' is set
+            if (createProfileThemeRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createProfileThemeRequest' when calling UsersApi->CreateProfileTheme");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createProfileThemeRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Post<ProfileTheme>("/profile/theme", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProfileTheme>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProfileTheme), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Create Profile Theme Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ProfileTheme</returns>
+        public async System.Threading.Tasks.Task<ProfileTheme> CreateProfileThemeAsync(CreateProfileThemeRequest createProfileThemeRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<ProfileTheme> localVarResponse = await CreateProfileThemeWithHttpInfoAsync(createProfileThemeRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Profile Theme Creates a profile theme owned by the current user. &#x60;updateProfile&#x60; selects it by &#x60;themeId&#x60;, and its response lists the user&#39;s themes.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createProfileThemeRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ProfileTheme)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<ProfileTheme>> CreateProfileThemeWithHttpInfoAsync(CreateProfileThemeRequest createProfileThemeRequest, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'createProfileThemeRequest' is set
+            if (createProfileThemeRequest == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'createProfileThemeRequest' when calling UsersApi->CreateProfileTheme");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = createProfileThemeRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PostAsync<ProfileTheme>("/profile/theme", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<ProfileTheme>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(ProfileTheme), ex.Message);
+            }
+        }
+
+        /// <summary>
         /// Delete All User Persistence Data Deletes all of the user&#39;s persistence data for every world.
         /// </summary>
         /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2664,6 +2946,152 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<Object>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(Object), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Profile Theme Deletes a profile theme owned by the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <returns>string</returns>
+        public string DeleteProfileTheme(string themeId)
+        {
+            VRChat.API.Client.ApiResponse<string> localVarResponse = DeleteProfileThemeWithHttpInfo(themeId);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Profile Theme Deletes a profile theme owned by the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <returns>ApiResponse of string</returns>
+        public VRChat.API.Client.ApiResponse<string> DeleteProfileThemeWithHttpInfo(string themeId)
+        {
+            // verify the required parameter 'themeId' is set
+            if (themeId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'themeId' when calling UsersApi->DeleteProfileTheme");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("themeId", VRChat.API.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Delete<string>("/profile/theme/{themeId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Delete Profile Theme Deletes a profile theme owned by the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> DeleteProfileThemeAsync(string themeId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<string> localVarResponse = await DeleteProfileThemeWithHttpInfoAsync(themeId, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete Profile Theme Deletes a profile theme owned by the current user.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> DeleteProfileThemeWithHttpInfoAsync(string themeId, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'themeId' is set
+            if (themeId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'themeId' when calling UsersApi->DeleteProfileTheme");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("themeId", VRChat.API.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.DeleteAsync<string>("/profile/theme/{themeId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
             }
         }
 
@@ -6704,6 +7132,160 @@ namespace VRChat.API.Api
             {
                 // Return response with error information instead of throwing
                 return new VRChat.API.Client.ApiResponse<PublicProfile>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(PublicProfile), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Profile Theme Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <returns>string</returns>
+        public string UpdateProfileTheme(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default)
+        {
+            VRChat.API.Client.ApiResponse<string> localVarResponse = UpdateProfileThemeWithHttpInfo(themeId, updateProfileThemeRequest);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Profile Theme Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public VRChat.API.Client.ApiResponse<string> UpdateProfileThemeWithHttpInfo(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default)
+        {
+            // verify the required parameter 'themeId' is set
+            if (themeId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'themeId' when calling UsersApi->UpdateProfileTheme");
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json"
+            };
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("themeId", VRChat.API.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.Data = updateProfileThemeRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = this.Client.Put<string>("/profile/theme/{themeId}", localVarRequestOptions, this.Configuration);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Update Profile Theme Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> UpdateProfileThemeAsync(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            VRChat.API.Client.ApiResponse<string> localVarResponse = await UpdateProfileThemeWithHttpInfoAsync(themeId, updateProfileThemeRequest, cancellationToken).ConfigureAwait(false);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateProfileTheme", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update Profile Theme Updates a profile theme owned by the current user. Properties left out keep their value.
+        /// </summary>
+        /// <exception cref="VRChat.API.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="themeId">Must be a valid profile theme ID.</param>
+        /// <param name="updateProfileThemeRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<VRChat.API.Client.ApiResponse<string>> UpdateProfileThemeWithHttpInfoAsync(string themeId, UpdateProfileThemeRequest? updateProfileThemeRequest = default, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'themeId' is set
+            if (themeId == null)
+                throw new VRChat.API.Client.ApiException(400, "Missing required parameter 'themeId' when calling UsersApi->UpdateProfileTheme");
+
+
+            VRChat.API.Client.RequestOptions localVarRequestOptions = new VRChat.API.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "text/plain",
+                "application/json"
+            };
+
+
+            var localVarContentType = VRChat.API.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = VRChat.API.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("themeId", VRChat.API.Client.ClientUtils.ParameterToString(themeId)); // path parameter
+            localVarRequestOptions.Data = updateProfileThemeRequest;
+
+            // authentication (authCookie) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("auth")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("auth", this.Configuration.GetApiKeyWithPrefix("auth"), "/", "api.vrchat.cloud"));
+            }
+
+            // make the HTTP request
+            try
+            {
+                var localVarResponse = await this.AsynchronousClient.PutAsync<string>("/profile/theme/{themeId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+                return localVarResponse;
+            }
+            catch (VRChat.API.Client.ApiException ex)
+            {
+                // Return response with error information instead of throwing
+                return new VRChat.API.Client.ApiResponse<string>((System.Net.HttpStatusCode)ex.ErrorCode, new VRChat.API.Client.Multimap<string, string>(), default(string), ex.Message);
             }
         }
 
