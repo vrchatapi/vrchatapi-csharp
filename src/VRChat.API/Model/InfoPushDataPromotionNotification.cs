@@ -36,7 +36,7 @@ namespace VRChat.API.Model
         /// <param name="body">body (required).</param>
         /// <param name="command">command (required).</param>
         /// <param name="imageUrl">imageUrl (required).</param>
-        /// <param name="varParameter">varParameter (required).</param>
+        /// <param name="varParameter">varParameter.</param>
         /// <param name="title">title (required).</param>
         public InfoPushDataPromotionNotification(string body = default, string command = default, string imageUrl = default, string varParameter = default, string title = default)
         {
@@ -47,9 +47,8 @@ namespace VRChat.API.Model
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.ImageUrl = imageUrl;
             // Allow null values for required properties to handle unexpected API responses gracefully
-            this.Parameter = varParameter;
-            // Allow null values for required properties to handle unexpected API responses gracefully
             this.Title = title;
+            this.Parameter = varParameter;
         }
 
         /// <summary>
@@ -73,7 +72,7 @@ namespace VRChat.API.Model
         /// <summary>
         /// Gets or Sets Parameter
         /// </summary>
-        [DataMember(Name = "parameter", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "parameter", EmitDefaultValue = false)]
         public string Parameter { get; set; }
 
         /// <summary>

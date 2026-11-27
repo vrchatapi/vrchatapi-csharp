@@ -304,6 +304,8 @@ src/VRChat.API/Model/GroupSearchSort.cs
 src/VRChat.API/Model/GroupTransferable.cs
 src/VRChat.API/Model/GroupTransferableRequirements.cs
 src/VRChat.API/Model/GroupUserVisibility.cs
+src/VRChat.API/Model/HypeTrain.cs
+src/VRChat.API/Model/HypeTrainLevel.cs
 src/VRChat.API/Model/ImageAnimationStyle.cs
 src/VRChat.API/Model/ImageLoopStyle.cs
 src/VRChat.API/Model/ImageMask.cs
@@ -373,6 +375,7 @@ src/VRChat.API/Model/InstanceDiscoveryCapacityLimit.cs
 src/VRChat.API/Model/InstanceDiscoveryMode.cs
 src/VRChat.API/Model/InstanceDiscoveryPlatform.cs
 src/VRChat.API/Model/InstanceDiscoveryWorldPool.cs
+src/VRChat.API/Model/InstanceHypeTrain.cs
 src/VRChat.API/Model/InstanceOptions.cs
 src/VRChat.API/Model/InstancePlatforms.cs
 src/VRChat.API/Model/InstanceRegion.cs

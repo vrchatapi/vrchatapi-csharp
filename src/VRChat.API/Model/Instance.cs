@@ -81,6 +81,7 @@ namespace VRChat.API.Model
         /// <param name="hardClose">hardClose.</param>
         /// <param name="hasCapacityForYou">hasCapacityForYou.</param>
         /// <param name="hidden">A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed..</param>
+        /// <param name="hypeTrain">hypeTrain.</param>
         /// <param name="id">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
         /// <param name="instanceId">InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance. (required).</param>
         /// <param name="instancePersistenceEnabled">instancePersistenceEnabled.</param>
@@ -114,7 +115,7 @@ namespace VRChat.API.Model
         /// <param name="vibeIds">vibeIds.</param>
         /// <param name="world">world (required).</param>
         /// <param name="worldId">WorldID be \&quot;offline\&quot; on User profiles if you are not friends with that user. (required).</param>
-        public Instance(string accessType = default, bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<string> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
+        public Instance(string accessType = default, bool active = true, bool? ageGate = default, string calendarEntryId = default, bool canRequestInvite = true, int capacity = default, string categoryId = default, string clientNumber = default, DateTime? closedAt = default, InstanceContentSettings contentSettings = default, List<string> creationLanguages = default, string creatorId = default, string description = default, List<string> disabledPropAbilities = default, string displayName = default, string displayVibeId = default, string dominantLanguage = default, string friends = default, bool full = false, int? gameServerVersion = default, GroupAccessType? groupAccessType = default, bool? hardClose = default, bool hasCapacityForYou = default, string hidden = default, InstanceHypeTrain hypeTrain = default, string id = default, string instanceId = default, bool? instancePersistenceEnabled = default, Dictionary<string, Object> languageRatio = default, List<string> languages = default, List<string> languagesIso639 = default, string location = default, string minimumAvatarPerformance = default, int nUsers = default, string name = default, string nonce = default, string ownerId = default, bool permanent = false, Region photonRegion = default, InstancePlatforms platforms = default, bool? playerPersistenceEnabled = default, string varPrivate = default, bool queueEnabled = default, int queueSize = default, int recommendedCapacity = default, InstanceRegion region = default, bool roleRestricted = default, string secureName = default, string shortName = default, bool strict = default, List<string> tags = default, InstanceType type = default, int userCount = default, List<string> userIcons = default, List<LimitedUserInstance> users = default, List<string> vibeIds = default, World world = default, string worldId = default)
         {
             // Allow null values for required properties to handle unexpected API responses gracefully
             this.AccessType = accessType;
@@ -170,6 +171,7 @@ namespace VRChat.API.Model
             this.HardClose = hardClose;
             this.HasCapacityForYou = hasCapacityForYou;
             this.Hidden = hidden;
+            this.HypeTrain = hypeTrain;
             this.InstancePersistenceEnabled = instancePersistenceEnabled;
             this.LanguageRatio = languageRatio;
             this.Languages = languages;
@@ -331,6 +333,12 @@ namespace VRChat.API.Model
         /// <value>A users unique ID, usually in the form of &#x60;usr_c1644b5b-3ca4-45b4-97c6-a2a0de70d469&#x60;. Legacy players can have old IDs in the form of &#x60;8JoV9XEdpo&#x60;. The ID can never be changed.</value>
         [DataMember(Name = "hidden", EmitDefaultValue = false)]
         public string Hidden { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HypeTrain
+        /// </summary>
+        [DataMember(Name = "hypeTrain", EmitDefaultValue = false)]
+        public InstanceHypeTrain HypeTrain { get; set; }
 
         /// <summary>
         /// InstanceID can be \&quot;offline\&quot; on User profiles if you are not friends with that user and \&quot;private\&quot; if you are friends and user is in private instance.
@@ -553,6 +561,7 @@ namespace VRChat.API.Model
             sb.Append("  HardClose: ").Append(HardClose).Append("\n");
             sb.Append("  HasCapacityForYou: ").Append(HasCapacityForYou).Append("\n");
             sb.Append("  Hidden: ").Append(Hidden).Append("\n");
+            sb.Append("  HypeTrain: ").Append(HypeTrain).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  InstancePersistenceEnabled: ").Append(InstancePersistenceEnabled).Append("\n");
@@ -736,6 +745,11 @@ namespace VRChat.API.Model
                     this.Hidden == input.Hidden ||
                     (this.Hidden != null &&
                     this.Hidden.Equals(input.Hidden))
+                ) && 
+                (
+                    this.HypeTrain == input.HypeTrain ||
+                    (this.HypeTrain != null &&
+                    this.HypeTrain.Equals(input.HypeTrain))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -986,6 +1000,10 @@ namespace VRChat.API.Model
                 if (this.Hidden != null)
                 {
                     hashCode = (hashCode * 59) + this.Hidden.GetHashCode();
+                }
+                if (this.HypeTrain != null)
+                {
+                    hashCode = (hashCode * 59) + this.HypeTrain.GetHashCode();
                 }
                 if (this.Id != null)
                 {
